@@ -1,0 +1,1 @@
+- quando ho dei servizi collegati a un micro servizio come un db, deve generarmi i manifesti a mano (o con AI)?

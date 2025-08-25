@@ -1,0 +1,20 @@
+{
+  "version" : "v1",
+  "lastUpdate" : "25/08/2025 11:53:59",
+  "plugins" : {
+    "tls" : {
+      "name" : "tls",
+      "type" : "extension",
+      "location" : "io.quarkus:quarkus-tls-registry-cli:3.25.4",
+      "description" : null,
+      "inProjectCatalog" : false
+    },
+    "grpc" : {
+      "name" : "grpc",
+      "type" : "extension",
+      "location" : "io.quarkus:quarkus-grpc-cli:3.25.4",
+      "description" : null,
+      "inProjectCatalog" : false
+    }
+  }
+}

@@ -1,0 +1,22 @@
+---
+configRoots:
+- extension:
+    groupId: "org.acme"
+    artifactId: "metadata-extension"
+    name: "Metadata Extension"
+    nameSource: "POM_XML"
+    detected: true
+  prefix: "quarkus"
+  topLevelPrefix: "quarkus"
+  items:
+  - !<io.quarkus.annotation.processor.documentation.config.model.ConfigProperty>
+    sourceClass: "org.acme.metadata.extension.deployment.MetadataExtensionConfig"
+    sourceName: "path"
+    path: "quarkus.path"
+    type: "java.lang.String"
+    phase: "BUILD_TIME"
+    environmentVariable: "QUARKUS_PATH"
+    typeDescription: "string"
+    defaultValue: "/metadata"
+  qualifiedNames:
+  - "org.acme.metadata.extension.deployment.MetadataExtensionConfig"
