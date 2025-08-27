@@ -1,2 +1,10 @@
 INSERT INTO Car (licensePlateNumber, manufacturer, model) VALUES ('ABC123', 'Mazda', '6');
 INSERT INTO Car (licensePlateNumber, manufacturer, model) VALUES ('XYZ987', 'Ford', 'Mustang');
+INSERT INTO Car (licensePlateNumber, manufacturer, model) VALUES ('DEF456', 'Fiat', 'Panda');
+INSERT INTO Car (licensePlateNumber, manufacturer, model) VALUES ('GHI789', 'Lancia', 'Y');
+INSERT INTO Car (licensePlateNumber, manufacturer, model) VALUES ('JKL012', 'Renault', 'Clio');
+INSERT INTO Car (licensePlateNumber, manufacturer, model) VALUES ('MNO345', 'Audi', 'A3');
+INSERT INTO Car (licensePlateNumber, manufacturer, model) VALUES ('PQR678', 'BMW', 'Serie 1');
+INSERT INTO Car (licensePlateNumber, manufacturer, model) VALUES ('STU901', 'Mercedes', 'Classe A');
+INSERT INTO Car (licensePlateNumber, manufacturer, model) VALUES ('VWX234', 'Volkswagen', 'Golf');
+INSERT INTO Car (licensePlateNumber, manufacturer, model) VALUES ('YZA567', 'Peugeot', '208');

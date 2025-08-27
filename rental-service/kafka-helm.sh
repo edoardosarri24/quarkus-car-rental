@@ -1,0 +1,1 @@
+helm install kafka-rental bitnami/kafka
