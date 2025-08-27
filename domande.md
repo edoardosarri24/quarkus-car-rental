@@ -4,3 +4,4 @@
 
 # fattp
 - car-statistic
+- inventory-service

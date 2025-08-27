@@ -1,0 +1,11 @@
+helm install kafka-billing bitnami/kafka \
+    --set provisioning.enabled=true \
+    --set provisioning.topics[0].name=invoices-confirmations \
+    --set provisioning.topics[0].partitions=1 \
+    --set provisioning.topics[0].replicationFactor=1 \
+    --set provisioning.topics[1].name=invoices-adjust \
+    --set provisioning.topics[1].partitions=1 \
+    --set provisioning.topics[1].replicationFactor=1 \
+    --set provisioning.topics[2].name=invoices-requests \
+    --set provisioning.topics[2].partitions=1 \
+    --set provisioning.topics[2].replicationFactor=1
