@@ -8,3 +8,4 @@
 - car-statistic-service
 - inventory-service
 - rental-service
+- reservation-service
