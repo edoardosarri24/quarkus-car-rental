@@ -30,7 +30,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 
 @Path("reservation")
@@ -43,14 +42,11 @@ public class ReservationResource {
     private final RentalClient rentalClient;
 
     @Inject
-    jakarta.ws.rs.core.SecurityContext context;
-
-    @Inject
     @Channel("invoices")
     MutinyEmitter<Invoice> invoiceEmitter;
 
     public ReservationResource(@GraphQLClient("inventory") GraphQLInventoryClient inventoryClient,
-                               @RestClient RentalClient rentalClient) {
+                                @RestClient RentalClient rentalClient) {
         this.inventoryClient = inventoryClient;
         this.rentalClient = rentalClient;
     }
@@ -59,8 +55,7 @@ public class ReservationResource {
     @POST
     @WithTransaction
     public Uni<Reservation> make(Reservation reservation) {
-        reservation.userId = context.getUserPrincipal() != null ?
-            context.getUserPrincipal().getName() : "anonymous";
+        reservation.userId = "guest";
 
         return reservation.<Reservation>persist().onItem()
             .call(persistedReservation -> {
@@ -96,7 +91,7 @@ public class ReservationResource {
     @GET
     @Path("availability")
     public Uni<Collection<Car>> availability(@RestQuery LocalDate startDate,
-                                             @RestQuery LocalDate endDate) {
+                                            @RestQuery LocalDate endDate) {
         // obtain all cars from inventory
         Uni<List<Car>> availableCarsUni = inventoryClient.allCars();
         // get all current reservations
@@ -120,19 +115,13 @@ public class ReservationResource {
     }
 
     public Uni<Collection<Car>> availabilityFallback(LocalDate startDate,
-                                                     LocalDate endDate) {
+                                                    LocalDate endDate) {
         return Uni.createFrom().item(List.of());
     }
 
     @GET
     @Path("all")
     public Uni<List<Reservation>> allReservations() {
-        String userId = context.getUserPrincipal() != null ?
-            context.getUserPrincipal().getName() : null;
-        return Reservation.<Reservation>listAll()
-            .onItem().transform(reservations -> reservations.stream()
-                .filter(reservation -> userId == null ||
-                    userId.equals(reservation.userId))
-                .collect(Collectors.toList()));
+        return Reservation.<Reservation>listAll();
     }
 }

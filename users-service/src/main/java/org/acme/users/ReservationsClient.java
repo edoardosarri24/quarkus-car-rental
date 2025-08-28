@@ -1,6 +1,5 @@
 package org.acme.users;
 
-import io.quarkus.oidc.token.propagation.AccessToken;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -13,7 +12,6 @@ import java.time.LocalDate;
 import java.util.Collection;
 
 @RegisterRestClient(configKey = "reservations")
-@AccessToken
 @Path("reservation")
 public interface ReservationsClient {
 
@@ -27,5 +25,5 @@ public interface ReservationsClient {
     @GET
     @Path("availability")
     Collection<Car> availability(@RestQuery LocalDate startDate,
-                                 @RestQuery LocalDate endDate);
+                                @RestQuery LocalDate endDate);
 }

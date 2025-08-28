@@ -8,7 +8,6 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.SecurityContext;
 import org.acme.users.model.Car;
 import org.acme.users.model.Reservation;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -38,16 +37,13 @@ public class ReservationsResource {
             LocalDate endDate);
     }
 
-    @Inject
-    SecurityContext securityContext;
-
     @RestClient
     ReservationsClient client;
 
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance index(@RestQuery LocalDate startDate,
-                                  @RestQuery LocalDate endDate) {
+                                    @RestQuery LocalDate endDate) {
         if (startDate == null) {
             startDate = LocalDate.now().plusDays(1L);
         }
@@ -55,7 +51,7 @@ public class ReservationsResource {
             endDate = LocalDate.now().plusDays(7);
         }
         return Templates.index(startDate, endDate,
-            securityContext.getUserPrincipal().getName());
+            "guest");
     }
 
     @GET
