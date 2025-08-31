@@ -1,0 +1,2 @@
+- come si dice quando si decidone delle cose? es: ambiente di rilascio minikube. specifiche?
+- devo desrivere all'interno della relazione (e poi della presentazione kubernetes, minikube e quarkus)?

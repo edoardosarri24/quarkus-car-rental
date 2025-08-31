@@ -1,2 +1,4 @@
 .quarkus/
 .vscode/
+report/build/
+quarkus in action.pdf

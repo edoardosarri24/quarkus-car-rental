@@ -1,0 +1,24 @@
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{immagini/4-CNN/loss res.pdf}
+        \caption{Loss}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{immagini/4-CNN/acc res.pdf}
+        \caption{Accuracy}
+    \end{subfigure}
+    \caption{Esperimenti CNN con residual connection}
+    \label{fig:CNNres}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.9\textwidth]{immagini/3-cart pole/loss.pdf}
+    \caption{Loss della policy senza baseline.}
+    \label{fig:lossno}
+\end{figure}

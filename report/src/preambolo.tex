@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%PACCHETTI%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[unicode, colorlinks=true, linkcolor=black, citecolor=blue, urlcolor=red]{hyperref}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[backend=biber]{biblatex}
+\usepackage{setspace}
+\usepackage{mathpazo}
+\usepackage{scrhack}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{csquotes}
+\usepackage{listings}
+\usepackage{cleveref}
+
+%%%%%%%%%%%%%%%%%%%%%SETTING%%%%%%%%%%%%%%%%%%%%%%
+\addbibresource{bibliografia.bib}
+\setstretch{1.2}
+\lstset{
+    breaklines=true,
+    captionpos=b
+}
+\newcommand{\myskip}{\vspace{0.5cm}}
+\RedeclareSectionCommand[
+  beforeskip=-.5cm
+]{chapter}
+\RedeclareSectionCommand[
+  beforeskip=-.7cm,
+  afterskip=.3cm
+]{section}
+\RedeclareSectionCommand[
+  beforeskip=-.5cm,
+  afterskip=.2cm
+]{subsection}
