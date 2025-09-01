@@ -43,11 +43,11 @@ quarkus.kubernetes.env.vars.quarkus-rest-client-reservation-url=http://reservati
 \section{Servizi Esterni}
 Come abbiamo già detto nella Sezione~\ref{sec:servizi_esterni}, i micro servizi principali utilizzano al loro interno altri servizi ausiliari. Questi devono eseguire all'interno dello stesso cluster Kubernetes di quelli principali e quindi devono essere in un qualche modo rilasciati.
 
-La prima soluzione esplorata è stata farsi scrivere da un LLM il manifesto Kubernetes per l'ambiente Minikube. Nonostante questa fosse una soluzione funzionante, mi sembrava chiaro che ci potesse essere un'alternativa off-the-shelf. Dopo aver cercato ed essermi informato è deciso di utilizzare \href{https://helm.sh}{\textit{Helm}}~\cite{helm}.
+La prima soluzione esplorata è stata farsi scrivere da un LLM il manifesto Kubernetes per l'ambiente Minikube. Nonostante questa fosse una soluzione funzionante, mi sembrava chiaro che ci potesse essere un'alternativa off-the-shelf. Dopo aver cercato ed essermi informato è deciso di utilizzare \href{https://helm.sh}{\textit{Helm}}.
 
 \myskip
 
-L'unico servizio esterno per cui è stato generato il manifesto invece che usare un chart (da un LLM, Gemini) è stato \href{https://www.mongodb.com/community/forums/t/mongodb-operator-install-instructions-for-minikube/10941}{MongoDB~\cite{mongodb}}. Il problema, che non sono riuscito a risolvere, è stato quella della compatibilità tra la versione di MongoDB e quella di Minikube.
+L'unico servizio esterno per cui è stato generato il manifesto invece che usare un chart (da un LLM, Gemini) è stato \textit{MongoDB}. Il problema, che non sono riuscito a risolvere, è stato quella della compatibilità tra la versione di MongoDB e quella di Minikube.
 
 \subsection{Helm}
 Helm è un gestore di pacchetti Kubernetes che semplifica la gestione delle applicazioni Kubernetes.
