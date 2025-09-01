@@ -1,5 +1,9 @@
+# helm
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+
 #minikube
-minikube delete
+minikube delete || true
 minikube start --memory=7837 --cpus=2
 eval $(minikube -p minikube docker-env)
 

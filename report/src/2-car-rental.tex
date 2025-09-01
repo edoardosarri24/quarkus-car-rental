@@ -60,7 +60,7 @@ Vediamo infine come i micro servizi, sia di business che esterni, comunicano tra
         È un'alternativa più flessibile a REST, basata sempre sul principio clinet-server, che consente ai client di richiedere esattamente i dati di cui hanno bisogno; in questo modo il client non deve filtrare tutto quello che riceve. \\
         Nell'applicazione viene usato da \textit{users-service} per aggregare dati da diversi servizi con una singola richiesta, semplificando l'interazione dal lato client.
     \item \textbf{gRPC}: \\
-        Protocollo di comunicazione che si basa su HTTP/2, che permette di inviare più richieste contemporaneamente sullo stesso canale e di ricevere le relative risposte contemporaneamente. È ottimo nelle situazioni in cui si richiede una latenza minima con una comunicazione molto efficiente. \\
+        Protocollo di comunicazione che si basa su HTTP/2, utilizza il formato binario, che permette di inviare più richieste contemporaneamente sullo stesso canale e di ricevere le relative risposte contemporaneamente. È ottimo nelle situazioni in cui si richiede una latenza minima con una comunicazione molto efficiente. \\
         In questo progetto, \textit{inventory-service} espone un endpoint gRPC che viene utilizzato da \textit{reservation-service} per ottenere informazioni sulle auto in modo performante.
     \item \textbf{Kafka}: \\
         Nell'applicazione viene usata per notificare eventi come l'inizio o la fine di un noleggio tra il \textit{rental-service} e il \textit{billing-service}. Questo garantisce una comunicazione resiliente anche in caso di fallimenti temporanei di uno dei due.
