@@ -1,18 +1,16 @@
 \chapter{Car Rental Application}
-L'applicazione utilizzata durante l'intero progetto è stata \href{https://github.com/xstefank/quarkus-in-action}{\textit{acme-car-rental}}.
-
-Si tratta di un'applicazione a micro servizi sviluppata all'interno del libro \textit{Quarkus in Action}~\cite{quarkusinaction}. Esso mostra le caratteristiche principali di Quarkus e sviluppa le varie funzionalità dell'applicazione capitolo per capitolo, rilasciando su GitHub la versione finale e completa alla fine.
+L'applicazione utilizzata durante l'intero progetto è stata \href{https://github.com/xstefank/quarkus-in-action}{\textit{acme-car-rental}}. Si tratta di un'applicazione a micro servizi sviluppata all'interno del libro \textit{Quarkus in Action}~\cite{quarkusinaction}. Esso mostra le caratteristiche principali di Quarkus e sviluppa le varie funzionalità dell'applicazione capitolo per capitolo, rilasciando su GitHub la versione finale e completa alla fine.
 
 L'applicazione permette di svolgere le attività di base, che ogni applicazione di noleggio auto dovrebbe implementare: ricerca di auto libere in un determinato intervallo di tempo; prenotazione di un auto definito tale intervallo; ricerca delle auto prenotate; aggiunta e rimozione di una'auto dall'inventario della auto disponibili.
 
 \myskip
 
-Oltre a quanto specificato in questo reporto e a quanto si trova nella \href{https://github.com/edoardosarri24/quarkus-car-rental}{mia repo} del progetto, la versione originale rilasciata conteneva anche altri elementi; questi sono stati eliminati visto che per il nostro scopo non erano necessari.
+Oltre a quanto specificato in questo report e a quanto si trova nella \href{https://github.com/edoardosarri24/quarkus-car-rental}{mia repo}, la versione originale rilasciata conteneva anche degli elementi che sono stati eliminati visto che per il nostro scopo non erano necessari.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Architettura}
 \label{sec:servizi}
-Vediamo come prima cosa l'architettura dell'applicazione. I micro servizi che car-rental definisce, che la Figura~\ref{fig:architecture} mette in relazione, sono 5:
+Vediamo come prima cosa l'architettura dell'applicazione. I micro servizi che car-rental definisce, che la Figura~\ref{fig:architecture} mette in relazione, sono cinque:
 \begin{itemize}
     \item \textbf{Billing-service}: \\
         Gestisce i pagamenti e le fatture. Viene chiamato da \textit{reservation-service} quando un utente effettua una prenotazione e da \textit{rental-service} quando un'auto viene noleggiata.
@@ -38,21 +36,21 @@ Vediamo come prima cosa l'architettura dell'applicazione. I micro servizi che ca
 \label{sec:servizi_esterni}
 Oltre ai servizi business dell'applicazione, descritti nella Sezione~\ref{sec:servizi}, essa si basa anche su dei servizi esterni, non sviluppati dei produttori ma che devono essere configurati e da cui i servizi principali dipendono. Questi sono:
 \begin{itemize}
-    \item \textbf{\href{https://kafka.apache.org}{Kafka}}: \\
+    \item \textbf{Kafka}: \\
         È una piattaforma di streaming di eventi distribuita, utilizzata per la comunicazione asincrona e mantenuta dalla Apache Software Foundation. \\
         Gli eventi in Kafka vengono aggiunti in fondo a una coda e sono i subscriber che si devono occupare di gestire i messaggi già letti e quelli da leggere. \\
         È ideale per streaming di dati di grandi dimensioni. \\
-    \item \textbf{\href{https://www.rabbitmq.com}{RabbitMQ}}: \\
+    \item \textbf{RabbitMQ}: \\
         È un sistema di message broker che implementa il protocollo AMQP (Advanced Message Queuing Protocol), usato per la comunicazione asincrona. \\
         Rispetto a Kafka, in RabbitMQ è il publisher che si occupa di distribuire i messaggi e che si assicura della loro ricezione. \\
         È ideale per creare code di lavoro, dove ogni messaggio è un compito da eseguire. \\
-    \item \textbf{\href{https://www.mongodb.com/community/forums/t/mongodb-operator-install-instructions-for-minikube/10941}{MongoDB}}: \\
+    \item \textbf{MongoDB}: \\
         È un database NoSQL orientato ai documenti, che memorizza i dati in file simili ai JSON (detti BSON). \\
         È ideale per quelle applicazioni i cui requisiti sui dati non sono già stati ben definiti e che vogliono scalare orizzontalmente. \\
-    \item \textbf{\href{https://www.mysql.com/it/}{MySQL}}: \\
+    \item \textbf{MySQL}: \\
         È un database relazionale open-source. \\
         È ideale per la memorizzazione di dati strutturati, per la rapidità e la semplicità d'uso.
-    \item \textbf{\href{https://www.postgresql.org/}{PostgreSQL}}: \\
+    \item \textbf{PostgreSQL}: \\
         È un database relazionale object-oriented open-source. \\
         È più conforme agli standard SQL e offre un set di funzionalità per la gestione di query complesse più ricco rispetto a MySQL.
 \end{itemize}

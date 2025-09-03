@@ -1,0 +1,4 @@
+- prometheus
+- grafana
+- studiare istio
+- mettere Never

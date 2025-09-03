@@ -9,7 +9,7 @@
     - routing avanzato
     - sicurezza
     - non metriche custum
-    - senza prometheus
+    - senza prometheus si perde
       - salvare metriche numeriche storiche
       - visualizzare
       - allert automatici
