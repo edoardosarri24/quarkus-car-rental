@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k6
+data:
+  test.js: |
+{{ .Values.script | indent 4 }}

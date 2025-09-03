@@ -1,0 +1,23 @@
+\chapter{Load Generator}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{K6 Operator}
+Il generatore di carico K6 può essere installato localmente su una macchina Linux, MacOS o Windows, ma ha anche il grande vantaggio che può esere all'interno di un'infrestruttura cloud. Nel nostro progetto questo è utile e sensato se distruiamo K6 all'interno del cluster Minikube dove è in esecuzione la nostra applicazione; in questo contesto l'istanza K6 prende il nome di K6 Operator.
+
+Per distribuire K6 in un cluster Kubernetes ci sono tre modi, ma quello che abbiamo usato è, come in precedenza, Helm. La \href{https://grafana.com/docs/k6/latest/set-up/set-up-distributed-k6/}{documentazione di K6} fornisce istruzioni molto precise su come gestire la configrazione e l'installazione. Nel nostro caso è stato parametrizzato tutto nel file \textit{values.yaml} che possiamo vedere nel Listing~\ref{lst:k6-values}.
+\begin{lstlisting}[caption=K6 \textit{values.yaml} file, label=lst:k6-values]
+targetUrl: "http://my-service:80/api/endpoint"
+vus: 10
+duration: "10s"
+script: |
+    import http from 'k6/http';
+    import { sleep } from 'k6';
+    export let options = {
+        vus: __ENV.VUS,
+        duration: __ENV.DURATION,
+    };
+    export default function () {
+        http.get(__ENV.TARGET_URL);
+        sleep(1);
+    }
+\end{lstlisting}

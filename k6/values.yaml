@@ -1,0 +1,15 @@
+targetUrl: "http://my-service:80/api/endpoint"
+vus: 10
+duration: "10s"
+
+script: |
+    import http from 'k6/http';
+    import { sleep } from 'k6';
+    export let options = {
+        vus: __ENV.VUS,
+        duration: __ENV.DURATION,
+    };
+    export default function () {
+        http.get(__ENV.TARGET_URL);
+        sleep(1);
+    }

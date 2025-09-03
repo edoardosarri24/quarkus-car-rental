@@ -1,26 +1,27 @@
 \chapter{Deployment}
-In questo capitolo descriviamo il processo di deployment che è stato affrontato all'interno del progetto. Nonostante infatti l'applicazione fosse già sviluppata, è stato più complesso del previsto configurare l'ambiente e gestire le dipendenze tra i vari microservizi; sono stati richiesti infatti numerosi cambiamenti nel file di configurazione.
+In questo capitolo descriviamo il processo di deployment, più complesso di quello che ci aspettavamo.
+
+Nonostante infatti l'applicazione fosse già sviluppata in ogni suo aspetto, essa era predisposta per essere rilasciata su \href{https://www.redhat.com/en/technologies/cloud-computing/openshift}{OpenShift} e usare \href{https://quay.io}{Quay.io} come registry per le immagini. Per questi motivi il file di configurazione Quarkus sono stati complettamente rivisti e adattati alla nostra configurazione, che come abbiamo detto nel Capitolo~\ref{cap:introduzione} comprende Minikube come ambiente di deployment e Docker come runtime per i container.
 
 \myskip
 
-Per automattizzare il deployment, nella root directory del progetto è fornito un eseguibile \textit{deployment.sh}: se avviato con il Docker demon in esecuzione allora verrà creato un cluster Minikube con tutti i micro servizi e le loro dipendenze. Il corretto funzionamento di questo script è garantito su MacBook M4 (ARM).
+Per automattizzare il deployment, nella root directory del progetto è presente una cartella \href{https://github.com/edoardosarri24/quarkus-car-rental/tree/master/exec}{\textit{exec}}, all'interno della quale è presente il file \textit{deployment.sh}. Se eseguito a partire dalla root directory e con il Docker demon in esecuzione, allora verrà creato un cluster Minikube con tutti i micro servizi e le loro dipendenze. Il corretto funzionamento di questo script è garantito su MacOS con ARM64.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Environment}
-Per il deployment del nostro progetto sono state prese delle decisioni in modo da semplificare il processo e renderlo fattibile senza utilizzare ambienti di produzione reali.
-
-L'ambiente per il rilascio dell'applicazione è stato Minikube, un ambiente locale di sviluppo basato su Kubernetes. In questo modo è stato possibile testare il deployment in un ambiente simile a quello di produzione senza la necessità di risorse hardware dedicate. Nonostante l'applicazione rilasciata su GitHub sia completa e configurata per un tipo di deployment, ci sono stati vari aspetti da considerare e che hanno richiesto attenzione e tempo:
+L'ambiente per il rilascio dell'applicazione è stato \href{https://minikube.sigs.k8s.io/docs/}{Minikube}, un ambiente locale di sviluppo basato su Kubernetes. In questo modo è stato possibile testare il deployment in un ambiente simile a quello di produzione senza la necessità di risorse hardware dedicate. Come abbiamo detto, nonostante l'applicazione rilasciata su GitHub sia completa e configurata per un tipo di deployment, ci sono stati vari aspetti da considerare e che hanno richiesto attenzione e tempo:
 \begin{itemize}
     \item \textbf{OpenShift} \\
-        L'applicazione era stata pensata per essere distributa su OpenShift, la piattaforma per container basata su Kubernetes e sviluppata da Red Hat. Nonostante essa si basi su Kubernetes, in Quarkus si richiede di specificare il tipo di ambiente di deployment all'interno del file di configurazione \textit{application.properties}. \\
-        Un esempio di configurazione corretta per Kubernetes, usando Docker come runner di container, è quella mostrata nel Listing~\ref{lst:k8s_config}: questo è il contenuto del file di configurazione Quarkus per \textit{inventory-service}, ma generalizzando è lo stesso usato in tutti gli altri microservizi.
+        L'applicazione era stata pensata per essere distributa su OpenShift, la piattaforma per container basata su Kubernetes e sviluppata da Red Hat. Nonostante essa sia appunto Kubernetes-based, in Quarkus si richiede di specificare quale ambiente di deployment si intente utilizzare all'interno del file di configurazione \textit{application.properties}. \\
+        Un esempio di configurazione corretta per Kubernetes, usando Docker come runtime di container, è quella mostrata nel Listing~\ref{lst:k8s_config}: questo è il contenuto del file di configurazione Quarkus per \textit{inventory-service}, ma generalizzando è lo stesso usato in tutti gli altri microservizi. Oltre ai comandi che sono naturalmente interpretabili, possiamo specificare alcuni concetti più complessi: \texttt{quarkus. \allowbreak container-image.build=true} permette di costruire l'immagine in automatico quando eseguiamo il comando \texttt{quarkus build}; \texttt{quarkus.kubernetes.service- \allowbreak type=NodePort} istruisce Kubernetes a creare un Service di tipo \textit{NodePort} (di default è \textit{ClusterIP}) e quindi accessibile anche dall'esterno del cluster (meno corretto in produzione di \textit{LoadBalancer}, ma giusto per test locali); \texttt{quarkus.kubernetes. \allowbreak image-pull-policy=Never} istruisce Kubernetes a far fallire l'avvio del pod se l'immagine Docker su cui si basa non è presente localmente (a differenza di \textit{Always} che la scarica sempre da un registry).
     \item \textbf{Registry} \\
-        Una volta costruita l'immagine docker, il file di configurazione era progettato per eseguire il push su un registry, \textit{quay.io}, registry di Red Hat che fa parte dello stesso ecosistema di OpenShift. Siccome il nostro ambiente per il deployment era Minikube, sono state fatte delle modifiche anche in questo senso in modo da rilasciare l'immagine del microservizio all'interno di Minikube stesso.
+        Una volta costruita l'immagine docker, il file di configurazione era progettato per eseguire il push su un registry, \textit{quay.io}, registry di Red Hat che fa parte dello stesso ecosistema di OpenShift. Siccome il nostro ambiente per il deployment era Minikube, sono state fatte delle modifiche anche in questo senso in modo da rilasciare l'immagine del microservizio all'interno di Minikube stesso. \\
+        In questo scenario è fondamentale la configurazione \texttt{quarkus.container-image. \allowbreak push=false} all'interno del Listing~\ref{lst:k8s_config}.
     \item \textbf{Riferimenti} \\
-        Usando ambienti di produzione diversi (OpenShift vs Minikube), si sono dovuti cambiare gli URL con cui un microservizio identificava le proprie dipendenze. Un esempio di quello che è stato fatto si trova nel Listing~\ref{lst:reference}, realtivo al miro servizio \textit{rental-service}: i riferimenti per l'ambiente di sviluppo sono stati lasciati invariati, mentre sono state confiugrate correttamente le variabili d'ambiente all'interno del container del micro servizio in modo che sia presente il riferimento alla dipendenza usata.
+        Usando un ambiente di produzione diversi (OpenShift vs Minikube) rispetto a quello per cui l'applicazione era stata pensata, si sono dovuti cambiare gli URL con cui un microservizio identificava le proprie dipendenze. Un esempio di quello che è stato fatto si trova nel Listing~\ref{lst:reference}, relativo al micro servizio \textit{rental-service}: i riferimenti per l'ambiente di sviluppo sono stati lasciati invariati, mentre sono state configurate correttamente le variabili d'ambiente all'interno del container in modo che sia presente il riferimento alla dipendenza usata.
 \end{itemize}
 
-\begin{lstlisting}[caption=Kubernetes Configuration, label=lst:k8s_config]
+\begin{lstlisting}[caption=Kubernetes and Docker Configuration, label=lst:k8s_config]
 # container
 quarkus.container-image.build=true
 quarkus.container-image.push=false
@@ -31,7 +32,7 @@ quarkus.container-image.tag=1.1
 quarkus.kubernetes.name=inventory-service
 quarkus.kubernetes.deployment-target=kubernetes
 quarkus.kubernetes.service-type=NodePort
-quarkus.kubernetes.image-pull-policy=IfNotPresent
+quarkus.kubernetes.image-pull-policy=Never
 \end{lstlisting}
 
 \begin{lstlisting}[caption=Reference in different environments, label=lst:reference]
@@ -41,21 +42,21 @@ quarkus.kubernetes.env.vars.quarkus-rest-client-reservation-url=http://reservati
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Servizi Esterni}
-Come abbiamo già detto nella Sezione~\ref{sec:servizi_esterni}, i micro servizi principali utilizzano al loro interno altri servizi ausiliari. Questi devono eseguire all'interno dello stesso cluster Kubernetes di quelli principali e quindi devono essere in un qualche modo rilasciati.
+Come abbiamo già detto nella Sezione~\ref{sec:servizi_esterni}, i micro servizi business dell'applicazione utilizzano al loro interno altri servizi ausiliari. Questi devono eseguire all'interno dello stesso cluster Minikube e quindi devono essere in un qualche modo rilasciati.
 
-La prima soluzione esplorata è stata farsi scrivere da un LLM il manifesto Kubernetes per l'ambiente Minikube. Nonostante questa fosse una soluzione funzionante, mi sembrava chiaro che ci potesse essere un'alternativa off-the-shelf. Dopo aver cercato ed essermi informato è deciso di utilizzare \href{https://helm.sh}{\textit{Helm}}.
+La prima soluzione esplorata è stata farsi scrivere da un LLM il manifesto Kubernetes per l'ambiente Minikube. Nonostante questa fosse una soluzione funzionante, mi sembrava chiaro che ci potesse essere un'alternativa off-the-shelf che mi permettesse di non dover fare configrazioni manuali; l'alternativa adottata è stata \href{https://helm.sh}{\textit{Helm}}.
 
 \myskip
 
-L'unico servizio esterno per cui è stato generato il manifesto invece che usare un chart (da un LLM, Gemini) è stato \textit{MongoDB}. Il problema, che non sono riuscito a risolvere, è stato quella della compatibilità tra la versione di MongoDB e quella di Minikube.
+L'unico servizio esterno per cui è stato generato (da un LLM, in particolare Gemini) il manifesto invece che usare un chart è stato \textit{MongoDB}. Il problema, che non sono riuscito a risolvere, è stato quella della compatibilità tra la versione di MongoDB e quella di Minikube.
 
 \subsection{Helm}
-Helm è un gestore di pacchetti Kubernetes che semplifica la gestione delle applicazioni Kubernetes.
+Helm è un gestore di pacchetti Kubernetes che semplifica il ciclo di vita delle applicazioni all'interno di Kubernetes.
 
-Tramite i Chart possiamo definire, installare e aggiornare anche le applicazioni Kubernetes più complesse. Essi permettono infatti di non generare manifesti complessi e ridondanti a mano, ma di utilizzare una struttura predefinita e riutilizzabile. Nello stesso modo in cui esiste un database di immagini Docker, esiste un repository di Chart Helm, detto \href{https://artifacthub.io/}{ArtifactHUB}.
+Tramite i Chart possiamo definire, installare e aggiornare anche le applicazioni Kubernetes più complesse. Essi permettono infatti di non generare manifesti complessi e ridondanti a mano, ma di utilizzare una struttura predefinita e riutilizzabile. Nello stesso modo in cui esiste un database di immagini Docker, esiste un repository di Chart Helm, \href{https://artifacthub.io/}{ArtifactHUB}; oltre a fornirci molte applicazione, il repository ci fornisce tutte le istruzioni necessarie per configurazioni avanzate.
 
 \subsection{Deployment con Helm}
-Per capire come Helm semplifica il deployment di servizi terzi su cui un nostro micro servizio si può appoggiare prendiamo come esempio l'installazione del data base MySQL, necessario per \textit{inventory-service}. Tramite un comando, seguito da pochi parametri, come si vede nel Listing~\ref{lst:helm_mysql}, viene eseguito nel cluster Minikube un container MySQL.
+Per capire come Helm semplifica il deployment di servizi terzi da cui un nostro micro servizio dipende, prendiamo come esempio l'installazione del database MySQL, necessario per \textit{inventory-service}. Tramite un comando, seguito da pochi parametri, come si vede nel Listing~\ref{lst:helm_mysql}, viene rilasciato un pod MySQL nel cluster Minikube.
 \begin{lstlisting}[caption=MySQL Helm chart, label=lst:helm_mysql]
 helm install mysql-inventory bitnami/mysql \
     --set auth.rootPassword=root-pass \

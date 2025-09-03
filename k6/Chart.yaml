@@ -1,0 +1,4 @@
+apiVersion: v2
+name: k6
+description: Helm chart for the local execution of k6 in Kubernetes.
+version: 1.0.0
