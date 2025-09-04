@@ -21,7 +21,8 @@ Vediamo come prima cosa l'architettura dell'applicazione. I micro servizi che ca
     \item \textbf{Reservation-service}: \\
         Gestisce le prenotazioni delle auto. Verifica la disponibilità dei veicoli tramite l'\textit{inventory-service} e, in caso di prenotazione, avvia il processo di pagamento tramite il \textit{billing-service}.
     \item \textbf{Users-service}: \\
-        Fornisce una semplice interfaccia per la gestione delle prenotazioni.
+        Fornisce una semplice interfaccia per la gestione delle prenotazioni. \\
+        Nel codice originale questo servizio si appoggiava a \textit{Keycloak} per la gestione degli utenti. Per problemi di deployment e gestione, ho preferito rimuovere questa dipendenza; l'applicazione adesso permette a un solo utente, \textit{guest}, di effettuare prenotazioni.
 \end{itemize}
 
 \begin{figure}[htbp]

@@ -10,7 +10,8 @@ helm install jaeger jaegertracing/jaeger \
     --set collector.enabled=false \
     --set query.enabled=false \
     --set provisionDataStore.cassandra=false \
-    --set storage.type=memory
+    --set storage.type=memory \
+    --wait
 
 # port forward
 kubectl wait --for=condition=Ready pod -l app.kubernetes.io/instance=jaeger --timeout=120s

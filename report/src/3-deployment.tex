@@ -89,9 +89,10 @@ Considerando che il nostro problema viene risolto facendo ripartire il pod del m
 
 Nella classe la connessione viene gestita da un oggetto di tipo \texttt{AgroalDataSource}\cite{quarkus_datasource}: \textit{DataSource} è un'interfaccia che rappresenta una connessione a un database standard in Java (JDBC); \textit{Agroal} è un'implementazione di questa interfaccia ed è quella che funziona meglio con Quarkus.
 
-Quarkus permette con molta facilità di gestire le metriche di Health con le apposite estensioni~\cite{quarkus_health}. Basta infatti aggiungere \textit{quarkus-smallrye-health}, \textit{quarkus-agroal} e \textit{quarkus-jdbc-postgresql} e il tutto funiona completamente. L'unica cosa agiguntiva a cui dobbiamo pensare è a fornire l'url a cui l'oggetto \texttt{AgroalDataSource} deve connettersi; quest è facilmente configurabile nell'\textit{application.properties}, come si vede dal Listing~\ref{lst:db_config}.
+Quarkus permette con molta facilità di gestire le metriche di Health con le apposite estensioni~\cite{quarkus_health}. Basta infatti aggiungere \textit{quarkus-smallrye-health}, \textit{quarkus-agroal} e \textit{quarkus-jdbc-postgresql} e il tutto funiona completamente. L'unica cosa agiguntiva a cui dobbiamo pensare è a fornire l'url a cui l'oggetto \texttt{AgroalDataSource} deve connettersi; quest è facilmente configurabile nell'\textit{application.properties}, come si vede dal Listing~\ref{lst:db_config}. Sono state anche aggiunte alcune configurazioni~\cite{quarkus_all_config} per gestire dopo quanti tentativi falliti riavviare il pod.
 \begin{lstlisting}[caption=JDBC configuration., label=lst:db_config]
 # health
+quarkus.kubernetes.liveness-probe.failure-threshold=1
 quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/reservation
 %prod.quarkus.datasource.jdbc.url=jdbc:postgresql://postgresql-reservation:5432/reservation
 \end{lstlisting}

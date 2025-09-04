@@ -1,4 +1,4 @@
-helm install rabbitmq-reservation oci://registry-1.docker.io/bitnamicharts/rabbitmq \
+helm install rabbitmq oci://registry-1.docker.io/bitnamicharts/rabbitmq \
     --set auth.username=user \
     --set auth.password=pass \
     --set image.repository=bitnamilegacy/rabbitmq \

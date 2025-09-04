@@ -8,11 +8,15 @@ minikube start --memory=7837 --cpus=2
 eval $(minikube -p minikube docker-env)
 cd services
 
+#external services
+cd external-services
+./kafka-helm.sh
+./rabbitmq-helm.sh
+cd ..
+
 # billing-service
 echo "billing-service"
 cd billing-service
-./kafka-helm.sh
-./rabbitmq-helm.sh
 kubectl apply -f mongodb-manifest.yaml
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
@@ -33,7 +37,6 @@ kubectl apply -f target/kubernetes/kubernetes.yml
 # rental-service
 echo "rental-service"
 cd ../rental-service
-./kafka-helm.sh
 kubectl apply -f mongodb-manifest.yaml
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
@@ -41,7 +44,6 @@ kubectl apply -f target/kubernetes/kubernetes.yml
 # reservation-service
 echo "reservation-service"
 cd ../reservation-service
-./rabbitmq-helm.sh
 ./postgresql-helm.sh
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
@@ -53,5 +55,6 @@ quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # complete
+sleep 30
 kubectl get pods
 cd ..
