@@ -20,6 +20,7 @@ public class DatabaseConnectionHealthCheck implements HealthCheck {
 
     @Override
     public HealthCheckResponse call() {
+        System.out.println("check");
         try (Connection connection = defaultDataSource.getConnection();
                 Statement statement = connection.createStatement()) {
             statement.execute("SELECT 1");

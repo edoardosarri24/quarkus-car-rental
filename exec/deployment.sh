@@ -1,22 +1,42 @@
 # helm
 helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
 helm repo update
 
 #minikube
 minikube delete || true
 minikube start --memory=7837 --cpus=2
 eval $(minikube -p minikube docker-env)
-cd services
+
+# Prometheus and Grafana
+echo "prometheus and grafana"
+helm install prometheus prometheus-community/kube-prometheus-stack \
+    --set grafana.service.type=NodePort \
+    --set grafana.adminUser=admin \
+    --set grafana.adminPassword=admin \
+    --set grafana.fullnameOverride=grafana \
+    --wait
+
+# jaeger
+echo "jaeger"
+helm install jaeger jaegertracing/jaeger \
+    --set allInOne.enabled=true \
+    --set agent.enabled=false \
+    --set collector.enabled=false \
+    --set query.enabled=false \
+    --set provisionDataStore.cassandra=false \
+    --set storage.type=memory \
+    --wait
 
 #external services
-cd external-services
+cd services/external-services
 ./kafka-helm.sh
 ./rabbitmq-helm.sh
-cd ..
 
 # billing-service
 echo "billing-service"
-cd billing-service
+cd ../billing-service
 kubectl apply -f mongodb-manifest.yaml
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
@@ -55,6 +75,6 @@ quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # complete
-sleep 30
+sleep 120
 kubectl get pods
 cd ..

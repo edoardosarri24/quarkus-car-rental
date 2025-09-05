@@ -1,4 +1,5 @@
 \chapter{Tracing}
+\label{cap:tracing}
 In applicazioni con migliaia di micro servizi, seguire la cascata di chiamate o valutare in che punto si è verificato un errore è molto complesso. Tramite il tracing non solo possiamo capire quale micro servizio viene chiamato e da chi, ma possiamo anche analizzare i tempi con cui ogni richiesta è stata servita, sia E2E che all'interno del singolo servizio.
 
 Il funzionamento solitamente è abbastanza semplice: durante le varie chiamate viene trasmesso anche un ID (univoco) della traccia; il trasporto di questo ID avviene tramite una qualche funzionalità del protocollo di trasporto, che in HTTP è il relativo header.
