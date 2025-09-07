@@ -22,15 +22,12 @@ Per utilizzare OTel nei vari micro servizi della nostra applicazione si deve sem
 \section{Jaeger}
 Come abbiamo detto Jaeger è un backend per la visualizzazione della cascate di chiamate all'interno di un applicazione a micro servizi.
 
-Per permettere il suo funzionamento si deve aggiungere delle configurazioni nel file \textit{application.properties}. Queste configurazioni sono abbastanza standard e non dipendono molto dal microservizio specifico, se non per il nome che vogliamo visualizzare nella UI. Un esempio è quanto configurato per \textit{users-service} all'interno del Listing~\ref{lst:users-jaeger}. L'unica configurazione da spiegare è forte \texttt{quarkus.otel.traces.sampler=always\_on}: essa permette di non fare nessun campionamento delle chiamate, ma di considerarle e visualizzarle tutte; in questo modo non si rischia di interrompere una sequenza di chiamate.
+Per permettere il suo funzionamento si deve aggiungere delle configurazioni nel file \textit{application.properties}. Queste configurazioni sono abbastanza standard e non dipendono molto dal microservizio specifico, se non per il nome che vogliamo visualizzare nella UI. Un esempio è quanto configurato per \textit{users-service} all'interno del Listing~\ref{lst:users-jaeger}. L'unica configurazione da spiegare è forse \texttt{quarkus.otel.traces.sampler=always\_on}: essa permette di non fare nessun campionamento delle chiamate, ma di considerarle e visualizzarle tutte; in questo modo non si rischia di interrompere una sequenza di chiamate.
 \begin{lstlisting}[caption=Jaeger configuration for \textit{users-service}, label=lst:users-jaeger]
 # jaeger
-quarkus.kubernetes.env.vars.otel-service-name=users-service
-quarkus.otel.resource.attributes=service.name=users-service
-quarkus.kubernetes.env.vars.otel-exporter-otlp-endpoint=http://jaeger-collector:4317
+quarkus.otel.service.name=users-service
 quarkus.otel.exporter.otlp.endpoint=http://jaeger-collector:4317
 quarkus.otel.traces.sampler=always_on
-quarkus.log.console.format=%d{HH:mm:ss} %-5p traceId=%X{traceId}, parentId=%X{parentId}, spanId=%X{spanId}, sampled=%X{sampled} [%c{2.}] (%t) %s%e%n
 \end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

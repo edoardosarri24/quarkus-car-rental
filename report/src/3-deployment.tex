@@ -20,7 +20,7 @@ L'ambiente per il rilascio dell'applicazione è stato Minikube, un ambiente loca
         Una volta costruita l'immagine docker, il file di configurazione era progettato per eseguire il push su un registry, Quay.io, registry di Red Hat che fa parte dello stesso ecosistema di OpenShift. Siccome il nostro ambiente per il deployment era Minikube, sono state fatte delle modifiche anche in questo senso in modo da rilasciare l'immagine del microservizio all'interno di Minikube stesso. \\
         In questo scenario è fondamentale la configurazione \texttt{quarkus.container-image. \allowbreak push=false} all'interno del Listing~\ref{lst:k8s_config}.
     \item \textbf{Riferimenti} \\
-        Usando un ambiente di produzione diversi (OpenShift vs Minikube) rispetto a quello per cui l'applicazione era stata pensata, si sono dovuti cambiare gli URL con cui un microservizio identificava le proprie dipendenze. Un esempio di quello che è stato fatto si trova nel Listing~\ref{lst:reference}, relativo al micro servizio \textit{rental-service}: i riferimenti per l'ambiente di sviluppo sono stati lasciati invariati, mentre sono state configurate correttamente le variabili d'ambiente all'interno del container in modo che sia presente il riferimento alla dipendenza usata.
+        Usando un ambiente di produzione diversi (OpenShift vs Minikube) rispetto a quello per cui l'applicazione era stata pensata, si sono dovuti cambiare gli URL con cui un microservizio identificava le proprie dipendenze. Un esempio di quello che è stato fatto si trova nel Listing~\ref{lst:reference}, relativo al micro servizio \textit{users-service}: i riferimenti per l'ambiente di sviluppo sono stati lasciati invariati, mentre sono state configurate correttamente le variabili d'ambiente all'interno del container in modo che sia presente il riferimento alla dipendenza usata.
 \end{itemize}
 
 \begin{lstlisting}[caption=Kubernetes and Docker Configuration, label=lst:k8s_config]
@@ -37,9 +37,10 @@ quarkus.kubernetes.service-type=NodePort
 quarkus.kubernetes.image-pull-policy=Never
 \end{lstlisting}
 
-\begin{lstlisting}[caption=Reference in different environments, label=lst:reference]
-quarkus.rest-client.reservation.url=http://localhost:8081
-quarkus.kubernetes.env.vars.quarkus-rest-client-reservation-url=http://reservation-service
+\begin{lstlisting}[caption=Reference in \textit{users-service}, label=lst:reference]
+# reference
+%dev.quarkus.rest-client.reservations.url=http://localhost:8081
+%prod.quarkus.rest-client.reservations.url=http://reservation-service
 \end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -89,10 +90,9 @@ Considerando che il nostro problema viene risolto facendo ripartire il pod del m
 
 Nella classe la connessione viene gestita da un oggetto di tipo \texttt{AgroalDataSource}\cite{quarkus_datasource}: \textit{DataSource} è un'interfaccia che rappresenta una connessione a un database standard in Java (JDBC); \textit{Agroal} è un'implementazione di questa interfaccia ed è quella che funziona meglio con Quarkus.
 
-Quarkus permette con molta facilità di gestire le metriche di Health con le apposite estensioni~\cite{quarkus_health}. Basta infatti aggiungere \textit{quarkus-smallrye-health}, \textit{quarkus-agroal} e \textit{quarkus-jdbc-postgresql} e il tutto funiona completamente. L'unica cosa agiguntiva a cui dobbiamo pensare è a fornire l'url a cui l'oggetto \texttt{AgroalDataSource} deve connettersi; questo è facilmente configurabile nell'\textit{application.properties}, come si vede dal Listing~\ref{lst:db_config}. Sono state anche aggiunte alcune configurazioni~\cite{quarkus_all_config} per gestire dopo quanti tentativi falliti riavviare il pod e, per evitare troppi riavvii, il tempo dopo quanto iniziare a controllare.
+Quarkus permette con molta facilità di gestire le metriche di Health con le apposite estensioni~\cite{quarkus_health}. Basta infatti aggiungere \textit{quarkus-smallrye-health}, \textit{quarkus-agroal} e \textit{quarkus-jdbc-postgresql} e il tutto funiona completamente. L'unica cosa agiguntiva a cui dobbiamo pensare è a fornire l'url a cui l'oggetto \texttt{AgroalDataSource} deve connettersi; questo è facilmente configurabile nell'\textit{application.properties}, come si vede dal Listing~\ref{lst:db_config}. È stata aggiunta anche la configurazione~\cite{quarkus_all_config} per gestire dopo quanti tentativi falliti riavviare il pod.
 \begin{lstlisting}[caption=JDBC configuration., label=lst:db_config]
 # health
-quarkus.kubernetes.startup-probe.initial-delay=60
 quarkus.kubernetes.startup-probe.failure-threshold=1
 quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/reservation
 %prod.quarkus.datasource.jdbc.url=jdbc:postgresql://postgresql-reservation:5432/reservation
