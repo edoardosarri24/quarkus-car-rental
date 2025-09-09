@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+quarkus.otel.service.name\PYG{o}{=}inventory\PYGZhy{}service
+quarkus.otel.exporter.otlp.endpoint\PYG{o}{=}
+\PYG{+w}{    }\PYG{o}{=}http://jaeger\PYGZhy{}collector:4317
+quarkus.otel.traces.sampler\PYG{o}{=}always\PYGZus{}on
+\end{MintedVerbatim}

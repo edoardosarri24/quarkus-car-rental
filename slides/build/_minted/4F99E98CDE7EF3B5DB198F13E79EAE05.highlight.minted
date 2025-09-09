@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+helm\PYG{+w}{ }install\PYG{+w}{ }jaeger\PYG{+w}{ }jaegertracing/jaeger\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }allInOne.enabled\PYG{o}{=}\PYG{n+nb}{true}\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }agent.enabled\PYG{o}{=}\PYG{n+nb}{false}\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }collector.enabled\PYG{o}{=}\PYG{n+nb}{false}\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }query.enabled\PYG{o}{=}\PYG{n+nb}{false}\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }provisionDataStore.cassandra\PYG{o}{=}\PYG{n+nb}{false}\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }storage.type\PYG{o}{=}memory
+\end{MintedVerbatim}

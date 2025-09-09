@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYGZpc{}dev.quarkus.rest\PYGZhy{}client.reservations.url\PYG{o}{=}http://localhost:8081
+\PYGZpc{}prod.quarkus.rest\PYGZhy{}client.reservations.url\PYG{o}{=}http://reservation\PYGZhy{}service
+\end{MintedVerbatim}

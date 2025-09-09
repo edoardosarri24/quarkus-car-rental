@@ -1,0 +1,747 @@
+PWD /Users/edoardosarri/Documents/quarkus-car-rental/slides
+INPUT /usr/local/texlive/2025/texmf.cnf
+INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT main.tex
+OUTPUT build/main.log
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamer.cls
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamer.cls
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaserequires.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaserequires.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasecompatibility.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasecompatibility.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasefont.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasefont.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlogo.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlogo.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasemisc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasemisc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetitle.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetitle.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasesection.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasesection.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasecolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasecolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasenotes.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasenotes.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetoc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetoc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/enumerate.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/enumerate.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasenavigationsymbols.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasenavigationsymbols.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasenavigationsymbols.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasenavigationsymbols.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasenavigationsymbols.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasethemes.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasethemes.sty
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerthemedefault.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerthemedefault.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerfontthemedefault.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerfontthemedefault.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericonbook.pdf
+OUTPUT build/main.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericonbook.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericonbook.20.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericonbook.20.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericonarticle.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericonarticle.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericonarticle.20.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericonarticle.20.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericononline.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericononline.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericononline.20.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericononline.20.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty
+INPUT ./src/preambolo.tex
+INPUT ./src/preambolo.tex
+INPUT src/preambolo.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel-italian/italian.ldf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel-italian/italian.ldf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel-italian/italian.ldf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/it/babel-it.ini
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/comment/comment.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/comment/comment.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/pifont.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/pifont.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/upzd.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/upzd.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/upzd.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/upsy.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/upsy.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/upsy.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/xmpmulti.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/xmpmulti.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption-beamer.sto
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption-beamer.sto
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption-beamer.sto
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/lmodern.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/lmodern.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/appendixnumberbeamer/appendixnumberbeamer.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/appendixnumberbeamer/appendixnumberbeamer.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/animate/animate.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/animate/animate.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/oberdiek/ifdraft.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/oberdiek/ifdraft.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/media9/pdfbase.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/media9/pdfbase.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/zref/zref-abspage.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/zref/zref-abspage.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/zref/zref-base.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/zref/zref-base.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/auxhook/auxhook.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/auxhook/auxhook.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/ocgx2/ocgbase.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/ocgx2/ocgbase.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/colortbl/colortbl.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/colortbl/colortbl.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/minted/minted.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/minted/minted.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/catchfile/catchfile.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/catchfile/catchfile.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fvextra/fvextra.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fvextra/fvextra.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/upquote/upquote.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/upquote/upquote.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lineno/lineno.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lineno/lineno.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/shellesc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/shellesc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerthemeBerlin.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerthemeBerlin.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerouterthememiniframes.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerouterthememiniframes.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamercolorthemewhale.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamercolorthemewhale.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamercolorthemeorchid.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamercolorthemeorchid.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerinnerthemerectangles.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerinnerthemerectangles.sty
+INPUT ./src/titlepage.tex
+INPUT ./src/titlepage.tex
+INPUT src/titlepage.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmss.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmss.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmss.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmss10.tfm
+INPUT build/main.aux
+INPUT build/main.aux
+INPUT build/main.aux
+INPUT build/src/1-car rental.aux
+INPUT build/src/1-car rental.aux
+INPUT build/src/1-car rental.aux
+INPUT build/src/2-deployment.aux
+INPUT build/src/2-deployment.aux
+INPUT build/src/2-deployment.aux
+INPUT build/src/3-health.aux
+INPUT build/src/3-health.aux
+INPUT build/src/3-health.aux
+INPUT build/src/4-tracing.aux
+INPUT build/src/4-tracing.aux
+INPUT build/src/4-tracing.aux
+INPUT build/src/5-metrics.aux
+INPUT build/src/5-metrics.aux
+INPUT build/src/5-metrics.aux
+INPUT build/src/footpage.aux
+INPUT build/src/footpage.aux
+INPUT build/src/footpage.aux
+OUTPUT build/main.aux
+INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT build/main.out
+INPUT build/main.out
+INPUT build/main.out
+INPUT build/main.out
+INPUT build/main.out
+INPUT build/main.out
+OUTPUT build/main.out
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-environment-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-environment-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-environment-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-months-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-months-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-months-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-numbers-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-numbers-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-numbers-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
+INPUT build/main.nav
+INPUT build/main.nav
+INPUT build/main.nav
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmss12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmssbx10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
+INPUT ./images/0-varie/logo UniFi.pdf
+INPUT ./images/0-varie/logo UniFi.pdf
+INPUT ./images/0-varie/logo UniFi.pdf
+INPUT ./images/0-varie/logo UniFi.pdf
+INPUT ./images/0-varie/logo UniFi.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
+INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
+INPUT ./src/1-car rental.tex
+INPUT ./src/1-car rental.tex
+OUTPUT build/src/1-car rental.aux
+INPUT ./src/1-car rental.tex
+INPUT ./src/1-car rental.tex
+INPUT src/1-car rental.tex
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmsso10.tfm
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmmi10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmmi8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmmi6.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmsy8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmsy6.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmex10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmsso8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmsso8.tfm
+INPUT ./images/1-car rental/comunication.pdf
+INPUT ./images/1-car rental/comunication.pdf
+INPUT ./images/1-car rental/comunication.pdf
+INPUT ./images/1-car rental/comunication.pdf
+INPUT ./images/1-car rental/comunication.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./src/2-deployment.tex
+INPUT ./src/2-deployment.tex
+OUTPUT build/src/2-deployment.aux
+INPUT ./src/2-deployment.tex
+INPUT ./src/2-deployment.tex
+INPUT src/2-deployment.tex
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+OUTPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+OUTPUT build/_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted
+INPUT build/_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted
+INPUT build/_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted
+INPUT build/_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted
+INPUT ./build/_minted/_FAD58DE7366495DB4650CFEFAC2FCD61.index.minted
+INPUT ./build/_minted/_FAD58DE7366495DB4650CFEFAC2FCD61.index.minted
+INPUT ./build/_minted/default.style.minted
+INPUT ./build/_minted/default.style.minted
+INPUT build/_minted/default.style.minted
+INPUT ./build/_minted/95FE0AB36F6A932A117B681CD31500B4.highlight.minted
+INPUT ./build/_minted/95FE0AB36F6A932A117B681CD31500B4.highlight.minted
+INPUT build/_minted/95FE0AB36F6A932A117B681CD31500B4.highlight.minted
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmtt.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmtt.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmtt.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmtt8.tfm
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc
+OUTPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT ./build/_minted/359AB2AD3E326AAACD7C659AF824D510.highlight.minted
+INPUT ./build/_minted/359AB2AD3E326AAACD7C659AF824D510.highlight.minted
+INPUT build/_minted/359AB2AD3E326AAACD7C659AF824D510.highlight.minted
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmtt8.tfm
+INPUT ./build/_minted/7E239420489878DBA1F485D04E7C4DEB.highlight.minted
+INPUT ./build/_minted/7E239420489878DBA1F485D04E7C4DEB.highlight.minted
+INPUT build/_minted/7E239420489878DBA1F485D04E7C4DEB.highlight.minted
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+OUTPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT ./build/_minted/6511122198E0A9B7D9891AB08522E755.highlight.minted
+INPUT ./build/_minted/6511122198E0A9B7D9891AB08522E755.highlight.minted
+INPUT build/_minted/6511122198E0A9B7D9891AB08522E755.highlight.minted
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmtt10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmtk10.tfm
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./src/3-health.tex
+INPUT ./src/3-health.tex
+OUTPUT build/src/3-health.aux
+INPUT ./src/3-health.tex
+INPUT ./src/3-health.tex
+INPUT src/3-health.tex
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+OUTPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT ./build/_minted/0B5E1BA69F6A4671D4D596EF9FE94F7A.highlight.minted
+INPUT ./build/_minted/0B5E1BA69F6A4671D4D596EF9FE94F7A.highlight.minted
+INPUT build/_minted/0B5E1BA69F6A4671D4D596EF9FE94F7A.highlight.minted
+INPUT ./build/_minted/41A7EDC043742763D74A38CAF1FE80D5.highlight.minted
+INPUT ./build/_minted/41A7EDC043742763D74A38CAF1FE80D5.highlight.minted
+INPUT build/_minted/41A7EDC043742763D74A38CAF1FE80D5.highlight.minted
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./src/4-tracing.tex
+INPUT ./src/4-tracing.tex
+OUTPUT build/src/4-tracing.aux
+INPUT ./src/4-tracing.tex
+INPUT ./src/4-tracing.tex
+INPUT src/4-tracing.tex
+OUTPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT ./build/_minted/50E0481F8D78CFDAE3F3F56252BFAAA7.highlight.minted
+INPUT ./build/_minted/50E0481F8D78CFDAE3F3F56252BFAAA7.highlight.minted
+INPUT build/_minted/50E0481F8D78CFDAE3F3F56252BFAAA7.highlight.minted
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+OUTPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT ./build/_minted/5CAB472ADF05ADC133D0CBA7CA47CA69.highlight.minted
+INPUT ./build/_minted/5CAB472ADF05ADC133D0CBA7CA47CA69.highlight.minted
+INPUT build/_minted/5CAB472ADF05ADC133D0CBA7CA47CA69.highlight.minted
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmss9.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmtt9.tfm
+INPUT ./build/_minted/4F99E98CDE7EF3B5DB198F13E79EAE05.highlight.minted
+INPUT ./build/_minted/4F99E98CDE7EF3B5DB198F13E79EAE05.highlight.minted
+INPUT build/_minted/4F99E98CDE7EF3B5DB198F13E79EAE05.highlight.minted
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmtk10.tfm
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/4-tracing/use cases.pdf
+INPUT ./images/4-tracing/use cases.pdf
+INPUT ./images/4-tracing/use cases.pdf
+INPUT ./images/4-tracing/use cases.pdf
+INPUT ./images/4-tracing/use cases.pdf
+INPUT ./images/4-tracing/jaeger use case.pdf
+INPUT ./images/4-tracing/jaeger use case.pdf
+INPUT ./images/4-tracing/jaeger use case.pdf
+INPUT ./images/4-tracing/jaeger use case.pdf
+INPUT ./images/4-tracing/jaeger use case.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./src/5-metrics.tex
+INPUT ./src/5-metrics.tex
+OUTPUT build/src/5-metrics.aux
+INPUT ./src/5-metrics.tex
+INPUT ./src/5-metrics.tex
+INPUT src/5-metrics.tex
+OUTPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT ./build/_minted/7740CF02549C43067BDA03B3FA7FFD26.highlight.minted
+INPUT ./build/_minted/7740CF02549C43067BDA03B3FA7FFD26.highlight.minted
+INPUT build/_minted/7740CF02549C43067BDA03B3FA7FFD26.highlight.minted
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmtti10.tfm
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+OUTPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT build/main.vrb
+INPUT ./build/_minted/5FE698F68A7981519BB3C68608978DE9.highlight.minted
+INPUT ./build/_minted/5FE698F68A7981519BB3C68608978DE9.highlight.minted
+INPUT build/_minted/5FE698F68A7981519BB3C68608978DE9.highlight.minted
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./images/0-varie/sfondo chiaro.pdf
+INPUT ./src/footpage.tex
+INPUT ./src/footpage.tex
+OUTPUT build/src/footpage.aux
+INPUT ./src/footpage.tex
+INPUT ./src/footpage.tex
+INPUT src/footpage.tex
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmss17.tfm
+INPUT ./images/0-varie/logo UniFi.pdf
+INPUT ./images/0-varie/logo UniFi.pdf
+INPUT ./images/0-varie/logo UniFi.pdf
+INPUT ./images/0-varie/logo UniFi.pdf
+OUTPUT build/main.nav
+OUTPUT build/main.toc
+OUTPUT build/main.snm
+INPUT build/main.aux
+INPUT build/src/1-car rental.aux
+INPUT build/src/1-car rental.aux
+INPUT build/src/1-car rental.aux
+INPUT build/src/2-deployment.aux
+INPUT build/src/2-deployment.aux
+INPUT build/src/2-deployment.aux
+INPUT build/src/3-health.aux
+INPUT build/src/3-health.aux
+INPUT build/src/3-health.aux
+INPUT build/src/4-tracing.aux
+INPUT build/src/4-tracing.aux
+INPUT build/src/4-tracing.aux
+INPUT build/src/5-metrics.aux
+INPUT build/src/5-metrics.aux
+INPUT build/src/5-metrics.aux
+INPUT build/src/footpage.aux
+INPUT build/src/footpage.aux
+INPUT build/src/footpage.aux
+INPUT build/main.out
+INPUT build/main.out
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss17.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss8.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsso10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt8.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt9.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtti10.pfb

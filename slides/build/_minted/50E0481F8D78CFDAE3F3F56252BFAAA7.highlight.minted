@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}dependency\PYGZgt{}
+\PYG{+w}{    }\PYGZlt{}groupId\PYGZgt{}io.quarkus\PYGZlt{}/groupId\PYGZgt{}
+\PYG{+w}{    }\PYGZlt{}artifactId\PYGZgt{}quarkus\PYGZhy{}opentelemetry\PYGZlt{}/artifactId\PYGZgt{}
+\PYGZlt{}/dependency\PYGZgt{}
+\end{MintedVerbatim}

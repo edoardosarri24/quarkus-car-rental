@@ -29,7 +29,7 @@ quarkus.container-image.build=true
 quarkus.container-image.push=false
 quarkus.container-image.group=edoardosarri
 quarkus.container-image.name=inventory-service
-quarkus.container-image.tag=1.1
+quarkus.container-image.tag=2.0
 # kubernetes
 quarkus.kubernetes.name=inventory-service
 quarkus.kubernetes.deployment-target=kubernetes
@@ -94,6 +94,5 @@ Quarkus permette con molta facilità di gestire le metriche di Health con le app
 \begin{lstlisting}[caption=JDBC configuration., label=lst:db_config]
 # health
 quarkus.kubernetes.startup-probe.failure-threshold=1
-quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/reservation
-%prod.quarkus.datasource.jdbc.url=jdbc:postgresql://postgresql-reservation:5432/reservation
+quarkus.datasource.jdbc.url=jdbc:postgresql://postgresql-reservation:5432/reservation
 \end{lstlisting}

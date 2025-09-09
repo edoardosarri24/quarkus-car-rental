@@ -20,7 +20,7 @@ Dobbiamo a questo punto definire un modo per dire a Prometheus di raccogliere le
 \begin{lstlisting}[caption=Prometheus configuration for \textit{users-service}, label=lst:users_prometheus]
 # prometheus and grafana
 quarkus.kubernetes.prometheus.generate-service-monitor=true
-quarkus.kubernetes.labels."release"="prometheus"
+quarkus.kubernetes.labels.release=prometheus
 \end{lstlisting}
 
 Infine serve installare nel cluster Minikube un container in cui esegue il server Prometheus. Questo è stato fatto, come nel resto del progetto, tramite Helm e il suo chart c. Questo non solo installa Promuethus, ma è un singolo pacchetto che comprende anche Grafana.

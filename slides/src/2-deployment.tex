@@ -1,0 +1,93 @@
+\section{Deployment}
+
+\subsection{Software Architecture and Methodologies}
+
+\begin{frame}{Deployment}
+    \begin{block}{Tecnologie}
+        \begin{itemize}
+            \item Minikube
+            \item Docker
+            \item Helm
+        \end{itemize}
+    \end{block}
+    \begin{block}{File}
+        I file interessanti sono:
+        \begin{itemize}
+            \item \textit{application.properties}
+            \item \textit{pom.xml}
+            \item Codice di \textit{users-service}: rimosso servizio di autenticazione; unico utente \textit{guest}.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Deployment}
+    \begin{block}{Problemi risolti}
+        \begin{itemize}
+            \item Il deployment era per OpenShift
+            \item Le immagini venivano caricare su \textit{Quay.io}
+            \item Riferimenti da settare
+        \end{itemize}
+    \end{block}
+    \begin{block}{Estensioni}
+        \begin{minted}[fontsize=\scriptsize]{bash}
+<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-container-image-docker</artifactId>
+</dependency>
+<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-kubernetes</artifactId>
+</dependency>
+        \end{minted}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Deployment}
+    \begin{columns}
+        \begin{column}{.3\textwidth}
+            \begin{block}{Problemi risolti}
+                \begin{itemize}
+                    \item OpenShift
+                    \item Registry
+                    \item Riferimenti
+                \end{itemize}
+            \end{block}
+        \end{column}
+        \begin{column}{.7\textwidth}
+            \begin{block}{Kubernetes}
+                \begin{minted}[fontsize=\tiny]{bash}
+quarkus.container-image.build=true
+quarkus.container-image.push=false
+quarkus.kubernetes.deployment-target=kubernetes
+quarkus.kubernetes.service-type=NodePort
+quarkus.kubernetes.image-pull-policy=Never
+                \end{minted}
+            \end{block}
+            \begin{block}{Riferimenti}
+                \begin{minted}[fontsize=\tiny]{bash}
+%dev.quarkus.rest-client.reservations.url=http://localhost:8081
+%prod.quarkus.rest-client.reservations.url=http://reservation-service
+                \end{minted}
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Deployment}
+    \begin{block}{Helm}
+        Usato per il deployment di servizi esterni.
+        \begin{itemize}
+            \item Mette a dispozione Chart su ArtifactHUB.
+            \item Deployment personalizzato tramite \textit{value.yaml} o CLI.
+        \end{itemize}
+    \end{block}
+    \begin{block}{MySQL Helm chart}
+        \begin{minted}{bash}
+helm install mysql-inventory bitnami/mysql \
+    --set auth.rootPassword=root-pass \
+    --set auth.database=mysql-inventory \
+    --set auth.username=user \
+    --set auth.password=pass
+        \end{minted}
+    \end{block}
+\end{frame}

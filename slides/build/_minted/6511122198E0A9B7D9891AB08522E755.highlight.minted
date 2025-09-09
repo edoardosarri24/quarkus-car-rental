@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+helm\PYG{+w}{ }install\PYG{+w}{ }mysql\PYGZhy{}inventory\PYG{+w}{ }bitnami/mysql\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }auth.rootPassword\PYG{o}{=}root\PYGZhy{}pass\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }auth.database\PYG{o}{=}mysql\PYGZhy{}inventory\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }auth.username\PYG{o}{=}user\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }auth.password\PYG{o}{=}pass
+\end{MintedVerbatim}

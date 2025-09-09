@@ -1,0 +1,12 @@
+\frametitle{Metrics}
+\begin{block}{Deployment}
+        Chart Helm con i server Prometheus e Grafana insieme.
+        \begin{minted}{bash}
+helm install prometheus \
+    prometheus-community/kube-prometheus-stack \
+    --set grafana.service.type=NodePort \
+    --set grafana.adminUser=admin \
+    --set grafana.adminPassword=admin \
+    --set grafana.fullnameOverride=grafana
+        \end{minted}
+    \end{block}

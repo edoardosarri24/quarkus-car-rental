@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+quarkus.container\PYGZhy{}image.build\PYG{o}{=}\PYG{n+nb}{true}
+quarkus.container\PYGZhy{}image.push\PYG{o}{=}\PYG{n+nb}{false}
+quarkus.kubernetes.deployment\PYGZhy{}target\PYG{o}{=}kubernetes
+quarkus.kubernetes.service\PYGZhy{}type\PYG{o}{=}NodePort
+quarkus.kubernetes.image\PYGZhy{}pull\PYGZhy{}policy\PYG{o}{=}Never
+\end{MintedVerbatim}

@@ -5,6 +5,8 @@ helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
 helm repo update
 
 #minikube
+open -a Docker
+sleep 15
 minikube delete || true
 minikube start --memory=7837 --cpus=2
 eval $(minikube -p minikube docker-env)

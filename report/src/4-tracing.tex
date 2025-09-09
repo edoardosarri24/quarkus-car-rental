@@ -30,6 +30,13 @@ quarkus.otel.exporter.otlp.endpoint=http://jaeger-collector:4317
 quarkus.otel.traces.sampler=always_on
 \end{lstlisting}
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.9\textwidth]{images/4-tracing/jaeger use case.pdf}
+    \caption{Car resevation from user.}
+    \label{fig:jaeger_usecases}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Jaeger deployment}
 Come per i servizi terzi elencati nella Sezione~\ref{sec:servizi_esterni}, anche il backend Jaeger deve essere rilasciato nello stesso cluster Minikube di tutta l'applicazione.
@@ -44,3 +51,9 @@ helm install jaeger jaegertracing/jaeger \
     --set provisionDataStore.cassandra=false \
     --set storage.type=memory
 \end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Use case}
+Tornando alle interazioni dei servizi che permettono all'utente di eseguire operazioni, come avevamo mostrato in Figura~\ref{fig:use_cases}, possiamo cercare di individurare la sequenza di chiamate che avviene a sequito di una data richiesta.
+
+Consideriamo infatti come esempio la prenotazione di una macchina da parte di un utente. Come possiamo vedere in Figura~\ref{fig:jaeger_usecases}, Jaeger ci permette di visualizzare i vari microservizi che sono chiamati e i tempi con cui vengono gestiti le chiamate, sia come tramite annidamento che in modo grafico.

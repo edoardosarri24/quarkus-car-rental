@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+helm\PYG{+w}{ }install\PYG{+w}{ }prometheus\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }prometheus\PYGZhy{}community/kube\PYGZhy{}prometheus\PYGZhy{}stack\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }grafana.service.type\PYG{o}{=}NodePort\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }grafana.adminUser\PYG{o}{=}admin\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }grafana.adminPassword\PYG{o}{=}admin\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}set\PYG{+w}{ }grafana.fullnameOverride\PYG{o}{=}grafana
+\end{MintedVerbatim}

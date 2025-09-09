@@ -1,7 +1,13 @@
 \chapter{Car Rental Application}
 L'applicazione utilizzata durante l'intero progetto è stata \href{https://github.com/xstefank/quarkus-in-action}{\textit{acme-car-rental}}. Si tratta di un'applicazione a micro servizi sviluppata all'interno del libro \textit{Quarkus in Action}~\cite{quarkusinaction}. Esso mostra le caratteristiche principali di Quarkus e sviluppa le varie funzionalità dell'applicazione capitolo per capitolo, rilasciando su GitHub la versione finale e completa alla fine.
 
-L'applicazione permette di svolgere le attività di base, che ogni applicazione di noleggio auto dovrebbe implementare: ricerca di auto libere in un determinato intervallo di tempo; prenotazione di un auto definito tale intervallo; ricerca delle auto prenotate; aggiunta e rimozione di una'auto dall'inventario della auto disponibili.
+Lato utente l'applicazione permette, come si vede in Figura~\ref{fig:use_cases}, di svolgere le attività di base che ogni applicazione di noleggio auto dovrebbe implementare: ricerca di auto libere in un determinato intervallo di tempo; prenotazione di un auto definito tale intervallo; ricerca delle auto prenotate; aggiunta e rimozione di una'auto dall'inventario della auto disponibili.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/2-car-rental/use cases.pdf}
+    \caption{\textit{car-rental} users use cases~\cite{quarkusinaction}.}
+    \label{fig:use_cases}
+\end{figure}
 
 \myskip
 
@@ -10,7 +16,7 @@ Oltre a quanto specificato in questo report e a quanto si trova nella \href{http
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Architettura}
 \label{sec:servizi}
-Vediamo come prima cosa l'architettura dell'applicazione. I micro servizi che car-rental definisce, che la Figura~\ref{fig:architecture} mette in relazione, sono cinque:
+Vediamo come prima cosa l'architettura dell'applicazione. I micro servizi che car-rental definisce sono cinque:
 \begin{itemize}
     \item \textbf{Billing-service}: \\
         Gestisce i pagamenti e le fatture. Viene chiamato da \textit{reservation-service} quando un utente effettua una prenotazione e da \textit{rental-service} quando un'auto viene noleggiata.
@@ -24,13 +30,6 @@ Vediamo come prima cosa l'architettura dell'applicazione. I micro servizi che ca
         Fornisce una semplice interfaccia per la gestione delle prenotazioni. \\
         Nel codice originale questo servizio si appoggiava a \textit{Keycloak} per la gestione degli utenti. Per problemi di deployment e gestione, ho preferito rimuovere questa dipendenza; l'applicazione adesso permette a un solo utente, \textit{guest}, di effettuare prenotazioni.
 \end{itemize}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\textwidth]{images/2-car-rental/architecture.pdf}
-    \caption{\textit{car-rental} architecture~\cite{quarkusinaction}.}
-    \label{fig:architecture}
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Servizi Esterni}

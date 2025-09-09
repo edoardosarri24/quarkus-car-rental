@@ -1,0 +1,36 @@
+\section{Health}
+
+\subsection{Software Architecture and Methodologies}
+
+\begin{frame}{Health}
+    \begin{block}{Problema}
+        Il microservizio \textit{reservation-service} in stato \textit{Running} e \textit{Ready}, ma senza connesione al database PostgreSQL.
+    \end{block}
+        \begin{block}{Soluzione e motivazione}
+            \begin{itemize}
+                \item Riavviare manualmente il pod.
+                \item \textit{reservation-service} necessita che il database sia avviato e pronto a ricevere richeiste.
+            \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Health}
+    \begin{block}{StartUp probs}
+        Definita una custom health check in \textit{DatabaseConnectionHealthCheck.java} annotata con \textit{@Startup}.
+    \end{block}
+    \begin{block}{Estensioni}
+        \begin{minted}[fontsize=\scriptsize]{bash}
+<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-smallrye-health</artifactId>
+</dependency>
+        \end{minted}
+    \end{block}
+    \begin{block}{Configurazioni}
+        \begin{minted}[fontsize=\scriptsize]{bash}
+quarkus.kubernetes.startup-probe.failure-threshold=1
+quarkus.datasource.jdbc.url=
+    =jdbc:postgresql://postgresql-reservation:5432/reservation
+        \end{minted}
+    \end{block}
+\end{frame}

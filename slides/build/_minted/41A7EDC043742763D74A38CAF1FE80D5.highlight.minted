@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+quarkus.kubernetes.startup\PYGZhy{}probe.failure\PYGZhy{}threshold\PYG{o}{=}\PYG{l+m}{1}
+quarkus.datasource.jdbc.url\PYG{o}{=}
+\PYG{+w}{    }\PYG{o}{=}jdbc:postgresql://postgresql\PYGZhy{}reservation:5432/reservation
+\end{MintedVerbatim}

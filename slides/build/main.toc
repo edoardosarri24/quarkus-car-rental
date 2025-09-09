@@ -1,0 +1,14 @@
+\beamer@subsectionintoc {0}{1}{\href {https://github.com/edoardosarri24/quarkus-car-rental}{GitHub}}{1}{0}{0}
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\beamer@sectionintoc {1}{Car Rental}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Software Architecture and Methodologies}{2}{0}{1}
+\beamer@sectionintoc {2}{Deployment}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Software Architecture and Methodologies}{5}{0}{2}
+\beamer@sectionintoc {3}{Health}{9}{0}{3}
+\beamer@subsectionintoc {3}{1}{Software Architecture and Methodologies}{9}{0}{3}
+\beamer@sectionintoc {4}{Tracing}{11}{0}{4}
+\beamer@subsectionintoc {4}{1}{Software Architecture and Methodologies}{11}{0}{4}
+\beamer@sectionintoc {5}{Metrics}{14}{0}{5}
+\beamer@subsectionintoc {5}{1}{Software Architecture and Methodologies}{14}{0}{5}
+\beamer@subsectionintoc {5}{2}{\href {https://github.com/edoardosarri24/quarkus-car-rental}{GitHub}}{16}{0}{5}

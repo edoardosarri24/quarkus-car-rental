@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}dependency\PYGZgt{}
+\PYG{+w}{    }\PYGZlt{}groupId\PYGZgt{}io.quarkus\PYGZlt{}/groupId\PYGZgt{}
+\PYG{+w}{    }\PYGZlt{}artifactId\PYGZgt{}quarkus\PYGZhy{}container\PYGZhy{}image\PYGZhy{}docker\PYGZlt{}/artifactId\PYGZgt{}
+\PYGZlt{}/dependency\PYGZgt{}
+\PYGZlt{}dependency\PYGZgt{}
+\PYG{+w}{    }\PYGZlt{}groupId\PYGZgt{}io.quarkus\PYGZlt{}/groupId\PYGZgt{}
+\PYG{+w}{    }\PYGZlt{}artifactId\PYGZgt{}quarkus\PYGZhy{}kubernetes\PYGZlt{}/artifactId\PYGZgt{}
+\PYGZlt{}/dependency\PYGZgt{}
+\end{MintedVerbatim}
