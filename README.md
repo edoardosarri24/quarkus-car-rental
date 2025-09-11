@@ -1,35 +1,39 @@
 # Quarkus Car Rental
-This project is a car rental system built with a microservices architecture using Quarkus and based on the one released with the book [Quarkus in Action](https://github.com/xstefank/quarkus-in-action).
+This project is based on a car rental system that starts from the one released with the book [Quarkus in Action](https://github.com/xstefank/quarkus-in-action). The goal is focus on the Kubernetes technologies and Quarkus framework.
+
+### My documentation
+The report of the whole project is in [report.pdf](https://github.com/edoardosarri24/quarkus-car-rental/report.pdf) file. The slides of the application part is in [slides.pdf](https://github.com/edoardosarri24/quarkus-car-rental/slides.pdf) file.
 
 ### Requirements
 To get started with this project, you will need to have the following installed:
 - Java 21
 - Maven
-- Docker, Minikube, Kubectl
+- Docker, Minikube, kubectl
 - Quarkus CLI
 
-### Getting Started
-For deployment the whole application, execute the command below from the root directory:
-```bash
-./deployment.sh
+### Running
+To deployment the whole application, execute the command below from the root directory whit Docker demon running:
+```sh
+./exec/deployment.sh
 ```
 
-For start Jaeger Tracing executes che command below from the root directory:
-```bash
-./jaeger-helm.sh
+To visualize the app UI executes the following command from the root directory:
+```sh
+./exec/app-UI.sh
 ```
 
-### Microservices
-The project is composed of the following microservices:
-- billing-service: Handles billing and payments. It uses Kafka, RabbitMQ, and MongoDB.
-- car-statistics: Provides statistics about the cars. It uses Funqy and a GraphQL client.
-- inventory-service: Manages the car inventory. It uses gRPC, Hibernate, MySQL, and GraphQL.
-- rental-service: Handles the car rental process. It uses Kafka, MongoDB, and a REST client.
-- reservation-service: Manages reservations. It uses RabbitMQ, Hibernate Reactive with PostgreSQL, and a GraphQL client.
-- users-service: Manages user accounts. It uses Qute for templating and a REST client.
+To start Jaeger Tracing UI executes che command below from the root directory:
+```sh
+./exec/jaeger-UI.sh
+```
 
-### Technologies
-The technologie used are:
+To start Grafana UI executes che command below from the root directory:
+```sh
+./exec/grafana-UI.sh
+```
+
+### Technologies studired
+The technologies used are:
 - [Kafka](https://kafka.apache.org/), [RabbitMQ](https://www.rabbitmq.com/)
 - [gRPC](https://grpc.io/), [GraphQL](https://graphql.org/)
 - [MongoDB](https://www.mongodb.com/), [MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/)
