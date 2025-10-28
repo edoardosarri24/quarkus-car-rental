@@ -1,4 +1,5 @@
 \chapter{Deployment}
+\label{cap:deployment}
 In questo capitolo descriviamo il processo di deployment, più complesso di quello che ci aspettavamo. Nonostante infatti l'applicazione fosse già sviluppata in ogni suo aspetto, essa era predisposta per essere rilasciata su OpenShift e usare Quay.io come registry per le immagini.
 
 Per questi motivi il file di configurazione Quarkus \textit{application.properties} sono stati complettamente rivisti e adattati alla nostra configurazione, che come abbiamo detto nel Capitolo~\ref{cap:introduzione} comprende Minikube come ambiente di deployment e Docker come runtime per i container.

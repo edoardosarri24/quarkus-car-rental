@@ -10,7 +10,7 @@ minikube start --memory=7837 --cpus=2
 eval $(minikube -p minikube docker-env)
 
 # Prometheus and Grafana
-echo "prometheus and grafana"
+echo "--- PROMETHEUS AND GRAFANA ---"
 helm install prometheus prometheus-community/kube-prometheus-stack \
     --set grafana.service.type=NodePort \
     --set grafana.adminUser=admin \
@@ -19,7 +19,7 @@ helm install prometheus prometheus-community/kube-prometheus-stack \
     --wait
 
 # jaeger
-echo "jaeger"
+echo "--- JAEGER ---"
 helm install jaeger jaegertracing/jaeger \
     --set allInOne.enabled=true \
     --set agent.enabled=false \
@@ -33,46 +33,63 @@ helm install jaeger jaegertracing/jaeger \
 cd services/external-services
 ./kafka-helm.sh
 ./rabbitmq-helm.sh
+./mysql-helm.sh
 
 # billing-service
-echo "billing-service"
+echo "--- BILLING SERVICE ---"
 cd ../billing-service
 kubectl apply -f mongodb-manifest.yaml
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # car-statistics
-echo "car-statistics"
+echo "--- CAR STATISTICS ---"
 cd ../car-statistics
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # inventory-service
-echo "inventory-service"
+echo "--- INVENTORY SERVICE ---"
 cd ../inventory-service
-./mysql-helm.sh
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # rental-service
-echo "rental-service"
+echo "--- RENTAL SERVICE ---"
 cd ../rental-service
 kubectl apply -f mongodb-manifest.yaml
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # reservation-service
-echo "reservation-service"
+echo "--- RESERVATION SERVICE ---"
 cd ../reservation-service
 ./postgresql-helm.sh
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # users-service
-echo "users-service"
+echo "--- USERS SERVICE ---"
 cd ../users-service
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
+
+# workflow services
+echo "--- WORKFLOW SERVICES ---"
+cd ../busywait-services/users
+cd start-choice
+quarkus build
+kubectl apply -f target/kubernetes/kubernetes.yml
+cd ../first-choice
+quarkus build
+kubectl apply -f target/kubernetes/kubernetes.yml
+cd ../second-choice
+quarkus build
+kubectl apply -f target/kubernetes/kubernetes.yml
+cd ../third-choice
+quarkus build
+kubectl apply -f target/kubernetes/kubernetes.yml
+cd ../../..
 
 # complete
 sleep 120

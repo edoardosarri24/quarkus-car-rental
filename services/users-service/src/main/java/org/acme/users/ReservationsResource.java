@@ -2,6 +2,7 @@ package org.acme.users;
 
 import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -36,8 +37,13 @@ public class ReservationsResource {
             LocalDate endDate);
     }
 
+    @Inject
     @RestClient
     ReservationsClient client;
+
+    @Inject
+    @RestClient
+    StartChoiceClient startChoice;
 
     @GET
     @Produces(MediaType.TEXT_HTML)
@@ -85,6 +91,7 @@ public class ReservationsResource {
         reservation.startDay = startDate;
         reservation.endDay = endDate;
         reservation.carId = carId;
+        startChoice.pass();
         client.make(reservation);
         return RestResponse.ResponseBuilder
             .ok(getReservations())

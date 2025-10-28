@@ -1,4 +1,5 @@
 helm upgrade --install kafka bitnami/kafka \
+    --set image.repository=bitnamilegacy/kafka \
     --set provisioning.enabled=true \
     --set provisioning.topics[0].name=invoices-confirmations \
     --set provisioning.topics[0].partitions=1 \

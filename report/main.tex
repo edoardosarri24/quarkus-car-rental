@@ -1,7 +1,7 @@
 \documentclass[12pt, a4paper, oneside, openright, footsepline]{scrreprt}
 \input{src/preambolo.tex}
 \begin{document}
-\include{src/copertina}
+\input{src/copertina}
 
 %%%%%%%%%%%%%%%%%%%%%%%INDICE%%%%%%%%%%%%%%%%%%%%%%
 \tableofcontents
@@ -10,12 +10,13 @@
 \lstlistoflistings
 
 %%%%%%%%%%%%%%%%%%%%%CAPITOLI%%%%%%%%%%%%%%%%%%%%%%
-\include{src/1-introduzione}
-\include{src/2-car-rental}
-\include{src/3-deployment}
-\include{src/4-tracing}
-\include{src/5-metrics}
-\include{src/6-loadgenerator}
+\input{src/1-introduzione}
+\input{src/2-car-rental}
+\input{src/3-deployment}
+\input{src/4-tracing_metrics}
+\input{src/5-workflow}
+\input{src/6-loadgenerator}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%FINE%%%%%%%%%%%%%%%%%%%%%%%%
 \nocite{*}
