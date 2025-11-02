@@ -1,2 +1,2 @@
-- campiona il tempo della busywait in tutti i busyservices
-- gestisci la probabilità che venga chiamato un servizio first/second/third
+
+- https://grpc.io/docs/languages/java/basics/

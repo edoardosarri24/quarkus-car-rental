@@ -7,12 +7,12 @@ Per capire meglio osserviamo il workflow di una prenotazione da parte di un uten
 
 \myskip
 
-Il nostro obiettivo è adesso complicare questo workflow; faremo riferimento sempre a quello descritto sopra. Facendo riferimento alla terminogia usata nell'articolo del tool Eulero~\cite{carnevali2023compositional}, che useremo più avanti, l'applicazione prima della modifica combina solamente blocchi di tipo sequenziale (SEQ), mentre a noi interessa aggiungere degli blocchi XOR e blocchi AND, che sono descritti nella Sezione~\ref{sec:blocchi}.
+Il nostro obiettivo è adesso complicare questo workflow; faremo riferimento sempre a quello descritto sopra. Facendo riferimento alla terminogia usata nell'articolo del tool Eulero~\cite{carnevali2023compositional}, che useremo più avanti, l'applicazione prima della modifica combina solamente blocchi di tipo sequenziale (SEQ), mentre a noi interessa aggiungere degli blocchi XOR e blocchi AND, che sono descritti nella Sezione~\ref{sec:blocchi} e implementati nella Sezione~\ref{sec:implementazione}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Blocchi (MODIFICARE DOPO L'IMPLEMENTAZIONE)}
+\section{Blocchi}
 \label{sec:blocchi}
-Vediamo come prima cosa quali blocchi sono stati aggiunti e in che punto dell'attuale workflow sono stati eseguiti. I nomi di questi microservizi non hanno una qualche logica complicata, ma ci servono solo per tenere traccia di come il flusso sta eseguendo. Considereremo la traccia fornita come esempio nella Figura~\ref{fig:jaeger_reservation}.
+Vediamo come prima cosa quali blocchi sono stati aggiunti e in che punto dell'attuale workflow sono stati eseguiti. Da qui in poi considereremo la traccia fornita come esempio nella Figura~\ref{fig:jaeger_reservation}.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.8\textwidth]{images/5-workflow/STPN.pdf}
@@ -21,26 +21,31 @@ Vediamo come prima cosa quali blocchi sono stati aggiunti e in che punto dell'at
 \end{figure}
 
 \subsection{XOR}
-I blocchi XOR, come mostrato in R2 in Figura~\ref{fig:STPN}, rappresentano scelte casuali esclusive definite da una certa probabilità. Questo vuol dire che se abbiamo $n$ possibili strade che il flusso può prendere, ne sarà scelta una e una soltanto in base alla probabilità assegnata.
-
-Nella nostra applicazione è stato aggiunto un blocco XOR tra i microservizi \textit{users-service} e \textit{reservation-service}. Il blocco è così composto:
-\begin{itemize}
-    \item Un nodo iniziale chiamato da \textit{users-service} che prende una scelta randomica sul prossimo servizio da chiamare.
-    \item Tre possibili servizi che implementano una busy wait per un tempo campionato da una qualche distribuzione.
-    \item Un nodo finale che restiuisce il comando a \textit{reservation-service}.
-\end{itemize}
+I blocchi XOR, come mostrato in R2 in Figura~\ref{fig:STPN}, rappresentano scelte casuali esclusive definite da una certa probabilità. Questo vuol dire che se abbiamo $n$ possibili strade che il flusso può prendere, ne sarà scelta una e una soltanto una in base alla probabilità assegnata.
 
 \subsection{AND}
 I blocchi AND, come mostrato in X in Figura~\ref{fig:STPN}, rappresentano esecuzioni indipendenti che possono essere eseguite in parallelo. Questo vuol dire che se abbiamo $n$ strade, tutte saranno eseguite contemporaneamente e si sincronizzeranno alla fine.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Implementazione}
+\label{sec:implementazione}
+Adesso che abbiamo visto quali blocchi vogliamo aggiungere, vediamo come sono stati implementati e in che punto del workflow vengono eseguiti.
+
+La cosa importante da osservare è che l'obiettivo di questa modifica non è quello di aggiungere funzionalità all'applicazione, ma solamente quello di complicare il workflow. Per questo motivo ogni blocco aggiunto sarà composto da microservizi che non fanno altro che eseguire una busy wait per un tempo campionato da una distribuzione esponenziale; la busy wait è implementata con un ciclo \texttt{while} che controlla il tempo trascorso.
+
+\subsection{XOR}
+Il blocco XOR implementa la scelta esculiva tra tre microservizi. Questo blocco è inserito nel flusso di \textit{users-service}: quest'ultimo microservizio chiama quello responsabile della scelta randomica e una volta che il blocco XOR termina riprende il controllo; in questo modo al codice dell'applicazione precedente è stata solo aggiunta la chiamata a questo blocco.
+
+Il flusso del blocco XOR implementato è il seguente:
+\begin{itemize}
+    \item L'inizio del blocco è definito da \textit{start-choice-service}. Questo esegue una busy wait per un tempo campionato da una distribuzione esponenziale con tasso 1. Esegue poi una scelta randomica tra tre microservizio, dove: il primo ha probabilità 0.2, il secondo 0.5 e il terzo 0.3. Questo momento è utile per osservare un altro vantaggio di Quarkus: le probabilità con cui sono definite le scelte non sono build-in nel codice, ma sono definite del file \textit{application.properties}; questo permette di modificarle senza dover mettere mano al codice stesso.
+    \item I tre microservizi chiamati sono \textit{first-choice-service}, \textit{second-choice-service} e \textit{third-choice-service}. Ognuno di questi esegue una busy wait per un tempo campionato da una distribuzione esponenziale con tasso 1. Al termine di uno di questi il controllo ritorna a \textit{users-service}
+\end{itemize}
+
+\subsection{AND}
 Nella nostra applicazione è stato aggiunto un blocco AND tra i microservizi \textit{billing-service} e \textit{rental-service}. Il blocco è così composto:
 \begin{itemize}
     \item Un nodo iniziale chiamato da \textit{billing-service} che chiama in parallelo i tre componenti successivi.
     \item Tre servizi che implementano una busy wait per un tempo campionato da una qualche distribuzione.
     \item Un nodo finale sul quale i tre precedenti componenti si sincronizzano e che successivamente restiuisce il comando a \textit{rental-service}.
 \end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Implementazione}
-Non è importante cosa i nuovi blocchi facciano, cioè non sarà implementato un qualche aspetto funzionale; il loro obiettivo è, come detto, solamente quello di complicare il workflow.
-
-A livello implementativo i blocchi che andremo ad aggiungere non devono essere funzionali, cioè non devono aggiungere una qualche funzionalità applicazione, ma devono solo servire appunto per complicare il workflow.

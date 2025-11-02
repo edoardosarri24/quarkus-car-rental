@@ -76,7 +76,7 @@ kubectl apply -f target/kubernetes/kubernetes.yml
 
 # workflow services
 echo "--- WORKFLOW SERVICES ---"
-cd ../busywait-services/users
+cd ../busywait-services/XOR
 cd start-choice
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
@@ -87,6 +87,15 @@ cd ../second-choice
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 cd ../third-choice
+quarkus build
+kubectl apply -f target/kubernetes/kubernetes.yml
+cd ../../AND/start-parallel
+quarkus build
+kubectl apply -f target/kubernetes/kubernetes.yml
+cd ../first-parallel
+quarkus build
+kubectl apply -f target/kubernetes/kubernetes.yml
+cd ../second-parallel
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 cd ../../..

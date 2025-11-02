@@ -31,10 +31,3 @@ To start Grafana UI executes che command below from the root directory:
 ```sh
 ./exec/grafana-UI.sh
 ```
-
-### Technologies studired
-The technologies used are:
-- [Kafka](https://kafka.apache.org/), [RabbitMQ](https://www.rabbitmq.com/)
-- [gRPC](https://grpc.io/), [GraphQL](https://graphql.org/)
-- [MongoDB](https://www.mongodb.com/), [MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/)
-- [OpenTelemetry](https://opentelemetry.io), [Jaeger](https://www.jaegertracing.io)
