@@ -89,13 +89,13 @@ kubectl apply -f target/kubernetes/kubernetes.yml
 cd ../third-choice
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
-cd ../../AND/start-parallel
+cd ../../AND/startparallel
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
-cd ../first-parallel
+cd ../firstparallel
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
-cd ../second-parallel
+cd ../secondparallel
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 cd ../../..

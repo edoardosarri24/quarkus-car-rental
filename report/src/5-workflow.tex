@@ -34,7 +34,7 @@ Adesso che abbiamo visto quali blocchi vogliamo aggiungere, vediamo come sono st
 La cosa importante da osservare è che l'obiettivo di questa modifica non è quello di aggiungere funzionalità all'applicazione, ma solamente quello di complicare il workflow. Per questo motivo ogni blocco aggiunto sarà composto da microservizi che non fanno altro che eseguire una busy wait per un tempo campionato da una distribuzione esponenziale; la busy wait è implementata con un ciclo \texttt{while} che controlla il tempo trascorso.
 
 \subsection{XOR}
-Il blocco XOR implementa la scelta esculiva tra tre microservizi. Questo blocco è inserito nel flusso di \textit{users-service}: quest'ultimo microservizio chiama quello responsabile della scelta randomica e una volta che il blocco XOR termina riprende il controllo; in questo modo al codice dell'applicazione precedente è stata solo aggiunta la chiamata a questo blocco.
+Il blocco XOR, che si trova nella cartella \href{https://github.com/edoardosarri24/quarkus-car-rental/tree/master/services/busywait-services/XOR}{XOR} su GitHub, implementa la scelta esculiva tra tre microservizi. Questo blocco è inserito nel flusso di \textit{users-service}: quest'ultimo microservizio chiama quello responsabile della scelta randomica e una volta che il blocco XOR termina riprende il controllo; in questo modo al codice dell'applicazione precedente è stata solo aggiunta la chiamata a questo blocco.
 
 Il flusso del blocco XOR implementato è il seguente:
 \begin{itemize}
@@ -43,9 +43,25 @@ Il flusso del blocco XOR implementato è il seguente:
 \end{itemize}
 
 \subsection{AND}
-Nella nostra applicazione è stato aggiunto un blocco AND tra i microservizi \textit{billing-service} e \textit{rental-service}. Il blocco è così composto:
+Il blocco AND, che si trova nella cartella \href{https://github.com/edoardosarri24/quarkus-car-rental/tree/master/services/busywait-services/AND}{AND} su GitHub, implementa l'esecuzione parallela di due servizi chiamati dallo stesso microservizio client; i due server eseguono contemporaneamente e si sincronizzano nel client.
+
+Questo blocco è inserito nel flusso di \textit{reservation-service}: quest'ultimo microservizio chiama \textit{start-parallel} che è il responsabile del fork; una volta che il blocco AND termina riprende il controllo; in questo modo al codice dell'applicazione precedente è stata solo aggiunta la chiamata a questo blocco.
+
+\myskip
+
+Per l'implementazione del blocco AND è stato usato gRPC, già descritto nella Sezione~\ref{sec:comunicazione}. In questo caso ha fatto la differenza l'utilizzo del framework Quarkus, che fornisce l'integrazione nativa con gRPC e permette di definire servizi asincroni in modo semplice.
+
+La pipeline usata per implementare la comunicazione asincrona di gRPC con Quarkus è la seguente:
 \begin{itemize}
-    \item Un nodo iniziale chiamato da \textit{billing-service} che chiama in parallelo i tre componenti successivi.
-    \item Tre servizi che implementano una busy wait per un tempo campionato da una qualche distribuzione.
-    \item Un nodo finale sul quale i tre precedenti componenti si sincronizzano e che successivamente restiuisce il comando a \textit{rental-service}.
+    \item Il server dichiara un file \textit{.proto}, che definisce i servizi offerti e i messaggi scambiati. Questo permette di lavorare in modo API-first: si definisce cosa il server espone e si lavora a partire da questo.
+    \item Con l'estensione \textit{quarkus-grpc}, quando si chiama \texttt{quarkus build}, il framework genera automaticamente tutto quello che ci serve per implementare il server. In particolare la classe che espone il servizio deve implementare un'interfaccia e sovrascrivere i metodi che nel file \textit{.proto} sono i messaggi scambiati.
+    \item Il client deve memorizzare il file \textit{.proto}, compilarlo in modo che Quarkus generi lo stub del server e intrumentare il codice in modo da poter chiamare i metodi esposti dal server come se fossero locali.
 \end{itemize}
+
+\myskip
+
+gRPC consente quindi di impelmentare una comunizione asincrona tra client e server tramite canali asincroni. Questo si può fare usando l'interfaccia nativa di gRPC o le API di SmallRye.
+
+In gRPC Java classico questi canali sono gestiti dall'interfaccia \texttt{StreamObserver<T>}, dove \texttt{T} è il tipo del messaggio; ogni comuniazione è quindi un oggetto che implementa tale interfaccia. Quando si invia un messaggio tramite il canale (usando il metodo \texttt{onNext(T message)}), gRPC avvia un thread del suo pool di thread dedicati, il quale si occupa della gestione. Questa interfaccia ha però numerosi limiti: è imperativa e quindi tutto deve essere gestito a mano; si basa su callback, cioè molte funzioni vengono passate come parametro (uno \textit{StreamObserver} deve implementare tre metodi) e saranno chiamate in un secondo momento; è difficile da testare; non permette di gestire più risponde come un unico oggetto.
+
+Quarkus, ovviamente, non utilizza questa interfaccia, ma sfrutta quella di SmallRye, \textit{Mutiny}. Si tratta di una libreria reattiva e dichiarativa: si deve definire come il sistema si comporta quando i dati arriveranno; non dobbiamo dire come fare le cose ma solo cosa vogliamo ottenere (e.g., nello stesso modo delle lambda). L'interfaccia di \textit{Mutiny} si basa su due tipi, \texttt{Uni<T>} e \texttt{Multi<T>}: il primo permette l'invio di un solo messaggio, mentre il secondo consente gli stream. I vantaggi che si ottengono sono: codice più leggibile; composizione di chiamate diverse facile da implementare; facile da testare e debuggare.
