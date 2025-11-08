@@ -45,7 +45,7 @@ Il flusso del blocco XOR implementato è il seguente:
 \subsection{AND}
 Il blocco AND, che si trova nella cartella \href{https://github.com/edoardosarri24/quarkus-car-rental/tree/master/services/busywait-services/AND}{AND} su GitHub, implementa l'esecuzione parallela di due servizi chiamati dallo stesso microservizio client; i due server eseguono contemporaneamente e si sincronizzano nel client.
 
-Questo blocco è inserito nel flusso di \textit{reservation-service}: quest'ultimo microservizio chiama \textit{start-parallel} che è il responsabile del fork; una volta che il blocco AND termina riprende il controllo; in questo modo al codice dell'applicazione precedente è stata solo aggiunta la chiamata a questo blocco.
+Anche questo blocco è inserito nel flusso di \textit{users-service}, esattamento dopo la chiamata al servizio \textit{start-choice}: il microservizio chiama \textit{start-parallel} che è il responsabile del fork; una volta che il blocco AND termina riprende il controllo; in questo modo al codice dell'applicazione precedente è stata solo aggiunta la chiamata a questo blocco.
 
 \myskip
 

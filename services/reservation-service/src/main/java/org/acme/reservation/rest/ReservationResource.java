@@ -56,9 +56,6 @@ public class ReservationResource {
     @WithTransaction
     public Uni<Reservation> make(Reservation reservation) {
         reservation.userId = "guest";
-
-        // starting point for the parallel AND block.
-
         return reservation.<Reservation>persist().onItem()
             .call(persistedReservation -> {
                 Log.info("Successfully reserved reservation "

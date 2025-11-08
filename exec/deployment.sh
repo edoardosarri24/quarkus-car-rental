@@ -9,6 +9,13 @@ minikube delete || true
 minikube start --memory=7837 --cpus=2
 eval $(minikube -p minikube docker-env)
 
+#external services
+cd services/external-services
+./kafka-helm.sh
+./rabbitmq-helm.sh
+./mysql-helm.sh
+cd ../..
+
 # Prometheus and Grafana
 echo "--- PROMETHEUS AND GRAFANA ---"
 helm install prometheus prometheus-community/kube-prometheus-stack \
@@ -29,15 +36,9 @@ helm install jaeger jaegertracing/jaeger \
     --set storage.type=memory \
     --wait
 
-#external services
-cd services/external-services
-./kafka-helm.sh
-./rabbitmq-helm.sh
-./mysql-helm.sh
-
 # billing-service
 echo "--- BILLING SERVICE ---"
-cd ../billing-service
+cd services/billing-service
 kubectl apply -f mongodb-manifest.yaml
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
@@ -102,6 +103,5 @@ kubectl apply -f target/kubernetes/kubernetes.yml
 cd ../../..
 
 # complete
-sleep 30
 kubectl get pods
 cd ..

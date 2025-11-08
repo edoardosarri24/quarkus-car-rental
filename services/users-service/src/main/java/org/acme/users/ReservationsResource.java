@@ -45,6 +45,10 @@ public class ReservationsResource {
     @RestClient
     StartChoiceClient startChoice;
 
+    @Inject
+    @RestClient
+    StartParallelClient startparallel;
+
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance index(@RestQuery LocalDate startDate,
@@ -92,6 +96,7 @@ public class ReservationsResource {
         reservation.endDay = endDate;
         reservation.carId = carId;
         startChoice.pass();
+        startparallel.pass();
         client.make(reservation);
         return RestResponse.ResponseBuilder
             .ok(getReservations())
