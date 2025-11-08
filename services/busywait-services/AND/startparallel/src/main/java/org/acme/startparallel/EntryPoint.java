@@ -1,4 +1,4 @@
-package main.java.org.acme.startparallel;
+package org.acme.startparallel;
 
 import com.google.protobuf.Empty;
 import io.quarkus.grpc.GrpcClient;

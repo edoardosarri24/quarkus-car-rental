@@ -1,4 +1,4 @@
-package main.java.org.acme.firstparallel;
+package org.acme.firstparallel;
 
 import java.math.BigDecimal;
 

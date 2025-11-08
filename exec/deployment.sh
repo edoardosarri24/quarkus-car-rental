@@ -75,7 +75,7 @@ quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # workflow services
-echo "--- WORKFLOW SERVICES ---"
+echo "--- XOR SERVICES ---"
 cd ../busywait-services/XOR
 cd start-choice
 quarkus build
@@ -89,6 +89,7 @@ kubectl apply -f target/kubernetes/kubernetes.yml
 cd ../third-choice
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
+echo "--- AND SERVICES ---"
 cd ../../AND/startparallel
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
@@ -101,6 +102,6 @@ kubectl apply -f target/kubernetes/kubernetes.yml
 cd ../../..
 
 # complete
-sleep 120
+sleep 30
 kubectl get pods
 cd ..
