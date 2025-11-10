@@ -1,0 +1,25 @@
+fullnameOverride: otel-collector
+image:
+  repository: otel/opentelemetry-collector-contrib
+mode: deployment
+config:
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: "0.0.0.0:4317"
+  processors:
+    batch: {}
+  exporters:
+    otlp:
+      endpoint: "jaeger-collector:4317"
+      tls:
+        insecure: true
+    debug:
+      verbosity: detailed
+  service:
+    pipelines:
+      traces:
+        receivers: [otlp]
+        processors: [batch]
+        exporters: [otlp, debug]

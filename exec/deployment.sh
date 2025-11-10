@@ -2,6 +2,7 @@
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
+helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
 helm repo update
 
 #minikube
@@ -11,72 +12,56 @@ eval $(minikube -p minikube docker-env)
 
 #external services
 cd services/external-services
+echo "------------ EXTERNAL SERVICES ------------"
 ./kafka-helm.sh
 ./rabbitmq-helm.sh
 ./mysql-helm.sh
+./prometheus_grafana-helm.sh
+./jaeger-helm.sh
+./otel_collector-helm.sh
 cd ../..
 
-# Prometheus and Grafana
-echo "--- PROMETHEUS AND GRAFANA ---"
-helm install prometheus prometheus-community/kube-prometheus-stack \
-    --set grafana.service.type=NodePort \
-    --set grafana.adminUser=admin \
-    --set grafana.adminPassword=admin \
-    --set grafana.fullnameOverride=grafana \
-    --wait
-
-# jaeger
-echo "--- JAEGER ---"
-helm install jaeger jaegertracing/jaeger \
-    --set allInOne.enabled=true \
-    --set agent.enabled=false \
-    --set collector.enabled=false \
-    --set query.enabled=false \
-    --set provisionDataStore.cassandra=false \
-    --set storage.type=memory \
-    --wait
-
 # billing-service
-echo "--- BILLING SERVICE ---"
+echo "------------ BILLING SERVICE ------------"
 cd services/billing-service
 kubectl apply -f mongodb-manifest.yaml
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # car-statistics
-echo "--- CAR STATISTICS ---"
+echo "------------ CAR STATISTICS ------------"
 cd ../car-statistics
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # inventory-service
-echo "--- INVENTORY SERVICE ---"
+echo "------------ INVENTORY SERVICE ------------"
 cd ../inventory-service
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # rental-service
-echo "--- RENTAL SERVICE ---"
+echo "------------ RENTAL SERVICE ------------"
 cd ../rental-service
 kubectl apply -f mongodb-manifest.yaml
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # reservation-service
-echo "--- RESERVATION SERVICE ---"
+echo "------------ RESERVATION SERVICE ------------"
 cd ../reservation-service
 ./postgresql-helm.sh
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
 # users-service
-echo "--- USERS SERVICE ---"
+echo "------------ USERS SERVICE ------------"
 cd ../users-service
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
-# workflow services
-echo "--- XOR SERVICES ---"
+# xor services
+echo "------------ XOR SERVICES ------------"
 cd ../busywait-services/XOR
 cd start-choice
 quarkus build
@@ -90,7 +75,9 @@ kubectl apply -f target/kubernetes/kubernetes.yml
 cd ../third-choice
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
-echo "--- AND SERVICES ---"
+
+# and services
+echo "------------ AND SERVICES ------------"
 cd ../../AND/startparallel
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
