@@ -1,0 +1,4 @@
+# values.yaml for trace-analyzer
+
+pvc:
+  existingClaim: otel-traces-pvc

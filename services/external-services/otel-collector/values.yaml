@@ -2,6 +2,13 @@ fullnameOverride: otel-collector
 image:
   repository: otel/opentelemetry-collector-contrib
 mode: deployment
+extraVolumeMounts:
+  - name: traces-storage
+    mountPath: /traces
+extraVolumes:
+  - name: traces-storage
+    persistentVolumeClaim:
+      claimName: otel-traces-pvc
 config:
   receivers:
     otlp:
@@ -17,9 +24,11 @@ config:
         insecure: true
     debug:
       verbosity: detailed
+    file:
+      path: /traces/traces.json
   service:
     pipelines:
       traces:
         receivers: [otlp]
         processors: [batch]
-        exporters: [otlp, debug]
+        exporters: [otlp, debug, file]
