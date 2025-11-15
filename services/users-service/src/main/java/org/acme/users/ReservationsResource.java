@@ -100,9 +100,10 @@ public class ReservationsResource {
         client.make(reservation);
         return RestResponse.ResponseBuilder
             .ok(getReservations())
-            .header("HX-Trigger-After-Swap",
-            "update-available-cars-list")
-        .build();
+            .header(
+                "HX-Trigger-After-Swap",
+                "update-available-cars-list")
+            .build();
     }
 
 }

@@ -1,30 +1,29 @@
 \chapter{Workflow}
-Nei Capitoli~\ref{cap:deployment} e \ref{cap:tracing-metrics} abbiamo visto come l'applicazione car rental, descritta nel Capitolo~\ref{cap:app}, viene rilasciata su Minikube e come possiamo analizzare metriche e workflow.
+Nei Capitoli~\ref{cap:deployment} e \ref{cap:tracing-metrics} abbiamo visto come l'applicazione car rental, descritta nel Capitolo~\ref{cap:app}, viene rilasciata su Minikube e come possiamo analizzare metriche e workflow. In questo capitolo ci concentriamo invece sul workflow, cioè su come i microservizi si chiamano durante l'esecuzione di una funzionalità; in particolare la funzionalità che andremo ad esaminare sarà la prenotazione di una macchina.
 
-In questo capitolo ci concentriamo invece proprio sul workflow. Prima di qualunque modifica, \textit{Car-Rental} aveva un workflow esclusivamente sequenziale: quando un utente invocava una qualunque operazione tramite \textit{users-service}, la sequenza di chiamate agli altri microservizio era puramente sincrona e determinstica, cioè era sempre la stessa data l'operazione chiamata.
+Prima di qualunque modifica, come si nota dalla Figura~\ref{fig:initial_workflow}, \textit{Car-Rental} aveva un workflow esclusivamente sequenziale: quando un utente invocava una qualunque operazione, e in particolare \texttt{reserve}, tramite \textit{users-service}, la sequenza di chiamate agli altri microservizio era puramente sincrona e determinstica, cioè era sempre la stessa data l'operazione chiamata; ovviamente i tempi di esecuzione variano di chiamata in chiamata.
 
-Per capire meglio osserviamo il workflow di una prenotazione da parte di un utente, mostrato in Figura~\ref{fig:jaeger_reservation}. Quando un utente chiama \texttt{reserve} tramite l'interfaccia grafica, si genere sempre la stessa cascata di chiamate; ovviamente i tempi di esecuzione variano di chiamata in chiamata.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\textwidth]{images/5-workflow/initial_workflow_jaeger.pdf}
+    \caption{Workflow iniziale di Car-Rental.}
+    \label{fig:initial_workflow}
+\end{figure}
 
 \myskip
 
-Il nostro obiettivo è adesso complicare questo workflow; faremo riferimento sempre a quello descritto sopra. Facendo riferimento alla terminogia usata nell'articolo del tool Eulero~\cite{carnevali2023compositional}, che useremo più avanti, l'applicazione prima della modifica combina solamente blocchi di tipo sequenziale (SEQ), mentre a noi interessa aggiungere degli blocchi XOR e blocchi AND, che sono descritti nella Sezione~\ref{sec:blocchi} e implementati nella Sezione~\ref{sec:implementazione}.
+Il nostro obiettivo è, facendo riferimento sempre all'operazione \texttt{reserve}, complicare questo workflow. Facendo riferimento alla terminogia usata nell'articolo del tool Eulero~\cite{carnevali2023compositional}, che useremo più avanti, l'applicazione prima della modifica combina solamente blocchi di tipo sequenziale (\texttt{SEQ}), mentre a noi interessa aggiungere degli blocchi \texttt{XOR} e blocchi \texttt{AND}, che sono descritti nella Sezione~\ref{sec:blocchi} e implementati nella Sezione~\ref{sec:implementazione}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Blocchi}
 \label{sec:blocchi}
-Vediamo come prima cosa quali blocchi sono stati aggiunti e in che punto dell'attuale workflow sono stati eseguiti. Da qui in poi considereremo la traccia fornita come esempio nella Figura~\ref{fig:jaeger_reservation}.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=.8\textwidth]{images/5-workflow/STPN.pdf}
-    \caption{Stochastic Time Petri Net example~\cite{carnevali2023compositional}.}
-    \label{fig:STPN}
-\end{figure}
+Vediamo come prima cosa quali blocchi sono stati aggiunti e in che punto dell'attuale workflow sono stati eseguiti.
 
 \subsection{XOR}
-I blocchi XOR, come mostrato in R2 in Figura~\ref{fig:STPN}, rappresentano scelte casuali esclusive definite da una certa probabilità. Questo vuol dire che se abbiamo $n$ possibili strade che il flusso può prendere, ne sarà scelta una e una soltanto una in base alla probabilità assegnata.
+I blocchi XOR rappresentano scelte casuali esclusive definite da una certa probabilità. Questo vuol dire che se abbiamo $n$ possibili strade che il flusso può prendere, ne sarà scelta una e una soltanto una in base alla probabilità assegnata.
 
 \subsection{AND}
-I blocchi AND, come mostrato in X in Figura~\ref{fig:STPN}, rappresentano esecuzioni indipendenti che possono essere eseguite in parallelo. Questo vuol dire che se abbiamo $n$ strade, tutte saranno eseguite contemporaneamente e si sincronizzeranno alla fine.
+I blocchi AND rappresentano esecuzioni indipendenti che possono essere eseguite in parallelo. Questo vuol dire che se abbiamo $n$ strade, tutte saranno eseguite contemporaneamente e si sincronizzeranno alla fine.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementazione}
@@ -60,8 +59,28 @@ La pipeline usata per implementare la comunicazione asincrona di gRPC con Quarku
 
 \myskip
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.8\textwidth]{images/5-workflow/new_workflow_jaeger.pdf}
+    \caption{Nuovo workflow di \texttt{reserve} mostrato da Jaeger.}
+    \label{fig:new_workflow_jaeger}
+\end{figure}
+
 gRPC consente quindi di impelmentare una comunizione asincrona tra client e server tramite canali asincroni. Questo si può fare usando l'interfaccia nativa di gRPC o le API di SmallRye.
 
 In gRPC Java classico questi canali sono gestiti dall'interfaccia \texttt{StreamObserver<T>}, dove \texttt{T} è il tipo del messaggio; ogni comuniazione è quindi un oggetto che implementa tale interfaccia. Quando si invia un messaggio tramite il canale (usando il metodo \texttt{onNext(T message)}), gRPC avvia un thread del suo pool di thread dedicati, il quale si occupa della gestione. Questa interfaccia ha però numerosi limiti: è imperativa e quindi tutto deve essere gestito a mano; si basa su callback, cioè molte funzioni vengono passate come parametro (uno \textit{StreamObserver} deve implementare tre metodi) e saranno chiamate in un secondo momento; è difficile da testare; non permette di gestire più risponde come un unico oggetto.
 
 Quarkus, ovviamente, non utilizza questa interfaccia, ma sfrutta quella di SmallRye, \textit{Mutiny}. Si tratta di una libreria reattiva e dichiarativa: si deve definire come il sistema si comporta quando i dati arriveranno; non dobbiamo dire come fare le cose ma solo cosa vogliamo ottenere (e.g., nello stesso modo delle lambda). L'interfaccia di \textit{Mutiny} si basa su due tipi, \texttt{Uni<T>} e \texttt{Multi<T>}: il primo permette l'invio di un solo messaggio, mentre il secondo consente gli stream. I vantaggi che si ottengono sono: codice più leggibile; composizione di chiamate diverse facile da implementare; facile da testare e debuggare.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Nuovo workflow}
+Nel nuovo workflow, oltre ad includere i blocchi \texttt{XOR} e \texttt{AND}, è stata eliminata la parte di fatturazione. Il motivo di questa scelta è in dovuto al nostro obiettivo che ci ha portato a complicare questo workflow: vogliamo valutare il tempo E2E di una prenotazione. La prenotazione e la fatturazione sono in car-rental due operazioni indipendenti: una prenotazione ha successo, e quindi ritorna all'utente, indipendentemente dal completamento della chiamata di \texttt{reservation-service} a \texttt{billing-service}.
+
+Usando ancora Jeager per visualizzare la traccia della chiamata a \texttt{reserve}, possiamo notare dalla Figura~\ref{fig:new_workflow_jaeger} la presenza dei blocchi \texttt{XOR} e \texttt{AND} e l'esclusione dei microservizi \texttt{billing-service} e \texttt{rental-service}. In Figura~\ref{fig:new_workflow_sequence} è mostrato invece il sequence diagram UML.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/5-workflow/new_workflow_sequence.pdf}
+    \caption{Sequence diagram dei blocchi XOR e AND.}
+    \label{fig:new_workflow_sequence}
+\end{figure}
