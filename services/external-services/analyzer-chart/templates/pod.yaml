@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: {{ .Release.Name }}-trace-analyzer
+  name: {{ .Release.Name }}
 spec:
   containers:
-  - name: analyzer
+  - name: trace-analyzer
     image: ubuntu:latest
     # Comando per mantenere il pod in esecuzione
     command: ["/bin/sh", "-c", "sleep infinity"]

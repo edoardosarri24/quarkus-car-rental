@@ -18,7 +18,7 @@ echo "------------ EXTERNAL SERVICES ------------"
 ./mysql-helm.sh
 ./prometheus_grafana-helm.sh
 ./jaeger-helm.sh
-kubectl apply -f otel-collector/pvc-traces.yaml
+kubectl apply -f pvc-traces.yaml
 ./otel-collector/otel_collector-helm.sh
 helm install analyzer analyzer-chart
 cd ../..

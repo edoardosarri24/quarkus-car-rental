@@ -49,17 +49,22 @@ helm install jaeger jaegertracing/jaeger \
     --set storage.type=memory
 \end{lstlisting}
 
-\subsection{Use case}
-Tornando alle interazioni dei servizi che permettono all'utente di eseguire operazioni, come avevamo mostrato in Figura~\ref{fig:use_cases}, possiamo cercare di individurare la sequenza di chiamate che avviene a sequito di una data richiesta.
+\subsection{OTel workflow}
+Fino a questo memomento in qusta sezione abbiamo parlato dei componenti in modo separato; vediamo adesso di mettere tutto insieme per capire come i vari pod interagiscono nella nostra applicazione.
+
+Analiziamo il flusso mostrato in Figura~\ref{fig:otel_workflow}:
+\begin{itemize}
+    \item Viene chiamata una qualche API dell'applicaizone.
+    \item OpenTelemtry raccoglio le telemetri e invia le tracce al collector, che eventualmente fa quale operazione.
+    \item Il collector invia le tracce ai vari backend. Nel nostro caso Jaeger per la visualizzazione e il file system per l'analisi successiva.
+\end{itemize}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.9\textwidth]{images/4-tracing_metrics/jaeger use case.pdf}
-    \caption{Car resevation from user.}
-    \label{fig:jaeger_reservation}
+    \includegraphics[width=\textwidth]{images/4-tracing_metrics/otel_workflow/otel_workflow.pdf}
+    \caption{OpenTelemetry workflow.}
+    \label{fig:otel_workflow}
 \end{figure}
-
-Consideriamo infatti come esempio la prenotazione di una macchina da parte di un utente. Come possiamo vedere in Figura~\ref{fig:jaeger_reservation}, Jaeger ci permette di visualizzare i vari microservizi che sono chiamati e i tempi con cui vengono gestiti le chiamate, sia come tramite annidamento che in modo grafico.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Metrics}
