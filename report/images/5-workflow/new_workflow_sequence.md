@@ -58,12 +58,17 @@ sequenceDiagram
 
 
     %% OTHER
-    Users-service->>Reservation-service: make(reservation)
+    Users-service->>Reservation-service: reservation
+    activate Reservation-service
+    Reservation-service-->>Users-service: return
+    deactivate Reservation-service
+
+    Users-service->>Reservation-service: reservation/all
     activate Reservation-service
     Reservation-service-->>Users-service: return
     deactivate Reservation-service
 
     %% END
-    Users-service-->>Client: reservation confirmation
+    Users-service-->>Client: return
     deactivate Users-service
 ```

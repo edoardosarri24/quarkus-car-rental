@@ -1,0 +1,29 @@
+\chapter{Analisi E2E}
+In questo capitolo andremo ad eseguire un'analisi del tempo end to end (E2E) di una prenotazione da parte dell'utente, cioè dell'intervallo di tempo che trascorre dell'inizio della della funzionalità fino alla sua terminazione. Non usere le classiche statistiche descrittive come media media e varianza, ma la Probability Density Function (PDF) di tale intervallo, che ci permette di eseguire analisi più dettagliate.
+
+Nei casi in cui si voglia garantire un tempo di risposta medio di un servizio, l'analisi E2E può essere fatta semplicemente osservando media e varianza. Ci sono delle situazioni in cui però questo non è sufficiente e si vuole garantire un determinato Service Level Agreements (SLA), cioè si vuole lavorare con un upper-buond sul tempo di esecuzione; esempi sono soddisfare vincoli di soft real-time o rispettare certi livelli di qualità del servizio. Vogliamo quindi garantire qualcosa di più stringente rispetto al tempo medio: ogni chiamata a una qualche funzionalità deve sempre ritornare entro un tempo all'interno di una soglia. Questo richiede quindi di avere a disposizione la PDF del tempo di esecuzione, in modo da poter calcolare metriche più complesse. Un esempio di metrica che possiamo ottenere seguendo questo approccio è la probabilità che il tempo di esecuzione sfori la deadline $T_{max}$: si deve integrare la PDF in $[T_{max},+\infty]$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Eulero}
+Per analizzare i workflow ci sono sostanzialmente due tecniche: la prima è un'analisi numerica ed esatta, che è fattibile quando il workflow non è troppo complesso e i tempi di esecuzione seguono distribuzioni semplici (i.e., esponenziali); la seconda è una'analisi approssimata che permette di analizzare anche workflow con distribuzioni generali (\texttt{GEN}).
+
+La complessità nell'analisi di workflow complessi è data princilmipalmente da due fattori:
+\begin{itemize}
+    \item L'esposizione dello spazio degli stati durante l'analisi di un modello formale (e.g., STPN). Se il modello è un Direct Aciclyc Graph e si usa la transient analysis, allora il fatto che in ogni momento ci saranno molte transizioni abilitate (i.e., concorrenti) porta a dover valutare tutte (troppe) le possibilità.
+    \item I tempi di esecuzione nella realtà seguono distribuzioni generali (\texttt{GEN}), cioè non esponenziali. Questo comporta che la random variable che descrivere la transizione sia non Markoviana, cioè che il tempo di soggiorno in uno stato non dipenda solo dallo stato del modello, ma anche dal tempo trascorso in quello stato.
+\end{itemize}
+
+\myskip
+
+Visto quanto detto sopra, per ottenere la PDF del tempo di esecuzione di un servizio abbiamo usato Eulero\cite{carnevali2023compositional}, un tool dell'STLAB dell'università di Firenze. Questo esegue un'analisi tramite un metodo composizionale: si segue un approccio bottom-up in cui si calcolano le PDF di subworkflow e si compongono per ottenere la PDF del workflow completo. Questo permette di ridurre la complessità eliminando di fatto il condizionamento dello stato attuale dagli stati precedenti: quando analizzeremo il modello lo spazio degli stati analizzato sarà nettamente inferiore. Il lato negativo della medaglia è che si introduce un'errore di approssimazione nel tempo E2E calcolato: non riusciamo a modellare e a cogliere la relazione tra i tempi di esecuzione di due stati vicini.
+
+Senza scendere nel dettaglio, Eulero supporta workflow con strutture di controllo sequenziali (\texttt{SEQ}), parallele (\texttt{AND}), condizionali (\texttt{XOR}) e modellate con Direct Aciclyc Graph (\texttt{DAG}). Le strutture parallele e condizionali sono quelle descritte nella Sezione~\ref{sec:blocchi} e che sono stato poi implementate in car-rental.
+
+\subsection{Blocchi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analisi traces}
+Nella Sezione~\ref{cap:tracing} abbiamo descritto il funzionamento del collector di OpenTelemetry e come questo lavora all'interno della nostra applicazione. In questo momento ci interessa lavorare sulle tracce che il collector salva nel Persistant Volume Claim \textit{otel-traces-pvc} e che sono accedebili dal pod \textit{analizer}.
+
+\subsection{Formato tracce}
+Le tracce sono salvata in un singolo file \textit{traces.json}; si tratta di un JSON Lines, cioè un file dove ogni linea è un oggetto JSON indipendente. Lo \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/master/E2E-analysis/extract_traces}{script} è costruito in modo da leggere ogni riga del file e analizzarla come json. Quello che viene prodotto è...

@@ -7,7 +7,7 @@ helm repo update
 
 #minikube
 minikube delete || true
-minikube start --memory=7837 --cpus=2
+minikube start --memory=7836 --cpus=2
 eval $(minikube -p minikube docker-env)
 
 #external services
