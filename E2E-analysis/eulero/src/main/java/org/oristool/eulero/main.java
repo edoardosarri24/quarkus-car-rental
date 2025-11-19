@@ -14,9 +14,6 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 
-/**
- * This is an example file to demonstrate the basic usage of the Eulero library.
- */
 public class main {
 
     public static void main(String[] args) {
@@ -57,15 +54,10 @@ public class main {
 
         double[] cdf = model.analyze(timeLimit, timeStep, analyzer);
 
-        // 6. Display the results.
-        System.out.println("Analysis complete. CDF values:");
-        for (int i = 0; i < cdf.length; i++) {
-            System.out.printf("Time: %.2f, CDF: %.4f%n", i * timeStep.doubleValue(), cdf[i]);
-        }
-
         // You can also use the ActivityViewer to plot the results.
         // Note: This will open a Swing GUI window.
         EvaluationResult result = new EvaluationResult("Example Model", cdf, 0, cdf.length, timeStep.doubleValue(), 0);
         ActivityViewer.CompareResults("Example Analysis", List.of("CDF"), List.of(result));
     }
+
 }

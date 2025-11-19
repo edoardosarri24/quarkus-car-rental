@@ -9,3 +9,5 @@ if __name__ == "__main__":
     traces = extract_traces(traces_file)
     filtered_traces = filter_traces_for_workflow(traces)
     print_traces(filtered_traces)
+    statistics = collect_statisctics(filtered_traces)
+    print_statistics(statistics)
