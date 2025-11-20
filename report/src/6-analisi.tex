@@ -23,14 +23,20 @@ Il vantaggio di questo approccio è la riduzione della complessità: si elimina 
 
 Senza scendere nel dettaglio, Eulero supporta workflow con strutture di controllo sequenziali (\texttt{SEQ}), parallele (\texttt{AND}), condizionali (\texttt{XOR}) e modellate con Direct Aciclyc Graph (\texttt{DAG}). Le strutture parallele e condizionali sono quelle descritte nella Sezione~\ref{sec:blocchi} e che sono stato poi implementate in car-rental.
 
-\subsection{Blocchi}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Analisi traces}
+\section{Tracce}
 Nella Sezione~\ref{cap:tracing} abbiamo descritto il funzionamento del collector di OpenTelemetry e come questo lavora all'interno della nostra applicazione. In questo momento ci interessa lavorare sulle tracce che il collector salva nel Persistant Volume Claim (PVC) \textit{otel-traces-pvc} e che sono accedebili dal pod \textit{analizer}; l'obiettivo è estrarre dei dati che siano poi analizzabili da Eulero.
 
-\subsection{Formato tracce}
-Le tracce sono salvata in un singolo file \textit{traces.json}, che all'interno del pod \textit{analyzer} si trova nella directory \textit{data}. Si tratta di un JSON Lines, cioè un file dove ogni linea è un oggetto JSON indipendente. Lo \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/master/E2E-analysis/extract_traces}{script} è costruito in modo da leggere ogni riga del file e analizzarla come json.
+\subsection{Generazione}
+Per il nostro obiettivo ci servono molti dati e quindi moltre tracce da analizzare. Siccome generare queste tracce a mano non è molto pratico, è stato usato K6 come generatore di carico.
 
-\subsection{Risultato}
-Quello che viene prodotto è...
+Il generatore di carico K6 può essere installato localmente su una macchina Linux, MacOS o Windows, ma ha anche il grande vantaggio di poter essere eseguito all'interno di un'infrestruttura cloud. Nel nostro progetto è utile e sensato distribuire K6 all'interno del cluster Minikube dove è in esecuzione la nostra applicazione; in questo modo può chiamare ogni risorsa di ogni servizio senza esporre tale servizio all'esterno del cluster. Per distribuire K6 in un cluster Kubernetes ci diversi modi, ma nel nostro caso è stato usato, come in gran parte del progetto, Helm. Su GitHub è possibile vedere l'installazione del \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/21a410edfb1e2f9c0a3d74aa559f930ebc366494/services/external-services/k6}{job di K6}: helm utilizza la cartella \textit{templates/} per generare le risorse Kubernetes; il file \textit{templates/configmap.yaml} serve per iniettare lo script che il job dovrà eseguire; il file \textit{job.yaml} crea una Job Kubernetes che esegue tale script.
+
+L'implementazione questo job è molto semplice: logicamente si tratta di un ciclo \texttt{for} che esegue per un certo intervallo di tempo specificato chiamando l'entry point del servizio di prenotazione. Prenota sempre la stessa macchina spostando l'intervallo della prenotazione in avanti di un giorno a ogni iterazione.
+
+
+
+
+
+\subsection{Estrazione dati}
+Le tracce sono salvata in un singolo file \textit{traces.json}, che all'interno del pod \textit{analyzer} si trova nella directory \textit{data}. Si tratta di un JSON Lines, cioè un file dove ogni linea è un oggetto JSON indipendente. Lo \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/master/E2E-analysis/extract_traces}{script} è costruito in modo da leggere ogni riga del file e analizzarla come json.

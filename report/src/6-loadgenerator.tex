@@ -1,7 +1,0 @@
-\chapter{Load Generator}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{K6 Operator}
-Il generatore di carico K6 può essere installato localmente su una macchina Linux, MacOS o Windows, ma ha anche il grande vantaggio che può esere all'interno di un'infrestruttura cloud. Nel nostro progetto questo è utile e sensato se distruiamo K6 all'interno del cluster Minikube dove è in esecuzione la nostra applicazione; in questo contesto l'istanza K6 prende il nome di K6 Operator.
-
-Per distribuire K6 in un cluster Kubernetes ci sono tre modi, ma quello che abbiamo usato è, come in precedenza, Helm. La \href{https://grafana.com/docs/k6/latest/set-up/set-up-distributed-k6/}{documentazione di K6} fornisce istruzioni molto precise su come gestire la configrazione e l'installazione. Nel nostro caso è stato parametrizzato tutto nel file \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/master/services/external-services/k6/values.yaml}{\textit{values.yaml}}, in modo da avere un singolo punto dove agire sull'esperimento.
