@@ -7,25 +7,28 @@ Un esempio di metrica che possiamo ottenere seguendo questo approccio e basandoc
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Eulero}
-I workflow possono essere modellati tramite modelli formali come le Stocastic Time Petri Nets (STPN). Per ottenere una distribuzione del tempo E2E di un workflow ci sono due tecniche: la prima è un'analisi numerica esatta, fattibile quando il workflow non è troppo complesso e i tempi di esecuzione seguono distribuzioni markoviane (i.e., esponenziali); la seconda è un'approssimazione basata su un approccio composizionale, che permette di analizzare anche workflow complessi con distribuzioni generali (\texttt{GEN}).
+Per ottenere una distribuzione del tempo E2E di un workflow ci sono due tecniche: la prima è un'analisi numerica esatta, fattibile quando il workflow non è troppo complesso e i tempi di esecuzione seguono distribuzioni markoviane (i.e., esponenziali); la seconda è un'approssimazione basata su un approccio composizionale, che permette di analizzare anche workflow complessi con distribuzioni generali (\texttt{GEN}). Eulero utilizza questo secondo approccio bottom-up.
 
 \subsection{Workflow complessi}
+\label{subsec:complex_workflow}
 Quando un workflow è complesso dobbiamo ricorrere a tecniche approssimate. La complessità di un workflow nella vita reale deriva dal fatto che i tempi di esecuzione dei microservizi non seguono distribuzioni esponenziali, cioè markoviane.
 
-Quando i tempi di esecuzione sono esposizionali, l'unica cosa che condiziona il futuro del sistema è lo stato attuale. I possibili percorsi che il sistema può prendere da un certo punto in poi non considerano il passato e non considerano il tempo trascorso in quello stato.
-
-Quando però introduciamo distribuzioni non markoviene, il futuro viene condizionato anche dal passato. Questo provoca un'esplosioone dello spazio degli stati e rende l'analisi numerica esatta impossibile.
+Quando i tempi di esecuzione sono esposizionali, l'unica cosa che condiziona il futuro del sistema è lo stato attuale. I possibili percorsi che il sistema può prendere da un certo punto in poi non considerano il passato e non considerano il tempo trascorso in quello stato. Quando però introduciamo distribuzioni non markoviene, il futuro viene condizionato anche dal passato. Questo provoca un'esplosioone dello spazio degli stati e rende l'analisi numerica esatta impossibile.
 
 \subsection{Tool e analisi bottom-up}
 Visto quanto detto sopra, per ottenere la PDF del tempo di esecuzione di un servizio abbiamo usato Eulero\cite{carnevali2023compositional}, un tool dell'STLAB dell'università di Firenze che esegue un'analisi bottom-up tramite un metodo composizionale: si divide il workflow in sub-workflow, fino ad unità elementari; si calcolano le PDF di queste unità; si compongono le varie PDF per ottenere la PDF del workflow completo.
 
 Il vantaggio di questo approccio è la riduzione della complessità: si elimina infatti il condizionamento del futuro dagli stati precedenti anche per distribuzione \textit{GEN} e questo porta a una riduzione del numero deglis tati che devono essere analizzati. Il lato negativo è che si introduce un'errore di approssimazione nel tempo E2E calcolato.
 
+\subsection{Dati necessari}
 Senza scendere nel dettaglio, Eulero supporta workflow con strutture di controllo sequenziali (\texttt{SEQ}), parallele (\texttt{AND}), condizionali (\texttt{XOR}) e modellate con Direct Aciclyc Graph (\texttt{DAG}). Le strutture parallele e condizionali sono quelle descritte nella Sezione~\ref{sec:blocchi} e che sono stato poi implementate in car-rental.
+
+Quello che dobbiamo fornire al tool per ottenere la distribuzione del tempo E2E è: la struttura del workflow modellata tramite blocchi, eventualmente annidati; la distribuzione che rappresenta il tempo di esecuzione di ogni blocco elementare. Osserviamo che i blocchi e la loro composizione possono essere osservati dalla Figura~\ref{fig:new_workflow_jaeger} e dalla Figura~\ref{fig:new_workflow_sequence}; le distribuzioni sono invece ottenute nella Sezione~\ref{sec:distribuzioni}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tracce}
-Nella Sezione~\ref{cap:tracing} abbiamo descritto il funzionamento del collector di OpenTelemetry e come questo lavora all'interno della nostra applicazione. In questo momento ci interessa lavorare sulle tracce che il collector salva nel Persistant Volume Claim (PVC) \textit{otel-traces-pvc} e che sono accedebili dal pod \textit{analizer}; l'obiettivo è estrarre dei dati che siano poi analizzabili da Eulero.
+\label{sec:traces}
+Nella Sezione~\ref{cap:tracing} abbiamo descritto il funzionamento del collector di OpenTelemetry e come questo lavora all'interno della nostra applicazione. In questo momento ci interessa lavorare sulle tracce che il collector salva nel Persistant Volume Claim (PVC) \textit{otel-traces-pvc} e che sono accedebili dal pod \textit{analizer}; l'obiettivo è eseguire molti esperimenti, ottenere i tempi di esecuzione delle chiamate ai microservizi che poi possiamo usare per estrarre i dati necessari per Eulero.
 
 \subsection{Generazione}
 Per il nostro obiettivo ci servono molti dati e quindi moltre tracce da analizzare. Siccome generare queste tracce a mano non è molto pratico, è stato usato K6 come generatore di carico.
@@ -34,9 +37,45 @@ Il generatore di carico K6 può essere installato localmente su una macchina Lin
 
 L'implementazione questo job è molto semplice: logicamente si tratta di un ciclo \texttt{for} che esegue per un certo intervallo di tempo specificato chiamando l'entry point del servizio di prenotazione. Prenota sempre la stessa macchina spostando l'intervallo della prenotazione in avanti di un giorno a ogni iterazione.
 
+\subsection{Elaborazione}
+Le tracce sono salvata in un singolo file \textit{traces.json}, che all'interno del pod \textit{analyzer} si trova nella directory \textit{data}. Si tratta di un JSON Lines, cioè un file dove ogni linea è un oggetto JSON indipendente.
 
+L'elaborazione avviene portando i dati dal pod in memoria locale e poi eseguendo uno \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/master/E2E-analysis/data/main.py}{script} costruito in modo da leggere ogni riga del file e analizzarla come json. L'output dell'analisi, come possiamo vedere in Figura~\ref{fig:statistics}, sono delle statistiche descrittive (i.e., minimo, massimo, media, varianza e coefficiente di variazione) dei tempi di esecuzione di ogni blocco. Queste statistiche saranno poi necessarie per ottenere le distribuzioni del tempo di esecuzione di gni blocco del workflow.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Distribuzioni}
+\label{sec:distribuzioni}
+Per eseguire Eulero e ottenere la nostra PDF (o CDF) del tempo E2E del worflow ci servono le distribuzioni dei tempi di esecizione di ogni blocco di tale workflow. Al momento, come descritto nella Sezione~\ref{sec:traces}, abbiamo le statistiche descrittive dei tempi di esecuzione di ogni operazione che compone il workflow. Dobbiamo a questo punto utilizzare questi dati per ottenere delle distribuzioni che abbiano il miglior fitting sui nostri dati osservati tramite gli esperimenti.
 
+\subsection{Approssimanti di Whitt}
+Se abbiamo una distribuzione del tempo di esecuzione di un servizio, allora possiamo ottenere i dati semplicemente campionando da tale distribuzione. La nostra situazione è però l'opposta: abbiamo i tempi di esecuzione e ci serve una distribuzione che fitti bene i dati.
 
-\subsection{Estrazione dati}
-Le tracce sono salvata in un singolo file \textit{traces.json}, che all'interno del pod \textit{analyzer} si trova nella directory \textit{data}. Si tratta di un JSON Lines, cioè un file dove ogni linea è un oggetto JSON indipendente. Lo \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/master/E2E-analysis/extract_traces}{script} è costruito in modo da leggere ogni riga del file e analizzarla come json.
+Una prima approssimazione può essere usando una distribuzione esponenziale, che inoltre, come abbiamo detto nella Sezione~\ref{subsec:complex_workflow}, ci semplificherebbe la vita da un punto di vista dell'analisi. Sappiamo che una distribuzione esponenziale ha un coefficiente di variazione (CV) pari a 1; possiamo però vedere che dalle informazioni mostrate nella Figura~\ref{fig:statistics} che nessuno dei blocchi del workflow ha un CV pari a 1, ma sono tutte maggiori di uno tranne la prima chiamata; questo implica che i nostri microservizi hanno una varianza maggiore di quella di una distribuzione esponenziale.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/6-analisi/statistics.pdf}
+    \caption{Stattistiche dell'execution time di circa 1500 chiamate del workflow.}
+    \label{fig:statistics}
+\end{figure}
+
+In queste situazioni per trovare una distribuzione che approssimi bene i nostri dati si possono usare le approssimazioni di Whitt. Nel nostro scenario gli approssimanti che eseremo sono:
+\begin{itemize}
+    \item HyperExp \\
+        Si usa per dati che hanno un coefficiente di variazione $C_V>1$. Si tratta di uno XOR di due esponenziali, cioè di una distribuzione definita come $X=\begin{cases}Exp(\lambda_1) & \text{con prob } p \\Exp(\lambda_2) & \text{con prob } 1-p\end{cases}$; osserviamo che se $\lambda_1=\lambda_2$ allora abbiamo un'esponenziale.
+    \item HypoExp \\
+        Si usa per dati che hanno un coefficiente di variazione $C_V\in[\tfrac{1}{\sqrt{2}},1]$. Si tratta di una sequenza di esponenziali con tassi diversi, cioè di una distribuzione definita $X=Exp(\lambda_1)+\cdots+Exp(\lambda_n)$, con $\lambda_i\ne\lambda_j$.
+\end{itemize}
+
+\subsection{Risultati}
+I risultati, cioè le distribuzioni che meglio fittano i dati ottenuti in precedenza, possono essere calcolate in funzione del valore atteso e del coefficiente di variazione. Dopo aver eseguito due \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/master/E2E-analysis/data/distribution_fitting.py}{funzioni}, i risultati ottenuti sono quelli mostrati in Figura~\ref{fig:distributions}.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/6-analisi/distributions.pdf}
+    \caption{Approssimazioni di Whitt che meglio fittano i dati del nostro workflow.}
+    \label{fig:distributions}
+\end{figure}
+
+A questo punto abbiamo tutto per eseguire l'analisi finale e calcolare la distribuzione dei tempi E2E del nostro workflow.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Distribuzione E2E}
