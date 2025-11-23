@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo "extracting data from traces..."
 cd E2E-analysis/data
 source /opt/miniconda3/etc/profile.d/conda.sh

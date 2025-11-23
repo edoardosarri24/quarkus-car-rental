@@ -1,2 +1,3 @@
-# Grafana UI
+#!/bin/sh
+
 minikube service grafana
