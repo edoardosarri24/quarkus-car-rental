@@ -1,6 +1,7 @@
 .quarkus/
 .vscode/
 report/build/
+slides/build/
 quarkus in action.pdf
 todo.md
 .DS_Store
