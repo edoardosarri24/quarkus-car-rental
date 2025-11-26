@@ -20,6 +20,13 @@ quarkus-car-rental
 ├── E2E-analysis - An analysis of E2E execution time distribution.
 ├── README.md
 ├── exec - the script for the main operation.
+    ├── app-UI.sh - show the UI of the application.
+    ├── data_analysis.sh - Extract stastics from the traces.
+    ├── deployment.sh - Application deployment on Minikube. Require docker engine running.
+    ├── eulero_analysis.sh - Compute the CDF/PDF of the E2E execution time.
+    ├── grafana-UI.sh show the UI of the Grafana.
+    ├── jaeger-UI.sh - show the UI of the Jaeger.
+    └── k6.sh - execute the k6 load generator.
 ├── report - the latex report directory.
 ├── report.pdf - the report file.
 ├── services - the application microservices and the utility services (e.g., k6, OTel-collector, ...).

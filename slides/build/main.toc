@@ -2,13 +2,20 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
 \beamer@sectionintoc {1}{Car Rental}{2}{0}{1}
-\beamer@subsectionintoc {1}{1}{Software Architecture and Methodologies}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{2}{0}{1}
 \beamer@sectionintoc {2}{Deployment}{5}{0}{2}
-\beamer@subsectionintoc {2}{1}{Software Architecture and Methodologies}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{5}{0}{2}
 \beamer@sectionintoc {3}{Health}{9}{0}{3}
-\beamer@subsectionintoc {3}{1}{Software Architecture and Methodologies}{9}{0}{3}
+\beamer@subsectionintoc {3}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{9}{0}{3}
 \beamer@sectionintoc {4}{Tracing}{11}{0}{4}
-\beamer@subsectionintoc {4}{1}{Software Architecture and Methodologies}{11}{0}{4}
+\beamer@subsectionintoc {4}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{11}{0}{4}
 \beamer@sectionintoc {5}{Metrics}{14}{0}{5}
-\beamer@subsectionintoc {5}{1}{Software Architecture and Methodologies}{14}{0}{5}
+\beamer@subsectionintoc {5}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{14}{0}{5}
 \beamer@subsectionintoc {5}{2}{\href {https://github.com/edoardosarri24/quarkus-car-rental}{GitHub}}{16}{0}{5}
+\beamer@sectionintoc {6}{Workflow}{17}{0}{6}
+\beamer@subsectionintoc {6}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{17}{0}{6}
+\beamer@sectionintoc {7}{Tracing}{22}{0}{7}
+\beamer@subsectionintoc {7}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{22}{0}{7}
+\beamer@sectionintoc {8}{Analisi E2E}{25}{0}{8}
+\beamer@subsectionintoc {8}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{25}{0}{8}
+\beamer@subsectionintoc {8}{2}{\href {https://github.com/edoardosarri24/quarkus-car-rental}{GitHub}}{33}{0}{8}

@@ -1,0 +1,100 @@
+\section{Analisi E2E}
+
+\subsection{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}
+
+\begin{frame}{Analisi E2E}
+    \begin{block}{Obiettivo}
+        Derivare una distribuzione (CDF) del tempo E2E del workflow in modo data-driven.
+    \end{block}
+    \begin{block}{Scenario}
+        \begin{itemize}
+            \item Caso medio: Si usano le statistiche descrittive (i.e., media e varianza).
+            \item Soft-real time: per garantire un dato Service Level Agreements (SLA), si deve lavorare su un upper-buond del tempo di esecuzione.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Analisi E2E}
+    \begin{block}{Possibilità di analisi}
+        \begin{itemize}
+            \item Esatta: Fattibile per workflow non complessi e/o tempi di esecuzine Markoviani. In altri casi lo spazio degli stati esplode.
+            \item Composizionale: Nello stato $i$-esimo si elimina il condizionamento sul tempo di esecuzione dello stato $i-1$-esimo. Si analizza in modo indipendente ogni blocco e si ricostruisce l'analisi E2E in modo bottom-up.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Dati necessari}
+        \begin{itemize}
+            \item \textbf{Workflow} delle chiamate.
+            \item \textbf{Distribuzioni marginali} dei tempi di esecuzione.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Analisi E2E}
+    \begin{block}{Workflow}
+        \centering
+        \includegraphics[width=\textwidth]{images/6-workflow/new_workflow_jaeger.pdf}
+        \includegraphics[width=\textwidth]{images/8-analisi/STPN_workflow.pdf}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Analisi E2E}
+    \begin{block}{Distribuzioni}
+        L'obiettivo è derivare la distribuzione che meglio approssima il tempo di esecuzione di ogni microservizio. Serve:
+        \begin{itemize}
+            \item Generare molte tracce.
+            \item Ottenere statistiche descrittive dei tempi di esecuzine.
+            \item Fitting delle distribuzioni su tali dati.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Generazione}
+        La generazione è stata eseguita con K6.
+        \begin{itemize}
+            \item Job rilasciato con Helm.
+            \item Ciclo di 30 secondi che chiama iterativamente \textit{users/reserve}.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Analisi E2E}
+    \begin{block}{Statistiche}
+        A partire dalle tracce analizzate nel PVC collegato al pod \textit{analyzer}.
+        \centering
+        \includegraphics[width=\textwidth]{images/8-analisi/statistics.pdf}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Analisi E2E}
+    \begin{block}{Statistiche}
+        Si sono usato gli approssimanti di Whitt:
+        \begin{itemize}
+            \item $C_V=1$: Exp.
+            \item $C_V>1$: HyperExp, XOR di due esponenziali.
+            \item $\tfrac{1}{\sqrt{2}}\le C_V<1$: HypoExp: AND di due esponenziali.
+        \end{itemize}
+        \centering
+        \includegraphics[width=\textwidth]{images/8-analisi/distributions.pdf}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Analisi E2E}
+    \begin{block}{Distribuzione E2E (Eulero)}
+        Di seguito la CDF e PDF del tempo di esecuzione E2E.
+        \begin{columns}
+            \begin{column}{.5\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{images/8-analisi/complete_E2E_workflow_analysis_CDF.pdf}
+            \end{column}
+            \begin{column}{.5\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{images/8-analisi/complete_E2E_workflow_analysis_PDF.pdf}
+            \end{column}
+        \end{columns}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Analisi E2E}
+    \begin{block}{Distribuzione E2E (Eulero)}
+        \centering
+        \includegraphics[width=.7\textwidth]{images/8-analisi/500ms_E2E_workflow_analysis_CDF.pdf}
+    \end{block}
+\end{frame}

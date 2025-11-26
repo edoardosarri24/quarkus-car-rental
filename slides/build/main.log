@@ -1,16 +1,16 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.3)  11 SEP 2025 09:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  26 NOV 2025 10:10
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+**/Users/edoardosarri/Documents/quarkus-car-rental/slides/main.tex
+(/Users/edoardosarri/Documents/quarkus-car-rental/slides/main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-14>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2025/08/13 v3.76 A class for typesetting presentations
 (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasemodes.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count275
 )
 \beamer@tempbox=\box53
@@ -140,7 +140,7 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen183
 \Gin@req@width=\dimen184
@@ -381,11 +381,11 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
 Package: sansmathaccent 2020/01/31
  (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile.sty
-Package: scrlfile 2025/08/28 v3.47 KOMA-Script package (file load hooks)
+Package: scrlfile 2025/09/09 v3.48 KOMA-Script package (file load hooks)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
-Package: scrlfile-hook 2025/08/28 v3.47 KOMA-Script package (using LaTeX hooks)
+Package: scrlfile-hook 2025/09/09 v3.48 KOMA-Script package (using LaTeX hooks)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlogo.sty
-Package: scrlogo 2025/08/28 v3.47 KOMA-Script package (logo)
+Package: scrlogo 2025/09/09 v3.48 KOMA-Script package (logo)
 ))))) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator.sty
 Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasemisc.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
@@ -452,7 +452,7 @@ Package: enumerate 2023/07/04 v3.00 enumerate extensions (DPC)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasenavigationsymbols.tex)
 \beamer@section@min@dim=\dimen290
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
+Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip61
 
 For additional information on amsmath, use the `?' option.
@@ -513,8 +513,8 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \multlinegap=\skip62
 \multlinetaggap=\skip63
 \mathdisplay@stack=\toks39
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks40
@@ -532,27 +532,26 @@ Package: amsthm 2020/05/29 v2.20.6
 \beamer@dima=\dimen300
 \beamer@dimb=\dimen301
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (./src/preambolo.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2025/08/03 v25.12 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
+Package: babel 2025/11/23 v25.16 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
 \babel@savecnt=\count358
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2045.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2047.
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2049.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2050.
-LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2051.
-LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2053.
-LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2078.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2050.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2052.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2054.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2055.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2056.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2058.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2083.
 \U@D=\dimen302
 \l@unhyphenated=\language90
  (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
-LaTeX Info: Redefining \textlatin on input line 3930.
+LaTeX Info: Redefining \textlatin on input line 3942.
 \bbl@dirlevel=\count359
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex)
+Package babel Info: Importing font and identification data for italian
+(babel)             from babel-it.ini. Reported on input line 4298.
  (/usr/local/texlive/2025/texmf-dist/tex/generic/babel-italian/italian.ldf
 Language: italian 2024/10/10 v.1.5.01 Italian support for the babel system
- (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex
-Package babel Info: Importing font and identification data for italian
-(babel)             from babel-it.ini. Reported on input line 12.
-)
 \it@lettering=\count360
 \it@doublequoteactive=\count361
 \it@ISOcompliance=\count362
@@ -667,7 +666,7 @@ Package: ifdraft 2016/05/16 v1.4 Detect class options draft and final (HO)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/media9/pdfbase.sty
 Package: pdfbase 2024/09/16 v0.59 driver independent access to low-level PDF features
  (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count370
 )
 \g_pbs_page_int=\count371
@@ -710,7 +709,7 @@ Package: ocgbase 2024/09/15 v0.24 support package for ocgx2.sty
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
-Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \col@sep=\dimen323
 \ar@mcellbox=\box81
 \extrarowheight=\dimen324
@@ -848,7 +847,7 @@ Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 \pgfopts@list@add@b@toks=\toks55
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
-Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+Package shellesc Info: Restricted shell escape enabled on input line 77.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count422
@@ -866,7 +865,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 39.
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 4.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (build/main.aux (build/src/1-car rental.aux) (build/src/2-deployment.aux) (build/src/3-health.aux) (build/src/4-tracing.aux) (build/src/5-metrics.aux) (build/src/footpage.aux))
+) (build/main.aux (build/src/1-car rental.aux) (build/src/2-deployment.aux) (build/src/3-health.aux) (build/src/4-tracing.aux) (build/src/5-metrics.aux) (build/src/interpage.aux) (build/src/6-workflow.aux) (build/src/7-tracing.aux) (build/src/8-analisi.aux) (build/src/footpage.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -1021,14 +1020,12 @@ Package caption Info: float package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (build/main.nav)
-<images/0-varie/logo UniFi.pdf, id=103, 996.72375pt x 483.8075pt>
+<images/0-varie/logo UniFi.pdf, id=171, 996.72375pt x 483.8075pt>
 File: images/0-varie/logo UniFi.pdf Graphic file (type pdf)
 <use images/0-varie/logo UniFi.pdf>
 Package pdftex.def Info: images/0-varie/logo UniFi.pdf  used on input line 5.
 (pdftex.def)             Requested size: 76.82246pt x 37.28798pt.
-
-
-[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}
+ [1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}
 
  <./images/0-varie/logo UniFi.pdf>]
 \openout2 = `"src/1-car rental.aux"'.
@@ -1036,23 +1033,20 @@ Package pdftex.def Info: images/0-varie/logo UniFi.pdf  used on input line 5.
  (./src/1-car rental.tex
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 19.
-
-
-<images/0-varie/sfondo chiaro.pdf, id=192, 722.7pt x 518.93875pt>
+<images/0-varie/sfondo chiaro.pdf, id=318, 722.7pt x 518.93875pt>
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 19.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[2
+ [2
 
 
  <./images/0-varie/sfondo chiaro.pdf>]
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 31.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[3
+ [3
 
 ]
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 51.
@@ -1085,29 +1079,26 @@ LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <8> not available
 (Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 51.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <6> not available
 (Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 51.
-<images/1-car rental/comunication.pdf, id=301, 274.02374pt x 251.94125pt>
+<images/1-car rental/comunication.pdf, id=507, 274.02374pt x 251.94125pt>
 File: images/1-car rental/comunication.pdf Graphic file (type pdf)
 <use images/1-car rental/comunication.pdf>
 Package pdftex.def Info: images/1-car rental/comunication.pdf  used on input line 51.
 (pdftex.def)             Requested size: 169.01036pt x 155.39465pt.
-
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 51.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[4
+ [4
 
  <./images/1-car rental/comunication.pdf>])
 \openout2 = `src/2-deployment.aux'.
 
  (./src/2-deployment.tex
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 21.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[5
+ [5
 
 
 
@@ -1119,33 +1110,31 @@ Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 21
 \pydata@fh@0=\write8
 \openout8 = `_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted'.
 
-runsystem(latexminted config  --timestamp 20250911095352 FAD58DE7366495DB4650CFEFAC2FCD61)...executed.
+runsystem(latexminted config  --timestamp 20251126101034 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (build/_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20250911095352 FAD58DE7366495DB4650CFEFAC2FCD61)...executed.
+runsystem(latexminted cleanconfig  --timestamp 20251126101034 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (./build/_minted/default.style.minted) (./build/_minted/95FE0AB36F6A932A117B681CD31500B4.highlight.minted
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 1.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )))
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 43.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[6
+ [6
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}]
 \openout4 = `main.vrb'.
 
  (build/main.vrb (./build/_minted/359AB2AD3E326AAACD7C659AF824D510.highlight.minted) (./build/_minted/7E239420489878DBA1F485D04E7C4DEB.highlight.minted))
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 74.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[7
+ [7
 
 ]
 \openout4 = `main.vrb'.
@@ -1154,23 +1143,21 @@ Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 74
 LaTeX Font Info:    Font shape `OT1/lmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/lmtt/b/n' tried instead on input line 2.
 ))
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 93.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[8
+ [8
 
 ])
 \openout2 = `src/3-health.aux'.
 
  (./src/3-health.tex
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 15.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[9
+ [9
 
 
 
@@ -1179,12 +1166,11 @@ Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 15
 \openout4 = `main.vrb'.
 
  (build/main.vrb (./build/_minted/0B5E1BA69F6A4671D4D596EF9FE94F7A.highlight.minted) (./build/_minted/41A7EDC043742763D74A38CAF1FE80D5.highlight.minted))
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 36.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[10
+ [10
 
 ])
 \openout2 = `src/4-tracing.aux'.
@@ -1193,12 +1179,11 @@ Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 36
 \openout4 = `main.vrb'.
 
  (build/main.vrb (./build/_minted/50E0481F8D78CFDAE3F3F56252BFAAA7.highlight.minted))
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 20.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[11
+ [11
 
 
 
@@ -1210,31 +1195,28 @@ Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 20
 LaTeX Font Info:    Font shape `OT1/lmtt/bx/n' in size <9> not available
 (Font)              Font shape `OT1/lmtt/b/n' tried instead on input line 2.
 ))
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 42.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[12
+ [12
 
 ]
-<images/4-tracing/use cases.pdf, id=890, 537.00626pt x 268.00125pt>
+<images/4-tracing/use cases.pdf, id=1578, 537.00626pt x 268.00125pt>
 File: images/4-tracing/use cases.pdf Graphic file (type pdf)
 <use images/4-tracing/use cases.pdf>
 Package pdftex.def Info: images/4-tracing/use cases.pdf  used on input line 59.
 (pdftex.def)             Requested size: 129.06248pt x 64.40749pt.
-<images/4-tracing/jaeger use case.pdf, id=891, 1514.65875pt x 759.83875pt>
+<images/4-tracing/jaeger use case.pdf, id=1579, 1514.65875pt x 759.83875pt>
 File: images/4-tracing/jaeger use case.pdf Graphic file (type pdf)
 <use images/4-tracing/jaeger use case.pdf>
 Package pdftex.def Info: images/4-tracing/jaeger use case.pdf  used on input line 59.
 (pdftex.def)             Requested size: 245.83282pt x 123.31581pt.
-
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 59.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[13
+ [13
 
  <./images/4-tracing/use cases.pdf> <./images/4-tracing/jaeger use case.pdf>])
 \openout2 = `src/5-metrics.aux'.
@@ -1243,12 +1225,11 @@ Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 59
 \openout4 = `main.vrb'.
 
  (build/main.vrb (./build/_minted/7740CF02549C43067BDA03B3FA7FFD26.highlight.minted))
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 20.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[14
+ [14
 
 
 
@@ -1257,14 +1238,149 @@ Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 20
 \openout4 = `main.vrb'.
 
  (build/main.vrb (./build/_minted/5FE698F68A7981519BB3C68608978DE9.highlight.minted))
-
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 34.
 (pdftex.def)             Requested size: 364.1942pt x 273.15958pt.
-[15
+ [15
 
 ])
+\openout2 = `src/interpage.aux'.
+
+ (./src/interpage.tex
+File: images/0-varie/logo UniFi.pdf Graphic file (type pdf)
+<use images/0-varie/logo UniFi.pdf>
+Package pdftex.def Info: images/0-varie/logo UniFi.pdf  used on input line 7.
+(pdftex.def)             Requested size: 76.82246pt x 37.28798pt.
+ [16
+
+
+
+
+])
+\openout2 = `src/6-workflow.aux'.
+
+ (./src/6-workflow.tex
+<images/6-workflow/initial_workflow_jaeger.pdf, id=2042, 1514.65875pt x 553.78732pt>
+File: images/6-workflow/initial_workflow_jaeger.pdf Graphic file (type pdf)
+<use images/6-workflow/initial_workflow_jaeger.pdf>
+Package pdftex.def Info: images/6-workflow/initial_workflow_jaeger.pdf  used on input line 13.
+(pdftex.def)             Requested size: 307.28987pt x 112.35257pt.
+ [17
+
+
+
+
+ <./images/6-workflow/initial_workflow_jaeger.pdf>] [18
+
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}] [19
+
+]
+<images/6-workflow/new_workflow_jaeger.pdf, id=2321, 1513.655pt x 514.47548pt>
+File: images/6-workflow/new_workflow_jaeger.pdf Graphic file (type pdf)
+<use images/6-workflow/new_workflow_jaeger.pdf>
+Package pdftex.def Info: images/6-workflow/new_workflow_jaeger.pdf  used on input line 56.
+(pdftex.def)             Requested size: 307.28987pt x 104.43976pt.
+ [20
+
+ <./images/6-workflow/new_workflow_jaeger.pdf>]
+<images/6-workflow/new_workflow_sequence.pdf, id=2420, 529.3997pt x 322.54604pt>
+File: images/6-workflow/new_workflow_sequence.pdf Graphic file (type pdf)
+<use images/6-workflow/new_workflow_sequence.pdf>
+Package pdftex.def Info: images/6-workflow/new_workflow_sequence.pdf  used on input line 63.
+(pdftex.def)             Requested size: 261.19826pt x 159.14645pt.
+ [21
+
+ <./images/6-workflow/new_workflow_sequence.pdf>])
+\openout2 = `src/7-tracing.aux'.
+
+ (./src/7-tracing.tex
+<images/7-tracing/old_otel_workflow/old_otel_workflow.pdf, id=2530, 322.95656pt x 156.585pt>
+File: images/7-tracing/old_otel_workflow/old_otel_workflow.pdf Graphic file (type pdf)
+<use images/7-tracing/old_otel_workflow/old_otel_workflow.pdf>
+Package pdftex.def Info: images/7-tracing/old_otel_workflow/old_otel_workflow.pdf  used on input line 15.
+(pdftex.def)             Requested size: 153.64493pt x 74.49332pt.
+ [22
+
+
+
+
+ <./images/7-tracing/old_otel_workflow/old_otel_workflow.pdf>]
+<images/7-tracing/new_otel_workflow.pdf, id=2656, 593.21625pt x 179.16937pt>
+File: images/7-tracing/new_otel_workflow.pdf Graphic file (type pdf)
+<use images/7-tracing/new_otel_workflow.pdf>
+Package pdftex.def Info: images/7-tracing/new_otel_workflow.pdf  used on input line 28.
+(pdftex.def)             Requested size: 215.10196pt x 64.96841pt.
+ [23
+
+ <./images/7-tracing/new_otel_workflow.pdf>] [24
+
+])
+\openout2 = `src/8-analisi.aux'.
+
+ (./src/8-analisi.tex [25
+
+
+
+
+] [26
+
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+File: images/6-workflow/new_workflow_jaeger.pdf Graphic file (type pdf)
+<use images/6-workflow/new_workflow_jaeger.pdf>
+Package pdftex.def Info: images/6-workflow/new_workflow_jaeger.pdf  used on input line 38.
+(pdftex.def)             Requested size: 307.28987pt x 104.43976pt.
+<images/8-analisi/STPN_workflow.pdf, id=3068, 1388.18625pt x 273.02pt>
+File: images/8-analisi/STPN_workflow.pdf Graphic file (type pdf)
+<use images/8-analisi/STPN_workflow.pdf>
+Package pdftex.def Info: images/8-analisi/STPN_workflow.pdf  used on input line 38.
+(pdftex.def)             Requested size: 307.28987pt x 60.43535pt.
+
+Overfull \vbox (0.67871pt too high) detected at line 38
+ []
+
+[27
+
+ <./images/8-analisi/STPN_workflow.pdf>] [28
+
+]
+<images/8-analisi/statistics.pdf, id=3254, 978.65625pt x 240.9pt>
+File: images/8-analisi/statistics.pdf Graphic file (type pdf)
+<use images/8-analisi/statistics.pdf>
+Package pdftex.def Info: images/8-analisi/statistics.pdf  used on input line 64.
+(pdftex.def)             Requested size: 307.28987pt x 75.64128pt.
+ [29
+
+ <./images/8-analisi/statistics.pdf>]
+<images/8-analisi/distributions.pdf, id=3351, 1107.13625pt x 240.9pt>
+File: images/8-analisi/distributions.pdf Graphic file (type pdf)
+<use images/8-analisi/distributions.pdf>
+Package pdftex.def Info: images/8-analisi/distributions.pdf  used on input line 77.
+(pdftex.def)             Requested size: 307.28987pt x 66.85973pt.
+ [30
+
+ <./images/8-analisi/distributions.pdf>]
+<images/8-analisi/complete_E2E_workflow_analysis_CDF.pdf, id=3449, 1021.66293pt x 751.1017pt>
+File: images/8-analisi/complete_E2E_workflow_analysis_CDF.pdf Graphic file (type pdf)
+<use images/8-analisi/complete_E2E_workflow_analysis_CDF.pdf>
+Package pdftex.def Info: images/8-analisi/complete_E2E_workflow_analysis_CDF.pdf  used on input line 93.
+(pdftex.def)             Requested size: 153.64493pt x 112.94691pt.
+<images/8-analisi/complete_E2E_workflow_analysis_PDF.pdf, id=3450, 1022.54219pt x 746.35999pt>
+File: images/8-analisi/complete_E2E_workflow_analysis_PDF.pdf Graphic file (type pdf)
+<use images/8-analisi/complete_E2E_workflow_analysis_PDF.pdf>
+Package pdftex.def Info: images/8-analisi/complete_E2E_workflow_analysis_PDF.pdf  used on input line 93.
+(pdftex.def)             Requested size: 153.64493pt x 112.14276pt.
+ [31
+
+ <./images/8-analisi/complete_E2E_workflow_analysis_CDF.pdf> <./images/8-analisi/complete_E2E_workflow_analysis_PDF.pdf>]
+<images/8-analisi/500ms_E2E_workflow_analysis_CDF.pdf, id=3550, 1023.7146pt x 746.32918pt>
+File: images/8-analisi/500ms_E2E_workflow_analysis_CDF.pdf Graphic file (type pdf)
+<use images/8-analisi/500ms_E2E_workflow_analysis_CDF.pdf>
+Package pdftex.def Info: images/8-analisi/500ms_E2E_workflow_analysis_CDF.pdf  used on input line 100.
+(pdftex.def)             Requested size: 215.10196pt x 156.81346pt.
+ [32
+
+ <./images/8-analisi/500ms_E2E_workflow_analysis_CDF.pdf>])
 \openout2 = `src/footpage.aux'.
 
  (./src/footpage.tex
@@ -1272,9 +1388,7 @@ File: images/0-varie/logo UniFi.pdf Graphic file (type pdf)
 <use images/0-varie/logo UniFi.pdf>
 Package pdftex.def Info: images/0-varie/logo UniFi.pdf  used on input line 7.
 (pdftex.def)             Requested size: 76.82246pt x 37.28798pt.
-
-
-[16
+ [33
 
 
 
@@ -1289,27 +1403,27 @@ Package pdftex.def Info: images/0-varie/logo UniFi.pdf  used on input line 7.
 \tf@snm=\write11
 \openout11 = `main.snm'.
 
- (build/main.aux (build/src/1-car rental.aux) (build/src/2-deployment.aux) (build/src/3-health.aux) (build/src/4-tracing.aux) (build/src/5-metrics.aux) (build/src/footpage.aux))
+ (build/main.aux (build/src/1-car rental.aux) (build/src/2-deployment.aux) (build/src/3-health.aux) (build/src/4-tracing.aux) (build/src/5-metrics.aux) (build/src/interpage.aux) (build/src/6-workflow.aux) (build/src/7-tracing.aux) (build/src/8-analisi.aux) (build/src/footpage.aux))
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-14>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 169DF8C40DF19AA9470F3ACD29B0052F;1816.
+(rerunfilecheck)             Checksum: 1E75E2B2A88657CBC19AD13684FD3D46;5007.
  ) 
 Here is how much of TeX's memory you used:
- 34291 strings out of 467800
- 718375 string characters out of 5431883
- 1232960 words of memory out of 5000000
- 62120 multiletter control sequences out of 15000+600000
- 663792 words of font info for 75 fonts, out of 8000000 for 9000
+ 34597 strings out of 467538
+ 727082 string characters out of 5419545
+ 1245798 words of memory out of 5000000
+ 62616 multiletter control sequences out of 15000+600000
+ 664688 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,19n,123p,472b,1238s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on build/main.pdf (16 pages, 742627 bytes).
+ 128i,19n,123p,620b,1239s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on build/main.pdf (33 pages, 1889971 bytes).
 PDF statistics:
- 1195 PDF objects out of 1200 (max. 8388607)
- 571 compressed objects within 6 object streams
- 45 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3784 PDF objects out of 4296 (max. 8388607)
+ 1845 compressed objects within 19 object streams
+ 86 named destinations out of 1000 (max. 500000)
+ 273 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,63 @@
+\section{Workflow}
+
+\subsection{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}
+
+\begin{frame}{Workflow}
+    \begin{block}{Obiettivo}
+        Simulare un workflow complesso, i.e., non totalmente sequenziale.
+    \end{block}
+    \begin{block}{Workflow precedente - jaeger}
+        \centering
+        \includegraphics[width=\textwidth]{images/6-workflow/initial_workflow_jaeger.pdf}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Workflow}
+    \begin{block}{Blocchi aggiunti}
+        Aggiunti due tipi di blocchi:
+        \begin{itemize}
+            \item XOR \\
+                Scelta esclusiva pesata tra più flussi.
+            \item AND \\
+                Esecuzione parallela di più flussi.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Implementazione}
+        Microservizi che eseguono una busywait.
+        \begin{itemize}
+            \item XOR: tre scelte con probabilità $p_1=0.2$, $p_2=0.5$ e $p_3=0.3$.
+            \item AND: due server che espongono API gRPC.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Workflow}
+    \begin{block}{Implementazione}
+        Microservizi che eseguono una busywait.
+        \begin{itemize}
+            \item XOR: tre scelte con probabilità $p_1=0.2$, $p_2=0.5$ e $p_3=0.3$.
+            \item AND: due server che espongono API gRPC.
+        \end{itemize}
+    \end{block}
+    \begin{block}{gRPC - Quarkus}
+        \begin{itemize}
+            \item Il server definisce il file \textit{.proto}. Con l’estensione \textit{quarkus-grpc} quando si fa building, Quarkus costruisce tutte le interfacce.
+            \item Il server implementa un'interfaccia e ridefinisce i suoi metodi.
+            \item Il clinet compila il file \textit{.proto} e può chiamare i metodi del server come fossero privati.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Workflow}
+    \begin{block}{Nuovo workflow - jaeger}
+        \centering
+        \includegraphics[width=\textwidth]{images/6-workflow/new_workflow_jaeger.pdf}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Workflow}
+    \begin{block}{Nuovo workflow - sequence diagram}
+        \centering
+        \includegraphics[width=.85\textwidth]{images/6-workflow/new_workflow_sequence.pdf}
+    \end{block}
+\end{frame}

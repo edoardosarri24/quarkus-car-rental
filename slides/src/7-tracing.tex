@@ -1,0 +1,38 @@
+\section{Tracing}
+
+\subsection{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}
+
+\begin{frame}{Tracing}
+    \begin{block}{Tracing precedente}
+        \begin{itemize}
+            \item I microservizi ricevono richieste.
+            \item OpenTelemetry raccoglie i dati dai microservizi. In Quarkus questo è semplice tramite l'estensione \textit{quarkus-opentelemetry}.
+            \item OTel invia al backend (e.g., Jaeger). Serve configurazione in \textit{application.properties}.
+        \end{itemize}
+    \end{block}
+    \centering
+    \includegraphics[width=.5\textwidth]{images/7-tracing/old_otel_workflow/old_otel_workflow.pdf}
+\end{frame}
+
+\begin{frame}{Tracing}
+    \begin{block}{Tracing attuale - Flusso}
+        \begin{itemize}
+            \item I microservizi ricevono richieste.
+            \item OpenTelemetry raccoglie i dati dai microservizi. In Quarkus questo è semplice tramite l'estensione \textit{quarkus-opentelemetry}.
+            \item OTel invia le statistiche all'Otel-collector, dove possiamo eseguire operazioni intermedie (e.g., filtraggio, aggregazione).
+            \item Il collector invia i dati a vari back-end.
+        \end{itemize}
+    \end{block}
+    \centering
+    \includegraphics[width=.7\textwidth]{images/7-tracing/new_otel_workflow.pdf}
+\end{frame}
+
+\begin{frame}{Tracing}
+    \begin{block}{Tracing attuale - Conseguenze}
+        \begin{itemize}
+            \item Si aggiuge complessità, soprattutto rispetto alla versione con la sola estensione Quarkus.
+            \item Per progetti semplici (o all'inizio di uno complesso) è meglio semplificare.
+            \item Per progetti complessi, che devono scalare, o se è necessario eseguire operazioni intermedie, è necessario il collector.
+        \end{itemize}
+    \end{block}
+\end{frame}
