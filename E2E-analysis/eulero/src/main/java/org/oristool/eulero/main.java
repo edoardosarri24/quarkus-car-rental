@@ -15,6 +15,9 @@ import org.oristool.eulero.modeling.stochastictime.HyperExponentialTime;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.IOException;
 
 public class main {
 
@@ -114,20 +117,39 @@ public class main {
             reservationReservationAll
         );
 
+        Activity exactModel = new Simple(
+            "realDistribution",
+            new HypoExponentialTime(
+                BigDecimal.valueOf(0.0480),
+                BigDecimal.valueOf(0.2352)));
+
         // Analyze the model.
         AnalysisHeuristicsVisitor analyzer = new SDFHeuristicsVisitor(
             BigInteger.valueOf(2),
             BigInteger.valueOf(5),
             new TruncatedExponentialMixtureApproximation());
-        double fairTimeTick = model.getLeastExpectedTimeTick();
+        double fairTimeTick = exactModel.getLeastExpectedTimeTick();
         BigDecimal timeStep = BigDecimal.valueOf(fairTimeTick);
         //double fairTimeLimit = model.getFairTimeLimit();
         double fairTimeLimit = 500;
-        double[] cdf = model.analyze(BigDecimal.valueOf(fairTimeLimit), timeStep, analyzer);
+        double[] cdf = exactModel.analyze(BigDecimal.valueOf(fairTimeLimit), timeStep, analyzer);
 
         // show the result
-        EvaluationResult result = new EvaluationResult("E2E workflow analysis", cdf, 0, cdf.length, timeStep.doubleValue(), 0);
-        ActivityViewer.CompareResults("../", true, "E2E workflow analysis", List.of("CFD"), result);
+        // EvaluationResult result = new EvaluationResult("E2E workflow analysis", cdf, 0, cdf.length, timeStep.doubleValue(), 0);
+        // ActivityViewer.CompareResults("../", true, "E2E workflow analysis", List.of("CFD"), result);
+
+        // Save cdf to a CSV file
+        try (PrintWriter writer = new PrintWriter(new FileWriter("../visualize_data/realCDF.csv"))) {
+            writer.println("time,cdf");
+            for (int i = 0; i < cdf.length; i++) {
+                double time = i * timeStep.doubleValue();
+                writer.println(time + "," + cdf[i]);
+            }
+            System.out.println("CDF saved");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

@@ -12,6 +12,8 @@ To get started with this project, you will need to have the following installed:
 - Docker, Minikube, kubectl
 - Quarkus CLI
 - [Eulero](https://github.com/oris-tool/eulero_2.0)
+- Conda
+- [UV](https://docs.astral.sh/uv/) Python package manager.
 
 ### Structure
 Above the strucure of the main directories of the project.

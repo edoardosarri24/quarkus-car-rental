@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  26 NOV 2025 10:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  27 NOV 2025 15:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1110,10 +1110,10 @@ Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 21
 \pydata@fh@0=\write8
 \openout8 = `_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted'.
 
-runsystem(latexminted config  --timestamp 20251126101034 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted config  --timestamp 20251127155123 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (build/_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20251126101034 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted cleanconfig  --timestamp 20251127155123 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (./build/_minted/default.style.minted) (./build/_minted/95FE0AB36F6A932A117B681CD31500B4.highlight.minted
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 1.
@@ -1360,27 +1360,26 @@ Package pdftex.def Info: images/8-analisi/distributions.pdf  used on input line 
  [30
 
  <./images/8-analisi/distributions.pdf>]
-<images/8-analisi/complete_E2E_workflow_analysis_CDF.pdf, id=3449, 1021.66293pt x 751.1017pt>
-File: images/8-analisi/complete_E2E_workflow_analysis_CDF.pdf Graphic file (type pdf)
-<use images/8-analisi/complete_E2E_workflow_analysis_CDF.pdf>
-Package pdftex.def Info: images/8-analisi/complete_E2E_workflow_analysis_CDF.pdf  used on input line 93.
-(pdftex.def)             Requested size: 153.64493pt x 112.94691pt.
-<images/8-analisi/complete_E2E_workflow_analysis_PDF.pdf, id=3450, 1022.54219pt x 746.35999pt>
-File: images/8-analisi/complete_E2E_workflow_analysis_PDF.pdf Graphic file (type pdf)
-<use images/8-analisi/complete_E2E_workflow_analysis_PDF.pdf>
-Package pdftex.def Info: images/8-analisi/complete_E2E_workflow_analysis_PDF.pdf  used on input line 93.
-(pdftex.def)             Requested size: 153.64493pt x 112.14276pt.
+<images/8-analisi/approxCDF_visualization.pdf, id=3449, 867.24pt x 433.62pt>
+File: images/8-analisi/approxCDF_visualization.pdf Graphic file (type pdf)
+<use images/8-analisi/approxCDF_visualization.pdf>
+Package pdftex.def Info: images/8-analisi/approxCDF_visualization.pdf  used on input line 85.
+(pdftex.def)             Requested size: 245.83282pt x 122.91472pt.
  [31
 
- <./images/8-analisi/complete_E2E_workflow_analysis_CDF.pdf> <./images/8-analisi/complete_E2E_workflow_analysis_PDF.pdf>]
-<images/8-analisi/500ms_E2E_workflow_analysis_CDF.pdf, id=3550, 1023.7146pt x 746.32918pt>
-File: images/8-analisi/500ms_E2E_workflow_analysis_CDF.pdf Graphic file (type pdf)
-<use images/8-analisi/500ms_E2E_workflow_analysis_CDF.pdf>
-Package pdftex.def Info: images/8-analisi/500ms_E2E_workflow_analysis_CDF.pdf  used on input line 100.
-(pdftex.def)             Requested size: 215.10196pt x 156.81346pt.
- [32
+ <./images/8-analisi/approxCDF_visualization.pdf>]
+<images/8-analisi/E2E distribution function.pdf, id=3578, 1011.78pt x 433.62pt>
+File: images/8-analisi/E2E distribution function.pdf Graphic file (type pdf)
+<use images/8-analisi/E2E distribution function.pdf>
+Package pdftex.def Info: images/8-analisi/E2E distribution function.pdf  used on input line 96.
+(pdftex.def)             Requested size: 261.19826pt x 111.94455pt.
 
- <./images/8-analisi/500ms_E2E_workflow_analysis_CDF.pdf>])
+Overfull \vbox (0.80644pt too high) detected at line 96
+ []
+
+[32
+
+ <./images/8-analisi/E2E distribution function.pdf>])
 \openout2 = `src/footpage.aux'.
 
  (./src/footpage.tex
@@ -1412,18 +1411,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1E75E2B2A88657CBC19AD13684FD3D46;5007.
  ) 
 Here is how much of TeX's memory you used:
- 34597 strings out of 467538
- 727082 string characters out of 5419545
+ 34590 strings out of 467538
+ 726506 string characters out of 5419545
  1245798 words of memory out of 5000000
- 62616 multiletter control sequences out of 15000+600000
+ 62609 multiletter control sequences out of 15000+600000
  664688 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,123p,620b,1239s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on build/main.pdf (33 pages, 1889971 bytes).
+Output written on build/main.pdf (33 pages, 1807344 bytes).
 PDF statistics:
- 3784 PDF objects out of 4296 (max. 8388607)
- 1845 compressed objects within 19 object streams
+ 3848 PDF objects out of 4296 (max. 8388607)
+ 1846 compressed objects within 19 object streams
  86 named destinations out of 1000 (max. 500000)
- 273 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 268 words of extra memory for PDF output out of 10000 (max. 10000000)
 

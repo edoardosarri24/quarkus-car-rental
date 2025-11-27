@@ -160,12 +160,12 @@ public class Simple extends Activity {
         int times = 3;
         double expectedValue = this.getPdf().getExpectedValue();
         double variance = this.getPdf().getVariance();
-        double fairTimeLimit; 
+        double fairTimeLimit;
         do{
             fairTimeLimit = expectedValue + times * variance;
             times ++;
         }
-        while(this.getPdf().CDF(fairTimeLimit) < 1 - TIME_LIMIT_EPSILON ); 
+        while(this.getPdf().CDF(fairTimeLimit) < 1 - TIME_LIMIT_EPSILON );
         return fairTimeLimit;
     }
 
