@@ -1,0 +1,1 @@
+- in quali situazioni non abbiamo il tempo E2E e quindi dobbiamo fare un'analisi di questo tipo?

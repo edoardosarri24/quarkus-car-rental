@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  27 NOV 2025 15:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  27 NOV 2025 18:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1110,10 +1110,10 @@ Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 21
 \pydata@fh@0=\write8
 \openout8 = `_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted'.
 
-runsystem(latexminted config  --timestamp 20251127155123 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted config  --timestamp 20251127184200 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (build/_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20251127155123 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted cleanconfig  --timestamp 20251127184200 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (./build/_minted/default.style.minted) (./build/_minted/95FE0AB36F6A932A117B681CD31500B4.highlight.minted
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 1.
@@ -1360,15 +1360,15 @@ Package pdftex.def Info: images/8-analisi/distributions.pdf  used on input line 
  [30
 
  <./images/8-analisi/distributions.pdf>]
-<images/8-analisi/approxCDF_visualization.pdf, id=3449, 867.24pt x 433.62pt>
-File: images/8-analisi/approxCDF_visualization.pdf Graphic file (type pdf)
-<use images/8-analisi/approxCDF_visualization.pdf>
-Package pdftex.def Info: images/8-analisi/approxCDF_visualization.pdf  used on input line 85.
-(pdftex.def)             Requested size: 245.83282pt x 122.91472pt.
+<images/8-analisi/approx_distribution_plot.pdf, id=3449, 1011.78pt x 433.62pt>
+File: images/8-analisi/approx_distribution_plot.pdf Graphic file (type pdf)
+<use images/8-analisi/approx_distribution_plot.pdf>
+Package pdftex.def Info: images/8-analisi/approx_distribution_plot.pdf  used on input line 85.
+(pdftex.def)             Requested size: 245.83282pt x 105.35452pt.
  [31
 
- <./images/8-analisi/approxCDF_visualization.pdf>]
-<images/8-analisi/E2E distribution function.pdf, id=3578, 1011.78pt x 433.62pt>
+ <./images/8-analisi/approx_distribution_plot.pdf>]
+<images/8-analisi/E2E distribution function.pdf, id=3579, 1011.78pt x 433.62pt>
 File: images/8-analisi/E2E distribution function.pdf Graphic file (type pdf)
 <use images/8-analisi/E2E distribution function.pdf>
 Package pdftex.def Info: images/8-analisi/E2E distribution function.pdf  used on input line 96.
@@ -1412,16 +1412,16 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  34590 strings out of 467538
- 726506 string characters out of 5419545
+ 726513 string characters out of 5419545
  1245798 words of memory out of 5000000
  62609 multiletter control sequences out of 15000+600000
  664688 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,123p,620b,1239s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on build/main.pdf (33 pages, 1807344 bytes).
+Output written on build/main.pdf (33 pages, 1824057 bytes).
 PDF statistics:
- 3848 PDF objects out of 4296 (max. 8388607)
+ 3851 PDF objects out of 4296 (max. 8388607)
  1846 compressed objects within 19 object streams
  86 named destinations out of 1000 (max. 500000)
  268 words of extra memory for PDF output out of 10000 (max. 10000000)

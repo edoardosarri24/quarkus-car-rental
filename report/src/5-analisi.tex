@@ -79,40 +79,29 @@ A questo punto abbiamo tutto per eseguire l'analisi finale e calcolare la distri
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Distribuzione E2E}
-A questo abbiamo il worflow con i microservizi che vengono chiamati, mostrati in Figura~\ref{fig:new_workflow_sequence}, e le distribuzioni dei tempi di esecuzione di ogni microservizio, mostrati in Figura~\ref{fig:distributions}: possiamo eseguire la simulazione su Eulero.
-
-Il tool modella il nostro workflow con qualcosa di simile a quello che possiamo osservare in Figura~\ref{fig:STPN_workflow}. Possiamo vedere invece la CDF e la PDF del tempo di esecuzione E2E del workflow in Figura~\ref{fig:E2E_CDF} e in Figura~\ref{fig:E2E_PDF}.
+A questo abbiamo il workflow con i microservizi che vengono chiamati, mostrati in Figura~\ref{fig:new_workflow_sequence}, e le distribuzioni dei tempi di esecuzione di ogni microservizio, mostrati in Figura~\ref{fig:distributions}: possiamo eseguire la simulazione su Eulero. Il tool modella il nostro workflow con qualcosa di simile a quello che possiamo osservare in Figura~\ref{fig:STPN_workflow}. La PDF e la CDF del tempo E2E approssimate con eulero sono mostrate in Figura\ref{fig:approx_distribution}.
 \begin{figure}[htbp]
+    \caption{STPN del workflow~\cite{oris21}.}
     \centering
     \includegraphics[width=\textwidth]{images/6-analisi/STPN_workflow.pdf}
-    \caption{STPN del workflow~\cite{oris21}.}
     \label{fig:STPN_workflow}
-\end{figure}
-
-\begin{figure}[htbp]
-    \centering
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/6-analisi/complete_E2E_workflow_analysis_CDF.pdf}
-        \caption{CDF.}
-        \label{fig:E2E_CDF}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/6-analisi/complete_E2E_workflow_analysis_PDF.pdf}
-        \caption{PDF.}
-        \label{fig:E2E_PDF}
-    \end{subfigure}
-    \caption{Distribuzioni del tempo di esecuzione E2E del workflow.}
 \end{figure}
 
 \myskip
 
-Per una visualizzazione migliore possiamo osservare la Figura~\ref{fig:E2E_CDF_zoom}. Come abbiamo giù osservato, con queste informzioni riusciamo adesso a fare un'analisi più approfondità e precisa di quelli che possono essere vincoli di soft real-time o considerazioni precise sulla durata del tempo E2E del nostro workflow.
+Questa analisi suppone che noi non conosciamo i tempi E2E del nostro workflow, e che si voglia approssimare la loro ditribuzione solamente conosciendo il tempo di esecuzione dei microservizi che componengono la catena di chiamate.
+
+Siccome però siamo in caso studio, abbiamo a disposizione anche questi tempi e possiamo costruire la PDF e derivare poi la CDF del vero tempo di esecuzione. Possiamo osservare la differenza infatti tra le distribuzioni approssimate e quelle reali in Figura~\ref{fig:real_distribution}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{images/6-analisi/500ms_E2E_workflow_analysis_CDF.pdf}
-    \caption{CDF del tempo di esecuzione E2E del workflow in $[0ms,500ms]$.}
-    \label{fig:E2E_CDF_zoom}
+    \includegraphics[width=\textwidth]{images/6-analisi/approx_distribution_plot.pdf}
+    \caption{Approssimazioni della CDF e PDF del tempo di esecuzione E2E.}
+    \label{fig:approx_distribution}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/6-analisi/E2E distribution function.pdf}
+    \caption{Distribuzioni (CDF e PDF) del tempo di esecuzione E2E reale.}
+    \label{fig:real_distribution}
 \end{figure}

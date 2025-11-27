@@ -1,12 +1,13 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 import sys
 import os
 
 def main():
     # Define file paths
     approx_file = 'approxCDF.csv'
-    real_file = 'realCDF.csv'
+    real_file = 'real_E2E_execTime.csv'
     output_file = 'results/E2E distribution function.pdf'
 
     # Check if files exist
@@ -22,43 +23,46 @@ def main():
         df_real = pd.read_csv(real_file)
 
         # Check required columns
-        required_cols = {'time', 'cdf'}
-        if not required_cols.issubset(df_approx.columns) or not required_cols.issubset(df_real.columns):
-            print("Error: CSV files must contain 'time' and 'cdf' columns.")
+        if not {'time', 'cdf'}.issubset(df_approx.columns):
+            print(f"Error: '{approx_file}' must contain 'time' and 'cdf' columns.")
+            sys.exit(1)
+        
+        if 'execution_time_ms' not in df_real.columns:
+            print(f"Error: '{real_file}' must contain 'execution_time_ms' column.")
             sys.exit(1)
 
-        # Calculate PDF (Derivative of CDF)
+        # Calculate PDF (Derivative of CDF) for Approx
         # PDF = diff(cdf) / diff(time)
-
-        # Approx PDF
         dt_approx = df_approx['time'].diff()
         dcdf_approx = df_approx['cdf'].diff()
         pdf_approx = dcdf_approx / dt_approx
 
-        # Real PDF
-        dt_real = df_real['time'].diff()
-        dcdf_real = df_real['cdf'].diff()
-        pdf_real = dcdf_real / dt_real
+        # Prepare Real Data
+        real_times = df_real['execution_time_ms'].sort_values()
+        # Empirical CDF
+        cdf_real = np.arange(1, len(real_times) + 1) / len(real_times)
 
         # Plotting
         plt.figure(figsize=(14, 6))
 
         # Plot CDF Comparison
         plt.subplot(1, 2, 1)
-        plt.plot(df_real['time'], df_real['cdf'], label='Real CDF', color='blue')
+        plt.plot(real_times, cdf_real, label='Real CDF', color='blue')
         plt.plot(df_approx['time'], df_approx['cdf'], label='Approx CDF', color='red')
-        plt.xlabel('Time')
+        plt.xlabel('Time (ms)')
         plt.ylabel('CDF')
         plt.title('Cumulative Distribution Function')
         plt.grid(True, alpha=0.3)
         plt.legend()
 
-        # Plot PDF Comparison
+        # Plot PDF/Histogram Comparison
         plt.subplot(1, 2, 2)
-        plt.plot(df_real['time'], pdf_real, label='Real PDF', color='blue')
+        # Plot histogram of real data
+        plt.hist(real_times, bins=1000, density=True, alpha=0.6, color='blue', label='Real PDF')
+        # Plot approx PDF
         plt.plot(df_approx['time'], pdf_approx, label='Approx PDF', color='red')
-        plt.xlabel('Time')
-        plt.ylabel('PDF')
+        plt.xlabel('Time (ms)')
+        plt.ylabel('Density')
         plt.title('Probability Density Function')
         plt.grid(True, alpha=0.3)
         plt.legend()
@@ -67,11 +71,16 @@ def main():
         plt.tight_layout()
 
         # Save the plot
+        # Ensure results directory exists
+        os.makedirs(os.path.dirname(output_file), exist_ok=True)
         plt.savefig(output_file)
         print(f"Visualization saved to: {output_file}")
 
     except Exception as e:
         print(f"An error occurred: {e}")
+        # Print full traceback for debugging
+        import traceback
+        traceback.print_exc()
         sys.exit(1)
 
 if __name__ == "__main__":
