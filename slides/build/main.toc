@@ -18,4 +18,4 @@
 \beamer@subsectionintoc {7}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{22}{0}{7}
 \beamer@sectionintoc {8}{Analisi E2E}{25}{0}{8}
 \beamer@subsectionintoc {8}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{25}{0}{8}
-\beamer@subsectionintoc {8}{2}{\href {https://github.com/edoardosarri24/quarkus-car-rental}{GitHub}}{33}{0}{8}
+\beamer@subsectionintoc {8}{2}{\href {https://github.com/edoardosarri24/quarkus-car-rental}{GitHub}}{34}{0}{8}

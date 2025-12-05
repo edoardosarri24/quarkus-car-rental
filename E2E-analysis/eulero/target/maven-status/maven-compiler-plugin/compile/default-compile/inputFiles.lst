@@ -42,6 +42,7 @@
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/deprecated/DFSNestedObserver.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/stochastictime/HyperExponentialTime.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/activitytypes/ORType.java
+/Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/main_outliers.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modelgeneration/blocksettings/DAGBlockSetting.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/stochastictime/ExpolynomialTime.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/evaluation/heuristics/AnalysisHeuristicsVisitor.java

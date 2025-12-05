@@ -68,6 +68,7 @@ org/oristool/eulero/modeling/deprecated/Activity.class
 org/oristool/eulero/modeling/stochastictime/StochasticTime.class
 org/oristool/eulero/modeling/DFSNestedObserver.class
 org/oristool/eulero/modeling/deprecated/DAG$7.class
+org/oristool/eulero/main_outliers.class
 org/oristool/eulero/modeling/stochastictime/TruncatedExponentialMixtureTime.class
 org/oristool/eulero/evaluation/approximator/TruncatedExponentialMixtureApproximation$1.class
 org/oristool/eulero/modeling/stochastictime/DeterministicTime.class

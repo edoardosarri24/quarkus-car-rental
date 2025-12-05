@@ -795,6 +795,26 @@ INPUT ./images/8-analisi/E2E distribution function.pdf
 INPUT ./images/8-analisi/E2E distribution function.pdf
 INPUT ./images/8-analisi/E2E distribution function.pdf
 INPUT ./images/8-analisi/E2E distribution function.pdf
+INPUT ./images/8-analisi/real_first-parallel-service_execTime.pdf
+INPUT ./images/8-analisi/real_first-parallel-service_execTime.pdf
+INPUT ./images/8-analisi/real_first-parallel-service_execTime.pdf
+INPUT ./images/8-analisi/real_first-parallel-service_execTime.pdf
+INPUT ./images/8-analisi/real_first-parallel-service_execTime.pdf
+INPUT ./images/8-analisi/real_reservation-service-reservation-all_execTime.pdf
+INPUT ./images/8-analisi/real_reservation-service-reservation-all_execTime.pdf
+INPUT ./images/8-analisi/real_reservation-service-reservation-all_execTime.pdf
+INPUT ./images/8-analisi/real_reservation-service-reservation-all_execTime.pdf
+INPUT ./images/8-analisi/real_reservation-service-reservation-all_execTime.pdf
+INPUT ./images/8-analisi/real_second-choice-service_execTime.pdf
+INPUT ./images/8-analisi/real_second-choice-service_execTime.pdf
+INPUT ./images/8-analisi/real_second-choice-service_execTime.pdf
+INPUT ./images/8-analisi/real_second-choice-service_execTime.pdf
+INPUT ./images/8-analisi/real_second-choice-service_execTime.pdf
+INPUT ./images/8-analisi/real_users-service-startParallel_execTime.pdf
+INPUT ./images/8-analisi/real_users-service-startParallel_execTime.pdf
+INPUT ./images/8-analisi/real_users-service-startParallel_execTime.pdf
+INPUT ./images/8-analisi/real_users-service-startParallel_execTime.pdf
+INPUT ./images/8-analisi/real_users-service-startParallel_execTime.pdf
 INPUT ./src/footpage.tex
 INPUT ./src/footpage.tex
 OUTPUT build/src/footpage.aux

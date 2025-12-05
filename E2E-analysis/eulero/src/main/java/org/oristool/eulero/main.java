@@ -11,6 +11,7 @@ import org.oristool.eulero.ui.ActivityViewer;
 import org.oristool.eulero.evaluation.heuristics.EvaluationResult;
 import org.oristool.eulero.modeling.stochastictime.HypoExponentialTime;
 import org.oristool.eulero.modeling.stochastictime.HyperExponentialTime;
+import org.oristool.eulero.modeling.stochastictime.ErlangTime;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -47,7 +48,7 @@ public class main {
             "secondChoice",
             new HyperExponentialTime(
                 BigDecimal.valueOf(0.8021),
-                BigDecimal.valueOf(0.1318),
+                BigDecimal.valueOf(0.1382),
                 BigDecimal.valueOf(0.8530)));
         Activity thirdChoice = new Simple(
             "thirdChoice",
@@ -110,6 +111,7 @@ public class main {
             startChoice,
             ModelFactory.XOR(List.of(0.2, 0.5, 0.3), firstChoice, secondChoice, thirdChoice),
             usersParallel,
+            startParallel,
             ModelFactory.forkJoin(firstParallel, secondParallel),
             usersReservation,
             reservationReservation,
@@ -117,29 +119,19 @@ public class main {
             reservationReservationAll
         );
 
-        Activity exactModel = new Simple(
-            "realDistribution",
-            new HypoExponentialTime(
-                BigDecimal.valueOf(0.0480),
-                BigDecimal.valueOf(0.2352)));
-
         // Analyze the model.
         AnalysisHeuristicsVisitor analyzer = new SDFHeuristicsVisitor(
             BigInteger.valueOf(2),
             BigInteger.valueOf(5),
             new TruncatedExponentialMixtureApproximation());
-        double fairTimeTick = exactModel.getLeastExpectedTimeTick();
+        double fairTimeTick = model.getLeastExpectedTimeTick();
         BigDecimal timeStep = BigDecimal.valueOf(fairTimeTick);
         //double fairTimeLimit = model.getFairTimeLimit();
         double fairTimeLimit = 500;
-        double[] cdf = exactModel.analyze(BigDecimal.valueOf(fairTimeLimit), timeStep, analyzer);
-
-        // show the result
-        // EvaluationResult result = new EvaluationResult("E2E workflow analysis", cdf, 0, cdf.length, timeStep.doubleValue(), 0);
-        // ActivityViewer.CompareResults("../", true, "E2E workflow analysis", List.of("CFD"), result);
+        double[] cdf = model.analyze(BigDecimal.valueOf(fairTimeLimit), timeStep, analyzer);
 
         // Save cdf to a CSV file
-        try (PrintWriter writer = new PrintWriter(new FileWriter("../visualize_data/realCDF.csv"))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("../approxCDF.csv"))) {
             writer.println("time,cdf");
             for (int i = 0; i < cdf.length; i++) {
                 double time = i * timeStep.doubleValue();

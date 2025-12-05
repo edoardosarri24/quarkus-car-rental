@@ -53,3 +53,27 @@ def fit_hyper_exponential(mu: float, cv: float):
     lambda1 = (2 * p1) / mu
     lambda2 = (2 * p2) / mu
     return p1, lambda1, p2, lambda2
+
+def fit_erlang(mu: float, cv: float):
+    """
+    Calculates the parameters of an Erlang distribution using the method of moments.
+    Args:
+        mu (float): The average execution time (E[X]).
+        cv (float): The coefficient of variation (sigma / mean).
+                    Must be <= 1.0 for an Erlang distribution.
+    Returns:
+        tuple: (k, lambda) - The integer shape parameter (k) and the rate (lambda).
+    Raises:
+        ValueError: If cv > 1.0 (data not compatible, consider Hyper-exponential).
+    """
+    if cv > 1.0:
+        raise ValueError(
+            f"The coefficient of variation ({cv}) is > 1. "
+            "The Erlang distribution requires CV <= 1. "
+            "Consider using a Hyper-exponential distribution."
+        )
+    # For an Erlang distribution, the squared coefficient of variation is 1/k.
+    k = round(1.0 / (cv**2))
+    # The mean is k / lambda.
+    lambda_rate = k / mu
+    return int(k), lambda_rate

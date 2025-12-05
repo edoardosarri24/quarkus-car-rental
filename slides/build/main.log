@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  27 NOV 2025 18:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.27)  5 DEC 2025 09:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -381,11 +381,11 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
 Package: sansmathaccent 2020/01/31
  (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile.sty
-Package: scrlfile 2025/09/09 v3.48 KOMA-Script package (file load hooks)
+Package: scrlfile 2025/12/01 v3.49 KOMA-Script package (file load hooks)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
-Package: scrlfile-hook 2025/09/09 v3.48 KOMA-Script package (using LaTeX hooks)
+Package: scrlfile-hook 2025/12/01 v3.49 KOMA-Script package (using LaTeX hooks)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlogo.sty
-Package: scrlogo 2025/09/09 v3.48 KOMA-Script package (logo)
+Package: scrlogo 2025/12/01 v3.49 KOMA-Script package (logo)
 ))))) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator.sty
 Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasemisc.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
@@ -1020,7 +1020,7 @@ Package caption Info: float package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (build/main.nav)
-<images/0-varie/logo UniFi.pdf, id=171, 996.72375pt x 483.8075pt>
+<images/0-varie/logo UniFi.pdf, id=173, 996.72375pt x 483.8075pt>
 File: images/0-varie/logo UniFi.pdf Graphic file (type pdf)
 <use images/0-varie/logo UniFi.pdf>
 Package pdftex.def Info: images/0-varie/logo UniFi.pdf  used on input line 5.
@@ -1033,7 +1033,7 @@ Package pdftex.def Info: images/0-varie/logo UniFi.pdf  used on input line 5.
  (./src/1-car rental.tex
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 19.
-<images/0-varie/sfondo chiaro.pdf, id=318, 722.7pt x 518.93875pt>
+<images/0-varie/sfondo chiaro.pdf, id=323, 722.7pt x 518.93875pt>
 File: images/0-varie/sfondo chiaro.pdf Graphic file (type pdf)
 <use images/0-varie/sfondo chiaro.pdf>
 Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 19.
@@ -1079,7 +1079,7 @@ LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <8> not available
 (Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 51.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <6> not available
 (Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 51.
-<images/1-car rental/comunication.pdf, id=507, 274.02374pt x 251.94125pt>
+<images/1-car rental/comunication.pdf, id=516, 274.02374pt x 251.94125pt>
 File: images/1-car rental/comunication.pdf Graphic file (type pdf)
 <use images/1-car rental/comunication.pdf>
 Package pdftex.def Info: images/1-car rental/comunication.pdf  used on input line 51.
@@ -1110,10 +1110,10 @@ Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 21
 \pydata@fh@0=\write8
 \openout8 = `_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted'.
 
-runsystem(latexminted config  --timestamp 20251127184200 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted config  --timestamp 20251205091158 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (build/_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20251127184200 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted cleanconfig  --timestamp 20251205091158 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (./build/_minted/default.style.minted) (./build/_minted/95FE0AB36F6A932A117B681CD31500B4.highlight.minted
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 1.
@@ -1202,12 +1202,12 @@ Package pdftex.def Info: images/0-varie/sfondo chiaro.pdf  used on input line 42
  [12
 
 ]
-<images/4-tracing/use cases.pdf, id=1578, 537.00626pt x 268.00125pt>
+<images/4-tracing/use cases.pdf, id=1611, 537.00626pt x 268.00125pt>
 File: images/4-tracing/use cases.pdf Graphic file (type pdf)
 <use images/4-tracing/use cases.pdf>
 Package pdftex.def Info: images/4-tracing/use cases.pdf  used on input line 59.
 (pdftex.def)             Requested size: 129.06248pt x 64.40749pt.
-<images/4-tracing/jaeger use case.pdf, id=1579, 1514.65875pt x 759.83875pt>
+<images/4-tracing/jaeger use case.pdf, id=1612, 1514.65875pt x 759.83875pt>
 File: images/4-tracing/jaeger use case.pdf Graphic file (type pdf)
 <use images/4-tracing/jaeger use case.pdf>
 Package pdftex.def Info: images/4-tracing/jaeger use case.pdf  used on input line 59.
@@ -1261,7 +1261,7 @@ Package pdftex.def Info: images/0-varie/logo UniFi.pdf  used on input line 7.
 \openout2 = `src/6-workflow.aux'.
 
  (./src/6-workflow.tex
-<images/6-workflow/initial_workflow_jaeger.pdf, id=2042, 1514.65875pt x 553.78732pt>
+<images/6-workflow/initial_workflow_jaeger.pdf, id=2085, 1514.65875pt x 553.78732pt>
 File: images/6-workflow/initial_workflow_jaeger.pdf Graphic file (type pdf)
 <use images/6-workflow/initial_workflow_jaeger.pdf>
 Package pdftex.def Info: images/6-workflow/initial_workflow_jaeger.pdf  used on input line 13.
@@ -1276,7 +1276,7 @@ Package pdftex.def Info: images/6-workflow/initial_workflow_jaeger.pdf  used on 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}] [19
 
 ]
-<images/6-workflow/new_workflow_jaeger.pdf, id=2321, 1513.655pt x 514.47548pt>
+<images/6-workflow/new_workflow_jaeger.pdf, id=2371, 1513.655pt x 514.47548pt>
 File: images/6-workflow/new_workflow_jaeger.pdf Graphic file (type pdf)
 <use images/6-workflow/new_workflow_jaeger.pdf>
 Package pdftex.def Info: images/6-workflow/new_workflow_jaeger.pdf  used on input line 56.
@@ -1284,7 +1284,7 @@ Package pdftex.def Info: images/6-workflow/new_workflow_jaeger.pdf  used on inpu
  [20
 
  <./images/6-workflow/new_workflow_jaeger.pdf>]
-<images/6-workflow/new_workflow_sequence.pdf, id=2420, 529.3997pt x 322.54604pt>
+<images/6-workflow/new_workflow_sequence.pdf, id=2471, 529.3997pt x 322.54604pt>
 File: images/6-workflow/new_workflow_sequence.pdf Graphic file (type pdf)
 <use images/6-workflow/new_workflow_sequence.pdf>
 Package pdftex.def Info: images/6-workflow/new_workflow_sequence.pdf  used on input line 63.
@@ -1295,7 +1295,7 @@ Package pdftex.def Info: images/6-workflow/new_workflow_sequence.pdf  used on in
 \openout2 = `src/7-tracing.aux'.
 
  (./src/7-tracing.tex
-<images/7-tracing/old_otel_workflow/old_otel_workflow.pdf, id=2530, 322.95656pt x 156.585pt>
+<images/7-tracing/old_otel_workflow/old_otel_workflow.pdf, id=2584, 322.95656pt x 156.585pt>
 File: images/7-tracing/old_otel_workflow/old_otel_workflow.pdf Graphic file (type pdf)
 <use images/7-tracing/old_otel_workflow/old_otel_workflow.pdf>
 Package pdftex.def Info: images/7-tracing/old_otel_workflow/old_otel_workflow.pdf  used on input line 15.
@@ -1306,7 +1306,7 @@ Package pdftex.def Info: images/7-tracing/old_otel_workflow/old_otel_workflow.pd
 
 
  <./images/7-tracing/old_otel_workflow/old_otel_workflow.pdf>]
-<images/7-tracing/new_otel_workflow.pdf, id=2656, 593.21625pt x 179.16937pt>
+<images/7-tracing/new_otel_workflow.pdf, id=2711, 593.21625pt x 179.16937pt>
 File: images/7-tracing/new_otel_workflow.pdf Graphic file (type pdf)
 <use images/7-tracing/new_otel_workflow.pdf>
 Package pdftex.def Info: images/7-tracing/new_otel_workflow.pdf  used on input line 28.
@@ -1330,7 +1330,7 @@ File: images/6-workflow/new_workflow_jaeger.pdf Graphic file (type pdf)
 <use images/6-workflow/new_workflow_jaeger.pdf>
 Package pdftex.def Info: images/6-workflow/new_workflow_jaeger.pdf  used on input line 38.
 (pdftex.def)             Requested size: 307.28987pt x 104.43976pt.
-<images/8-analisi/STPN_workflow.pdf, id=3068, 1388.18625pt x 273.02pt>
+<images/8-analisi/STPN_workflow.pdf, id=3132, 1388.18625pt x 273.02pt>
 File: images/8-analisi/STPN_workflow.pdf Graphic file (type pdf)
 <use images/8-analisi/STPN_workflow.pdf>
 Package pdftex.def Info: images/8-analisi/STPN_workflow.pdf  used on input line 38.
@@ -1344,7 +1344,7 @@ Overfull \vbox (0.67871pt too high) detected at line 38
  <./images/8-analisi/STPN_workflow.pdf>] [28
 
 ]
-<images/8-analisi/statistics.pdf, id=3254, 978.65625pt x 240.9pt>
+<images/8-analisi/statistics.pdf, id=3322, 978.65625pt x 240.9pt>
 File: images/8-analisi/statistics.pdf Graphic file (type pdf)
 <use images/8-analisi/statistics.pdf>
 Package pdftex.def Info: images/8-analisi/statistics.pdf  used on input line 64.
@@ -1352,7 +1352,7 @@ Package pdftex.def Info: images/8-analisi/statistics.pdf  used on input line 64.
  [29
 
  <./images/8-analisi/statistics.pdf>]
-<images/8-analisi/distributions.pdf, id=3351, 1107.13625pt x 240.9pt>
+<images/8-analisi/distributions.pdf, id=3420, 1107.13625pt x 240.9pt>
 File: images/8-analisi/distributions.pdf Graphic file (type pdf)
 <use images/8-analisi/distributions.pdf>
 Package pdftex.def Info: images/8-analisi/distributions.pdf  used on input line 77.
@@ -1360,7 +1360,7 @@ Package pdftex.def Info: images/8-analisi/distributions.pdf  used on input line 
  [30
 
  <./images/8-analisi/distributions.pdf>]
-<images/8-analisi/approx_distribution_plot.pdf, id=3449, 1011.78pt x 433.62pt>
+<images/8-analisi/approx_distribution_plot.pdf, id=3521, 1011.78pt x 433.62pt>
 File: images/8-analisi/approx_distribution_plot.pdf Graphic file (type pdf)
 <use images/8-analisi/approx_distribution_plot.pdf>
 Package pdftex.def Info: images/8-analisi/approx_distribution_plot.pdf  used on input line 85.
@@ -1368,7 +1368,7 @@ Package pdftex.def Info: images/8-analisi/approx_distribution_plot.pdf  used on 
  [31
 
  <./images/8-analisi/approx_distribution_plot.pdf>]
-<images/8-analisi/E2E distribution function.pdf, id=3579, 1011.78pt x 433.62pt>
+<images/8-analisi/E2E distribution function.pdf, id=3652, 1011.78pt x 433.62pt>
 File: images/8-analisi/E2E distribution function.pdf Graphic file (type pdf)
 <use images/8-analisi/E2E distribution function.pdf>
 Package pdftex.def Info: images/8-analisi/E2E distribution function.pdf  used on input line 96.
@@ -1379,7 +1379,30 @@ Overfull \vbox (0.80644pt too high) detected at line 96
 
 [32
 
- <./images/8-analisi/E2E distribution function.pdf>])
+ <./images/8-analisi/E2E distribution function.pdf>]
+<images/8-analisi/real_first-parallel-service_execTime.pdf, id=3787, 1011.78pt x 433.62pt>
+File: images/8-analisi/real_first-parallel-service_execTime.pdf Graphic file (type pdf)
+<use images/8-analisi/real_first-parallel-service_execTime.pdf>
+Package pdftex.def Info: images/8-analisi/real_first-parallel-service_execTime.pdf  used on input line 115.
+(pdftex.def)             Requested size: 138.2795pt x 59.25737pt.
+<images/8-analisi/real_reservation-service-reservation-all_execTime.pdf, id=3788, 1011.78pt x 433.62pt>
+File: images/8-analisi/real_reservation-service-reservation-all_execTime.pdf Graphic file (type pdf)
+<use images/8-analisi/real_reservation-service-reservation-all_execTime.pdf>
+Package pdftex.def Info: images/8-analisi/real_reservation-service-reservation-all_execTime.pdf  used on input line 115.
+(pdftex.def)             Requested size: 138.2795pt x 59.25737pt.
+<images/8-analisi/real_second-choice-service_execTime.pdf, id=3789, 1011.78pt x 433.62pt>
+File: images/8-analisi/real_second-choice-service_execTime.pdf Graphic file (type pdf)
+<use images/8-analisi/real_second-choice-service_execTime.pdf>
+Package pdftex.def Info: images/8-analisi/real_second-choice-service_execTime.pdf  used on input line 115.
+(pdftex.def)             Requested size: 138.2795pt x 59.25737pt.
+<images/8-analisi/real_users-service-startParallel_execTime.pdf, id=3790, 1011.78pt x 433.62pt>
+File: images/8-analisi/real_users-service-startParallel_execTime.pdf Graphic file (type pdf)
+<use images/8-analisi/real_users-service-startParallel_execTime.pdf>
+Package pdftex.def Info: images/8-analisi/real_users-service-startParallel_execTime.pdf  used on input line 115.
+(pdftex.def)             Requested size: 138.2795pt x 59.25737pt.
+ [33
+
+ <./images/8-analisi/real_first-parallel-service_execTime.pdf> <./images/8-analisi/real_reservation-service-reservation-all_execTime.pdf> <./images/8-analisi/real_second-choice-service_execTime.pdf> <./images/8-analisi/real_users-service-startParallel_execTime.pdf>])
 \openout2 = `src/footpage.aux'.
 
  (./src/footpage.tex
@@ -1387,7 +1410,7 @@ File: images/0-varie/logo UniFi.pdf Graphic file (type pdf)
 <use images/0-varie/logo UniFi.pdf>
 Package pdftex.def Info: images/0-varie/logo UniFi.pdf  used on input line 7.
 (pdftex.def)             Requested size: 76.82246pt x 37.28798pt.
- [33
+ [34
 
 
 
@@ -1408,21 +1431,21 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-14>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1E75E2B2A88657CBC19AD13684FD3D46;5007.
+(rerunfilecheck)             Checksum: 321BBF3C843992D16AE75DBFB7464EFB;5007.
  ) 
 Here is how much of TeX's memory you used:
- 34590 strings out of 467538
- 726513 string characters out of 5419545
- 1245798 words of memory out of 5000000
- 62609 multiletter control sequences out of 15000+600000
+ 34622 strings out of 467538
+ 728553 string characters out of 5419545
+ 1246798 words of memory out of 5000000
+ 62639 multiletter control sequences out of 15000+600000
  664688 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,123p,620b,1239s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on build/main.pdf (33 pages, 1824057 bytes).
+Output written on build/main.pdf (34 pages, 1894851 bytes).
 PDF statistics:
- 3851 PDF objects out of 4296 (max. 8388607)
- 1846 compressed objects within 19 object streams
- 86 named destinations out of 1000 (max. 500000)
- 268 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4186 PDF objects out of 4296 (max. 8388607)
+ 1947 compressed objects within 20 object streams
+ 88 named destinations out of 1000 (max. 500000)
+ 288 words of extra memory for PDF output out of 10000 (max. 10000000)
 

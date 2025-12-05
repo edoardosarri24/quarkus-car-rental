@@ -50,6 +50,41 @@ def filter_traces_for_workflow(traces):
     filtered_traces = {trace_id: traces[trace_id] for trace_id in target_trace_ids}
     return filtered_traces
 
+def delete_outliers(traces):
+    """
+    Deletes outlier traces based on their E2E execution time.
+    The method used to detect outliers is the Interquartile Range (IQR).
+    An observation is considered an outlier if it falls outside the range:
+    [Q1 - 1.5 * IQR, Q3 + 1.5 * IQR]
+    """
+    e2e_times = []
+    for trace_id, spans_dict in traces.items():
+        root_span = None
+        for span in spans_dict.values():
+            if span.get('serviceName') == 'users-service' and span.get('name') == 'POST /reserve':
+                root_span = span
+                break
+        if root_span:
+            start_time = int(root_span['startTimeUnixNano'])
+            end_time = int(root_span['endTimeUnixNano'])
+            duration_ms = (end_time - start_time) / 10**6
+            e2e_times.append((trace_id, duration_ms))
+    if not e2e_times:
+        return traces
+    # Separate trace_ids and durations for quartile calculation
+    trace_ids, durations = zip(*e2e_times)
+    # Identify non-outlier traces based on the 450ms threshold
+    non_outlier_trace_ids = {
+        trace_id for trace_id, duration in zip(trace_ids, durations)
+        if duration <= 450
+    }
+    # Filter traces to keep only non-outliers
+    filtered_traces = {
+        trace_id: spans for trace_id, spans in traces.items()
+        if trace_id in non_outlier_trace_ids
+    }
+    return filtered_traces
+
 def sum_exec_time_same_consecutive_service(traces):
     """
     sum the time of the same consecutive service in one operation
@@ -167,9 +202,12 @@ def distribution_fitting(statistics):
         if statistic[6] > 1:
             lambdas = fit_hyper_exponential(statistic[3]/(10**6), statistic[6])
             distributions[service_and_operation] = ("hyperExp",) + lambdas
-        elif statistic[6] < 1 and statistic[6] > (1/math.sqrt(2)):
+        elif statistic[6] < 1 and statistic[6] >= (1/math.sqrt(2)):
             lambdas = fit_hypo_exponential(statistic[3]/(10**6), statistic[6])
             distributions[service_and_operation] = ("hypoExp",) + lambdas
+        elif statistic[6] < (1/math.sqrt(2)) and statistic[6] > 0:
+            lambdas = fit_erlang(statistic[3]/(10**6), statistic[6])
+            distributions[service_and_operation] = ("erlang",) + lambdas
         else:
             raise ValueError(f"Coefficient of variation {statistic[6]} for {service_and_operation} is not in a supported range for distribution fitting.")
     return distributions
@@ -178,15 +216,19 @@ def print_distributions(distributions):
     """
     print the collected distributions in a human-readable format.
     """
-    print(f"{'Service':<25} | {'Operation':<28} | {'distribution':<15} | {'p1':<10} | {'Lambda 1':<20} | {'p2':<10} | {'Lambda 2':<20}")
+    print(f"{'Service':<25} | {'Operation':<28} | {'distribution':<15} | {'p1':<10} | {'Lambda 1':<10} | {'p2':<10} | {'Lambda 2':<10} | {'n':<5} | {'Rate':<10}")
     print("-" * 140)
-    for (service_name, operation_name), lambdas in distributions.items():
-        if len(lambdas) == 3:
-            distribution, lambda1, lambda2 = lambdas
-            print(f"{service_name:<25} | {operation_name:<28} | {distribution:<15} | {'N/A':<10} | {lambda1:<20.4f} | {'N/A':<10} | {lambda2:<20.4f}")
-        elif len(lambdas) == 5:
-            distribution, p1, lambda1, p2, lambda2 = lambdas
-            print(f"{service_name:<25} | {operation_name:<28} | {distribution:<15} | {p1:<10.4f} | {lambda1:<20.4f} | {p2:<10.4f} | {lambda2:<20.4f}")
+    for (service_name, operation_name), params in distributions.items():
+        distribution_type = params[0]
+        if distribution_type == "hyperExp":
+            _, p1, lambda1, p2, lambda2 = params
+            print(f"{service_name:<25} | {operation_name:<28} | {distribution_type:<15} | {p1:<10.4f} | {lambda1:<10.4f} | {p2:<10.4f} | {lambda2:<10.4f} | {'N/A':<5} | {'N/A':<10}")
+        elif distribution_type == "hypoExp":
+            _, lambda1, lambda2 = params
+            print(f"{service_name:<25} | {operation_name:<28} | {distribution_type:<15} | {'N/A':<10} | {lambda1:<10.4f} | {'N/A':<10} | {lambda2:<10.4f} | {'N/A':<5} | {'N/A':<10}")
+        elif distribution_type == "erlang":
+            _, n, rate = params
+            print(f"{service_name:<25} | {operation_name:<28} | {distribution_type:<15} | {'N/A':<10} | {'N/A':<10} | {'N/A':<10} | {'N/A':<10} | {n:<5} | {rate:<10.4f}")
     print("\n\n")
 
 
@@ -195,7 +237,7 @@ def save_real_E2E_execTime(traces):
     Creates a csv file called "real_E2E_execTime.csv" that contains all the end2end times of the workflow.
     The execution time is calculated as the duration of the 'POST /reserve' operation in 'users-service'.
     """
-    output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../visualize_data/real_E2E_execTime.csv")
+    output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "./real_E2E_execTime.csv")
     with open(output_file, 'w') as f:
         f.write("trace_id,execution_time_ms\n")
         for trace_id, spans_dict in traces.items():
@@ -210,8 +252,6 @@ def save_real_E2E_execTime(traces):
                 duration_ms = (end_time - start_time) / 10**6
                 f.write(f"{trace_id},{duration_ms:.6f}\n")
 
-
-
 def save_real_service_execTime(traces, service_name, operation_name):
     output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "real_service_execTime/real_reservation-service-reservation-all_execTime.csv")
     with open(output_file, 'w') as f:
@@ -224,7 +264,6 @@ def save_real_service_execTime(traces, service_name, operation_name):
                     duration_ms = (end_time - start_time) / 10**6
                     f.write(f"{trace_id},{duration_ms:.6f}\n")
 
-'''
 if __name__ == "__main__":
     #setup paths
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -232,8 +271,9 @@ if __name__ == "__main__":
     # execution
     traces = extract_traces(traces_file)
     filtered_traces = filter_traces_for_workflow(traces)
-    save_real_E2E_execTime(filtered_traces)
-    processed_traces = sum_exec_time_same_consecutive_service(filtered_traces)
+    filtered_traces_wo_outliers = delete_outliers(filtered_traces)
+    save_real_E2E_execTime(filtered_traces_wo_outliers)
+    processed_traces = sum_exec_time_same_consecutive_service(filtered_traces_wo_outliers)
     statistics = collect_statisctics(processed_traces)
     distributions = distribution_fitting(statistics)
     print("DISTRIBUTIONS")
@@ -242,8 +282,8 @@ if __name__ == "__main__":
     print_statistics(statistics)
     print("PROCESSED TRACES")
     print_traces(processed_traces)
-'''
 
+'''
 if __name__ == "__main__":
     #setup paths
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -252,3 +292,4 @@ if __name__ == "__main__":
     traces = extract_traces(traces_file)
     filtered_traces = filter_traces_for_workflow(traces)
     save_real_service_execTime(filtered_traces, 'reservation-service', 'GET /reservation/all')
+'''
