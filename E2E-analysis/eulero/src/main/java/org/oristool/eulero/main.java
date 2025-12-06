@@ -30,8 +30,8 @@ public class main {
         Activity usersReserve = new Simple(
             "usersReserve",
             new HypoExponentialTime(
-                BigDecimal.valueOf(0.0343),
-                BigDecimal.valueOf(1.1294)));
+                BigDecimal.valueOf(0.1543),
+                BigDecimal.valueOf(0.0594)));
         Activity startChoice = new Simple(
             "startChoice",
             new HyperExponentialTime(

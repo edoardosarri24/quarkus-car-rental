@@ -2,7 +2,7 @@
 
 
 
-
+uv run ./single_service_distribution_function.py --file-path /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/visualize_data/single_service/real_service_execTime/real_users-service-reserve_execTime.csv --dist-type hypoexp --params 0.1543 0.0594 --output-file ./real_service_plot/real_users-service-reserve_execTime.pdf
 uv run ./single_service_distribution_function.py --file-path /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/visualize_data/single_service_distribution_function/real_service_execTime/real_start-choice-service_execTime.csv --dist-type hyperexp --params 0.9246 0.2426 0.0754 0.0198 --output-file ./real_service_plot/real_start-choice-service_execTime.pdf
 uv run ./single_service_distribution_function.py --file-path /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/visualize_data/single_service_distribution_function/real_service_execTime/real_first-choice-service_execTime.csv --dist-type hyperexp --params 0.9229 0.8041 0.0771 0.0672 --output-file ./real_service_plot/real_first-choice-service_execTime.pdf
 uv run ./single_service_distribution_function.py --file-path /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/visualize_data/single_service_distribution_function/real_service_execTime/real_second-choice-service_execTime.csv --dist-type hyperexp --params 0.8530 0.8021 0.1470 0.1382 --output-file ./real_service_plot/real_second-choice-service_execTime.pdf

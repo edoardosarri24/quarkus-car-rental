@@ -70,7 +70,7 @@ def main():
     parser.add_argument('--dist-type', required=True, choices=['hypoexp', 'hyperexp'], help='Type of theoretical distribution.')
     parser.add_argument('--params', required=True, type=float, nargs='+', help='Parameters for the theoretical distribution.')
     parser.add_argument('--output-file', default='comparison_plot.pdf', help='Path to save the output plot.')
-    
+
     args = parser.parse_args()
 
     if not os.path.exists(args.file_path):
@@ -130,7 +130,7 @@ def main():
     plt.grid(True, alpha=0.3)
     plt.legend()
 
-    plt.suptitle(f'third-choice Distribution Function', fontsize=16)
+    plt.suptitle(f'users/reserve Distribution Function', fontsize=16)
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
 
     plt.savefig(args.output_file)
