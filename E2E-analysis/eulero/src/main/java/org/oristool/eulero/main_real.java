@@ -11,6 +11,7 @@ import org.oristool.eulero.ui.ActivityViewer;
 import org.oristool.eulero.evaluation.heuristics.EvaluationResult;
 import org.oristool.eulero.modeling.stochastictime.HypoExponentialTime;
 import org.oristool.eulero.modeling.stochastictime.HyperExponentialTime;
+import org.oristool.eulero.modeling.stochastictime.ErlangTime;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -19,7 +20,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 
-public class main_outliers {
+public class main_real {
 
     public static void main(String[] args) {
 
@@ -29,8 +30,8 @@ public class main_outliers {
         Activity usersReserve = new Simple(
             "usersReserve",
             new HypoExponentialTime(
-                BigDecimal.valueOf(0.0343),
-                BigDecimal.valueOf(1.1294)));
+                BigDecimal.valueOf(0.1543),
+                BigDecimal.valueOf(0.0594)));
         Activity startChoice = new Simple(
             "startChoice",
             new HyperExponentialTime(
@@ -47,7 +48,7 @@ public class main_outliers {
             "secondChoice",
             new HyperExponentialTime(
                 BigDecimal.valueOf(0.8021),
-                BigDecimal.valueOf(0.1318),
+                BigDecimal.valueOf(0.1382),
                 BigDecimal.valueOf(0.8530)));
         Activity thirdChoice = new Simple(
             "thirdChoice",

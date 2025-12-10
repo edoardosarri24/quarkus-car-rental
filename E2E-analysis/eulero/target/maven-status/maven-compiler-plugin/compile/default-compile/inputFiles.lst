@@ -42,7 +42,6 @@
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/deprecated/DFSNestedObserver.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/stochastictime/HyperExponentialTime.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/activitytypes/ORType.java
-/Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/main_outliers.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modelgeneration/blocksettings/DAGBlockSetting.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/stochastictime/ExpolynomialTime.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/evaluation/heuristics/AnalysisHeuristicsVisitor.java
@@ -68,6 +67,7 @@
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/stochastictime/StochasticTime.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/evaluation/heuristics/deprecated/AnalysisHeuristicsStrategy.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/evaluation/approximator/EXPMixtureApproximation.java
+/Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/main_real.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/deprecated/DAGEdge.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/examples/TestLowerBound.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/deprecated/AND.java

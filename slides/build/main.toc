@@ -12,10 +12,10 @@
 \beamer@sectionintoc {5}{Metrics}{14}{0}{5}
 \beamer@subsectionintoc {5}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{14}{0}{5}
 \beamer@subsectionintoc {5}{2}{\href {https://github.com/edoardosarri24/quarkus-car-rental}{GitHub}}{16}{0}{5}
-\beamer@sectionintoc {6}{Workflow}{17}{0}{6}
+\beamer@sectionintoc {6}{Workflow - reserve}{17}{0}{6}
 \beamer@subsectionintoc {6}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{17}{0}{6}
 \beamer@sectionintoc {7}{Tracing}{22}{0}{7}
 \beamer@subsectionintoc {7}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{22}{0}{7}
 \beamer@sectionintoc {8}{Analisi E2E}{25}{0}{8}
 \beamer@subsectionintoc {8}{1}{Software Architecture and Methodologies \& Quantitative Evaluation of Stochastic Models}{25}{0}{8}
-\beamer@subsectionintoc {8}{2}{\href {https://github.com/edoardosarri24/quarkus-car-rental}{GitHub}}{34}{0}{8}
+\beamer@subsectionintoc {8}{2}{\href {https://github.com/edoardosarri24/quarkus-car-rental}{GitHub}}{36}{0}{8}

@@ -9,7 +9,7 @@
     \begin{block}{Scenario}
         \begin{itemize}
             \item Caso medio: Si usano le statistiche descrittive (i.e., media e varianza).
-            \item Soft-real time: per garantire un dato Service Level Agreements (SLA), si deve lavorare su un upper-buond del tempo di esecuzione.
+            \item Soft-real time: per garantire un dato Service Level Agreements (SLA), si deve lavorare su un upper-bound del tempo di esecuzione.
         \end{itemize}
     \end{block}
 \end{frame}
@@ -17,7 +17,7 @@
 \begin{frame}{Analisi E2E}
     \begin{block}{Possibilità di analisi}
         \begin{itemize}
-            \item Esatta: Fattibile per workflow non complessi e/o tempi di esecuzine Markoviani. In altri casi lo spazio degli stati esplode.
+            \item Esatta: Fattibile per workflow non complessi e/o tempi di esecuzione Markoviani. In altri casi lo spazio degli stati esplode.
             \item Composizionale: Nello stato $i$-esimo si elimina il condizionamento sul tempo di esecuzione dello stato $i-1$-esimo. Si analizza in modo indipendente ogni blocco e si ricostruisce l'analisi E2E in modo bottom-up.
         \end{itemize}
     \end{block}
@@ -42,7 +42,7 @@
         L'obiettivo è derivare la distribuzione che meglio approssima il tempo di esecuzione di ogni microservizio. Serve:
         \begin{itemize}
             \item Generare molte tracce.
-            \item Ottenere statistiche descrittive dei tempi di esecuzine.
+            \item Ottenere statistiche descrittive dei tempi di esecuzione.
             \item Fitting delle distribuzioni su tali dati.
         \end{itemize}
     \end{block}
@@ -97,6 +97,16 @@
 
 \begin{frame}{Analisi E2E}
     \begin{block}{Distribuzione E2E reali vs approssimate}
+        \begin{itemize}
+            \item Mettendo nel modello la reale distribuzione (i.e., Exp).
+        \end{itemize}
+        \centering
+        \includegraphics[width=.85\textwidth]{images/8-analisi/E2E distribution function_with_exponential.pdf}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Analisi E2E}
+    \begin{block}{Distribuzione E2E reali vs approssimate - ok}
         \begin{columns}[t]
             \begin{column}{.5\textwidth}
                 \centering
@@ -111,5 +121,15 @@
                 \includegraphics[width=.9\textwidth]{images/8-analisi/real_users-service-startParallel_execTime.pdf}
             \end{column}
         \end{columns}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Analisi E2E}
+    \begin{block}{Distribuzione E2E reali vs approssimate - ko}
+        \centering
+        \includegraphics[width=.6\textwidth]{images/8-analisi/real_users-service-reserve_execTime.pdf}
+        \vfill
+        \centering
+        \includegraphics[width=.6\textwidth]{images/8-analisi/real_start-parallel-service_execTime.pdf}
     \end{block}
 \end{frame}

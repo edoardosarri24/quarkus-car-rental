@@ -12,6 +12,7 @@ import org.oristool.eulero.evaluation.heuristics.EvaluationResult;
 import org.oristool.eulero.modeling.stochastictime.HypoExponentialTime;
 import org.oristool.eulero.modeling.stochastictime.HyperExponentialTime;
 import org.oristool.eulero.modeling.stochastictime.ErlangTime;
+import org.oristool.eulero.modeling.stochastictime.ExponentialTime;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -20,7 +21,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 
-public class main {
+public class main_exponential {
 
     public static void main(String[] args) {
 
@@ -40,22 +41,13 @@ public class main {
                 BigDecimal.valueOf(0.9246)));
         Activity firstChoice = new Simple(
             "firstChoice",
-            new HyperExponentialTime(
-                BigDecimal.valueOf(0.8041),
-                BigDecimal.valueOf(0.0672),
-                BigDecimal.valueOf(0.9229)));
+            new ExponentialTime(new BigDecimal(1)));
         Activity secondChoice = new Simple(
             "secondChoice",
-            new HyperExponentialTime(
-                BigDecimal.valueOf(0.8021),
-                BigDecimal.valueOf(0.1382),
-                BigDecimal.valueOf(0.8530)));
+            new ExponentialTime(new BigDecimal(1)));
         Activity thirdChoice = new Simple(
             "thirdChoice",
-            new HyperExponentialTime(
-                BigDecimal.valueOf(0.7874),
-                BigDecimal.valueOf(0.0989),
-                BigDecimal.valueOf(0.8884)));
+            new ExponentialTime(new BigDecimal(1)));
         Activity usersParallel = new Simple(
             "usersParallel",
             new HyperExponentialTime(
@@ -70,16 +62,10 @@ public class main {
                 BigDecimal.valueOf(0.8050)));
         Activity firstParallel = new Simple(
             "firstParallel",
-            new HyperExponentialTime(
-                BigDecimal.valueOf(0.8916),
-                BigDecimal.valueOf(0.0825),
-                BigDecimal.valueOf(0.9153)));
+            new ExponentialTime(new BigDecimal(1)));
         Activity secondParallel = new Simple(
             "secondParallel",
-            new HyperExponentialTime(
-                BigDecimal.valueOf(0.9210),
-                BigDecimal.valueOf(0.1019),
-                BigDecimal.valueOf(0.9004)));
+            new ExponentialTime(new BigDecimal(1)));
         Activity usersReservation = new Simple(
             "usersReservation",
             new HyperExponentialTime(
