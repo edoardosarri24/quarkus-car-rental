@@ -89,3 +89,12 @@ In Figura~\ref{fig:compare_e2e_distribution_correlation0} possiamo osservare il 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Latenza di rete}
 Il risultato mostrato in Figura~\ref{fig:compare_e2e_distribution_correlation0} mostra come la curva trova da Eulero non sia un preciso upper buond stocastico del tempo di esecuzione. Una motivazione potrebbe essere la tenza di rete non trascurabile quando i tempi di esecuzione dei servizi sono così rapidi. In questo esperimento proviamo ad aumentarli: modificheremo solo i tempi campionati dai microservizio aggiunti dei blocchi XOR e AND, descritti nella Sezione~\ref{sec:blocchi}; in particolare agiremo sulla media, cosa possibile lavorando sul tasso dell'esponenziale da cui campionano il tempo di esecuzione.
+
+I risultati con questo approccio sono visibili in Figura~\ref{fig:fig:compare_e2e_distribution_correlation0_with_timeExtension}. Il risultato è simile a quello precedente, ma l'area tra la curva rossa e quella blu è aumentata, segno che comunque la latenza di rete incide sul risultato.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/6-analisi/compare_e2e_distribution_with_timeExtention_correlation0.pdf}
+    \caption{Eulero and real distribution with time extention.}
+    \label{fig:fig:compare_e2e_distribution_correlation0_with_timeExtension}
+\end{figure}

@@ -9,6 +9,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import org.acme.firstparallel.grpc.FirstParallelService;
 import org.acme.secondparallel.grpc.SecondParallelService;
+import org.oristool.simulator.samplers.*;
 
 import java.math.BigDecimal;
 import java.time.Duration;
@@ -27,7 +28,7 @@ public class EntryPoint {
 
     @POST
     public void pass() {
-        BigDecimal busywaitTime = new ExponentialSampler(new BigDecimal(1).divide(new BigDecimal(3))).getSample();
+        BigDecimal busywaitTime = new ExponentialSampler(new BigDecimal(1).divide(new BigDecimal(3), java.math.MathContext.DECIMAL128)).getSample();
         long busyWaitTimeNs = (long) (busywaitTime.doubleValue() * (10^6));
         long startTime = System.nanoTime();
         while (System.nanoTime() - startTime < busyWaitTimeNs) {

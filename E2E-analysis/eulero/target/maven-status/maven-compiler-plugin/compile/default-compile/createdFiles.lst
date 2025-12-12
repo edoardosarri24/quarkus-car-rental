@@ -20,6 +20,7 @@ org/oristool/eulero/evaluation/approximator/EXPMixtureApproximation$1.class
 org/oristool/eulero/modeling/stochastictime/UniformTime.class
 org/oristool/eulero/modelgeneration/blocksettings/XORBlockSetting.class
 org/oristool/eulero/evaluation/heuristics/deprecated/AnalysisHeuristics1.class
+org/oristool/eulero/main_correlation0.class
 org/oristool/eulero/modelgeneration/RandomGenerator.class
 org/oristool/eulero/modeling/activitytypes/ORType.class
 org/oristool/eulero/modeling/stochastictime/SIRIOType.class

@@ -14,7 +14,7 @@ public class EntryPoint implements FirstParallelService {
 
     @Override
     public Uni<Empty> pass(Empty request) {
-        BigDecimal busywaitTime = new ExponentialSampler(new BigDecimal(1).divide(new BigDecimal(10))).getSample();
+        BigDecimal busywaitTime = new ExponentialSampler(new BigDecimal(1).divide(new BigDecimal(10),java.math.MathContext.DECIMAL128)).getSample();
         long busyWaitTimeNs = (long) (busywaitTime.doubleValue() * (10^6));
         long startTime = System.nanoTime();
         while (System.nanoTime() - startTime < busyWaitTimeNs) {

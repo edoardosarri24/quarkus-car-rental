@@ -1,5 +1,10 @@
 \chapter{Correlazione}
-In questo capitolo andremo ad eseguire un'analisi del tempo end to end (E2E) di una prenotazione da parte dell'utente, cioè dell'intervallo di tempo che trascorre dell'inizio della chiamata della funzionalità fino al suo termine.
+Fino a questo momento i nostri microservizi non avevano nessun tipo di correlazione: il tempo di esecuzione del microserivizion $A$ è totalmente indipendente dal tempo di esecuzione di $B$, per qualunque $A$ e $B$. In questo capito andremo ad aggiungere correlazione tra qualche microservizio per cercare di dimostrare un aspetto tipico della tecnica di analisi composizionale di Eulero: siccome le distrubizioni (i.e., PDF e CDF) del tempo di esecuzione E2E sono costruite con un approccio bottom-up, cioè componendo le distribuzioni marginali fino ad arrivare al risultato, il modello perde tutte le correlazioni che ci possono essere; quando i tempi di esecuzione sono in un qualche modo correlati, allora il sistema di analisi dovrebbe funzionare peggio, cioè l'area tra le due curve sovrebbe aumentare.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Eulero}
+\section{Implementazione}
+Vediamo come implementare la dipendenza tra microservizi in modo semplice ma funzionale. Andremo ad aggiungere due livelli: nella prima avremo una correlazione solamente tra due microservizi; nella seconda aggiungeremo alla precedente anche un altro tipo di correlaizone. Ci aspettimao che gli esperimenti sulla correlazione maggiore siano meno precisi.
+
+\subsection{Bassa correlazione}
+
+\subsection{Alta correlazione}
