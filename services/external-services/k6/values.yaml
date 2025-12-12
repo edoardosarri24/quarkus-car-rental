@@ -1,3 +1,3 @@
 targetUrl: "http://users-service:80/reserve"
 vus: 1
-duration: "30s"
+duration: "20s"

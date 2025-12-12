@@ -1,5 +1,5 @@
 # E2E-analysis
-In questo folder ci sono gli strumenti per estrarre i dati e visualizzare i risultati.
+In questo folder ci sono gli strumenti per estrarre i dati e visualizzare i risultati relativi all'analisi del tempo di esecuzione E2E.
 
 ### requirements
 - [uv](https://docs.astral.sh/uv/)

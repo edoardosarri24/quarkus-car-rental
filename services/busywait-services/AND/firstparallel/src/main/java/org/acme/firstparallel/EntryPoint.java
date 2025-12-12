@@ -14,10 +14,10 @@ public class EntryPoint implements FirstParallelService {
 
     @Override
     public Uni<Empty> pass(Empty request) {
-        System.out.println("first-parallel executed");
-        BigDecimal busywaitTime = new ExponentialSampler(new BigDecimal(1)).getSample();
-        long startTime = System.currentTimeMillis();
-        while (System.currentTimeMillis() - startTime < busywaitTime.doubleValue()) {
+        BigDecimal busywaitTime = new ExponentialSampler(new BigDecimal(1).divide(new BigDecimal(10))).getSample();
+        long busyWaitTimeNs = (long) (busywaitTime.doubleValue() * (10^6));
+        long startTime = System.nanoTime();
+        while (System.nanoTime() - startTime < busyWaitTimeNs) {
             // Busy wait
         }
         return Uni.createFrom().item(com.google.protobuf.Empty.getDefaultInstance());

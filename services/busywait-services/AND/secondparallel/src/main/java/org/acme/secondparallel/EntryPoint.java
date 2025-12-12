@@ -14,13 +14,13 @@ public class EntryPoint implements SecondParallelService {
 
     @Override
     public Uni<Empty> pass(Empty request) {
-        System.out.println("second-parallel executed");
-        BigDecimal busywaitTime = new ExponentialSampler(new BigDecimal(1)).getSample();
-        long startTime = System.currentTimeMillis();
-        while (System.currentTimeMillis() - startTime < busywaitTime.doubleValue()) {
+        BigDecimal busywaitTime = new ExponentialSampler(new BigDecimal(1).divide(new BigDecimal(10))).getSample();
+        long busyWaitTimeNs = (long) (busywaitTime.doubleValue() * (10^6));
+        long startTime = System.nanoTime();
+        while (System.nanoTime() - startTime < busyWaitTimeNs) {
             // Busy wait
         }
-        return Uni.createFrom().item(Empty.getDefaultInstance());
+        return Uni.createFrom().item(com.google.protobuf.Empty.getDefaultInstance());
     }
 
 }

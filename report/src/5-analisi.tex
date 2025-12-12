@@ -40,7 +40,7 @@ L'implementazione questo job è molto semplice: logicamente si tratta di un cicl
 \subsection{Elaborazione}
 Le tracce sono salvata in un singolo file \textit{traces.json}, che all'interno del pod \textit{analyzer} si trova nella directory \textit{data}. Si tratta di un JSON Lines, cioè un file dove ogni linea è un oggetto JSON indipendente.
 
-L'elaborazione avviene portando i dati dal pod in memoria locale e poi eseguendo uno \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/master/E2E-analysis/data/main.py}{script} costruito in modo da leggere ogni riga del file e analizzarla come json. L'output dell'analisi, come possiamo vedere in Figura~\ref{fig:statistics}, sono delle statistiche descrittive (i.e., minimo, massimo, media, varianza e coefficiente di variazione) dei tempi di esecuzione di ogni blocco. Queste statistiche saranno poi necessarie per ottenere le distribuzioni del tempo di esecuzione di gni blocco del workflow.
+L'elaborazione avviene portando i dati dal pod in memoria locale e poi eseguendo uno script costruito in modo da leggere ogni riga del file e analizzarla come json. L'output dell'analisi contiene delle statistiche descrittive (i.e., minimo, massimo, media, varianza e coefficiente di variazione) dei tempi di esecuzione di ogni microservizio. Queste statistiche saranno poi necessarie per ottenere le distribuzioni del tempo di esecuzione di ogni blocco del workflow.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Distribuzioni}
@@ -77,11 +77,15 @@ A questo abbiamo il workflow con i microservizi che vengono chiamati, mostrati i
     \label{fig:STPN_workflow}
 \end{figure}
 
-In Figura~\ref{fig:comparison_real_eurlero_distribution} possiamo osservare il risultato ottenuto.
+In Figura~\ref{fig:compare_e2e_distribution_correlation0} possiamo osservare il risultato ottenuto.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{images/6-analisi/compare_e2e_distribution.pdf}
+    \includegraphics[width=\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0.pdf}
     \caption{Eulero and real distribution.}
-    \label{fig:comparison_real_eurlero_distribution}
+    \label{fig:compare_e2e_distribution_correlation0}
 \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Latenza di rete}
+Il risultato mostrato in Figura~\ref{fig:compare_e2e_distribution_correlation0} mostra come la curva trova da Eulero non sia un preciso upper buond stocastico del tempo di esecuzione. Una motivazione potrebbe essere la tenza di rete non trascurabile quando i tempi di esecuzione dei servizi sono così rapidi. In questo esperimento proviamo ad aumentarli: modificheremo solo i tempi campionati dai microservizio aggiunti dei blocchi XOR e AND, descritti nella Sezione~\ref{sec:blocchi}; in particolare agiremo sulla media, cosa possibile lavorando sul tasso dell'esponenziale da cui campionano il tempo di esecuzione.
