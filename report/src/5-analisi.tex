@@ -1,5 +1,5 @@
 \chapter{Analisi E2E}
-In questo capitolo andremo ad eseguire un'analisi del tempo end to end (E2E) di una prenotazione da parte dell'utente, cioè dell'intervallo di tempo che trascorre dell'inizio della chiamata della funzionalità fino al suo termine, usando un approccio data-driven: supporremo di non avere il modello del workflow e usaremo i dati raccolti tramite il tracing per arrivare a delle conclusioni. Questo approccio è molto utile in quelle situazioni in cui il nostro workflow è composto da moltissimi microservizi, ma non abbiamo un'idea precisa dei tempi di esecuzione e delle relazioni tra di essi.
+In questo capitolo andremo ad eseguire un'analisi del tempo end to end (E2E) di una prenotazione da parte dell'utente, cioè dell'intervallo di tempo che trascorre dell'inizio della chiamata della funzionalità fino al suo termine.
 
 Nei casi in cui si voglia garantire un tempo di risposta medio di una funzionalità, l'analisi E2E può essere fatta semplicemente osservando media e varianza dei tempi di esecuzione dei servizi che compongono tale funzionalità. Ci sono delle situazioni in cui però questo non è sufficiente e si vuole garantire un determinato Service Level Agreements (SLA), cioè si vuole lavorare con un upper-buond sul tempo di esecuzione. Il nostro obiettivo è quindi più stringente rispetto al tempo medio: ogni chiamata a una qualche funzionalità deve sempre ritornare entro un tempo all'interno di una soglia. Questo richiede non solo di avere dati statistici descrittivi, ma di essere in possesso dell'intera Probability Density Function (PDF) o della Cumulative Density Function (CDF) del workflow che ci interessa analizzare.
 
@@ -23,7 +23,7 @@ Il vantaggio di questo approccio è la riduzione della complessità: si elimina 
 \subsection{Dati necessari}
 Senza scendere nel dettaglio, Eulero supporta workflow con strutture di controllo sequenziali (\texttt{SEQ}), parallele (\texttt{AND}), condizionali (\texttt{XOR}) e modellate con Direct Aciclyc Graph (\texttt{DAG}). Le strutture parallele e condizionali sono quelle descritte nella Sezione~\ref{sec:blocchi} e che sono stato poi implementate in car-rental.
 
-Quello che dobbiamo fornire al tool per ottenere la distribuzione del tempo E2E è: la struttura del workflow modellata tramite blocchi, eventualmente annidati; la distribuzione che rappresenta il tempo di esecuzione di ogni blocco elementare. Osserviamo che i blocchi e la loro composizione possono essere osservati dalla Figura~\ref{fig:new_workflow_jaeger} e dalla Figura~\ref{fig:new_workflow_sequence}; le distribuzioni sono invece ottenute nella Sezione~\ref{sec:distribuzioni}
+Quello che dobbiamo fornire al tool per ottenere la distribuzione del tempo E2E è: la struttura del workflow modellata tramite blocchi, eventualmente annidati; la distribuzione marginale del tempo di esecuzione di ogni blocco elementare. Osserviamo che i blocchi e la loro composizione possono essere osservati dalla Figura~\ref{fig:new_workflow_jaeger} e dalla Figura~\ref{fig:new_workflow_sequence}; le distribuzioni sono invece ottenute nella Sezione~\ref{sec:distribuzioni}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tracce}
@@ -50,58 +50,38 @@ Per eseguire Eulero e ottenere la nostra PDF (o CDF) del tempo E2E del worflow c
 \subsection{Approssimanti di Whitt}
 Se abbiamo una distribuzione del tempo di esecuzione di un servizio, allora possiamo ottenere i dati semplicemente campionando da tale distribuzione. La nostra situazione è però l'opposta: abbiamo i tempi di esecuzione e ci serve una distribuzione che fitti bene i dati.
 
-Una prima approssimazione può essere usando una distribuzione esponenziale, che inoltre, come abbiamo detto nella Sezione~\ref{subsec:complex_workflow}, ci semplificherebbe la vita da un punto di vista dell'analisi. Sappiamo che una distribuzione esponenziale ha un coefficiente di variazione (CV) pari a 1; possiamo però vedere che dalle informazioni mostrate nella Figura~\ref{fig:statistics} che nessuno dei blocchi del workflow ha un CV pari a 1, ma sono tutte maggiori di uno tranne la prima chiamata; questo implica che i nostri microservizi hanno una varianza maggiore di quella di una distribuzione esponenziale.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\textwidth]{images/6-analisi/statistics.pdf}
-    \caption{Stattistiche dell'execution time di circa 1500 chiamate del workflow.}
-    \label{fig:statistics}
-\end{figure}
-
-In queste situazioni per trovare una distribuzione che approssimi bene i nostri dati si possono usare le approssimazioni di Whitt. Nel nostro scenario gli approssimanti che eseremo sono:
+Una prima approssimazione può essere usando una distribuzione esponenziale, che inoltre, come abbiamo detto nella Sezione~\ref{subsec:complex_workflow}, ci semplificherebbe la vita da un punto di vista dell'analisi. Sappiamo che una distribuzione esponenziale ha un coefficiente di variazione (CV) pari a 1; questo però nella realtà non succede (praticamente) mai. I coefficienti di varaizione sono tutti $CV<1$ e questo implica che i nostri microservizi hanno una varianza maggiore di quella di una distribuzione esponenziale. In queste situazioni per trovare una distribuzione che approssimi bene i nostri dati si possono usare le approssimazioni di Whitt. I casi più comuni e che solitamente si usano sono:
 \begin{itemize}
     \item HyperExp \\
         Si usa per dati che hanno un coefficiente di variazione $C_V>1$. Si tratta di uno XOR di due esponenziali, cioè di una distribuzione definita come $X=\begin{cases}Exp(\lambda_1) & \text{con prob } p \\Exp(\lambda_2) & \text{con prob } 1-p\end{cases}$; osserviamo che se $\lambda_1=\lambda_2$ allora abbiamo un'esponenziale.
     \item HypoExp \\
         Si usa per dati che hanno un coefficiente di variazione $C_V\in[\tfrac{1}{\sqrt{2}},1]$. Si tratta di una sequenza di esponenziali con tassi diversi, cioè di una distribuzione definita $X=Exp(\lambda_1)+\cdots+Exp(\lambda_n)$, con $\lambda_i\ne\lambda_j$.
+    \item Erlang \\
+        Si usa per dati che hanno un coefficiente di variazione $C_V=\tfrac{1}{\sqrt{k}}$, $\exists k$. Si tratta di una sequenza di $k$ esponenziali con tassi uguali, cioè di una distribuzione definita $X=k\cdot Exp(\lambda)$.
+    \item GeneralizedErlang \\
+        Si usa per dati che hanno un coefficiente di variazione $C_V<\tfrac{1}{\sqrt{2}}$. Si tratta di una sequenza di $k$ esponenziali con tasso $\lambda_1$ seguita da un'esponenziale con tasso $\lambda_2$, cioè di una distribuzione definita $X=k\cdot Exp(\lambda_1)+Exp(\lambda_2)$. Questo permtte di fittare dati che hanno un $CV\in(\tfrac{1}{\sqrt{k}},\tfrac{1}{\sqrt{k+1}})$.
 \end{itemize}
 
 \subsection{Risultati}
-I risultati, cioè le distribuzioni che meglio fittano i dati ottenuti in precedenza, possono essere calcolate in funzione del valore atteso e del coefficiente di variazione. Dopo aver eseguito due \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/master/E2E-analysis/data/distribution_fitting.py}{funzioni}, i risultati ottenuti sono quelli mostrati in Figura~\ref{fig:distributions}.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\textwidth]{images/6-analisi/distributions.pdf}
-    \caption{Approssimazioni di Whitt che meglio fittano i dati del nostro workflow.}
-    \label{fig:distributions}
-\end{figure}
+I risultati, cioè le distribuzioni che meglio fittano i dati ottenuti in precedenza, possono essere calcolate in funzione del valore atteso e del coefficiente di variazione. I risultati si trovano nel file \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/fc1f21c74a9933e906df0e7e190190e35a22e5d6/E2E-analysis/extract_data/results/trace_analysis_stats.json}{trace\_analysis\_stats.json} presente su gitHub.
 
 A questo punto abbiamo tutto per eseguire l'analisi finale e calcolare la distribuzione dei tempi E2E del nostro workflow.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Distribuzione E2E}
-A questo abbiamo il workflow con i microservizi che vengono chiamati, mostrati in Figura~\ref{fig:new_workflow_sequence}, e le distribuzioni dei tempi di esecuzione di ogni microservizio, mostrati in Figura~\ref{fig:distributions}: possiamo eseguire la simulazione su Eulero. Il tool modella il nostro workflow con qualcosa di simile a quello che possiamo osservare in Figura~\ref{fig:STPN_workflow}. La PDF e la CDF del tempo E2E approssimate con eulero sono mostrate in Figura\ref{fig:approx_distribution}.
+A questo abbiamo il workflow con i microservizi che vengono chiamati, mostrati in Figura~\ref{fig:new_workflow_sequence}, e le distribuzioni dei tempi di esecuzione di ogni microservizio: possiamo eseguire la simulazione su Eulero, che modella il nostro workflow con qualcosa di simile a quello che possiamo osservare in Figura~\ref{fig:STPN_workflow}.
 \begin{figure}[htbp]
-    \caption{STPN del workflow~\cite{oris21}.}
     \centering
     \includegraphics[width=\textwidth]{images/6-analisi/STPN_workflow.pdf}
+    \caption{STPN del workflow~\cite{oris21}.}
     \label{fig:STPN_workflow}
 \end{figure}
 
-\myskip
-
-Questa analisi suppone che noi non conosciamo i tempi E2E del nostro workflow, e che si voglia approssimare la loro ditribuzione solamente conosciendo il tempo di esecuzione dei microservizi che componengono la catena di chiamate.
-
-Siccome però siamo in caso studio, abbiamo a disposizione anche questi tempi e possiamo costruire la PDF e derivare poi la CDF del vero tempo di esecuzione. Possiamo osservare la differenza infatti tra le distribuzioni approssimate e quelle reali in Figura~\ref{fig:real_distribution}
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\textwidth]{images/6-analisi/approx_distribution_plot.pdf}
-    \caption{Approssimazioni della CDF e PDF del tempo di esecuzione E2E.}
-    \label{fig:approx_distribution}
-\end{figure}
+In Figura~\ref{fig:comparison_real_eurlero_distribution} possiamo osservare il risultato ottenuto.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{images/6-analisi/E2E distribution function.pdf}
-    \caption{Distribuzioni (CDF e PDF) del tempo di esecuzione E2E reale.}
-    \label{fig:real_distribution}
+    \includegraphics[width=\textwidth]{images/6-analisi/compare_e2e_distribution.pdf}
+    \caption{Eulero and real distribution.}
+    \label{fig:comparison_real_eurlero_distribution}
 \end{figure}

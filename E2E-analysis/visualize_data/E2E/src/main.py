@@ -52,7 +52,7 @@ def main():
 
         # plottng PDF
         plt.subplot(1, 2, 2)
-        plt.hist(real_times, bins=50, density=True, alpha=0.5, color='red', label='Real PDF (Histogram)')
+        plt.hist(real_times, bins=500, density=True, alpha=0.5, color='red', label='Real PDF (Histogram)')
         plt.plot(df_eulero['time'], pdf_eulero, label='Eulero (Approx) PDF', color='blue', linewidth=2)
         plt.xlabel('Time (ms)')
         plt.ylabel('Probability Density')

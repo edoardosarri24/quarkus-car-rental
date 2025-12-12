@@ -188,7 +188,7 @@ def analyze_all_traces(traces):
         total_duration = (int(root_span['endTimeUnixNano']) - int(root_span['startTimeUnixNano'])) / 1e6
         
         # FILTERING: Discard traces longer than 300ms
-        if total_duration > 40:
+        if total_duration > 170:
             filtered_out_count += 1
             continue
             
@@ -306,7 +306,7 @@ def analyze_all_traces(traces):
     print(json.dumps(output_data, indent=2))
 
 if __name__ == "__main__":
-    file_path = 'traces_file/traces.json'
+    file_path = 'input_file/traces.json'
     if len(sys.argv) > 1:
         file_path = sys.argv[1]
     traces = parse_traces(file_path)

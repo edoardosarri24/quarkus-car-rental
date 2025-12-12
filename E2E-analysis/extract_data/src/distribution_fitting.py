@@ -105,7 +105,8 @@ def fit_distribution(mean: float, cv: float):
                 "lambda1": lambda1,
                 "p2": p2,
                 "lambda2": lambda2
-            }
+            },
+            "java_code": f'new HyperExponentialTime(new BigDecimal({lambda1}), new BigDecimal({lambda2}), new BigDecimal({p1}))'
         }
     elif cv >= 1/math.sqrt(2):
         lambda1, lambda2 = fit_hypo_exponential(mean, cv)
@@ -114,7 +115,8 @@ def fit_distribution(mean: float, cv: float):
             "params": {
                 "lambda1": lambda1,
                 "lambda2": lambda2
-            }
+            },
+            "java_code": f'new HypoExponentialTime(new BigDecimal({lambda1}), new BigDecimal({lambda2}))'
         }
     else:
         k, lambda1, lambda2 = fit_generalized_erlang(mean, cv)
