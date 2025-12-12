@@ -6,9 +6,6 @@ import os
 import shutil
 from collections import defaultdict
 from distribution_fitting import fit_distribution
-import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
 
 def parse_traces(file_path):
     traces = defaultdict(list)
@@ -160,11 +157,6 @@ def analyze_all_traces(traces, filter_value):
     # Structure: "Source -> Target" -> list of overheads
     network_latencies = defaultdict(list)
 
-    # For CSV Correlation: Store per-trace granular data
-    # List of dicts: each dict is { "ColumnName": duration_sum } for a single trace
-    all_trace_maps = []
-    all_possible_columns = set()
-
     for trace_id, raw_spans in traces.items():
         spans_by_id = {span['spanId']: span for span in raw_spans}
         spans = list(spans_by_id.values())
@@ -195,9 +187,6 @@ def analyze_all_traces(traces, filter_value):
             
         e2e_durations.append(total_duration)
 
-        # Per-trace storage for correlation CSV
-        trace_segment_map = {} 
-
         # 2. Granular Segments for all participating services
         server_spans = [s for s in spans if s.get('kind') == 2]
         
@@ -214,12 +203,6 @@ def analyze_all_traces(traces, filter_value):
             for seg in segments:
                 granular_executions[service_key][seg['name']].append(seg['duration'])
                 total_net_time += seg['duration']
-                
-                # For CSV: Accumulate duration for this specific column in this trace
-                # We sum in case of loops/multiple calls to same service-segment in one trace
-                col_name = f"{service_key} - {seg['name']}"
-                trace_segment_map[col_name] = trace_segment_map.get(col_name, 0.0) + seg['duration']
-                all_possible_columns.add(col_name)
             
             # Record total stats
             total_executions[service_key].append(total_net_time)
@@ -242,9 +225,6 @@ def analyze_all_traces(traces, filter_value):
                     latency_key = f"{source} -> {target}"
                     
                     network_latencies[latency_key].append(overhead)
-        
-        # Store the map for this trace
-        all_trace_maps.append(trace_segment_map)
 
     # Save E2E durations to CSV
     output_dir = 'results'
@@ -261,62 +241,6 @@ def analyze_all_traces(traces, filter_value):
         print(f"Successfully saved CSV to {csv_file_path}", file=sys.stderr)
     except Exception as e:
         print(f"Error saving CSV: {e}", file=sys.stderr)
-
-    # Save Granular Execution Segments to CSV (correlation_input)
-    # SPLIT by execution path: First Choice, Second Choice, Third Choice
-    
-    traces_groups = {
-        'first_choice': [],
-        'second_choice': [],
-        'third_choice': []
-    }
-    
-    for t_map in all_trace_maps:
-        # Check which path this trace belongs to based on keys
-        # We look for the distinguishing service name in the keys
-        keys_str = "".join(t_map.keys())
-        
-        if 'first-choice-service' in keys_str:
-            traces_groups['first_choice'].append(t_map)
-        elif 'second-choice-service' in keys_str:
-            traces_groups['second_choice'].append(t_map)
-        elif 'third-choice-service' in keys_str:
-            traces_groups['third_choice'].append(t_map)
-        else:
-            # Trace doesn't match any known path (or maybe failed before reaching choice)
-            pass
-
-    for group_name, group_traces in traces_groups.items():
-        if not group_traces:
-            print(f"No traces found for group: {group_name}", file=sys.stderr)
-            continue
-            
-        csv_file_name = f"correlation_input_{group_name}.csv"
-        csv_file_path = os.path.join(output_dir, csv_file_name)
-        
-        try:
-            # Collect all possible columns for THIS group
-            group_columns = set()
-            for t_map in group_traces:
-                group_columns.update(t_map.keys())
-            
-            sorted_col_names = sorted(list(group_columns))
-            
-            with open(csv_file_path, 'w', newline='') as csvfile:
-                writer = csv.writer(csvfile)
-                writer.writerow(sorted_col_names)
-                
-                for t_map in group_traces:
-                    row = []
-                    for col in sorted_col_names:
-                        # Fill with empty string if column is missing in this specific trace
-                        # (though ideally they should be structurally identical within a group)
-                        row.append(t_map.get(col, ''))
-                    writer.writerow(row)
-                    
-            print(f"Successfully saved {group_name} CSV to {csv_file_path} ({len(group_traces)} traces)", file=sys.stderr)
-        except Exception as e:
-            print(f"Error saving {group_name} CSV: {e}", file=sys.stderr)
 
     # Calculate Statistics
     e2e_stats = calculate_stats(e2e_durations)
@@ -352,74 +276,6 @@ def analyze_all_traces(traces, filter_value):
     for key, times in network_latencies.items():
         latency_stats[key] = calculate_latency_stats(times)
 
-    # ---------------------------------------------------------
-    # CALCULATE CORRELATION MATRICES (Heatmap PDF)
-    # ---------------------------------------------------------
-    for group_name in traces_groups.keys():
-        input_csv_name = f"correlation_input_{group_name}.csv"
-        input_csv_path = os.path.join(output_dir, input_csv_name)
-        output_pdf_name = f"correlation_matrix_{group_name}.pdf"
-        output_pdf_path = os.path.join(output_dir, output_pdf_name)
-
-        if os.path.exists(input_csv_path):
-            try:
-                df = pd.read_csv(input_csv_path)
-                if not df.empty and df.shape[1] > 1:
-                    # Calculate Pearson correlation
-                    corr_matrix = df.corr(method='pearson')
-                    
-                    # Create Mappings for Short IDs
-                    full_names = corr_matrix.columns.tolist()
-                    id_map = {name: f"S{i+1}" for i, name in enumerate(full_names)}
-                    short_names = [id_map[name] for name in full_names]
-                    
-                    # Create PDF
-                    with PdfPages(output_pdf_path) as pdf:
-                        num_vars = len(full_names)
-                        # Heuristic size: base size + scaling factor
-                        fig_size = max(8, num_vars * 0.8)
-                        
-                        fig, ax = plt.subplots(figsize=(fig_size + 4, fig_size)) # Extra width for legend
-                        
-                        # Plot Heatmap
-                        cax = ax.imshow(corr_matrix.values, interpolation='nearest', cmap='coolwarm', vmin=-1, vmax=1)
-                        
-                        # Add Colorbar
-                        cbar = fig.colorbar(cax, ax=ax, fraction=0.046, pad=0.04)
-                        cbar.set_label('Correlation Coefficient')
-
-                        # Set Ticks and Labels (Short IDs)
-                        ax.set_xticks(range(num_vars))
-                        ax.set_yticks(range(num_vars))
-                        ax.set_xticklabels(short_names, rotation=45, ha="right")
-                        ax.set_yticklabels(short_names)
-                        
-                        # Add Cell Annotations
-                        for i in range(num_vars):
-                            for j in range(num_vars):
-                                val = corr_matrix.iloc[i, j]
-                                text_color = "white" if abs(val) > 0.5 else "black"
-                                ax.text(j, i, f"{val:.2f}", ha="center", va="center", color=text_color, fontsize=8)
-                                
-                        plt.title(f"Correlation Matrix Heatmap: {group_name}", fontsize=14, pad=20)
-                        
-                        # Create Legend text
-                        legend_text = "\n".join([f"{v}: {k}" for k, v in id_map.items()])
-                        
-                        # Place Legend to the right
-                        plt.subplots_adjust(right=0.7) # Make room for legend
-                        fig.text(0.75, 0.5, f"Legend:\n\n{legend_text}", fontsize=10, va='center', ha='left', 
-                                 bbox=dict(boxstyle="round,pad=0.5", fc="white", ec="black", alpha=0.8))
-                        
-                        pdf.savefig(fig, bbox_inches='tight')
-                        plt.close(fig)
-                        
-                    print(f"Successfully saved correlation heatmap PDF to {output_pdf_path}", file=sys.stderr)
-                else:
-                    print(f"Skipping correlation PDF for {group_name}: Not enough data/columns.", file=sys.stderr)
-            except Exception as e:
-                print(f"Error calculating correlation PDF for {group_name}: {e}", file=sys.stderr)
-
     # Prepare Final Output
     output_data = {
         "trace_count": len(e2e_durations),
@@ -438,16 +294,6 @@ def analyze_all_traces(traces, filter_value):
         print(f"Successfully saved JSON stats to {json_file_path}", file=sys.stderr)
     except Exception as e:
         print(f"Error saving JSON: {e}", file=sys.stderr)
-
-    # Clean up correlation CSV files
-    for group_name in traces_groups.keys():
-        csv_file_path = os.path.join(output_dir, f"correlation_input_{group_name}.csv")
-        if os.path.exists(csv_file_path):
-            try:
-                os.remove(csv_file_path)
-                print(f"Deleted temporary file: {csv_file_path}", file=sys.stderr)
-            except Exception as e:
-                print(f"Error deleting {csv_file_path}: {e}", file=sys.stderr)
 
 def cleanup():
     pycache_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "__pycache__")

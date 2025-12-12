@@ -1,6 +1,31 @@
 \chapter{Correlazione}
 Fino a questo momento i nostri microservizi non avevano nessun tipo di correlazione: il tempo di esecuzione del microserivizion $A$ è totalmente indipendente dal tempo di esecuzione di $B$, per qualunque $A$ e $B$. In questo capito andremo ad aggiungere correlazione tra qualche microservizio per cercare di dimostrare un aspetto tipico della tecnica di analisi composizionale di Eulero: siccome le distrubizioni (i.e., PDF e CDF) del tempo di esecuzione E2E sono costruite con un approccio bottom-up, cioè componendo le distribuzioni marginali fino ad arrivare al risultato, il modello perde tutte le correlazioni che ci possono essere; quando i tempi di esecuzione sono in un qualche modo correlati, allora il sistema di analisi dovrebbe funzionare peggio, cioè l'area tra le due curve sovrebbe aumentare.
 
+Per capire il livello di correlazione iniziale possiamo osservare la Figura~\ref{fig:begin_correlation}: notiamo come tutti i servizi hanno una correlazione a due a due molto bassa (i.e., vicina a 0).
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/with_timeExtention_correlation0/correlation_matrix_first_choice.pdf}
+        \caption{First-coice path}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/with_timeExtention_correlation0/correlation_matrix_second_choice.pdf}
+        \caption{Second-coice path}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/with_timeExtention_correlation0/correlation_matrix_third_choice.pdf}
+        \caption{Third-coice path}
+    \end{subfigure}
+    \caption{Correlazioni iniziali, i.e. senza l'aggiunta esplicita nel codice.}
+    \label{fig:begin_correlation}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementazione}
 Vediamo come implementare la dipendenza tra microservizi in modo semplice ma funzionale. Andremo ad aggiungere due livelli: nella prima avremo una correlazione solamente tra due microservizi; nella seconda aggiungeremo alla precedente anche un altro tipo di correlaizone. Ci aspettimao che gli esperimenti sulla correlazione maggiore siano meno precisi.
