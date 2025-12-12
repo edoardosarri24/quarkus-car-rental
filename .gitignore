@@ -5,3 +5,4 @@ slides/build/
 quarkus in action.pdf
 todo.md
 .DS_Store
+E2E-analysis/extract_data/traces_file

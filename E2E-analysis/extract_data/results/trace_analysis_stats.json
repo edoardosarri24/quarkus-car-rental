@@ -1,0 +1,509 @@
+{
+  "trace_count": 2003,
+  "filtered_out_traces": 247,
+  "e2e_statistics": {
+    "mean": 19.560511690464306,
+    "min": 10.247083,
+    "max": 39.733084,
+    "variance": 22.077340651863334,
+    "std_dev": 4.698653067833731,
+    "cv": 0.24021115307143578
+  },
+  "service_total_statistics": {
+    "second-choice-service [POST /secondChoice]": {
+      "mean": 1.8292743841642227,
+      "min": 0.358791,
+      "max": 22.275625,
+      "variance": 2.270811789621094,
+      "std_dev": 1.506921295098418,
+      "cv": 0.8237808981220253,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 0.684320261672114,
+          "lambda2": 2.7176107060136103
+        }
+      }
+    },
+    "second-parallel-service [SecondParallelService/pass]": {
+      "mean": 1.570786692461308,
+      "min": 0.162666,
+      "max": 23.013792,
+      "variance": 2.7143589953086606,
+      "std_dev": 1.6475311818926708,
+      "cv": 1.0488573590543409,
+      "distribution": {
+        "type": "Hyper-exponential",
+        "params": {
+          "p1": 0.6091618006454171,
+          "lambda1": 0.775613650878217,
+          "p2": 0.39083819935458286,
+          "lambda2": 0.4976337032015059
+        }
+      }
+    },
+    "reservation-service [POST /reservation]": {
+      "mean": 2.4920197538691964,
+      "min": 1.134041,
+      "max": 17.236667,
+      "variance": 1.1596412725613865,
+      "std_dev": 1.076866413517195,
+      "cv": 0.43212595399583603,
+      "distribution": {
+        "type": "Generalized-Erlang",
+        "params": {
+          "k": 5,
+          "lambda1": 2.8499236413950784,
+          "lambda2": 1.3557726664969925
+        }
+      }
+    },
+    "reservation-service [GET /reservation/all]": {
+      "mean": 4.054553498751872,
+      "min": 1.257791,
+      "max": 23.12475,
+      "variance": 4.124769659847685,
+      "std_dev": 2.0309528945417923,
+      "cv": 0.5009066707757064,
+      "distribution": {
+        "type": "Generalized-Erlang",
+        "params": {
+          "k": 3,
+          "lambda1": 1.022098747803126,
+          "lambda2": 0.8933226642444728
+        }
+      }
+    },
+    "users-service [POST /reserve]": {
+      "mean": 4.5566346180728905,
+      "min": 1.921792,
+      "max": 27.00696,
+      "variance": 3.6186291563764565,
+      "std_dev": 1.902269475225962,
+      "cv": 0.41747246261111826,
+      "distribution": {
+        "type": "Generalized-Erlang",
+        "params": {
+          "k": 5,
+          "lambda1": 1.4559547204743457,
+          "lambda2": 0.8908988468641026
+        }
+      }
+    },
+    "first-parallel-service [FirstParallelService/pass]": {
+      "mean": 1.5283902865701449,
+      "min": 0.17725,
+      "max": 22.697542,
+      "variance": 2.1049467201308976,
+      "std_dev": 1.450843451283045,
+      "cv": 0.9492624129003578,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 0.6902976225890922,
+          "lambda2": 12.540791913775918
+        }
+      }
+    },
+    "start-choice-service [POST /startChoice]": {
+      "mean": 0.8892452096854718,
+      "min": 0.337375,
+      "max": 2.9510419999999997,
+      "variance": 0.10824521283409187,
+      "std_dev": 0.32900640242112594,
+      "cv": 0.3699838906497976,
+      "distribution": {
+        "type": "Generalized-Erlang",
+        "params": {
+          "k": 7,
+          "lambda1": 10.183374009543138,
+          "lambda2": 4.9541678356851975
+        }
+      }
+    },
+    "start-parallel-service [POST /startParallel]": {
+      "mean": 0.46953653220169744,
+      "min": 0.184458,
+      "max": 15.750291,
+      "variance": 0.17790263811366266,
+      "std_dev": 0.4217850615107921,
+      "cv": 0.8983008404756184,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 2.388278241936168,
+          "lambda2": 19.67541464395341
+        }
+      }
+    },
+    "third-choice-service [POST /thirdChoice]": {
+      "mean": 1.7623274101694915,
+      "min": 0.387041,
+      "max": 19.498875,
+      "variance": 2.056043202735346,
+      "std_dev": 1.4338909312550052,
+      "cv": 0.8136348121130914,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 0.7232052278028359,
+          "lambda2": 2.634393292491557
+        }
+      }
+    },
+    "first-choice-service [POST /firstChoice]": {
+      "mean": 1.8089354435897436,
+      "min": 0.393792,
+      "max": 20.321834,
+      "variance": 2.9006060531633016,
+      "std_dev": 1.7031165706325864,
+      "cv": 0.9415021285960515,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 0.588372466533017,
+          "lambda2": 9.146471456465703
+        }
+      }
+    }
+  },
+  "granular_segment_statistics": {
+    "second-choice-service [POST /secondChoice]": {
+      "Final Processing / Response Preparation": {
+        "mean": 1.8292743841642227,
+        "min": 0.358791,
+        "max": 22.275625,
+        "variance": 2.270811789621094,
+        "std_dev": 1.506921295098418,
+        "cv": 0.8237808981220253,
+        "distribution": {
+          "type": "Hypo-exponential",
+          "params": {
+            "lambda1": 0.684320261672114,
+            "lambda2": 2.7176107060136103
+          }
+        }
+      }
+    },
+    "second-parallel-service [SecondParallelService/pass]": {
+      "Final Processing / Response Preparation": {
+        "mean": 1.570786692461308,
+        "min": 0.162666,
+        "max": 23.013792,
+        "variance": 2.7143589953086606,
+        "std_dev": 1.6475311818926708,
+        "cv": 1.0488573590543409,
+        "distribution": {
+          "type": "Hyper-exponential",
+          "params": {
+            "p1": 0.6091618006454171,
+            "lambda1": 0.775613650878217,
+            "p2": 0.39083819935458286,
+            "lambda2": 0.4976337032015059
+          }
+        }
+      }
+    },
+    "reservation-service [POST /reservation]": {
+      "Final Processing / Response Preparation": {
+        "mean": 2.4920197538691964,
+        "min": 1.134041,
+        "max": 17.236667,
+        "variance": 1.1596412725613865,
+        "std_dev": 1.076866413517195,
+        "cv": 0.43212595399583603,
+        "distribution": {
+          "type": "Generalized-Erlang",
+          "params": {
+            "k": 5,
+            "lambda1": 2.8499236413950784,
+            "lambda2": 1.3557726664969925
+          }
+        }
+      }
+    },
+    "reservation-service [GET /reservation/all]": {
+      "Final Processing / Response Preparation": {
+        "mean": 4.054553498751872,
+        "min": 1.257791,
+        "max": 23.12475,
+        "variance": 4.124769659847685,
+        "std_dev": 2.0309528945417923,
+        "cv": 0.5009066707757064,
+        "distribution": {
+          "type": "Generalized-Erlang",
+          "params": {
+            "k": 3,
+            "lambda1": 1.022098747803126,
+            "lambda2": 0.8933226642444728
+          }
+        }
+      }
+    },
+    "users-service [POST /reserve]": {
+      "Processing before calling users-service [POST /startChoice]": {
+        "mean": 0.5034163010484274,
+        "min": 0.176042,
+        "max": 7.629125,
+        "variance": 0.07145259875591982,
+        "std_dev": 0.26730618914630433,
+        "cv": 0.5309843733498613,
+        "distribution": {
+          "type": "Generalized-Erlang",
+          "params": {
+            "k": 3,
+            "lambda1": 10.011978186376657,
+            "lambda2": 4.907368109220123
+          }
+        }
+      },
+      "Processing before calling users-service [POST /startParallel]": {
+        "mean": 0.35434800798801797,
+        "min": 0.066458,
+        "max": 11.874209,
+        "variance": 0.10263063000996898,
+        "std_dev": 0.3203601567142346,
+        "cv": 0.9040834137412941,
+        "distribution": {
+          "type": "Hypo-exponential",
+          "params": {
+            "lambda1": 3.1414056125376635,
+            "lambda2": 27.76299440350518
+          }
+        }
+      },
+      "Processing before calling users-service [POST /reservation]": {
+        "mean": 0.5753827309036446,
+        "min": 0.178708,
+        "max": 15.467083,
+        "variance": 0.32752513428419977,
+        "std_dev": 0.572298116617729,
+        "cv": 0.9946390217845588,
+        "distribution": {
+          "type": "Hypo-exponential",
+          "params": {
+            "lambda1": 1.7473665830293856,
+            "lambda2": 323.31359744706606
+          }
+        }
+      },
+      "Processing before calling users-service [GET /reservation/all]": {
+        "mean": 0.5059570693959061,
+        "min": 0.148625,
+        "max": 19.955791,
+        "variance": 0.2492687784744173,
+        "std_dev": 0.4992682430061192,
+        "cv": 0.9867798538761933,
+        "distribution": {
+          "type": "Hypo-exponential",
+          "params": {
+            "lambda1": 2.00311354186905,
+            "lambda2": 148.4947463519053
+          }
+        }
+      },
+      "Final Processing / Response Preparation": {
+        "mean": 2.6175305087368947,
+        "min": 0.715834,
+        "max": 25.183084,
+        "variance": 3.4186683692605198,
+        "std_dev": 1.8489641341195668,
+        "cv": 0.7063773002637497,
+        "distribution": {
+          "type": "Generalized-Erlang",
+          "params": {
+            "k": 2,
+            "lambda1": 2.2851571827954094,
+            "lambda2": 0.5739483059054601
+          }
+        }
+      }
+    },
+    "first-parallel-service [FirstParallelService/pass]": {
+      "Final Processing / Response Preparation": {
+        "mean": 1.5283902865701449,
+        "min": 0.17725,
+        "max": 22.697542,
+        "variance": 2.1049467201308976,
+        "std_dev": 1.450843451283045,
+        "cv": 0.9492624129003578,
+        "distribution": {
+          "type": "Hypo-exponential",
+          "params": {
+            "lambda1": 0.6902976225890922,
+            "lambda2": 12.540791913775918
+          }
+        }
+      }
+    },
+    "start-choice-service [POST /startChoice]": {
+      "Processing before calling start-choice-service [POST /secondChoice]": {
+        "mean": 0.6051120654936462,
+        "min": 0.2475,
+        "max": 1.678208,
+        "variance": 0.05132563824516303,
+        "std_dev": 0.2265516237972331,
+        "cv": 0.3743961436505383,
+        "distribution": {
+          "type": "Generalized-Erlang",
+          "params": {
+            "k": 7,
+            "lambda1": 15.225621433335872,
+            "lambda2": 6.879437767859056
+          }
+        }
+      },
+      "Final Processing / Response Preparation": {
+        "mean": 0.28783311083374935,
+        "min": 0.094208,
+        "max": 1.154166,
+        "variance": 0.01635049762704765,
+        "std_dev": 0.12786906438637788,
+        "cv": 0.44424723763012197,
+        "distribution": {
+          "type": "Generalized-Erlang",
+          "params": {
+            "k": 5,
+            "lambda1": 25.795678772426236,
+            "lambda2": 10.638049282642294
+          }
+        }
+      },
+      "Processing before calling start-choice-service [POST /thirdChoice]": {
+        "mean": 0.6013679949152543,
+        "min": 0.23725,
+        "max": 1.825458,
+        "variance": 0.053314372810331044,
+        "std_dev": 0.23089905329024424,
+        "cv": 0.38395633828631487,
+        "distribution": {
+          "type": "Generalized-Erlang",
+          "params": {
+            "k": 6,
+            "lambda1": 12.556513155287888,
+            "lambda2": 8.095308785417506
+          }
+        }
+      },
+      "Processing before calling start-choice-service [POST /firstChoice]": {
+        "mean": 0.5917735230769231,
+        "min": 0.26,
+        "max": 2.209875,
+        "variance": 0.05169670240576681,
+        "std_dev": 0.22736908850098075,
+        "cv": 0.38421639298557403,
+        "distribution": {
+          "type": "Generalized-Erlang",
+          "params": {
+            "k": 6,
+            "lambda1": 12.781873127076546,
+            "lambda2": 8.172688533020498
+          }
+        }
+      }
+    },
+    "start-parallel-service [POST /startParallel]": {
+      "Processing before calling start-parallel-service [FirstParallelService/pass]": {
+        "mean": 0.27915888067898154,
+        "min": 0.099458,
+        "max": 15.4915,
+        "variance": 0.1568291167881521,
+        "std_dev": 0.3960165612548951,
+        "cv": 1.418606351665,
+        "distribution": {
+          "type": "Hyper-exponential",
+          "params": {
+            "p1": 0.7898651579858458,
+            "lambda1": 5.658893287325868,
+            "p2": 0.21013484201415422,
+            "lambda2": 1.5054856324330843
+          }
+        }
+      },
+      "Final Processing / Response Preparation": {
+        "mean": 0.19037765152271593,
+        "min": 0.076042,
+        "max": 2.01675,
+        "variance": 0.008606989975599782,
+        "std_dev": 0.09277386472277514,
+        "cv": 0.48731489216687457,
+        "distribution": {
+          "type": "Generalized-Erlang",
+          "params": {
+            "k": 4,
+            "lambda1": 33.518134353230856,
+            "lambda2": 14.076721786974414
+          }
+        }
+      }
+    },
+    "third-choice-service [POST /thirdChoice]": {
+      "Final Processing / Response Preparation": {
+        "mean": 1.7623274101694915,
+        "min": 0.387041,
+        "max": 19.498875,
+        "variance": 2.056043202735346,
+        "std_dev": 1.4338909312550052,
+        "cv": 0.8136348121130914,
+        "distribution": {
+          "type": "Hypo-exponential",
+          "params": {
+            "lambda1": 0.7232052278028359,
+            "lambda2": 2.634393292491557
+          }
+        }
+      }
+    },
+    "first-choice-service [POST /firstChoice]": {
+      "Final Processing / Response Preparation": {
+        "mean": 1.8089354435897436,
+        "min": 0.393792,
+        "max": 20.321834,
+        "variance": 2.9006060531633016,
+        "std_dev": 1.7031165706325864,
+        "cv": 0.9415021285960515,
+        "distribution": {
+          "type": "Hypo-exponential",
+          "params": {
+            "lambda1": 0.588372466533017,
+            "lambda2": 9.146471456465703
+          }
+        }
+      }
+    }
+  },
+  "network_latency_statistics": {
+    "start-choice-service -> second-choice-service": {
+      "mean": 0.6333924017595308,
+      "variance": 0.5188640021586125
+    },
+    "start-parallel-service -> second-parallel-service": {
+      "mean": 0.999032903145282,
+      "variance": 0.3053271504718917
+    },
+    "users-service -> reservation-service": {
+      "mean": 0.30598547079380933,
+      "variance": 0.23726752869996803
+    },
+    "start-parallel-service -> first-parallel-service": {
+      "mean": 1.1587016135796306,
+      "variance": 0.5179271284340484
+    },
+    "users-service -> start-choice-service": {
+      "mean": 0.3830189975037444,
+      "variance": 0.10792690380335514
+    },
+    "users-service -> start-parallel-service": {
+      "mean": 0.3803032296555167,
+      "variance": 0.04727774763776142
+    },
+    "start-choice-service -> third-choice-service": {
+      "mean": 0.6794216915254236,
+      "variance": 0.2901516465322442
+    },
+    "start-choice-service -> first-choice-service": {
+      "mean": 0.6998365487179488,
+      "variance": 0.09707500958626368
+    }
+  }
+}

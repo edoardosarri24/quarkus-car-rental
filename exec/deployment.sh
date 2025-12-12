@@ -38,14 +38,11 @@ kubectl apply -f mongodb-manifest.yaml
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
 
-# car-statistics
-echo "------------ CAR STATISTICS ------------"
-cd ../car-statistics
-quarkus build
-kubectl apply -f target/kubernetes/kubernetes.yml
 
 # inventory-service
 echo "------------ INVENTORY SERVICE ------------"
+cd ../metadata-extension
+quarkus build
 cd ../inventory-service
 quarkus build
 kubectl apply -f target/kubernetes/kubernetes.yml
