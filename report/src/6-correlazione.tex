@@ -1,35 +1,94 @@
 \chapter{Correlazione}
 Fino a questo momento i nostri microservizi non avevano nessun tipo di correlazione: il tempo di esecuzione del microserivizion $A$ è totalmente indipendente dal tempo di esecuzione di $B$, per qualunque $A$ e $B$. In questo capito andremo ad aggiungere correlazione tra qualche microservizio per cercare di dimostrare un aspetto tipico della tecnica di analisi composizionale di Eulero: siccome le distrubizioni (i.e., PDF e CDF) del tempo di esecuzione E2E sono costruite con un approccio bottom-up, cioè componendo le distribuzioni marginali fino ad arrivare al risultato, il modello perde tutte le correlazioni che ci possono essere; quando i tempi di esecuzione sono in un qualche modo correlati, allora il sistema di analisi dovrebbe funzionare peggio, cioè l'area tra le due curve sovrebbe aumentare.
 
-Per capire il livello di correlazione iniziale possiamo osservare la Figura~\ref{fig:begin_correlation}: notiamo come tutti i servizi hanno una correlazione a due a due molto bassa (i.e., vicina a 0).
+Per capire il livello di correlazione iniziale possiamo osservare la Figura~\ref{fig:correlation_no_correlation}: notiamo come tutti i servizi hanno una correlazione a due a due molto bassa (i.e., vicina a 0).
 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/7-correlazione/with_timeExtention_correlation0/correlation_matrix_first_choice.pdf}
+        \includegraphics[width=\textwidth]{images/7-correlazione/correlation0/correlation_matrix_first_choice.pdf}
         \caption{First-coice path}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/7-correlazione/with_timeExtention_correlation0/correlation_matrix_second_choice.pdf}
+        \includegraphics[width=\textwidth]{images/7-correlazione/correlation0/correlation_matrix_second_choice.pdf}
         \caption{Second-coice path}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/7-correlazione/with_timeExtention_correlation0/correlation_matrix_third_choice.pdf}
+        \includegraphics[width=\textwidth]{images/7-correlazione/correlation0/correlation_matrix_third_choice.pdf}
         \caption{Third-coice path}
     \end{subfigure}
     \caption{Correlazioni iniziali, i.e. senza l'aggiunta esplicita nel codice.}
-    \label{fig:begin_correlation}
+    \label{fig:correlation_no_correlation}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementazione}
-Vediamo come implementare la dipendenza tra microservizi in modo semplice ma funzionale. Andremo ad aggiungere due livelli: nella prima avremo una correlazione solamente tra due microservizi; nella seconda aggiungeremo alla precedente anche un altro tipo di correlaizone. Ci aspettimao che gli esperimenti sulla correlazione maggiore siano meno precisi.
+Vediamo come implementare la dipendenza tra microservizi in modo semplice ma funzionale. Osserviamo che vogliamo aggiungere una correlazione tra i tempi di esecuzione di due microservizi; è importante non aggiungere una dipendenza funzionale, ma temporale tra una coppia.
+
+Andremo ad aggiungere due livelli: nella prima avremo una correlazione solamente tra due microservizi; nella seconda aggiungeremo alla precedente anche un altro tipo di correlaizone. Ci aspettimao che gli esperimenti sulla correlazione maggiore siano meno precisi.
 
 \subsection{Bassa correlazione}
+In questo esperimento si è aggiunta una sola dipendenza, in particolare tra \textit{users-service} e \textit{reservation-service}.
+
+Prima di chiamare \textit{reservation/reservation}, \textit{users-service} campiona un tempo di esecuzione, in cui fa una busy-wait, da una distribuzione esponenziale con tasso $\tfrac{1}{7}$; se il tempo campionato è minore di 7 (i.e., la media) allora passa a \textit{reservation-service} il valore \texttt{true}, altrimenti \texttt{false}. A questo punto \textit{reservation-service} esegue una busy wait per 5ms se il valore è \texttt{true}, per 15ms altrimenti.
+
+La matrice di correlazione diventa, rispetto alla precedente, quella mostrata in Figura~\ref{fig:correlation_low_correlation}.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/low_correlation/correlation_matrix_first_choice.pdf}
+        \caption{First-coice path}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/low_correlation/correlation_matrix_second_choice.pdf}
+        \caption{Second-coice path}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/low_correlation/correlation_matrix_third_choice.pdf}
+        \caption{Third-coice path}
+    \end{subfigure}
+    \caption{Matrici di correlazione nei servizi con bassa correlazione.}
+    \label{fig:correlation_low_correlation}
+\end{figure}
 
 \subsection{Alta correlazione}
+L'implementazione con alta correlazione è definita sulla basa di quella precedente a bassa correlazione, a cui è stata aggiunta un'ulteriore dipendenza tra i tempi di esecuzione di microservizi.
+
+In particoalre TODO.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Risultati}
+Vediamo adesso i risultati ottenuti con le due simulazioni, cioè i grafici delle distribuzioni reali e ottenuti con Eulero.
+\begin{itemize}
+    \item I risutati ottenuti per la bassa correlazione sono mostrati in Figura~\ref{fig:distribution_low_correlation}.
+    \item I risutati ottenuti per l'alta correlazione sono mostrati in Figura~\ref{fig:distribution_high_correlation}.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/compare_e2e_distribution_low_correlation.pdf}
+        \caption{Bassa correlazione}
+        \label{fig:distribution_low_correlation}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/compare_e2e_distribution_low_correlation.pdf}
+        \caption{Second-coice path}
+        \label{fig:distribution_high_correlation}
+    \end{subfigure}
+    \caption{Distribuzioni negli esperimenti con correlazione diversa.}
+\end{figure}

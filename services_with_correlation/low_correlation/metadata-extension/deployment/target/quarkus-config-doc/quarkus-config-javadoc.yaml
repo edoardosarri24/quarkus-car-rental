@@ -1,0 +1,10 @@
+---
+extension:
+  groupId: "org.acme"
+  artifactId: "metadata-extension"
+  name: "Metadata Extension"
+  nameSource: "POM_XML"
+  detected: true
+elements:
+  org.acme.metadata.extension.deployment.MetadataExtensionConfig.path:
+    description: "The path to the metadata endpoint."

@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: k6-reserve
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: k6-reserve
+        image: grafana/k6:latest
+        command: ["k6", "run", "/scripts/test.js"]
+        env:
+          - name: VUS
+            value: "{{ .Values.vus }}"
+          - name: DURATION
+            value: "{{ .Values.duration }}"
+          - name: TARGET_URL
+            value: "{{ .Values.targetUrl }}"
+        volumeMounts:
+          - name: k6-reserve
+            mountPath: /scripts
+      volumes:
+        - name: k6-reserve
+          configMap:
+            name: k6-reserve

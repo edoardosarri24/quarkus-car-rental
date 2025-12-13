@@ -5,6 +5,7 @@ import org.oristool.eulero.modeling.ModelFactory;
 import org.oristool.eulero.modeling.Simple;
 import org.oristool.eulero.modeling.stochastictime.UniformTime;
 import org.oristool.eulero.evaluation.heuristics.SDFHeuristicsVisitor;
+import org.checkerframework.checker.units.qual.kN;
 import org.oristool.eulero.evaluation.approximator.TruncatedExponentialMixtureApproximation;
 import org.oristool.eulero.evaluation.heuristics.AnalysisHeuristicsVisitor;
 import org.oristool.eulero.ui.ActivityViewer;
@@ -12,6 +13,7 @@ import org.oristool.eulero.evaluation.heuristics.EvaluationResult;
 import org.oristool.eulero.modeling.stochastictime.HypoExponentialTime;
 import org.oristool.eulero.modeling.stochastictime.HyperExponentialTime;
 import org.oristool.eulero.modeling.stochastictime.ErlangTime;
+import org.oristool.eulero.modeling.stochastictime.GeneralizeErlangTime;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -31,126 +33,117 @@ public class main {
         Activity usersReserve = new Simple(
             "usersReserve",
             new HyperExponentialTime(
-                new BigDecimal(5.7600485656254214),
-                new BigDecimal(0.12219263528995943),
-                new BigDecimal(0.9792268573973226)));
+                new BigDecimal(5.432496539867112),
+                new BigDecimal(1.0019698829633752),
+                new BigDecimal(0.8442808125615155)));
         Activity usersStartParallel = new Simple(
             "usersStartParallel",
-            new HyperExponentialTime(
-                new BigDecimal(13.173455351777632),
-                new BigDecimal(0.1424628402273945),
-                new BigDecimal(0.9893013130470469)));
+            new HypoExponentialTime(
+                new BigDecimal(8.883101076243136),
+                new BigDecimal(16.220292860720797)));
         Activity usersReservation = new Simple(
             "usersReservation",
-            new HyperExponentialTime(
-                new BigDecimal(8.64887895058662),
-                new BigDecimal(0.35632877003057334),
-                new BigDecimal(0.9604308105836618)));
+            new HypoExponentialTime(
+                new BigDecimal(0.13583779809146426),
+                new BigDecimal(4.512163001532629)));
         Activity usersReservationAll = new Simple(
             "usersReservationAll",
-            new HyperExponentialTime(
-                new BigDecimal(10.049524962359207),
-                new BigDecimal(0.2540637883815129),
-                new BigDecimal(0.9753422041069673)));
+            new GeneralizeErlangTime(
+                2,
+                new BigDecimal(19.43049443858759),
+                new BigDecimal(5.744223513812113)));
         Activity usersEnd = new Simple(
             "usersEnd",
-            new HyperExponentialTime(
-                new BigDecimal(0.7018647872684081),
-                new BigDecimal(0.18548264294018488),
-                new BigDecimal(0.7909695383953694)));
+            new HypoExponentialTime(
+                new BigDecimal(0.8475476358275391),
+                new BigDecimal(5.150165626715587)));
 
         // start-choice
         Activity startChoiceFirstChoice = new Simple(
             "startChoiceFirstChoice",
             new HypoExponentialTime(
-                new BigDecimal(4.410868885967287),
-                new BigDecimal(129.2995695422471)));
+                new BigDecimal(3.5201746455002234),
+                new BigDecimal(6.07269615583936)));
         Activity startChoiceSecondChoice = new Simple(
             "startChoiceSecondChoice",
             new HyperExponentialTime(
-                new BigDecimal(7.752403960497947),
-                new BigDecimal(0.4346454089309928),
-                new BigDecimal(0.9469106158619256)));
+                new BigDecimal(3.4733294219152056),
+                new BigDecimal(0.8989381939761423),
+                new BigDecimal(0.7944000063699483)));
         Activity startChoiceThirdChoice = new Simple(
             "startChoiceThirdChoice",
-            new HyperExponentialTime(
-                new BigDecimal(6.675905248990738),
-                new BigDecimal(0.13470688164846797),
-                new BigDecimal(0.9802210316687312)));
+            new GeneralizeErlangTime(
+                4,
+                new BigDecimal(12.84080332064955),
+                new BigDecimal(8.069272354898319)));
         Activity startChoiceEnd = new Simple(
             "startChoiceEnd",
-            new HyperExponentialTime(
-                new BigDecimal(16.65791760702171),
-                new BigDecimal(1.0715247169178783),
-                new BigDecimal(0.9395624127742006)));
+            new GeneralizeErlangTime(
+                2,
+                new BigDecimal(29.371489546338974),
+                new BigDecimal(9.625590994998777)));
 
         // first-choice
         Activity firstChoice = new Simple(
             "firstChoice",
-            new HyperExponentialTime(
-                new BigDecimal(3.780982996244664),
-                new BigDecimal(0.1639459030260373),
-                new BigDecimal(0.9584413541505536)));
+            new HypoExponentialTime(
+                new BigDecimal(0.44510088082123495),
+                new BigDecimal(4.277488383708342)));
 
         // second-choice
         Activity secondChoice = new Simple(
             "secondChoice",
-            new HyperExponentialTime(
-                new BigDecimal(1.0153966151575535),
-                new BigDecimal(0.37879257204204353),
-                new BigDecimal(0.7283061900638494)));
+            new HypoExponentialTime(
+                new BigDecimal(0.5402484688380129),
+                new BigDecimal(2.0623351589340433)));
 
         // third-choice
         Activity thirdChoice = new Simple(
             "thirdChoice",
-            new HyperExponentialTime(
-                new BigDecimal(0.999356388170639),
-                new BigDecimal(0.22440411796218557),
-                new BigDecimal(0.8166274227370521)));
+            new HypoExponentialTime(
+                new BigDecimal(0.48591912893009037),
+                new BigDecimal(2.059133464514165)));
 
         // start-parallel
         Activity startParallel = new Simple(
             "startParallel",
-            new HyperExponentialTime(
-                new BigDecimal(9.798566749814462),
-                new BigDecimal(0.7159185398443956),
-                new BigDecimal(0.9319112138995038)));
+            new HypoExponentialTime(
+                new BigDecimal(0.18877847753595525),
+                new BigDecimal(27.504868815828875)));
         Activity startParallelEnd = new Simple(
             "startParallelEnd",
             new HyperExponentialTime(
-                new BigDecimal(9.765123344130705),
-                new BigDecimal(0.05884778847057142),
-                new BigDecimal(0.9940097759168609)));
+                new BigDecimal(13.872778574741679),
+                new BigDecimal(0.37187136385113845),
+                new BigDecimal(0.9738939626137366)));
 
         // first-parallel
         Activity firstParallel = new Simple(
             "firstParallel",
             new HyperExponentialTime(
-                new BigDecimal(1.369326708179833),
-                new BigDecimal(0.19914222905019568),
-                new BigDecimal(0.8730339987466453)));
+                new BigDecimal(0.5281523048770601),
+                new BigDecimal(0.37532264121668635),
+                new BigDecimal(0.5845788056000591)));
 
         // second-parallel
         Activity secondParallel = new Simple(
             "secondParallel",
-            new HyperExponentialTime(
-                new BigDecimal(9.08433095429603),
-                new BigDecimal(0.12159196228323334),
-                new BigDecimal(0.9867919856178402)));
+            new HypoExponentialTime(
+                new BigDecimal(0.46720863302310595),
+                new BigDecimal(13.54958199926677)));
 
         // reservation
         Activity reservation = new Simple(
             "reservation",
-            new HyperExponentialTime(
-                new BigDecimal(0.986934933297376),
-                new BigDecimal(0.20581077674489803),
-                new BigDecimal(0.8274479002422037)));
+            new GeneralizeErlangTime(
+                4,
+                new BigDecimal(0.6158220548999678),
+                new BigDecimal(0.24688934216814792)));
         Activity reservationAll = new Simple(
             "reservationAll",
-            new HyperExponentialTime(
-                new BigDecimal(0.39112150121807526),
-                new BigDecimal(0.15765798045448967),
-                new BigDecimal(0.7127115977915552)));
+            new HypoExponentialTime(
+                new BigDecimal(0.7009731271010903),
+                new BigDecimal(1.2164000432879931)));
 
         // Model of the workflow.
         Activity model = ModelFactory.sequence(

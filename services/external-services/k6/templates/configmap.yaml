@@ -9,7 +9,7 @@ data:
 
     // --- Configuration ---
     const CONFIG = {
-        CAR_ID: 1,
+        CAR_ID: 2,
         RESERVATION_DAYS: 1,
         get baseStartDate() {
             const date = new Date();
