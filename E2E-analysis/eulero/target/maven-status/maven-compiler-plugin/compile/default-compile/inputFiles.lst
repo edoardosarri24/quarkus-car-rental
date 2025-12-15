@@ -25,6 +25,7 @@
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/ui/ActivityViewer.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/RospoEdge.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/activitytypes/XORType.java
+/Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/main_low_correlation.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/stochastictime/HypoExponentialTime.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/Simple.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/deprecated/Activity.java

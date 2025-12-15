@@ -34,6 +34,7 @@ org/oristool/eulero/modeling/activitytypes/ActivityType.class
 org/oristool/eulero/modeling/deprecated/SEQ.class
 org/oristool/eulero/modeling/activitytypes/BadNestedDAGType.class
 org/oristool/eulero/modelgeneration/deprecated/RandomGenerator.class
+org/oristool/eulero/main_low_correlation.class
 org/oristool/eulero/modeling/deprecated/XOR.class
 org/oristool/eulero/modeling/deprecated/DAG$3.class
 org/oristool/eulero/evaluation/heuristics/SDFHeuristicsVisitor.class

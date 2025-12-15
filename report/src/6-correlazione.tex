@@ -71,6 +71,29 @@ In particoalre dopo che i microservizi paralleli \textit{first-parallel-service}
 
 La matrice di correlazione in questo caso è mostrata Figura~\ref{fig:correlation_high_correlation}.
 
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/high_correlation/correlation_matrix_first_choice.pdf}
+        \caption{First-coice path}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/high_correlation/correlation_matrix_second_choice.pdf}
+        \caption{Second-coice path}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/high_correlation/correlation_matrix_third_choice.pdf}
+        \caption{Third-coice path}
+    \end{subfigure}
+    \caption{Matrici di correlazione nei servizi con alta correlazione.}
+    \label{fig:correlation_high_correlation}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Risultati}
 Vediamo adesso i risultati ottenuti con le due simulazioni, cioè i grafici delle distribuzioni reali e ottenuti con Eulero.
@@ -90,7 +113,7 @@ Vediamo adesso i risultati ottenuti con le due simulazioni, cioè i grafici dell
     \vfill
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/7-correlazione/compare_e2e_distribution_low_correlation.pdf}
+        \includegraphics[width=\textwidth]{images/7-correlazione/compare_e2e_distribution_high_correlation.pdf}
         \caption{Alta correlazione.}
         \label{fig:distribution_high_correlation}
     \end{subfigure}
