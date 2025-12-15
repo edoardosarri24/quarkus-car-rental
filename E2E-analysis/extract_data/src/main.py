@@ -459,7 +459,7 @@ def cleanup():
 
 if __name__ == "__main__":
     file_path = 'input_file/traces.json'
-    filter_value = 1000
+    filter_value = 280
     traces = parse_traces(file_path)
     analyze_all_traces(traces, filter_value)
     cleanup()

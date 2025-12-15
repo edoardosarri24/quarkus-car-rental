@@ -1,544 +1,524 @@
 {
-  "trace_count": 5763,
-  "filtered_out_traces": 0,
+  "trace_count": 6397,
+  "filtered_out_traces": 12,
   "e2e_statistics": {
-    "mean": 41.33430622904737,
-    "min": 15.119083,
-    "max": 205.344542,
-    "variance": 237.6972662337273,
-    "std_dev": 15.417433840744293,
-    "cv": 0.37299365218109815
+    "mean": 72.76907204783492,
+    "min": 15.532875,
+    "max": 271.369334,
+    "variance": 1179.3690323941219,
+    "std_dev": 34.34194275800543,
+    "cv": 0.4719304752908031
   },
   "service_total_statistics": {
-    "third-choice-service [POST /thirdChoice]": {
-      "mean": 2.4767407471719456,
-      "min": 0.313625,
-      "max": 58.966584,
-      "variance": 7.03496410719037,
-      "std_dev": 2.6523506757573307,
-      "cv": 1.0709036376883228,
-      "distribution": {
-        "type": "Hyper-exponential",
-        "params": {
-          "p1": 0.6307630118874772,
-          "lambda1": 0.5093492426348707,
-          "p2": 0.3692369881125228,
-          "lambda2": 0.2981636156583076
-        },
-        "java_code": "new HyperExponentialTime(new BigDecimal(0.5093492426348707), new BigDecimal(0.2981636156583076), new BigDecimal(0.6307630118874772))"
-      }
-    },
-    "first-parallel-service [firstparallel.FirstParallelService/pass]": {
-      "mean": 2.2448318080860665,
-      "min": 0.081833,
-      "max": 57.754583,
-      "variance": 6.439257356934457,
-      "std_dev": 2.5375691826893028,
-      "cv": 1.1304050368267111,
-      "distribution": {
-        "type": "Hyper-exponential",
-        "params": {
-          "p1": 0.6746179965253937,
-          "lambda1": 0.6010410170555895,
-          "p2": 0.32538200347460633,
-          "lambda2": 0.2898943273189144
-        },
-        "java_code": "new HyperExponentialTime(new BigDecimal(0.6010410170555895), new BigDecimal(0.2898943273189144), new BigDecimal(0.6746179965253937))"
-      }
-    },
-    "second-parallel-service [secondparallel.SecondParallelService/pass]": {
-      "mean": 2.2280618814853375,
-      "min": 0.111084,
-      "max": 57.9355,
-      "variance": 6.350436926623852,
-      "std_dev": 2.520007326700431,
-      "cv": 1.1310311206529273,
-      "distribution": {
-        "type": "Hyper-exponential",
-        "params": {
-          "p1": 0.6750080068673946,
-          "lambda1": 0.6059149545859117,
-          "p2": 0.3249919931326054,
-          "lambda2": 0.2917261821435134
-        },
-        "java_code": "new HyperExponentialTime(new BigDecimal(0.6059149545859117), new BigDecimal(0.2917261821435134), new BigDecimal(0.6750080068673946))"
-      }
-    },
-    "start-parallel-service [POST /startParallel]": {
-      "mean": 9.275304688877322,
-      "min": 0.6635,
-      "max": 84.057084,
-      "variance": 36.61651678649556,
-      "std_dev": 6.051158301225937,
-      "cv": 0.6523945578286298,
-      "distribution": {
-        "type": "Generalized-Erlang",
-        "params": {
-          "k": 2,
-          "lambda1": 0.5150795557399744,
-          "lambda2": 0.18544586155938728
-        }
-      }
-    },
-    "users-service [POST /reserve]": {
-      "mean": 10.096773207010239,
-      "min": 1.757917,
-      "max": 73.39437399999998,
-      "variance": 58.644091738996615,
-      "std_dev": 7.657943048821702,
-      "cv": 0.7584544974729901,
+    "second-choice-service [POST /secondChoice]": {
+      "mean": 2.4535540555208986,
+      "min": 0.253667,
+      "max": 53.125917,
+      "variance": 5.355096721516807,
+      "std_dev": 2.314108191402642,
+      "cv": 0.9431657664910701,
       "distribution": {
         "type": "Hypo-exponential",
         "params": {
-          "lambda1": 0.1427161332063549,
-          "lambda2": 0.3236395826771969
+          "lambda1": 0.4329701357329811,
+          "lambda2": 6.94801799693846
         },
-        "java_code": "new HypoExponentialTime(new BigDecimal(0.1427161332063549), new BigDecimal(0.3236395826771969))"
+        "java_code": "new HypoExponentialTime(new BigDecimal(0.4329701357329811), new BigDecimal(6.94801799693846))"
+      }
+    },
+    "second-parallel-service [secondparallel.SecondParallelService/pass]": {
+      "mean": 15.481546564991023,
+      "min": 0.1275,
+      "max": 127.088166,
+      "variance": 225.67437583981464,
+      "std_dev": 15.022462376049228,
+      "cv": 0.9703463612621275,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 0.06659907802665115,
+          "lambda2": 2.1444332051441597
+        },
+        "java_code": "new HypoExponentialTime(new BigDecimal(0.06659907802665115), new BigDecimal(2.1444332051441597))"
+      }
+    },
+    "users-service [POST /reserve]": {
+      "mean": 9.580732588557137,
+      "min": 0.8653759999999999,
+      "max": 89.558708,
+      "variance": 52.94805913746302,
+      "std_dev": 7.276541701760736,
+      "cv": 0.7594974219874961,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 0.14996454439637524,
+          "lambda2": 0.34334884845926317
+        },
+        "java_code": "new HypoExponentialTime(new BigDecimal(0.14996454439637524), new BigDecimal(0.34334884845926317))"
       }
     },
     "reservation-service [POST /reservation]": {
-      "mean": 10.630205370987333,
-      "min": 5.916333,
-      "max": 82.87425,
-      "variance": 31.265041101660106,
-      "std_dev": 5.591515098938758,
-      "cv": 0.5260025468745406,
+      "mean": 10.527277343126473,
+      "min": 5.9205,
+      "max": 83.133042,
+      "variance": 25.99486079791989,
+      "std_dev": 5.098515548463091,
+      "cv": 0.48431473611665043,
       "distribution": {
         "type": "Generalized-Erlang",
         "params": {
-          "k": 3,
-          "lambda1": 0.4637518135266925,
-          "lambda2": 0.24031367819762137
+          "k": 4,
+          "lambda1": 0.5995779213632655,
+          "lambda2": 0.2593416406972565
         }
       }
     },
     "reservation-service [GET /reservation/all]": {
-      "mean": 2.6611097513447857,
-      "min": 0.969875,
-      "max": 45.799666,
-      "variance": 3.4040120958590148,
-      "std_dev": 1.8449965029395081,
-      "cv": 0.6933184555831052,
+      "mean": 2.434799529929301,
+      "min": 0.958083,
+      "max": 48.690708,
+      "variance": 3.1739109093510605,
+      "std_dev": 1.7815473357031693,
+      "cv": 0.7317018562735225,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 0.6488147177249314,
+          "lambda2": 1.119159779202586
+        },
+        "java_code": "new HypoExponentialTime(new BigDecimal(0.6488147177249314), new BigDecimal(1.119159779202586))"
+      }
+    },
+    "start-parallel-service [POST /startParallel]": {
+      "mean": 25.64084404883303,
+      "min": 0.49929100000000004,
+      "max": 135.080542,
+      "variance": 320.607625277515,
+      "std_dev": 17.905519408202462,
+      "cv": 0.6983202024902678,
       "distribution": {
         "type": "Generalized-Erlang",
         "params": {
           "k": 2,
-          "lambda1": 2.1276535315696776,
-          "lambda2": 0.5810213732194183
-        }
-      }
-    },
-    "start-choice-service [POST /startChoice]": {
-      "mean": 0.6187160694082943,
-      "min": 0.306125,
-      "max": 14.055166999999999,
-      "variance": 0.11169303648292922,
-      "std_dev": 0.3342050814738298,
-      "cv": 0.5401590454785585,
-      "distribution": {
-        "type": "Generalized-Erlang",
-        "params": {
-          "k": 3,
-          "lambda1": 8.462036745533617,
-          "lambda2": 3.7851332451409965
-        }
-      }
-    },
-    "second-choice-service [POST /secondChoice]": {
-      "mean": 2.402523755768548,
-      "min": 0.273917,
-      "max": 32.813792,
-      "variance": 4.740629929659756,
-      "std_dev": 2.1772987690392323,
-      "cv": 0.9062548346552068,
-      "distribution": {
-        "type": "Hypo-exponential",
-        "params": {
-          "lambda1": 0.4620606198831291,
-          "lambda2": 4.1962931541242385
-        },
-        "java_code": "new HypoExponentialTime(new BigDecimal(0.4620606198831291), new BigDecimal(4.1962931541242385))"
-      }
-    },
-    "first-choice-service [POST /firstChoice]": {
-      "mean": 2.6303340865874363,
-      "min": 0.328167,
-      "max": 80.744875,
-      "variance": 13.829940688982994,
-      "std_dev": 3.7188628220173694,
-      "cv": 1.41383668370514,
-      "distribution": {
-        "type": "Hyper-exponential",
-        "params": {
-          "p1": 0.7885725201930235,
-          "lambda1": 0.5995987537964107,
-          "p2": 0.21142747980697651,
-          "lambda2": 0.1607609321455283
-        },
-        "java_code": "new HyperExponentialTime(new BigDecimal(0.5995987537964107), new BigDecimal(0.1607609321455283), new BigDecimal(0.7885725201930235))"
-      }
-    }
-  },
-  "granular_segment_statistics": {
-    "third-choice-service [POST /thirdChoice]": {
-      "Final Processing / Response Preparation": {
-        "mean": 2.4767407471719456,
-        "min": 0.313625,
-        "max": 58.966584,
-        "variance": 7.03496410719037,
-        "std_dev": 2.6523506757573307,
-        "cv": 1.0709036376883228,
-        "distribution": {
-          "type": "Hyper-exponential",
-          "params": {
-            "p1": 0.6307630118874772,
-            "lambda1": 0.5093492426348707,
-            "p2": 0.3692369881125228,
-            "lambda2": 0.2981636156583076
-          },
-          "java_code": "new HyperExponentialTime(new BigDecimal(0.5093492426348707), new BigDecimal(0.2981636156583076), new BigDecimal(0.6307630118874772))"
+          "lambda1": 0.22548735021021304,
+          "lambda2": 0.05962614328632796
         }
       }
     },
     "first-parallel-service [firstparallel.FirstParallelService/pass]": {
+      "mean": 10.299736771274686,
+      "min": 0.100125,
+      "max": 88.541875,
+      "variance": 103.36731559009962,
+      "std_dev": 10.166971800398564,
+      "cv": 0.9871098675796846,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 0.09836620229090995,
+          "lambda2": 7.482600884917778
+        },
+        "java_code": "new HypoExponentialTime(new BigDecimal(0.09836620229090995), new BigDecimal(7.482600884917778))"
+      }
+    },
+    "start-choice-service [POST /startChoice]": {
+      "mean": 0.6101797251836798,
+      "min": 0.294167,
+      "max": 23.003625,
+      "variance": 0.22029529340186096,
+      "std_dev": 0.4693562542481574,
+      "cv": 0.7692098489619089,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 2.294979503492873,
+          "lambda2": 5.732433413422038
+        },
+        "java_code": "new HypoExponentialTime(new BigDecimal(2.294979503492873), new BigDecimal(5.732433413422038))"
+      }
+    },
+    "first-choice-service [POST /firstChoice]": {
+      "mean": 2.481660346718147,
+      "min": 0.323666,
+      "max": 21.607791,
+      "variance": 4.241139808011547,
+      "std_dev": 2.0594027794512533,
+      "cv": 0.8298487672475788,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 0.4992498903823463,
+          "lambda2": 2.0891856639392343
+        },
+        "java_code": "new HypoExponentialTime(new BigDecimal(0.4992498903823463), new BigDecimal(2.0891856639392343))"
+      }
+    },
+    "third-choice-service [POST /thirdChoice]": {
+      "mean": 2.4718507383966246,
+      "min": 0.316917,
+      "max": 44.019333,
+      "variance": 4.968178551961035,
+      "std_dev": 2.22894112797109,
+      "cv": 0.9017296608357919,
+      "distribution": {
+        "type": "Hypo-exponential",
+        "params": {
+          "lambda1": 0.4516766301345311,
+          "lambda2": 3.877811148514542
+        },
+        "java_code": "new HypoExponentialTime(new BigDecimal(0.4516766301345311), new BigDecimal(3.877811148514542))"
+      }
+    }
+  },
+  "granular_segment_statistics": {
+    "second-choice-service [POST /secondChoice]": {
       "Final Processing / Response Preparation": {
-        "mean": 2.2448318080860665,
-        "min": 0.081833,
-        "max": 57.754583,
-        "variance": 6.439257356934457,
-        "std_dev": 2.5375691826893028,
-        "cv": 1.1304050368267111,
+        "mean": 2.4535540555208986,
+        "min": 0.253667,
+        "max": 53.125917,
+        "variance": 5.355096721516807,
+        "std_dev": 2.314108191402642,
+        "cv": 0.9431657664910701,
         "distribution": {
-          "type": "Hyper-exponential",
+          "type": "Hypo-exponential",
           "params": {
-            "p1": 0.6746179965253937,
-            "lambda1": 0.6010410170555895,
-            "p2": 0.32538200347460633,
-            "lambda2": 0.2898943273189144
+            "lambda1": 0.4329701357329811,
+            "lambda2": 6.94801799693846
           },
-          "java_code": "new HyperExponentialTime(new BigDecimal(0.6010410170555895), new BigDecimal(0.2898943273189144), new BigDecimal(0.6746179965253937))"
+          "java_code": "new HypoExponentialTime(new BigDecimal(0.4329701357329811), new BigDecimal(6.94801799693846))"
         }
       }
     },
     "second-parallel-service [secondparallel.SecondParallelService/pass]": {
       "Final Processing / Response Preparation": {
-        "mean": 2.2280618814853375,
-        "min": 0.111084,
-        "max": 57.9355,
-        "variance": 6.350436926623852,
-        "std_dev": 2.520007326700431,
-        "cv": 1.1310311206529273,
-        "distribution": {
-          "type": "Hyper-exponential",
-          "params": {
-            "p1": 0.6750080068673946,
-            "lambda1": 0.6059149545859117,
-            "p2": 0.3249919931326054,
-            "lambda2": 0.2917261821435134
-          },
-          "java_code": "new HyperExponentialTime(new BigDecimal(0.6059149545859117), new BigDecimal(0.2917261821435134), new BigDecimal(0.6750080068673946))"
-        }
-      }
-    },
-    "start-parallel-service [POST /startParallel]": {
-      "Processing before calling start-parallel-service [firstparallel.FirstParallelService/pass]": {
-        "mean": 5.172095750824223,
-        "min": 0.130083,
-        "max": 44.253541,
-        "variance": 25.64247929277003,
-        "std_dev": 5.06384036999292,
-        "cv": 0.9790693393845132,
+        "mean": 15.481546564991023,
+        "min": 0.1275,
+        "max": 127.088166,
+        "variance": 225.67437583981464,
+        "std_dev": 15.022462376049228,
+        "cv": 0.9703463612621275,
         "distribution": {
           "type": "Hypo-exponential",
           "params": {
-            "lambda1": 0.197524712683633,
-            "lambda2": 9.137586429172682
+            "lambda1": 0.06659907802665115,
+            "lambda2": 2.1444332051441597
           },
-          "java_code": "new HypoExponentialTime(new BigDecimal(0.197524712683633), new BigDecimal(9.137586429172682))"
-        }
-      },
-      "Final Processing / Response Preparation": {
-        "mean": 4.103208938053097,
-        "min": 0.123375,
-        "max": 82.816625,
-        "variance": 10.440250763451155,
-        "std_dev": 3.2311376887175753,
-        "cv": 0.787466038775665,
-        "distribution": {
-          "type": "Hypo-exponential",
-          "params": {
-            "lambda1": 0.3271061538115266,
-            "lambda2": 0.9559339396215777
-          },
-          "java_code": "new HypoExponentialTime(new BigDecimal(0.3271061538115266), new BigDecimal(0.9559339396215777))"
+          "java_code": "new HypoExponentialTime(new BigDecimal(0.06659907802665115), new BigDecimal(2.1444332051441597))"
         }
       }
     },
     "users-service [POST /reserve]": {
       "Processing before calling users-service [POST /startChoice]": {
-        "mean": 0.3333882323442652,
-        "min": 0.153083,
-        "max": 31.191958,
-        "variance": 0.2354628461625241,
-        "std_dev": 0.4852451402770811,
-        "cv": 1.455495705007382,
+        "mean": 0.31350401188056903,
+        "min": 0.145541,
+        "max": 10.500667,
+        "variance": 0.09879762932754707,
+        "std_dev": 0.31432090183051314,
+        "cv": 1.002605676224186,
         "distribution": {
           "type": "Hyper-exponential",
           "params": {
-            "p1": 0.7994408924753977,
-            "lambda1": 4.79585549168319,
-            "p2": 0.20055910752460226,
-            "lambda2": 1.2031564888439124
+            "p1": 0.5255062808999462,
+            "lambda1": 3.352469257076943,
+            "p2": 0.4744937191000538,
+            "lambda2": 3.0270344309393695
           },
-          "java_code": "new HyperExponentialTime(new BigDecimal(4.79585549168319), new BigDecimal(1.2031564888439124), new BigDecimal(0.7994408924753977))"
+          "java_code": "new HyperExponentialTime(new BigDecimal(3.352469257076943), new BigDecimal(3.0270344309393695), new BigDecimal(0.5255062808999462))"
         }
       },
       "Processing before calling users-service [POST /startParallel]": {
-        "mean": 0.20287925039042165,
-        "min": 0.049167,
-        "max": 36.685167,
-        "variance": 0.45301555731648646,
-        "std_dev": 0.6730643039981294,
-        "cv": 3.3175610748900235,
-        "distribution": {
-          "type": "Hyper-exponential",
-          "params": {
-            "p1": 0.9564590779397397,
-            "lambda1": 9.428850669539896,
-            "p2": 0.04354092206026028,
-            "lambda2": 0.42922991854977727
-          },
-          "java_code": "new HyperExponentialTime(new BigDecimal(9.428850669539896), new BigDecimal(0.42922991854977727), new BigDecimal(0.9564590779397397))"
-        }
-      },
-      "Processing before calling users-service [POST /reservation]": {
-        "mean": 7.579695961998959,
-        "min": 0.13675,
-        "max": 68.595208,
-        "variance": 53.725897658482715,
-        "std_dev": 7.329795198945378,
-        "cv": 0.9670302391670502,
+        "mean": 0.17782883804908553,
+        "min": 0.054125,
+        "max": 5.54625,
+        "variance": 0.024831471471323984,
+        "std_dev": 0.15758004782117557,
+        "cv": 0.8861332590931019,
         "distribution": {
           "type": "Hypo-exponential",
           "params": {
-            "lambda1": 0.13651165140640883,
-            "lambda2": 3.9321481403796703
+            "lambda1": 6.407353864052392,
+            "lambda2": 45.95974819669674
           },
-          "java_code": "new HypoExponentialTime(new BigDecimal(0.13651165140640883), new BigDecimal(3.9321481403796703))"
+          "java_code": "new HypoExponentialTime(new BigDecimal(6.407353864052392), new BigDecimal(45.95974819669674))"
+        }
+      },
+      "Processing before calling users-service [POST /reservation]": {
+        "mean": 7.328431248903509,
+        "min": 0.151709,
+        "max": 63.600375,
+        "variance": 48.64657641371986,
+        "std_dev": 6.974709772723154,
+        "cv": 0.9517329883891209,
+        "distribution": {
+          "type": "Hypo-exponential",
+          "params": {
+            "lambda1": 0.14356991427736668,
+            "lambda2": 2.753427877788645
+          },
+          "java_code": "new HypoExponentialTime(new BigDecimal(0.14356991427736668), new BigDecimal(2.753427877788645))"
         }
       },
       "Processing before calling users-service [GET /reservation/all]": {
-        "mean": 0.31253612354676386,
-        "min": 0.081209,
-        "max": 64.369875,
-        "variance": 1.2137977164947464,
-        "std_dev": 1.1017248823979362,
-        "cv": 3.525112137103372,
+        "mean": 0.27142439442355887,
+        "min": 0.087792,
+        "max": 5.703625,
+        "variance": 0.042329174029895784,
+        "std_dev": 0.20574055028092003,
+        "cv": 0.7580031659197922,
         "distribution": {
-          "type": "Hyper-exponential",
+          "type": "Hypo-exponential",
           "params": {
-            "p1": 0.961259123335416,
-            "lambda1": 6.151347322202168,
-            "p2": 0.038740876664584034,
-            "lambda2": 0.24791295306884648
+            "lambda1": 5.3156996252496285,
+            "lambda2": 12.00445564043343
           },
-          "java_code": "new HyperExponentialTime(new BigDecimal(6.151347322202168), new BigDecimal(0.24791295306884648), new BigDecimal(0.961259123335416))"
+          "java_code": "new HypoExponentialTime(new BigDecimal(5.3156996252496285), new BigDecimal(12.00445564043343))"
         }
       },
       "Final Processing / Response Preparation": {
-        "mean": 1.6682736387298285,
-        "min": 0.535583,
-        "max": 44.967208,
-        "variance": 2.8340106009915114,
-        "std_dev": 1.6834519895118814,
-        "cv": 1.0090982381005609,
+        "mean": 1.504988541660153,
+        "min": 0.237209,
+        "max": 85.745083,
+        "variance": 3.4535342454194162,
+        "std_dev": 1.8583687054563247,
+        "cv": 1.2348058832437077,
         "distribution": {
           "type": "Hyper-exponential",
           "params": {
-            "p1": 0.5475837441513,
-            "lambda1": 0.6564675379852111,
-            "p2": 0.45241625584870004,
-            "lambda2": 0.5423765566339053
+            "p1": 0.7279478945190562,
+            "lambda1": 0.967379982462932,
+            "p2": 0.27205210548094383,
+            "lambda2": 0.36153378972685485
           },
-          "java_code": "new HyperExponentialTime(new BigDecimal(0.6564675379852111), new BigDecimal(0.5423765566339053), new BigDecimal(0.5475837441513))"
+          "java_code": "new HyperExponentialTime(new BigDecimal(0.967379982462932), new BigDecimal(0.36153378972685485), new BigDecimal(0.7279478945190562))"
         }
       }
     },
     "reservation-service [POST /reservation]": {
       "Final Processing / Response Preparation": {
-        "mean": 10.630205370987333,
-        "min": 5.916333,
-        "max": 82.87425,
-        "variance": 31.265041101660106,
-        "std_dev": 5.591515098938758,
-        "cv": 0.5260025468745406,
+        "mean": 10.527277343126473,
+        "min": 5.9205,
+        "max": 83.133042,
+        "variance": 25.99486079791989,
+        "std_dev": 5.098515548463091,
+        "cv": 0.48431473611665043,
         "distribution": {
           "type": "Generalized-Erlang",
           "params": {
-            "k": 3,
-            "lambda1": 0.4637518135266925,
-            "lambda2": 0.24031367819762137
+            "k": 4,
+            "lambda1": 0.5995779213632655,
+            "lambda2": 0.2593416406972565
           }
         }
       }
     },
     "reservation-service [GET /reservation/all]": {
       "Final Processing / Response Preparation": {
-        "mean": 2.6611097513447857,
-        "min": 0.969875,
-        "max": 45.799666,
-        "variance": 3.4040120958590148,
-        "std_dev": 1.8449965029395081,
-        "cv": 0.6933184555831052,
+        "mean": 2.434799529929301,
+        "min": 0.958083,
+        "max": 48.690708,
+        "variance": 3.1739109093510605,
+        "std_dev": 1.7815473357031693,
+        "cv": 0.7317018562735225,
+        "distribution": {
+          "type": "Hypo-exponential",
+          "params": {
+            "lambda1": 0.6488147177249314,
+            "lambda2": 1.119159779202586
+          },
+          "java_code": "new HypoExponentialTime(new BigDecimal(0.6488147177249314), new BigDecimal(1.119159779202586))"
+        }
+      }
+    },
+    "start-parallel-service [POST /startParallel]": {
+      "Processing before calling start-parallel-service [firstparallel.FirstParallelService/pass]": {
+        "mean": 0.18932339658886893,
+        "min": 0.080459,
+        "max": 4.602959,
+        "variance": 0.00948815736591218,
+        "std_dev": 0.09740717307217256,
+        "cv": 0.5145015081453462,
+        "distribution": {
+          "type": "Generalized-Erlang",
+          "params": {
+            "k": 3,
+            "lambda1": 24.568895226201782,
+            "lambda2": 14.877015265058985
+          }
+        }
+      },
+      "Final Processing / Response Preparation": {
+        "mean": 25.451520652244163,
+        "min": 0.30575,
+        "max": 134.904292,
+        "variance": 320.5775446338154,
+        "std_dev": 17.904679406060737,
+        "cv": 0.7034817153246209,
         "distribution": {
           "type": "Generalized-Erlang",
           "params": {
             "k": 2,
-            "lambda1": 2.1276535315696776,
-            "lambda2": 0.5810213732194183
+            "lambda1": 0.23215322592265153,
+            "lambda2": 0.05939469383743242
           }
+        }
+      }
+    },
+    "first-parallel-service [firstparallel.FirstParallelService/pass]": {
+      "Final Processing / Response Preparation": {
+        "mean": 10.299736771274686,
+        "min": 0.100125,
+        "max": 88.541875,
+        "variance": 103.36731559009962,
+        "std_dev": 10.166971800398564,
+        "cv": 0.9871098675796846,
+        "distribution": {
+          "type": "Hypo-exponential",
+          "params": {
+            "lambda1": 0.09836620229090995,
+            "lambda2": 7.482600884917778
+          },
+          "java_code": "new HypoExponentialTime(new BigDecimal(0.09836620229090995), new BigDecimal(7.482600884917778))"
         }
       }
     },
     "start-choice-service [POST /startChoice]": {
-      "Processing before calling start-choice-service [POST /thirdChoice]": {
-        "mean": 0.4430206380090498,
-        "min": 0.21375,
-        "max": 6.268583,
-        "variance": 0.060049605171965094,
-        "std_dev": 0.24505020949177966,
-        "cv": 0.5531349749145861,
+      "Processing before calling start-choice-service [POST /secondChoice]": {
+        "mean": 0.4301733365564567,
+        "min": 0.197833,
+        "max": 6.085334,
+        "variance": 0.052850168386356276,
+        "std_dev": 0.22989164488157518,
+        "cv": 0.5344163046502624,
         "distribution": {
           "type": "Generalized-Erlang",
           "params": {
             "k": 3,
-            "lambda1": 12.421996333601232,
-            "lambda2": 4.962445132686599
+            "lambda1": 11.888800556965649,
+            "lambda2": 5.623189620277237
           }
         }
       },
       "Final Processing / Response Preparation": {
-        "mean": 0.17803665972583727,
-        "min": 0.077208,
-        "max": 13.779084,
-        "variance": 0.042191283176103385,
-        "std_dev": 0.20540516832860703,
-        "cv": 1.1537240063081118,
+        "mean": 0.1763480553384399,
+        "min": 0.078167,
+        "max": 22.474125,
+        "variance": 0.14022473701170707,
+        "std_dev": 0.37446593571606357,
+        "cv": 2.123448058428566,
         "distribution": {
           "type": "Hyper-exponential",
           "params": {
-            "p1": 0.6884331778110306,
-            "lambda1": 7.733611480592421,
-            "p2": 0.31156682218896936,
-            "lambda2": 3.5000299676342865
+            "p1": 0.8990488039520057,
+            "lambda1": 10.196299610183832,
+            "p2": 0.1009511960479943,
+            "lambda2": 1.1449085259744196
           },
-          "java_code": "new HyperExponentialTime(new BigDecimal(7.733611480592421), new BigDecimal(3.5000299676342865), new BigDecimal(0.6884331778110306))"
-        }
-      },
-      "Processing before calling start-choice-service [POST /secondChoice]": {
-        "mean": 0.43318949165779197,
-        "min": 0.215167,
-        "max": 6.511459,
-        "variance": 0.03621180091916266,
-        "std_dev": 0.1902939855044364,
-        "cv": 0.4392857840946048,
-        "distribution": {
-          "type": "Generalized-Erlang",
-          "params": {
-            "k": 5,
-            "lambda1": 16.84328755242238,
-            "lambda2": 7.334855883762797
-          }
+          "java_code": "new HyperExponentialTime(new BigDecimal(10.196299610183832), new BigDecimal(1.1449085259744196), new BigDecimal(0.8990488039520057))"
         }
       },
       "Processing before calling start-choice-service [POST /firstChoice]": {
-        "mean": 0.4550765297113752,
-        "min": 0.21875,
-        "max": 5.143333,
-        "variance": 0.06428674013808619,
-        "std_dev": 0.2535482994186437,
-        "cv": 0.5571552977681634,
+        "mean": 0.4386305166023166,
+        "min": 0.210458,
+        "max": 6.378708,
+        "variance": 0.06956475970872597,
+        "std_dev": 0.26375132171939153,
+        "cv": 0.6013063654632154,
         "distribution": {
           "type": "Generalized-Erlang",
           "params": {
-            "k": 3,
-            "lambda1": 12.273343292979211,
-            "lambda2": 4.747338247268098
+            "k": 2,
+            "lambda1": 8.61178205936351,
+            "lambda2": 4.845183136826742
           }
         }
-      }
-    },
-    "second-choice-service [POST /secondChoice]": {
-      "Final Processing / Response Preparation": {
-        "mean": 2.402523755768548,
-        "min": 0.273917,
-        "max": 32.813792,
-        "variance": 4.740629929659756,
-        "std_dev": 2.1772987690392323,
-        "cv": 0.9062548346552068,
+      },
+      "Processing before calling start-choice-service [POST /thirdChoice]": {
+        "mean": 0.4367399556962025,
+        "min": 0.204791,
+        "max": 6.290833,
+        "variance": 0.06684032647876849,
+        "std_dev": 0.2585349618112964,
+        "cv": 0.591965444057365,
         "distribution": {
-          "type": "Hypo-exponential",
+          "type": "Generalized-Erlang",
           "params": {
-            "lambda1": 0.4620606198831291,
-            "lambda2": 4.1962931541242385
-          },
-          "java_code": "new HypoExponentialTime(new BigDecimal(0.4620606198831291), new BigDecimal(4.1962931541242385))"
+            "k": 2,
+            "lambda1": 8.17852488220188,
+            "lambda2": 5.202992699170525
+          }
         }
       }
     },
     "first-choice-service [POST /firstChoice]": {
       "Final Processing / Response Preparation": {
-        "mean": 2.6303340865874363,
-        "min": 0.328167,
-        "max": 80.744875,
-        "variance": 13.829940688982994,
-        "std_dev": 3.7188628220173694,
-        "cv": 1.41383668370514,
+        "mean": 2.481660346718147,
+        "min": 0.323666,
+        "max": 21.607791,
+        "variance": 4.241139808011547,
+        "std_dev": 2.0594027794512533,
+        "cv": 0.8298487672475788,
         "distribution": {
-          "type": "Hyper-exponential",
+          "type": "Hypo-exponential",
           "params": {
-            "p1": 0.7885725201930235,
-            "lambda1": 0.5995987537964107,
-            "p2": 0.21142747980697651,
-            "lambda2": 0.1607609321455283
+            "lambda1": 0.4992498903823463,
+            "lambda2": 2.0891856639392343
           },
-          "java_code": "new HyperExponentialTime(new BigDecimal(0.5995987537964107), new BigDecimal(0.1607609321455283), new BigDecimal(0.7885725201930235))"
+          "java_code": "new HypoExponentialTime(new BigDecimal(0.4992498903823463), new BigDecimal(2.0891856639392343))"
+        }
+      }
+    },
+    "third-choice-service [POST /thirdChoice]": {
+      "Final Processing / Response Preparation": {
+        "mean": 2.4718507383966246,
+        "min": 0.316917,
+        "max": 44.019333,
+        "variance": 4.968178551961035,
+        "std_dev": 2.22894112797109,
+        "cv": 0.9017296608357919,
+        "distribution": {
+          "type": "Hypo-exponential",
+          "params": {
+            "lambda1": 0.4516766301345311,
+            "lambda2": 3.877811148514542
+          },
+          "java_code": "new HypoExponentialTime(new BigDecimal(0.4516766301345311), new BigDecimal(3.877811148514542))"
         }
       }
     }
   },
   "network_latency_statistics": {
-    "start-choice-service -> third-choice-service": {
-      "mean": 0.4719223947963801,
-      "variance": 0.07898667846136302
-    },
-    "start-parallel-service -> first-parallel-service": {
-      "mean": 0.8864465283706403,
-      "variance": 2.7968998144750246
+    "start-choice-service -> second-choice-service": {
+      "mean": 0.41064426575171553,
+      "variance": 0.08636884492630503
     },
     "start-parallel-service -> second-parallel-service": {
-      "mean": 0.7816908879056048,
-      "variance": 2.4912129488375414
-    },
-    "users-service -> start-parallel-service": {
-      "mean": 0.26545208658684716,
-      "variance": 0.3707318489765738
+      "mean": 0.7633885667863556,
+      "variance": 0.6803340764098255
     },
     "users-service -> reservation-service": {
-      "mean": 0.21521964289432588,
-      "variance": 1.0749813122354164
+      "mean": 0.19539618161822467,
+      "variance": 0.26977590928737494
+    },
+    "users-service -> start-parallel-service": {
+      "mean": 0.2687831229802513,
+      "variance": 0.1881300477389177
+    },
+    "start-parallel-service -> first-parallel-service": {
+      "mean": 0.858294758886894,
+      "variance": 1.2875938539590221
     },
     "users-service -> start-choice-service": {
-      "mean": 0.2578069675516224,
-      "variance": 0.03440535290502029
-    },
-    "start-choice-service -> second-choice-service": {
-      "mean": 0.4246754536741214,
-      "variance": 0.05504050582211939
+      "mean": 0.255264184305143,
+      "variance": 0.08072206366658408
     },
     "start-choice-service -> first-choice-service": {
-      "mean": 0.6288387767402378,
-      "variance": 5.5477464959203004
+      "mean": 0.523837583011583,
+      "variance": 0.7447510492717919
+    },
+    "start-choice-service -> third-choice-service": {
+      "mean": 0.46176948734177214,
+      "variance": 0.12882717148304154
     }
   }
 }

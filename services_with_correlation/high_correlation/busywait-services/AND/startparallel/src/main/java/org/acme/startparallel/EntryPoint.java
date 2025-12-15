@@ -28,22 +28,16 @@ public class EntryPoint {
 
     @POST
     public void pass() {
-        BigDecimal busyWaitTime = new ExponentialSampler(new BigDecimal(1).divide(new BigDecimal(5), java.math.MathContext.DECIMAL128)).getSample();
-        long busyWaitTimeNs = (long) (busyWaitTime.doubleValue() * 1.0E+6);
-        long startTime = System.nanoTime();
-        while (System.nanoTime() - startTime < busyWaitTimeNs) {
-            // Busy wait
-        }
         Uni<org.acme.firstparallel.grpc.PassResponse> firstCall = firstParallel.pass(EMPTY);
         Uni<org.acme.secondparallel.grpc.PassResponse> secondCall = secondParallel.pass(EMPTY);
         var result = Uni.combine().all()
             .unis(firstCall, secondCall)
             .asTuple()
             .await().atMost(Duration.ofSeconds(5));
-        double busyWait = result.getItem1().getBusywaitTime() + result.getItem2().getBusywaitTime();
-        long busyWaitNs = (long) (busyWait * 1.0E+6);
-        long start = System.nanoTime();
-        while (System.nanoTime() - start < busyWaitNs) {
+        double busyWaitTime = result.getItem1().getBusywaitTime() + result.getItem2().getBusywaitTime();
+        long busyWaitTimeNs = (long) (busyWaitTime * 1.0E+6);
+        long startTime = System.nanoTime();
+        while (System.nanoTime() - startTime < busyWaitTimeNs) {
             // Busy wait
         }
         return;

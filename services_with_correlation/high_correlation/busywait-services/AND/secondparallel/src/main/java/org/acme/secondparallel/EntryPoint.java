@@ -15,7 +15,7 @@ public class EntryPoint implements SecondParallelService {
 
     @Override
     public Uni<PassResponse> pass(Empty request) {
-        BigDecimal busywaitTime = new ExponentialSampler(new BigDecimal(1).divide(new BigDecimal(2),java.math.MathContext.DECIMAL128)).getSample();
+        BigDecimal busywaitTime = new ExponentialSampler(new BigDecimal(1).divide(new BigDecimal(15),java.math.MathContext.DECIMAL128)).getSample();
         long busyWaitTimeNs = (long) (busywaitTime.doubleValue() * 1.0E+6);
         long startTime = System.nanoTime();
         while (System.nanoTime() - startTime < busyWaitTimeNs) {
