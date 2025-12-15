@@ -26,6 +26,8 @@ Per capire il livello di correlazione iniziale possiamo osservare la Figura~\ref
     \label{fig:correlation_no_correlation}
 \end{figure}
 
+È importante osservare che il numero di tracce dei tre esperimenti, senza conrrelazione, con basse e con alta correlazione, sono eseguiti su un numero di tracce simile, circa 5500.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementazione}
 Vediamo come implementare la dipendenza tra microservizi in modo semplice ma funzionale. Osserviamo che vogliamo aggiungere una correlazione tra i tempi di esecuzione di due microservizi; è importante non aggiungere una dipendenza funzionale, ma temporale tra una coppia.
@@ -35,7 +37,7 @@ Andremo ad aggiungere due livelli: nella prima avremo una correlazione solamente
 \subsection{Bassa correlazione}
 In questo esperimento si è aggiunta una sola dipendenza, in particolare tra \textit{users-service} e \textit{reservation-service}.
 
-Prima di chiamare \textit{reservation/reservation}, \textit{users-service} campiona un tempo di esecuzione, in cui fa una busy-wait, da una distribuzione esponenziale con tasso $\tfrac{1}{7}$; se il tempo campionato è minore di 7 (i.e., la media) allora passa a \textit{reservation-service} il valore \texttt{true}, altrimenti \texttt{false}. A questo punto \textit{reservation-service} esegue una busy wait per 5ms se il valore è \texttt{true}, per 15ms altrimenti.
+Prima di chiamare \textit{reservation-service/reservation}, il microservizio \textit{users-service} campiona un tempo di esecuzione $t$, in cui fa una busy-wait, da una distribuzione esponenziale con tasso $\tfrac{1}{7}$; il servizio \textit{reservation} farà una busy wait per un tempo di dipendente da quanto campionato precedentemente da \textit{users-service}, secondo la funzoone $f(t)=\begin{cases}5ms & \text{ se } t<7\\15ms & \text{altrimenti}\end{cases}$. L'implementazione avviene passando un parametro booleano nella chiamata di \textit{users-service} a \textit{reservation-service}.
 
 La matrice di correlazione diventa, rispetto alla precedente, quella mostrata in Figura~\ref{fig:correlation_low_correlation}.
 
@@ -65,7 +67,9 @@ La matrice di correlazione diventa, rispetto alla precedente, quella mostrata in
 \subsection{Alta correlazione}
 L'implementazione con alta correlazione è definita sulla basa di quella precedente a bassa correlazione, a cui è stata aggiunta un'ulteriore dipendenza tra i tempi di esecuzione di microservizi.
 
-In particoalre TODO.
+In particoalre dopo che i microservizi paralleli \textit{first-parallel-service} e \textit{second-parallel-service} ritornano, il chiamante \textit{start-parallel-service} esegue per un tempo che è definito dalla somma dei tempi di esecuzione dei due servizi paralleli. Questo viene implementato facendo ritornare ai due servizi un double che rappresenta il tempo per essi hanno eseguit la loro busywait; \textit{start-parallel-service} eseguirà una busy-wait per questo tempo.
+
+La matrice di correlazione in questo caso è mostrata Figura~\ref{fig:correlation_high_correlation}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Risultati}
@@ -80,14 +84,14 @@ Vediamo adesso i risultati ottenuti con le due simulazioni, cioè i grafici dell
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/7-correlazione/compare_e2e_distribution_low_correlation.pdf}
-        \caption{Bassa correlazione}
+        \caption{Bassa correlazione.}
         \label{fig:distribution_low_correlation}
     \end{subfigure}
-    \hfill
+    \vfill
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/7-correlazione/compare_e2e_distribution_low_correlation.pdf}
-        \caption{Second-coice path}
+        \caption{Alta correlazione.}
         \label{fig:distribution_high_correlation}
     \end{subfigure}
     \caption{Distribuzioni negli esperimenti con correlazione diversa.}

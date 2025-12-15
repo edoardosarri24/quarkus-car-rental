@@ -59,7 +59,7 @@ Una prima approssimazione può essere usando una distribuzione esponenziale, che
     \item Erlang \\
         Si usa per dati che hanno un coefficiente di variazione $C_V=\tfrac{1}{\sqrt{k}}$, $\exists k$. Si tratta di una sequenza di $k$ esponenziali con tassi uguali, cioè di una distribuzione definita $X=k\cdot Exp(\lambda)$.
     \item GeneralizedErlang \\
-        Si usa per dati che hanno un coefficiente di variazione $C_V<\tfrac{1}{\sqrt{2}}$. Si tratta di una sequenza di $k$ esponenziali con tasso $\lambda_1$ seguita da un'esponenziale con tasso $\lambda_2$, cioè di una distribuzione definita $X=k\cdot Exp(\lambda_1)+Exp(\lambda_2)$. Questo permtte di fittare dati che hanno un $CV\in(\tfrac{1}{\sqrt{k}},\tfrac{1}{\sqrt{k+1}})$.
+        Si usa per dati che hanno un coefficiente di variazione $C_V<\tfrac{1}{\sqrt{2}}$~\cite{8681237}. Si tratta di una sequenza di $k$ esponenziali con tasso $\lambda_1$ seguita da un'esponenziale con tasso $\lambda_2$, cioè di una distribuzione definita $X=k\cdot Exp(\lambda_1)+Exp(\lambda_2)$. Questo permtte di fittare dati che hanno un $CV\in(\tfrac{1}{\sqrt{k}},\tfrac{1}{\sqrt{k+1}})$.
 \end{itemize}
 
 \subsection{Risultati}
@@ -70,6 +70,7 @@ A questo punto abbiamo tutto per eseguire l'analisi finale e calcolare la distri
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Distribuzione E2E}
 A questo abbiamo il workflow con i microservizi che vengono chiamati, mostrati in Figura~\ref{fig:new_workflow_sequence}, e le distribuzioni dei tempi di esecuzione di ogni microservizio: possiamo eseguire la simulazione su Eulero, che modella il nostro workflow con qualcosa di simile a quello che possiamo osservare in Figura~\ref{fig:STPN_workflow}.
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{images/6-analisi/STPN_workflow.pdf}
@@ -77,11 +78,22 @@ A questo abbiamo il workflow con i microservizi che vengono chiamati, mostrati i
     \label{fig:STPN_workflow}
 \end{figure}
 
-In Figura~\ref{fig:compare_e2e_distribution_correlation0} possiamo osservare il risultato ottenuto.
-
+In Figura~\ref{fig:compare_e2e_distribution_correlation0} possiamo osservare il risultato ottenuto. È interessante mostrare anche, in Figura~\ref{fig:latency_network_statistics} le statistiche (i.e., media e varianza) della latenza di rete che c'è nelle varie chiamate.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0.pdf}
-    \caption{Eulero and real distribution.}
-    \label{fig:compare_e2e_distribution_correlation0}
+    \begin{subfigure}{0.75\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0.pdf}
+        \caption{Eulero and real distribution.}
+        \label{fig:compare_e2e_distribution_correlation0}
+    \end{subfigure}
+    \hfill
+    \centering
+    \begin{subfigure}{0.24\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/6-analisi/latency_network.pdf}
+        \caption{Latenza di rete.}
+        \label{fig:latency_network_statistics}
+    \end{subfigure}
+    \caption{Risultati dell'esperimento.}
 \end{figure}

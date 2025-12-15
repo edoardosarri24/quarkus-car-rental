@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package firstparallel;
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "org.acme.firstparallel.grpc";
+option java_outer_classname = "FirstParallel";
+
+service FirstParallelService {
+  rpc pass(google.protobuf.Empty) returns (PassResponse) {}
+}
+
+message PassResponse {
+  double busywaitTime = 1;
+}

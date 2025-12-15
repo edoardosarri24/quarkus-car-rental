@@ -1,0 +1,4 @@
+apiVersion: v2
+name: k6-reserve
+description: Helm chart for the local (Minikube) execution of k6 in Kubernetes.
+version: 1.0.0

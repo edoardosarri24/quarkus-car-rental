@@ -2,6 +2,7 @@ package org.acme.secondparallel;
 
 import java.math.BigDecimal;
 
+import org.acme.firstparallel.grpc.PassResponse;
 import org.acme.secondparallel.grpc.SecondParallelService;
 import org.oristool.simulator.samplers.*;
 import com.google.protobuf.Empty;

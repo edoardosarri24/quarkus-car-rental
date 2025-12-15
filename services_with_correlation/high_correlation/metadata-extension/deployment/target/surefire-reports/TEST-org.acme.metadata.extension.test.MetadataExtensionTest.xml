@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.acme.metadata.extension.test.MetadataExtensionTest" time="0.824" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="io.quarkus.security.http.test-if-basic-auth-implicitly-required" value="true"/>
+    <property name="java.class.path" value="/Users/edoardosarri/Documents/quarkus-car-rental/services_with_correlation/high_correlation/metadata-extension/deployment/target/test-classes:/Users/edoardosarri/Documents/quarkus-car-rental/services_with_correlation/high_correlation/metadata-extension/deployment/target/classes:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-http-deployment/3.15.1/quarkus-vertx-http-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-deployment/3.15.1/quarkus-vertx-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-netty-deployment/3.15.1/quarkus-netty-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-netty/3.15.1/quarkus-netty-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec/4.1.111.Final/netty-codec-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec-http/4.1.111.Final/netty-codec-http-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec-http2/4.1.111.Final/netty-codec-http2-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-handler/4.1.111.Final/netty-handler-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.111.Final/netty-transport-native-unix-common-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/com/aayushatharva/brotli4j/brotli4j/1.16.0/brotli4j-1.16.0.jar:/Users/edoardosarri/.m2/repository/com/aayushatharva/brotli4j/service/1.16.0/service-1.16.0.jar:/Users/edoardosarri/.m2/repository/com/aayushatharva/brotli4j/native-osx-aarch64/1.16.0/native-osx-aarch64-1.16.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx/3.15.1/quarkus-vertx-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec-haproxy/4.1.111.Final/netty-codec-haproxy-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-buffer/4.1.111.Final/netty-buffer-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-transport/4.1.111.Final/netty-transport-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-annotation/2.6.0/smallrye-common-annotation-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-virtual-threads/3.15.1/quarkus-virtual-threads-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-latebound-mdc-provider/3.15.1/quarkus-vertx-latebound-mdc-provider-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-core/3.15.0/smallrye-mutiny-vertx-core-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-runtime/3.15.0/smallrye-mutiny-vertx-runtime-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/vertx-mutiny-generator/3.15.0/vertx-mutiny-generator-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-codegen/4.5.10/vertx-codegen-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/smallrye/smallrye-fault-tolerance-vertx/6.4.0/smallrye-fault-tolerance-vertx-6.4.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-virtual-threads-deployment/3.15.1/quarkus-virtual-threads-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-jackson-spi/3.15.1/quarkus-jackson-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-deployment-spi/3.15.1/quarkus-vertx-deployment-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-http/3.15.1/quarkus-vertx-http-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-security-runtime-spi/3.15.1/quarkus-security-runtime-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-tls-registry/3.15.1/quarkus-tls-registry-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-credentials/3.15.1/quarkus-credentials-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-mutiny/3.15.1/quarkus-mutiny-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-smallrye-context-propagation/3.15.1/quarkus-smallrye-context-propagation-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/smallrye-context-propagation/2.1.2/smallrye-context-propagation-2.1.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/smallrye-context-propagation-api/2.1.2/smallrye-context-propagation-api-2.1.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/smallrye-context-propagation-storage/2.1.2/smallrye-context-propagation-storage-2.1.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/mutiny-smallrye-context-propagation/2.6.2/mutiny-smallrye-context-propagation-2.6.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-vertx-context/2.6.0/smallrye-common-vertx-context-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-core/4.5.10/vertx-core-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-common/4.1.111.Final/netty-common-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-handler-proxy/4.1.111.Final/netty-handler-proxy-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec-socks/4.1.111.Final/netty-codec-socks-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-resolver/4.1.111.Final/netty-resolver-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-resolver-dns/4.1.111.Final/netty-resolver-dns-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec-dns/4.1.111.Final/netty-codec-dns-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-constraint/2.6.0/smallrye-common-constraint-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/security/quarkus-security/2.1.0/quarkus-security-2.1.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-web/3.15.0/smallrye-mutiny-vertx-web-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-web-common/3.15.0/smallrye-mutiny-vertx-web-common-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-auth-common/3.15.0/smallrye-mutiny-vertx-auth-common-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-bridge-common/3.15.0/smallrye-mutiny-vertx-bridge-common-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-uri-template/3.15.0/smallrye-mutiny-vertx-uri-template-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-uri-template/4.5.10/vertx-uri-template-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-web/4.5.10/vertx-web-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-web-common/4.5.10/vertx-web-common-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-auth-common/4.5.10/vertx-auth-common-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-bridge-common/4.5.10/vertx-bridge-common-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/github/crac/org-crac/0.1.3/org-crac-0.1.3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-http-deployment-spi/3.15.1/quarkus-vertx-http-deployment-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-mutiny-deployment/3.15.1/quarkus-mutiny-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-smallrye-context-propagation-deployment/3.15.1/quarkus-smallrye-context-propagation-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-tls-registry-deployment/3.15.1/quarkus-tls-registry-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-credentials-deployment/3.15.1/quarkus-credentials-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-kubernetes-spi/3.15.1/quarkus-kubernetes-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-security-spi/3.15.1/quarkus-security-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-http-dev-ui-spi/3.15.1/quarkus-vertx-http-dev-ui-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-http-dev-ui-resources/3.15.1/quarkus-vertx-http-dev-ui-resources-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/vaadin/router/1.7.5/router-1.7.5.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/path-to-regexp/2.4.0/path-to-regexp-2.4.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/mvnpm/vaadin-webcomponents/24.4.5/vaadin-webcomponents-24.4.5.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/vaadin/vaadin-usage-statistics/2.1.2/vaadin-usage-statistics-2.1.2.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/vaadin/vaadin-development-mode-detector/2.0.7/vaadin-development-mode-detector-2.0.7.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/polymer/polymer/3.5.1/polymer-3.5.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/webcomponents/shadycss/1.11.2/shadycss-1.11.2.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/open-wc/dedupe-mixin/1.4.0/dedupe-mixin-1.4.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/lit/3.2.0/lit-3.2.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/lit/reactive-element/2.0.4/reactive-element-2.0.4.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/lit-element/4.1.0/lit-element-4.1.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/lit-html/3.2.0/lit-html-3.2.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/lit-labs/ssr-dom-shim/1.2.1/ssr-dom-shim-1.2.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/types/trusted-types/2.0.7/trusted-types-2.0.7.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/lit-element-state/1.7.0/lit-element-state-1.7.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/echarts/5.5.1/echarts-5.5.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/tslib/2.3.0/tslib-2.3.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/zrender/5.6.0/zrender-5.6.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/mvnpm/codeblock/1.0.16/codeblock-1.0.16.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/mvnpm/qomponent/1.0.0/qomponent-1.0.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/markdown-it/14.1.0/markdown-it-14.1.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/argparse/2.0.1/argparse-2.0.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/entities/4.5.0/entities-4.5.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/linkify-it/5.0.0/linkify-it-5.0.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/mdurl/2.0.0/mdurl-2.0.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/punycode.js/2.3.1/punycode.js-2.3.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/uc.micro/2.1.0/uc.micro-2.1.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/es-module-shims/1.10.0/es-module-shims-1.10.0.jar:/Users/edoardosarri/.m2/repository/io/mvnpm/importmap/1.0.11/importmap-1.0.11.jar:/Users/edoardosarri/.m2/repository/io/quarkus/qute/qute-core/3.15.1/qute-core-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/jboss/logging/jboss-logging/3.6.0.Final/jboss-logging-3.6.0.Final.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/mutiny/2.6.2/mutiny-2.6.2.jar:/Users/edoardosarri/.m2/repository/org/jctools/jctools-core/4.0.5/jctools-core-4.0.5.jar:/Users/edoardosarri/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/edoardosarri/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/edoardosarri/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/edoardosarri/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/edoardosarri/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.17.2/jackson-datatype-jdk8-2.17.2.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-arc-deployment/3.15.1/quarkus-arc-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-core-deployment/3.15.1/quarkus-core-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-classloader-commons/3.15.1/quarkus-classloader-commons-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/aesh/readline/2.6/readline-2.6.jar:/Users/edoardosarri/.m2/repository/org/fusesource/jansi/jansi/2.4.0/jansi-2.4.0.jar:/Users/edoardosarri/.m2/repository/org/aesh/aesh/2.8.2/aesh-2.8.2.jar:/Users/edoardosarri/.m2/repository/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar:/Users/edoardosarri/.m2/repository/org/wildfly/common/wildfly-common/1.7.0.Final/wildfly-common-1.7.0.Final.jar:/Users/edoardosarri/.m2/repository/io/quarkus/gizmo/gizmo/1.8.0/gizmo-1.8.0.jar:/Users/edoardosarri/.m2/repository/org/ow2/asm/asm-util/9.7/asm-util-9.7.jar:/Users/edoardosarri/.m2/repository/org/ow2/asm/asm-analysis/9.7/asm-analysis-9.7.jar:/Users/edoardosarri/.m2/repository/io/smallrye/jandex/3.2.2/jandex-3.2.2.jar:/Users/edoardosarri/.m2/repository/org/ow2/asm/asm/9.7/asm-9.7.jar:/Users/edoardosarri/.m2/repository/org/ow2/asm/asm-commons/9.7/asm-commons-9.7.jar:/Users/edoardosarri/.m2/repository/org/ow2/asm/asm-tree/9.7/asm-tree-9.7.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-development-mode-spi/3.15.1/quarkus-development-mode-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-hibernate-validator-spi/3.15.1/quarkus-hibernate-validator-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-class-change-agent/3.15.1/quarkus-class-change-agent-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-bootstrap-core/3.15.1/quarkus-bootstrap-core-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-bootstrap-app-model/3.15.1/quarkus-bootstrap-app-model-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-io/2.6.0/smallrye-common-io-2.6.0.jar:/Users/edoardosarri/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.9.0.M3/org.eclipse.sisu.inject-0.9.0.M3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-builder/3.15.1/quarkus-builder-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/graalvm/sdk/nativeimage/23.1.2/nativeimage-23.1.2.jar:/Users/edoardosarri/.m2/repository/org/graalvm/sdk/word/23.1.2/word-23.1.2.jar:/Users/edoardosarri/.m2/repository/org/junit/platform/junit-platform-launcher/1.10.3/junit-platform-launcher-1.10.3.jar:/Users/edoardosarri/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.3/junit-jupiter-5.10.3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-smallrye-context-propagation-spi/3.15.1/quarkus-smallrye-context-propagation-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/eclipse/microprofile/context-propagation/microprofile-context-propagation-api/1.3/microprofile-context-propagation-api-1.3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-arc/3.15.1/quarkus-arc-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/arc/arc/3.15.1/arc-3.15.1.jar:/Users/edoardosarri/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/arc/arc-processor/3.15.1/arc-processor-3.15.1.jar:/Users/edoardosarri/.m2/repository/jakarta/annotation/jakarta.annotation-api/3.0.0/jakarta.annotation-api-3.0.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-arc-test-supplement/3.15.1/quarkus-arc-test-supplement-3.15.1.jar:/Users/edoardosarri/Documents/quarkus-car-rental/services_with_correlation/high_correlation/metadata-extension/runtime/target/metadata-extension-1.0.0-SNAPSHOT.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-junit5-internal/3.15.1/quarkus-junit5-internal-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-api/1.2.6/shrinkwrap-api-1.2.6.jar:/Users/edoardosarri/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-spi/1.2.6/shrinkwrap-spi-1.2.6.jar:/Users/edoardosarri/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-impl-base/1.2.6/shrinkwrap-impl-base-1.2.6.jar:/Users/edoardosarri/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.3/junit-jupiter-api-5.10.3.jar:/Users/edoardosarri/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/edoardosarri/.m2/repository/org/junit/platform/junit-platform-commons/1.10.3/junit-platform-commons-1.10.3.jar:/Users/edoardosarri/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/edoardosarri/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.3/junit-jupiter-params-5.10.3.jar:/Users/edoardosarri/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.3/junit-jupiter-engine-5.10.3.jar:/Users/edoardosarri/.m2/repository/org/junit/platform/junit-platform-engine/1.10.3/junit-platform-engine-1.10.3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-core/3.15.1/quarkus-core-3.15.1.jar:/Users/edoardosarri/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-os/2.6.0/smallrye-common-os-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-ide-launcher/3.15.1/quarkus-ide-launcher-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/config/smallrye-config/3.9.1/smallrye-config-3.9.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/config/smallrye-config-core/3.9.1/smallrye-config-core-3.9.1.jar:/Users/edoardosarri/.m2/repository/org/eclipse/microprofile/config/microprofile-config-api/3.1/microprofile-config-api-3.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-classloader/2.6.0/smallrye-common-classloader-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/config/smallrye-config-common/3.9.1/smallrye-config-common-3.9.1.jar:/Users/edoardosarri/.m2/repository/org/jboss/logmanager/jboss-logmanager/3.0.6.Final/jboss-logmanager-3.0.6.Final.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-cpu/2.6.0/smallrye-common-cpu-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-expression/2.6.0/smallrye-common-expression-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-function/2.6.0/smallrye-common-function-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-net/2.6.0/smallrye-common-net-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-ref/2.6.0/smallrye-common-ref-2.6.0.jar:/Users/edoardosarri/.m2/repository/jakarta/json/jakarta.json-api/2.1.3/jakarta.json-api-2.1.3.jar:/Users/edoardosarri/.m2/repository/org/eclipse/parsson/parsson/1.1.7/parsson-1.1.7.jar:/Users/edoardosarri/.m2/repository/org/jboss/logging/jboss-logging-annotations/3.0.1.Final/jboss-logging-annotations-3.0.1.Final.jar:/Users/edoardosarri/.m2/repository/org/jboss/threads/jboss-threads/3.6.1.Final/jboss-threads-3.6.1.Final.jar:/Users/edoardosarri/.m2/repository/org/slf4j/slf4j-api/2.0.6/slf4j-api-2.0.6.jar:/Users/edoardosarri/.m2/repository/org/jboss/slf4j/slf4j-jboss-logmanager/2.0.0.Final/slf4j-jboss-logmanager-2.0.0.Final.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-bootstrap-runner/3.15.1/quarkus-bootstrap-runner-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-fs-util/0.0.10/quarkus-fs-util-0.0.10.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-test-common/3.15.1/quarkus-test-common-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-bootstrap-maven-resolver/3.15.1/quarkus-bootstrap-maven-resolver-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/beanbag/smallrye-beanbag-maven/1.5.2/smallrye-beanbag-maven-1.5.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/beanbag/smallrye-beanbag-sisu/1.5.2/smallrye-beanbag-sisu-1.5.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/beanbag/smallrye-beanbag/1.5.2/smallrye-beanbag-1.5.2.jar:/Users/edoardosarri/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-artifact/3.9.8/maven-artifact-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-builder-support/3.9.8/maven-builder-support-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-model/3.9.8/maven-model-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-model-builder/3.9.8/maven-model-builder-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-repository-metadata/3.9.8/maven-repository-metadata-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-settings/3.9.8/maven-settings-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-api/1.9.22/maven-resolver-api-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-impl/1.9.22/maven-resolver-impl-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-named-locks/1.9.22/maven-resolver-named-locks-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-spi/1.9.22/maven-resolver-spi-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-util/1.9.22/maven-resolver-util-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-transport-http/1.9.20/maven-resolver-transport-http-1.9.20.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/wagon/wagon-provider-api/3.5.3/wagon-provider-api-3.5.3.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/wagon/wagon-http-shared/3.5.3/wagon-http-shared-3.5.3.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.26/plexus-interpolation-1.26.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-utils/3.5.1/plexus-utils-3.5.1.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-xml/4.0.1/plexus-xml-4.0.1.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-xml-impl/4.0.0-alpha-5/maven-xml-impl-4.0.0-alpha-5.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-api-xml/4.0.0-alpha-5/maven-api-xml-4.0.0-alpha-5.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-api-meta/4.0.0-alpha-5/maven-api-meta-4.0.0-alpha-5.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-cipher/2.0/plexus-cipher-2.0.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-sec-dispatcher/2.0/plexus-sec-dispatcher-2.0.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-embedder/3.9.8/maven-embedder-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-core/3.9.8/maven-core-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-component-annotations/2.1.0/plexus-component-annotations-2.1.0.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-plugin-api/3.9.8/maven-plugin-api-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.4.2/maven-shared-utils-3.4.2.jar:/Users/edoardosarri/.m2/repository/com/google/inject/guice/5.1.0/guice-5.1.0.jar:/Users/edoardosarri/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/Users/edoardosarri/.m2/repository/com/google/guava/guava/33.2.1-jre/guava-33.2.1-jre.jar:/Users/edoardosarri/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/Users/edoardosarri/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/Users/edoardosarri/.m2/repository/commons-cli/commons-cli/1.8.0/commons-cli-1.8.0.jar:/Users/edoardosarri/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.9.0.M3/org.eclipse.sisu.plexus-0.9.0.M3.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-settings-builder/3.9.8/maven-settings-builder-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-resolver-provider/3.9.8/maven-resolver-provider-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-connector-basic/1.9.22/maven-resolver-connector-basic-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-transport-wagon/1.9.22/maven-resolver-transport-wagon-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/wagon/wagon-http/3.5.3/wagon-http-3.5.3.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/wagon/wagon-file/3.5.3/wagon-file-3.5.3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-bootstrap-gradle-resolver/3.15.1/quarkus-bootstrap-gradle-resolver-3.15.1.jar:/Users/edoardosarri/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/edoardosarri/.m2/repository/org/jboss/logging/commons-logging-jboss-logging/1.0.0.Final/commons-logging-jboss-logging-1.0.0.Final.jar:/Users/edoardosarri/.m2/repository/jakarta/enterprise/jakarta.enterprise.cdi-api/4.1.0/jakarta.enterprise.cdi-api-4.1.0.jar:/Users/edoardosarri/.m2/repository/jakarta/enterprise/jakarta.enterprise.lang-model/4.1.0/jakarta.enterprise.lang-model-4.1.0.jar:/Users/edoardosarri/.m2/repository/jakarta/el/jakarta.el-api/5.0.1/jakarta.el-api-5.0.1.jar:/Users/edoardosarri/.m2/repository/jakarta/interceptor/jakarta.interceptor-api/2.2.0/jakarta.interceptor-api-2.2.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-devtools-utilities/3.15.1/quarkus-devtools-utilities-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/Users/edoardosarri/.m2/repository/io/rest-assured/rest-assured/5.5.0/rest-assured-5.5.0.jar:/Users/edoardosarri/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/edoardosarri/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/edoardosarri/.m2/repository/org/apache/httpcomponents/httpclient/4.5.14/httpclient-4.5.14.jar:/Users/edoardosarri/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar:/Users/edoardosarri/.m2/repository/commons-codec/commons-codec/1.17.1/commons-codec-1.17.1.jar:/Users/edoardosarri/.m2/repository/org/apache/httpcomponents/httpmime/4.5.14/httpmime-4.5.14.jar:/Users/edoardosarri/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/edoardosarri/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/edoardosarri/.m2/repository/io/rest-assured/json-path/5.5.0/json-path-5.5.0.jar:/Users/edoardosarri/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/edoardosarri/.m2/repository/io/rest-assured/rest-assured-common/5.5.0/rest-assured-common-5.5.0.jar:/Users/edoardosarri/.m2/repository/io/rest-assured/xml-path/5.5.0/xml-path-5.5.0.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="quarkusRegistryClient" value="true"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Europe/Rome"/>
+    <property name="logging.initial-configurator.min-level" value="500"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="IT"/>
+    <property name="groovy.use.classvalue" value="false"/>
+    <property name="sun.boot.library.path" value="/Users/edoardosarri/.sdkman/candidates/java/21.0.9-tem/lib"/>
+    <property name="sun.java.command" value="/Users/edoardosarri/Documents/quarkus-car-rental/services_with_correlation/high_correlation/metadata-extension/deployment/target/surefire/surefirebooter-20251215212959584_3.jar /Users/edoardosarri/Documents/quarkus-car-rental/services_with_correlation/high_correlation/metadata-extension/deployment/target/surefire 2025-12-15T21-29-58_725-jvmRun1 surefire-20251215212959584_1tmp surefire_0-20251215212959584_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="maven.home" value="/Users/edoardosarri/.sdkman/candidates/maven/current"/>
+    <property name="surefire.test.class.path" value="/Users/edoardosarri/Documents/quarkus-car-rental/services_with_correlation/high_correlation/metadata-extension/deployment/target/test-classes:/Users/edoardosarri/Documents/quarkus-car-rental/services_with_correlation/high_correlation/metadata-extension/deployment/target/classes:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-http-deployment/3.15.1/quarkus-vertx-http-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-deployment/3.15.1/quarkus-vertx-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-netty-deployment/3.15.1/quarkus-netty-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-netty/3.15.1/quarkus-netty-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec/4.1.111.Final/netty-codec-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec-http/4.1.111.Final/netty-codec-http-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec-http2/4.1.111.Final/netty-codec-http2-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-handler/4.1.111.Final/netty-handler-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.111.Final/netty-transport-native-unix-common-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/com/aayushatharva/brotli4j/brotli4j/1.16.0/brotli4j-1.16.0.jar:/Users/edoardosarri/.m2/repository/com/aayushatharva/brotli4j/service/1.16.0/service-1.16.0.jar:/Users/edoardosarri/.m2/repository/com/aayushatharva/brotli4j/native-osx-aarch64/1.16.0/native-osx-aarch64-1.16.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx/3.15.1/quarkus-vertx-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec-haproxy/4.1.111.Final/netty-codec-haproxy-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-buffer/4.1.111.Final/netty-buffer-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-transport/4.1.111.Final/netty-transport-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-annotation/2.6.0/smallrye-common-annotation-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-virtual-threads/3.15.1/quarkus-virtual-threads-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-latebound-mdc-provider/3.15.1/quarkus-vertx-latebound-mdc-provider-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-core/3.15.0/smallrye-mutiny-vertx-core-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-runtime/3.15.0/smallrye-mutiny-vertx-runtime-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/vertx-mutiny-generator/3.15.0/vertx-mutiny-generator-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-codegen/4.5.10/vertx-codegen-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/smallrye/smallrye-fault-tolerance-vertx/6.4.0/smallrye-fault-tolerance-vertx-6.4.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-virtual-threads-deployment/3.15.1/quarkus-virtual-threads-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-jackson-spi/3.15.1/quarkus-jackson-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-deployment-spi/3.15.1/quarkus-vertx-deployment-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-http/3.15.1/quarkus-vertx-http-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-security-runtime-spi/3.15.1/quarkus-security-runtime-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-tls-registry/3.15.1/quarkus-tls-registry-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-credentials/3.15.1/quarkus-credentials-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-mutiny/3.15.1/quarkus-mutiny-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-smallrye-context-propagation/3.15.1/quarkus-smallrye-context-propagation-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/smallrye-context-propagation/2.1.2/smallrye-context-propagation-2.1.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/smallrye-context-propagation-api/2.1.2/smallrye-context-propagation-api-2.1.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/smallrye-context-propagation-storage/2.1.2/smallrye-context-propagation-storage-2.1.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/mutiny-smallrye-context-propagation/2.6.2/mutiny-smallrye-context-propagation-2.6.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-vertx-context/2.6.0/smallrye-common-vertx-context-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-core/4.5.10/vertx-core-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-common/4.1.111.Final/netty-common-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-handler-proxy/4.1.111.Final/netty-handler-proxy-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec-socks/4.1.111.Final/netty-codec-socks-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-resolver/4.1.111.Final/netty-resolver-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-resolver-dns/4.1.111.Final/netty-resolver-dns-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/netty/netty-codec-dns/4.1.111.Final/netty-codec-dns-4.1.111.Final.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-constraint/2.6.0/smallrye-common-constraint-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/security/quarkus-security/2.1.0/quarkus-security-2.1.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-web/3.15.0/smallrye-mutiny-vertx-web-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-web-common/3.15.0/smallrye-mutiny-vertx-web-common-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-auth-common/3.15.0/smallrye-mutiny-vertx-auth-common-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-bridge-common/3.15.0/smallrye-mutiny-vertx-bridge-common-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/smallrye-mutiny-vertx-uri-template/3.15.0/smallrye-mutiny-vertx-uri-template-3.15.0.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-uri-template/4.5.10/vertx-uri-template-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-web/4.5.10/vertx-web-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-web-common/4.5.10/vertx-web-common-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-auth-common/4.5.10/vertx-auth-common-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/vertx/vertx-bridge-common/4.5.10/vertx-bridge-common-4.5.10.jar:/Users/edoardosarri/.m2/repository/io/github/crac/org-crac/0.1.3/org-crac-0.1.3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-http-deployment-spi/3.15.1/quarkus-vertx-http-deployment-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-mutiny-deployment/3.15.1/quarkus-mutiny-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-smallrye-context-propagation-deployment/3.15.1/quarkus-smallrye-context-propagation-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-tls-registry-deployment/3.15.1/quarkus-tls-registry-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-credentials-deployment/3.15.1/quarkus-credentials-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-kubernetes-spi/3.15.1/quarkus-kubernetes-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-security-spi/3.15.1/quarkus-security-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-http-dev-ui-spi/3.15.1/quarkus-vertx-http-dev-ui-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-vertx-http-dev-ui-resources/3.15.1/quarkus-vertx-http-dev-ui-resources-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/vaadin/router/1.7.5/router-1.7.5.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/path-to-regexp/2.4.0/path-to-regexp-2.4.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/mvnpm/vaadin-webcomponents/24.4.5/vaadin-webcomponents-24.4.5.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/vaadin/vaadin-usage-statistics/2.1.2/vaadin-usage-statistics-2.1.2.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/vaadin/vaadin-development-mode-detector/2.0.7/vaadin-development-mode-detector-2.0.7.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/polymer/polymer/3.5.1/polymer-3.5.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/webcomponents/shadycss/1.11.2/shadycss-1.11.2.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/open-wc/dedupe-mixin/1.4.0/dedupe-mixin-1.4.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/lit/3.2.0/lit-3.2.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/lit/reactive-element/2.0.4/reactive-element-2.0.4.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/lit-element/4.1.0/lit-element-4.1.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/lit-html/3.2.0/lit-html-3.2.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/lit-labs/ssr-dom-shim/1.2.1/ssr-dom-shim-1.2.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/types/trusted-types/2.0.7/trusted-types-2.0.7.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/lit-element-state/1.7.0/lit-element-state-1.7.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/echarts/5.5.1/echarts-5.5.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/tslib/2.3.0/tslib-2.3.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/zrender/5.6.0/zrender-5.6.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/mvnpm/codeblock/1.0.16/codeblock-1.0.16.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/at/mvnpm/qomponent/1.0.0/qomponent-1.0.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/markdown-it/14.1.0/markdown-it-14.1.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/argparse/2.0.1/argparse-2.0.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/entities/4.5.0/entities-4.5.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/linkify-it/5.0.0/linkify-it-5.0.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/mdurl/2.0.0/mdurl-2.0.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/punycode.js/2.3.1/punycode.js-2.3.1.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/uc.micro/2.1.0/uc.micro-2.1.0.jar:/Users/edoardosarri/.m2/repository/org/mvnpm/es-module-shims/1.10.0/es-module-shims-1.10.0.jar:/Users/edoardosarri/.m2/repository/io/mvnpm/importmap/1.0.11/importmap-1.0.11.jar:/Users/edoardosarri/.m2/repository/io/quarkus/qute/qute-core/3.15.1/qute-core-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/jboss/logging/jboss-logging/3.6.0.Final/jboss-logging-3.6.0.Final.jar:/Users/edoardosarri/.m2/repository/io/smallrye/reactive/mutiny/2.6.2/mutiny-2.6.2.jar:/Users/edoardosarri/.m2/repository/org/jctools/jctools-core/4.0.5/jctools-core-4.0.5.jar:/Users/edoardosarri/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/edoardosarri/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/edoardosarri/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/edoardosarri/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/edoardosarri/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.17.2/jackson-datatype-jdk8-2.17.2.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-arc-deployment/3.15.1/quarkus-arc-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-core-deployment/3.15.1/quarkus-core-deployment-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-classloader-commons/3.15.1/quarkus-classloader-commons-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/aesh/readline/2.6/readline-2.6.jar:/Users/edoardosarri/.m2/repository/org/fusesource/jansi/jansi/2.4.0/jansi-2.4.0.jar:/Users/edoardosarri/.m2/repository/org/aesh/aesh/2.8.2/aesh-2.8.2.jar:/Users/edoardosarri/.m2/repository/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar:/Users/edoardosarri/.m2/repository/org/wildfly/common/wildfly-common/1.7.0.Final/wildfly-common-1.7.0.Final.jar:/Users/edoardosarri/.m2/repository/io/quarkus/gizmo/gizmo/1.8.0/gizmo-1.8.0.jar:/Users/edoardosarri/.m2/repository/org/ow2/asm/asm-util/9.7/asm-util-9.7.jar:/Users/edoardosarri/.m2/repository/org/ow2/asm/asm-analysis/9.7/asm-analysis-9.7.jar:/Users/edoardosarri/.m2/repository/io/smallrye/jandex/3.2.2/jandex-3.2.2.jar:/Users/edoardosarri/.m2/repository/org/ow2/asm/asm/9.7/asm-9.7.jar:/Users/edoardosarri/.m2/repository/org/ow2/asm/asm-commons/9.7/asm-commons-9.7.jar:/Users/edoardosarri/.m2/repository/org/ow2/asm/asm-tree/9.7/asm-tree-9.7.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-development-mode-spi/3.15.1/quarkus-development-mode-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-hibernate-validator-spi/3.15.1/quarkus-hibernate-validator-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-class-change-agent/3.15.1/quarkus-class-change-agent-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-bootstrap-core/3.15.1/quarkus-bootstrap-core-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-bootstrap-app-model/3.15.1/quarkus-bootstrap-app-model-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-io/2.6.0/smallrye-common-io-2.6.0.jar:/Users/edoardosarri/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.9.0.M3/org.eclipse.sisu.inject-0.9.0.M3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-builder/3.15.1/quarkus-builder-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/graalvm/sdk/nativeimage/23.1.2/nativeimage-23.1.2.jar:/Users/edoardosarri/.m2/repository/org/graalvm/sdk/word/23.1.2/word-23.1.2.jar:/Users/edoardosarri/.m2/repository/org/junit/platform/junit-platform-launcher/1.10.3/junit-platform-launcher-1.10.3.jar:/Users/edoardosarri/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.3/junit-jupiter-5.10.3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-smallrye-context-propagation-spi/3.15.1/quarkus-smallrye-context-propagation-spi-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/eclipse/microprofile/context-propagation/microprofile-context-propagation-api/1.3/microprofile-context-propagation-api-1.3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-arc/3.15.1/quarkus-arc-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/arc/arc/3.15.1/arc-3.15.1.jar:/Users/edoardosarri/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/arc/arc-processor/3.15.1/arc-processor-3.15.1.jar:/Users/edoardosarri/.m2/repository/jakarta/annotation/jakarta.annotation-api/3.0.0/jakarta.annotation-api-3.0.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-arc-test-supplement/3.15.1/quarkus-arc-test-supplement-3.15.1.jar:/Users/edoardosarri/Documents/quarkus-car-rental/services_with_correlation/high_correlation/metadata-extension/runtime/target/metadata-extension-1.0.0-SNAPSHOT.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-junit5-internal/3.15.1/quarkus-junit5-internal-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-api/1.2.6/shrinkwrap-api-1.2.6.jar:/Users/edoardosarri/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-spi/1.2.6/shrinkwrap-spi-1.2.6.jar:/Users/edoardosarri/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-impl-base/1.2.6/shrinkwrap-impl-base-1.2.6.jar:/Users/edoardosarri/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.3/junit-jupiter-api-5.10.3.jar:/Users/edoardosarri/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/edoardosarri/.m2/repository/org/junit/platform/junit-platform-commons/1.10.3/junit-platform-commons-1.10.3.jar:/Users/edoardosarri/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/edoardosarri/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.3/junit-jupiter-params-5.10.3.jar:/Users/edoardosarri/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.3/junit-jupiter-engine-5.10.3.jar:/Users/edoardosarri/.m2/repository/org/junit/platform/junit-platform-engine/1.10.3/junit-platform-engine-1.10.3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-core/3.15.1/quarkus-core-3.15.1.jar:/Users/edoardosarri/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-os/2.6.0/smallrye-common-os-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-ide-launcher/3.15.1/quarkus-ide-launcher-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/config/smallrye-config/3.9.1/smallrye-config-3.9.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/config/smallrye-config-core/3.9.1/smallrye-config-core-3.9.1.jar:/Users/edoardosarri/.m2/repository/org/eclipse/microprofile/config/microprofile-config-api/3.1/microprofile-config-api-3.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-classloader/2.6.0/smallrye-common-classloader-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/config/smallrye-config-common/3.9.1/smallrye-config-common-3.9.1.jar:/Users/edoardosarri/.m2/repository/org/jboss/logmanager/jboss-logmanager/3.0.6.Final/jboss-logmanager-3.0.6.Final.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-cpu/2.6.0/smallrye-common-cpu-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-expression/2.6.0/smallrye-common-expression-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-function/2.6.0/smallrye-common-function-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-net/2.6.0/smallrye-common-net-2.6.0.jar:/Users/edoardosarri/.m2/repository/io/smallrye/common/smallrye-common-ref/2.6.0/smallrye-common-ref-2.6.0.jar:/Users/edoardosarri/.m2/repository/jakarta/json/jakarta.json-api/2.1.3/jakarta.json-api-2.1.3.jar:/Users/edoardosarri/.m2/repository/org/eclipse/parsson/parsson/1.1.7/parsson-1.1.7.jar:/Users/edoardosarri/.m2/repository/org/jboss/logging/jboss-logging-annotations/3.0.1.Final/jboss-logging-annotations-3.0.1.Final.jar:/Users/edoardosarri/.m2/repository/org/jboss/threads/jboss-threads/3.6.1.Final/jboss-threads-3.6.1.Final.jar:/Users/edoardosarri/.m2/repository/org/slf4j/slf4j-api/2.0.6/slf4j-api-2.0.6.jar:/Users/edoardosarri/.m2/repository/org/jboss/slf4j/slf4j-jboss-logmanager/2.0.0.Final/slf4j-jboss-logmanager-2.0.0.Final.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-bootstrap-runner/3.15.1/quarkus-bootstrap-runner-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-fs-util/0.0.10/quarkus-fs-util-0.0.10.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-test-common/3.15.1/quarkus-test-common-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-bootstrap-maven-resolver/3.15.1/quarkus-bootstrap-maven-resolver-3.15.1.jar:/Users/edoardosarri/.m2/repository/io/smallrye/beanbag/smallrye-beanbag-maven/1.5.2/smallrye-beanbag-maven-1.5.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/beanbag/smallrye-beanbag-sisu/1.5.2/smallrye-beanbag-sisu-1.5.2.jar:/Users/edoardosarri/.m2/repository/io/smallrye/beanbag/smallrye-beanbag/1.5.2/smallrye-beanbag-1.5.2.jar:/Users/edoardosarri/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-artifact/3.9.8/maven-artifact-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-builder-support/3.9.8/maven-builder-support-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-model/3.9.8/maven-model-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-model-builder/3.9.8/maven-model-builder-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-repository-metadata/3.9.8/maven-repository-metadata-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-settings/3.9.8/maven-settings-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-api/1.9.22/maven-resolver-api-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-impl/1.9.22/maven-resolver-impl-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-named-locks/1.9.22/maven-resolver-named-locks-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-spi/1.9.22/maven-resolver-spi-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-util/1.9.22/maven-resolver-util-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-transport-http/1.9.20/maven-resolver-transport-http-1.9.20.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/wagon/wagon-provider-api/3.5.3/wagon-provider-api-3.5.3.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/wagon/wagon-http-shared/3.5.3/wagon-http-shared-3.5.3.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.26/plexus-interpolation-1.26.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-utils/3.5.1/plexus-utils-3.5.1.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-xml/4.0.1/plexus-xml-4.0.1.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-xml-impl/4.0.0-alpha-5/maven-xml-impl-4.0.0-alpha-5.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-api-xml/4.0.0-alpha-5/maven-api-xml-4.0.0-alpha-5.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-api-meta/4.0.0-alpha-5/maven-api-meta-4.0.0-alpha-5.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-cipher/2.0/plexus-cipher-2.0.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-sec-dispatcher/2.0/plexus-sec-dispatcher-2.0.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-embedder/3.9.8/maven-embedder-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-core/3.9.8/maven-core-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-component-annotations/2.1.0/plexus-component-annotations-2.1.0.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-plugin-api/3.9.8/maven-plugin-api-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.4.2/maven-shared-utils-3.4.2.jar:/Users/edoardosarri/.m2/repository/com/google/inject/guice/5.1.0/guice-5.1.0.jar:/Users/edoardosarri/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/Users/edoardosarri/.m2/repository/com/google/guava/guava/33.2.1-jre/guava-33.2.1-jre.jar:/Users/edoardosarri/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/Users/edoardosarri/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/Users/edoardosarri/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/Users/edoardosarri/.m2/repository/commons-cli/commons-cli/1.8.0/commons-cli-1.8.0.jar:/Users/edoardosarri/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.9.0.M3/org.eclipse.sisu.plexus-0.9.0.M3.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-settings-builder/3.9.8/maven-settings-builder-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/maven-resolver-provider/3.9.8/maven-resolver-provider-3.9.8.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-connector-basic/1.9.22/maven-resolver-connector-basic-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/resolver/maven-resolver-transport-wagon/1.9.22/maven-resolver-transport-wagon-1.9.22.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/wagon/wagon-http/3.5.3/wagon-http-3.5.3.jar:/Users/edoardosarri/.m2/repository/org/apache/maven/wagon/wagon-file/3.5.3/wagon-file-3.5.3.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-bootstrap-gradle-resolver/3.15.1/quarkus-bootstrap-gradle-resolver-3.15.1.jar:/Users/edoardosarri/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/edoardosarri/.m2/repository/org/jboss/logging/commons-logging-jboss-logging/1.0.0.Final/commons-logging-jboss-logging-1.0.0.Final.jar:/Users/edoardosarri/.m2/repository/jakarta/enterprise/jakarta.enterprise.cdi-api/4.1.0/jakarta.enterprise.cdi-api-4.1.0.jar:/Users/edoardosarri/.m2/repository/jakarta/enterprise/jakarta.enterprise.lang-model/4.1.0/jakarta.enterprise.lang-model-4.1.0.jar:/Users/edoardosarri/.m2/repository/jakarta/el/jakarta.el-api/5.0.1/jakarta.el-api-5.0.1.jar:/Users/edoardosarri/.m2/repository/jakarta/interceptor/jakarta.interceptor-api/2.2.0/jakarta.interceptor-api-2.2.0.jar:/Users/edoardosarri/.m2/repository/io/quarkus/quarkus-devtools-utilities/3.15.1/quarkus-devtools-utilities-3.15.1.jar:/Users/edoardosarri/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/Users/edoardosarri/.m2/repository/io/rest-assured/rest-assured/5.5.0/rest-assured-5.5.0.jar:/Users/edoardosarri/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/edoardosarri/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/edoardosarri/.m2/repository/org/apache/httpcomponents/httpclient/4.5.14/httpclient-4.5.14.jar:/Users/edoardosarri/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar:/Users/edoardosarri/.m2/repository/commons-codec/commons-codec/1.17.1/commons-codec-1.17.1.jar:/Users/edoardosarri/.m2/repository/org/apache/httpcomponents/httpmime/4.5.14/httpmime-4.5.14.jar:/Users/edoardosarri/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/edoardosarri/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/edoardosarri/.m2/repository/io/rest-assured/json-path/5.5.0/json-path-5.5.0.jar:/Users/edoardosarri/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/edoardosarri/.m2/repository/io/rest-assured/rest-assured-common/5.5.0/rest-assured-common-5.5.0.jar:/Users/edoardosarri/.m2/repository/io/rest-assured/xml-path/5.5.0/xml-path-5.5.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="vertx.disableWebsockets" value="true"/>
+    <property name="user.home" value="/Users/edoardosarri"/>
+    <property name="user.language" value="it"/>
+    <property name="jboss.log-version" value="false"/>
+    <property name="vertxweb.environment" value="dev"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="io.netty.allocator.maxOrder" value="3"/>
+    <property name="java.version.date" value="2025-10-21"/>
+    <property name="java.home" value="/Users/edoardosarri/.sdkman/candidates/java/21.0.9-tem"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/edoardosarri/Documents/quarkus-car-rental/services_with_correlation/high_correlation/metadata-extension/deployment"/>
+    <property name="maven.repo" value="/Users/edoardosarri/.m2/repository"/>
+    <property name="style.color" value="always"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.nio.channels.DefaultThreadPool.threadFactory" value="io.quarkus.dev.io.NioThreadPoolThreadFactory"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/edoardosarri/Documents/quarkus-car-rental/services_with_correlation/high_correlation/metadata-extension/deployment/target/surefire/surefirebooter-20251215212959584_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="21.0.9+10-LTS"/>
+    <property name="user.name" value="edoardosarri"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.2"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.9+10"/>
+    <property name="localRepository" value="/Users/edoardosarri/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/95/gtdlw20j53517prt16fhg8gw0000gn/T/"/>
+    <property name="quarkus.log.file.path" value="target/quarkus.log"/>
+    <property name="java.version" value="21.0.9"/>
+    <property name="java.util.concurrent.ForkJoinPool.common.threadFactory" value="io.quarkus.bootstrap.forkjoin.QuarkusForkJoinWorkerThreadFactory"/>
+    <property name="user.dir" value="/Users/edoardosarri/Documents/quarkus-car-rental/services_with_correlation/high_correlation/metadata-extension/deployment"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="vertx.disableDnsResolver" value="true"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.util.logging.manager" value="org.jboss.logmanager.LogManager"/>
+    <property name="java.library.path" value="/Users/edoardosarri/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="vertx.disableTCCL" value="true"/>
+    <property name="java.vm.version" value="21.0.9+10-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="io.netty.machineId" value="6c:c8:db:50:ce:4b:5f:c4"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="writeYourOwnUnitTest" classname="org.acme.metadata.extension.test.MetadataExtensionTest" time="0.419">
+    <system-out><![CDATA[2025-12-15 21:30:03,041 INFO  [io.quarkus] (main) metadata-extension-deployment 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.15.1) started in 0.141s. Listening on: http://localhost:8081
+2025-12-15 21:30:03,042 INFO  [io.quarkus] (main) Profile test activated. 
+2025-12-15 21:30:03,042 INFO  [io.quarkus] (main) Installed features: [cdi, metadata-extension, smallrye-context-propagation, vertx]
+HTTP/1.1 200 OK
+Content-Type: application/json
+content-length: 16056
+
+{
+    "name": "metadata-extension-deployment",
+    "version": "1.0.0-SNAPSHOT",
+    "dependencies": [
+        {
+            "artifact-id": "quarkus-vertx-http-deployment",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-vertx-deployment",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-netty-deployment",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-netty",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "netty-codec",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "netty-codec-http",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "netty-codec-http2",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "netty-handler",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "netty-transport-native-unix-common",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "brotli4j",
+            "group-id": "com.aayushatharva.brotli4j"
+        },
+        {
+            "artifact-id": "service",
+            "group-id": "com.aayushatharva.brotli4j"
+        },
+        {
+            "artifact-id": "native-osx-aarch64",
+            "group-id": "com.aayushatharva.brotli4j"
+        },
+        {
+            "artifact-id": "quarkus-vertx",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "netty-codec-haproxy",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "netty-buffer",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "netty-transport",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "smallrye-common-annotation",
+            "group-id": "io.smallrye.common"
+        },
+        {
+            "artifact-id": "quarkus-virtual-threads",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-vertx-latebound-mdc-provider",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "smallrye-mutiny-vertx-core",
+            "group-id": "io.smallrye.reactive"
+        },
+        {
+            "artifact-id": "smallrye-mutiny-vertx-runtime",
+            "group-id": "io.smallrye.reactive"
+        },
+        {
+            "artifact-id": "vertx-mutiny-generator",
+            "group-id": "io.smallrye.reactive"
+        },
+        {
+            "artifact-id": "vertx-codegen",
+            "group-id": "io.vertx"
+        },
+        {
+            "artifact-id": "smallrye-fault-tolerance-vertx",
+            "group-id": "io.smallrye"
+        },
+        {
+            "artifact-id": "quarkus-virtual-threads-deployment",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-jackson-spi",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-vertx-deployment-spi",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-vertx-http",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-security-runtime-spi",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-tls-registry",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-credentials",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-mutiny",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-smallrye-context-propagation",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "smallrye-context-propagation",
+            "group-id": "io.smallrye"
+        },
+        {
+            "artifact-id": "smallrye-context-propagation-api",
+            "group-id": "io.smallrye"
+        },
+        {
+            "artifact-id": "smallrye-context-propagation-storage",
+            "group-id": "io.smallrye"
+        },
+        {
+            "artifact-id": "mutiny-smallrye-context-propagation",
+            "group-id": "io.smallrye.reactive"
+        },
+        {
+            "artifact-id": "smallrye-common-vertx-context",
+            "group-id": "io.smallrye.common"
+        },
+        {
+            "artifact-id": "vertx-core",
+            "group-id": "io.vertx"
+        },
+        {
+            "artifact-id": "netty-common",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "netty-handler-proxy",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "netty-codec-socks",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "netty-resolver",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "netty-resolver-dns",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "netty-codec-dns",
+            "group-id": "io.netty"
+        },
+        {
+            "artifact-id": "smallrye-common-constraint",
+            "group-id": "io.smallrye.common"
+        },
+        {
+            "artifact-id": "quarkus-security",
+            "group-id": "io.quarkus.security"
+        },
+        {
+            "artifact-id": "smallrye-mutiny-vertx-web",
+            "group-id": "io.smallrye.reactive"
+        },
+        {
+            "artifact-id": "smallrye-mutiny-vertx-web-common",
+            "group-id": "io.smallrye.reactive"
+        },
+        {
+            "artifact-id": "smallrye-mutiny-vertx-auth-common",
+            "group-id": "io.smallrye.reactive"
+        },
+        {
+            "artifact-id": "smallrye-mutiny-vertx-bridge-common",
+            "group-id": "io.smallrye.reactive"
+        },
+        {
+            "artifact-id": "smallrye-mutiny-vertx-uri-template",
+            "group-id": "io.smallrye.reactive"
+        },
+        {
+            "artifact-id": "vertx-uri-template",
+            "group-id": "io.vertx"
+        },
+        {
+            "artifact-id": "vertx-web",
+            "group-id": "io.vertx"
+        },
+        {
+            "artifact-id": "vertx-web-common",
+            "group-id": "io.vertx"
+        },
+        {
+            "artifact-id": "vertx-auth-common",
+            "group-id": "io.vertx"
+        },
+        {
+            "artifact-id": "vertx-bridge-common",
+            "group-id": "io.vertx"
+        },
+        {
+            "artifact-id": "org-crac",
+            "group-id": "io.github.crac"
+        },
+        {
+            "artifact-id": "quarkus-vertx-http-deployment-spi",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-mutiny-deployment",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-smallrye-context-propagation-deployment",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-tls-registry-deployment",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-credentials-deployment",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-kubernetes-spi",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-security-spi",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-vertx-http-dev-ui-spi",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-vertx-http-dev-ui-resources",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "router",
+            "group-id": "org.mvnpm.at.vaadin"
+        },
+        {
+            "artifact-id": "path-to-regexp",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "vaadin-webcomponents",
+            "group-id": "org.mvnpm.at.mvnpm"
+        },
+        {
+            "artifact-id": "vaadin-usage-statistics",
+            "group-id": "org.mvnpm.at.vaadin"
+        },
+        {
+            "artifact-id": "vaadin-development-mode-detector",
+            "group-id": "org.mvnpm.at.vaadin"
+        },
+        {
+            "artifact-id": "polymer",
+            "group-id": "org.mvnpm.at.polymer"
+        },
+        {
+            "artifact-id": "shadycss",
+            "group-id": "org.mvnpm.at.webcomponents"
+        },
+        {
+            "artifact-id": "dedupe-mixin",
+            "group-id": "org.mvnpm.at.open-wc"
+        },
+        {
+            "artifact-id": "lit",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "reactive-element",
+            "group-id": "org.mvnpm.at.lit"
+        },
+        {
+            "artifact-id": "lit-element",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "lit-html",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "ssr-dom-shim",
+            "group-id": "org.mvnpm.at.lit-labs"
+        },
+        {
+            "artifact-id": "trusted-types",
+            "group-id": "org.mvnpm.at.types"
+        },
+        {
+            "artifact-id": "lit-element-state",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "echarts",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "tslib",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "zrender",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "codeblock",
+            "group-id": "org.mvnpm.at.mvnpm"
+        },
+        {
+            "artifact-id": "qomponent",
+            "group-id": "org.mvnpm.at.mvnpm"
+        },
+        {
+            "artifact-id": "markdown-it",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "argparse",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "entities",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "linkify-it",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "mdurl",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "punycode.js",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "uc.micro",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "es-module-shims",
+            "group-id": "org.mvnpm"
+        },
+        {
+            "artifact-id": "importmap",
+            "group-id": "io.mvnpm"
+        },
+        {
+            "artifact-id": "qute-core",
+            "group-id": "io.quarkus.qute"
+        },
+        {
+            "artifact-id": "jboss-logging",
+            "group-id": "org.jboss.logging"
+        },
+        {
+            "artifact-id": "mutiny",
+            "group-id": "io.smallrye.reactive"
+        },
+        {
+            "artifact-id": "jctools-core",
+            "group-id": "org.jctools"
+        },
+        {
+            "artifact-id": "snakeyaml",
+            "group-id": "org.yaml"
+        },
+        {
+            "artifact-id": "jackson-databind",
+            "group-id": "com.fasterxml.jackson.core"
+        },
+        {
+            "artifact-id": "jackson-annotations",
+            "group-id": "com.fasterxml.jackson.core"
+        },
+        {
+            "artifact-id": "jackson-core",
+            "group-id": "com.fasterxml.jackson.core"
+        },
+        {
+            "artifact-id": "jackson-datatype-jdk8",
+            "group-id": "com.fasterxml.jackson.datatype"
+        },
+        {
+            "artifact-id": "quarkus-arc-deployment",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-core-deployment",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-classloader-commons",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "readline",
+            "group-id": "org.aesh"
+        },
+        {
+            "artifact-id": "jansi",
+            "group-id": "org.fusesource.jansi"
+        },
+        {
+            "artifact-id": "aesh",
+            "group-id": "org.aesh"
+        },
+        {
+            "artifact-id": "commons-lang3",
+            "group-id": "org.apache.commons"
+        },
+        {
+            "artifact-id": "wildfly-common",
+            "group-id": "org.wildfly.common"
+        },
+        {
+            "artifact-id": "gizmo",
+            "group-id": "io.quarkus.gizmo"
+        },
+        {
+            "artifact-id": "asm-util",
+            "group-id": "org.ow2.asm"
+        },
+        {
+            "artifact-id": "asm-analysis",
+            "group-id": "org.ow2.asm"
+        },
+        {
+            "artifact-id": "jandex",
+            "group-id": "io.smallrye"
+        },
+        {
+            "artifact-id": "asm",
+            "group-id": "org.ow2.asm"
+        },
+        {
+            "artifact-id": "asm-commons",
+            "group-id": "org.ow2.asm"
+        },
+        {
+            "artifact-id": "asm-tree",
+            "group-id": "org.ow2.asm"
+        },
+        {
+            "artifact-id": "quarkus-development-mode-spi",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-hibernate-validator-spi",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-class-change-agent",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-bootstrap-core",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-bootstrap-app-model",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "smallrye-common-io",
+            "group-id": "io.smallrye.common"
+        },
+        {
+            "artifact-id": "org.eclipse.sisu.inject",
+            "group-id": "org.eclipse.sisu"
+        },
+        {
+            "artifact-id": "quarkus-builder",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "nativeimage",
+            "group-id": "org.graalvm.sdk"
+        },
+        {
+            "artifact-id": "word",
+            "group-id": "org.graalvm.sdk"
+        },
+        {
+            "artifact-id": "junit-platform-launcher",
+            "group-id": "org.junit.platform"
+        },
+        {
+            "artifact-id": "junit-jupiter",
+            "group-id": "org.junit.jupiter"
+        },
+        {
+            "artifact-id": "quarkus-smallrye-context-propagation-spi",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "microprofile-context-propagation-api",
+            "group-id": "org.eclipse.microprofile.context-propagation"
+        },
+        {
+            "artifact-id": "quarkus-arc",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "arc",
+            "group-id": "io.quarkus.arc"
+        },
+        {
+            "artifact-id": "jakarta.transaction-api",
+            "group-id": "jakarta.transaction"
+        },
+        {
+            "artifact-id": "arc-processor",
+            "group-id": "io.quarkus.arc"
+        },
+        {
+            "artifact-id": "jakarta.annotation-api",
+            "group-id": "jakarta.annotation"
+        },
+        {
+            "artifact-id": "quarkus-arc-test-supplement",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "metadata-extension",
+            "group-id": "org.acme"
+        },
+        {
+            "artifact-id": "quarkus-junit5-internal",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "shrinkwrap-depchain",
+            "group-id": "org.jboss.shrinkwrap"
+        },
+        {
+            "artifact-id": "shrinkwrap-api",
+            "group-id": "org.jboss.shrinkwrap"
+        },
+        {
+            "artifact-id": "shrinkwrap-spi",
+            "group-id": "org.jboss.shrinkwrap"
+        },
+        {
+            "artifact-id": "shrinkwrap-impl-base",
+            "group-id": "org.jboss.shrinkwrap"
+        },
+        {
+            "artifact-id": "junit-jupiter-api",
+            "group-id": "org.junit.jupiter"
+        },
+        {
+            "artifact-id": "opentest4j",
+            "group-id": "org.opentest4j"
+        },
+        {
+            "artifact-id": "junit-platform-commons",
+            "group-id": "org.junit.platform"
+        },
+        {
+            "artifact-id": "apiguardian-api",
+            "group-id": "org.apiguardian"
+        },
+        {
+            "artifact-id": "junit-jupiter-params",
+            "group-id": "org.junit.jupiter"
+        },
+        {
+            "artifact-id": "junit-jupiter-engine",
+            "group-id": "org.junit.jupiter"
+        },
+        {
+            "artifact-id": "junit-platform-engine",
+            "group-id": "org.junit.platform"
+        },
+        {
+            "artifact-id": "quarkus-core",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "jakarta.inject-api",
+            "group-id": "jakarta.inject"
+        },
+        {
+            "artifact-id": "smallrye-common-os",
+            "group-id": "io.smallrye.common"
+        },
+        {
+            "artifact-id": "smallrye-config",
+            "group-id": "io.smallrye.config"
+        },
+        {
+            "artifact-id": "smallrye-config-core",
+            "group-id": "io.smallrye.config"
+        },
+        {
+            "artifact-id": "microprofile-config-api",
+            "group-id": "org.eclipse.microprofile.config"
+        },
+        {
+            "artifact-id": "smallrye-common-classloader",
+            "group-id": "io.smallrye.common"
+        },
+        {
+            "artifact-id": "smallrye-config-common",
+            "group-id": "io.smallrye.config"
+        },
+        {
+            "artifact-id": "jboss-logmanager",
+            "group-id": "org.jboss.logmanager"
+        },
+        {
+            "artifact-id": "smallrye-common-cpu",
+            "group-id": "io.smallrye.common"
+        },
+        {
+            "artifact-id": "smallrye-common-expression",
+            "group-id": "io.smallrye.common"
+        },
+        {
+            "artifact-id": "smallrye-common-function",
+            "group-id": "io.smallrye.common"
+        },
+        {
+            "artifact-id": "smallrye-common-net",
+            "group-id": "io.smallrye.common"
+        },
+        {
+            "artifact-id": "smallrye-common-ref",
+            "group-id": "io.smallrye.common"
+        },
+        {
+            "artifact-id": "jakarta.json-api",
+            "group-id": "jakarta.json"
+        },
+        {
+            "artifact-id": "parsson",
+            "group-id": "org.eclipse.parsson"
+        },
+        {
+            "artifact-id": "jboss-logging-annotations",
+            "group-id": "org.jboss.logging"
+        },
+        {
+            "artifact-id": "jboss-threads",
+            "group-id": "org.jboss.threads"
+        },
+        {
+            "artifact-id": "slf4j-api",
+            "group-id": "org.slf4j"
+        },
+        {
+            "artifact-id": "slf4j-jboss-logmanager",
+            "group-id": "org.jboss.slf4j"
+        },
+        {
+            "artifact-id": "quarkus-bootstrap-runner",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-fs-util",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-test-common",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "quarkus-bootstrap-maven-resolver",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "smallrye-beanbag-maven",
+            "group-id": "io.smallrye.beanbag"
+        },
+        {
+            "artifact-id": "smallrye-beanbag-sisu",
+            "group-id": "io.smallrye.beanbag"
+        },
+        {
+            "artifact-id": "smallrye-beanbag",
+            "group-id": "io.smallrye.beanbag"
+        },
+        {
+            "artifact-id": "javax.inject",
+            "group-id": "javax.inject"
+        },
+        {
+            "artifact-id": "maven-artifact",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-builder-support",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-model",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-model-builder",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-repository-metadata",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-settings",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-resolver-api",
+            "group-id": "org.apache.maven.resolver"
+        },
+        {
+            "artifact-id": "maven-resolver-impl",
+            "group-id": "org.apache.maven.resolver"
+        },
+        {
+            "artifact-id": "maven-resolver-named-locks",
+            "group-id": "org.apache.maven.resolver"
+        },
+        {
+            "artifact-id": "maven-resolver-spi",
+            "group-id": "org.apache.maven.resolver"
+        },
+        {
+            "artifact-id": "maven-resolver-util",
+            "group-id": "org.apache.maven.resolver"
+        },
+        {
+            "artifact-id": "maven-resolver-transport-http",
+            "group-id": "org.apache.maven.resolver"
+        },
+        {
+            "artifact-id": "wagon-provider-api",
+            "group-id": "org.apache.maven.wagon"
+        },
+        {
+            "artifact-id": "wagon-http-shared",
+            "group-id": "org.apache.maven.wagon"
+        },
+        {
+            "artifact-id": "plexus-interpolation",
+            "group-id": "org.codehaus.plexus"
+        },
+        {
+            "artifact-id": "plexus-utils",
+            "group-id": "org.codehaus.plexus"
+        },
+        {
+            "artifact-id": "plexus-xml",
+            "group-id": "org.codehaus.plexus"
+        },
+        {
+            "artifact-id": "maven-xml-impl",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-api-xml",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-api-meta",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "plexus-cipher",
+            "group-id": "org.codehaus.plexus"
+        },
+        {
+            "artifact-id": "plexus-sec-dispatcher",
+            "group-id": "org.codehaus.plexus"
+        },
+        {
+            "artifact-id": "maven-embedder",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-core",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "plexus-component-annotations",
+            "group-id": "org.codehaus.plexus"
+        },
+        {
+            "artifact-id": "maven-plugin-api",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-shared-utils",
+            "group-id": "org.apache.maven.shared"
+        },
+        {
+            "artifact-id": "guice",
+            "group-id": "com.google.inject"
+        },
+        {
+            "artifact-id": "aopalliance",
+            "group-id": "aopalliance"
+        },
+        {
+            "artifact-id": "guava",
+            "group-id": "com.google.guava"
+        },
+        {
+            "artifact-id": "failureaccess",
+            "group-id": "com.google.guava"
+        },
+        {
+            "artifact-id": "plexus-classworlds",
+            "group-id": "org.codehaus.plexus"
+        },
+        {
+            "artifact-id": "commons-cli",
+            "group-id": "commons-cli"
+        },
+        {
+            "artifact-id": "org.eclipse.sisu.plexus",
+            "group-id": "org.eclipse.sisu"
+        },
+        {
+            "artifact-id": "maven-settings-builder",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-resolver-provider",
+            "group-id": "org.apache.maven"
+        },
+        {
+            "artifact-id": "maven-resolver-connector-basic",
+            "group-id": "org.apache.maven.resolver"
+        },
+        {
+            "artifact-id": "maven-resolver-transport-wagon",
+            "group-id": "org.apache.maven.resolver"
+        },
+        {
+            "artifact-id": "wagon-http",
+            "group-id": "org.apache.maven.wagon"
+        },
+        {
+            "artifact-id": "wagon-file",
+            "group-id": "org.apache.maven.wagon"
+        },
+        {
+            "artifact-id": "quarkus-bootstrap-gradle-resolver",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "commons-io",
+            "group-id": "commons-io"
+        },
+        {
+            "artifact-id": "commons-logging-jboss-logging",
+            "group-id": "org.jboss.logging"
+        },
+        {
+            "artifact-id": "jakarta.enterprise.cdi-api",
+            "group-id": "jakarta.enterprise"
+        },
+        {
+            "artifact-id": "jakarta.enterprise.lang-model",
+            "group-id": "jakarta.enterprise"
+        },
+        {
+            "artifact-id": "jakarta.el-api",
+            "group-id": "jakarta.el"
+        },
+        {
+            "artifact-id": "jakarta.interceptor-api",
+            "group-id": "jakarta.interceptor"
+        },
+        {
+            "artifact-id": "quarkus-devtools-utilities",
+            "group-id": "io.quarkus"
+        },
+        {
+            "artifact-id": "awaitility",
+            "group-id": "org.awaitility"
+        },
+        {
+            "artifact-id": "rest-assured",
+            "group-id": "io.rest-assured"
+        },
+        {
+            "artifact-id": "groovy",
+            "group-id": "org.apache.groovy"
+        },
+        {
+            "artifact-id": "groovy-xml",
+            "group-id": "org.apache.groovy"
+        },
+        {
+            "artifact-id": "httpclient",
+            "group-id": "org.apache.httpcomponents"
+        },
+        {
+            "artifact-id": "httpcore",
+            "group-id": "org.apache.httpcomponents"
+        },
+        {
+            "artifact-id": "commons-codec",
+            "group-id": "commons-codec"
+        },
+        {
+            "artifact-id": "httpmime",
+            "group-id": "org.apache.httpcomponents"
+        },
+        {
+            "artifact-id": "hamcrest",
+            "group-id": "org.hamcrest"
+        },
+        {
+            "artifact-id": "tagsoup",
+            "group-id": "org.ccil.cowan.tagsoup"
+        },
+        {
+            "artifact-id": "json-path",
+            "group-id": "io.rest-assured"
+        },
+        {
+            "artifact-id": "groovy-json",
+            "group-id": "org.apache.groovy"
+        },
+        {
+            "artifact-id": "rest-assured-common",
+            "group-id": "io.rest-assured"
+        },
+        {
+            "artifact-id": "xml-path",
+            "group-id": "io.rest-assured"
+        }
+    ]
+}
+]]></system-out>
+  </testcase>
+</testsuite>
