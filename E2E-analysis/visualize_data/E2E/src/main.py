@@ -4,21 +4,20 @@ import numpy as np
 import sys
 import os
 import traceback
+from dominance import pairwise_dominance
 
 def main():
-    # Define file paths relative to this script
+    # define the paths
     script_dir = os.path.dirname(os.path.abspath(__file__))
     eulero_file = os.path.join(script_dir, '../input_file/eulero_CDF.csv')
     real_file = os.path.join(script_dir, '../input_file/real_e2e_execution_time.csv')
     output_file = os.path.join(script_dir, '../results/compare_e2e_distribution.pdf')
-
-    # Check if files exist
     if not os.path.exists(eulero_file) or not os.path.exists(real_file):
         print(f"Error: Files not found.\nLooking for:\n{eulero_file}\n{real_file}")
         sys.exit(1)
 
     try:
-        # Read the CSV files and check required columns
+        # read the data
         df_eulero = pd.read_csv(eulero_file)
         df_real = pd.read_csv(real_file)
         if not {'time', 'cdf'}.issubset(df_eulero.columns):
@@ -28,29 +27,62 @@ def main():
             print(f"Error: '{real_file}' must contain 'duration_ms' column.")
             sys.exit(1)
 
-        # eulero - PDF is the derivative of CDF: d(cdf) / d(time)
+        # eulero pdf
         dt_eulero = df_eulero['time'].diff()
         dcdf_eulero = df_eulero['cdf'].diff()
         pdf_eulero = dcdf_eulero / dt_eulero
         pdf_eulero = pdf_eulero.fillna(0)
 
-        # real data
+        # real pdf
         real_times = df_real['duration_ms'].sort_values()
         n_real = len(real_times)
         cdf_real = np.arange(1, n_real + 1) / n_real
 
-        # plottng CDF
+        # dominance
+        n_samples = 1000000
+        random_probs = np.random.rand(n_samples)
+        eulero_synthetic_samples = np.interp(random_probs, df_eulero['cdf'], df_eulero['time'])
+        dom_val = pairwise_dominance(real_times.values, eulero_synthetic_samples)
+
+        # absolute difference area (MAE)
+        t_min = min(df_eulero['time'].min(), real_times.min())
+        t_max = max(df_eulero['time'].max(), real_times.max())
+        common_grid = np.linspace(t_min, t_max, 10000)
+        cdf_real_interp = np.interp(common_grid, real_times, cdf_real)
+        cdf_eulero_interp = np.interp(common_grid, df_eulero['time'], df_eulero['cdf'])
+        abs_diff = np.abs(cdf_real_interp - cdf_eulero_interp)
+        if hasattr(np, 'trapezoid'):
+            cdf_diff_area = np.trapezoid(abs_diff, common_grid)
+        else:
+            cdf_diff_area = np.trapz(abs_diff, common_grid)
+        mae = cdf_diff_area
+
+        # Squared difference area (MSE)
+        quantiles_for_error = (np.arange(n_real) + 0.5) / n_real
+        eulero_samples_for_error = np.interp(quantiles_for_error, df_eulero['cdf'], df_eulero['time'])
+        mse = np.mean((real_times.values - eulero_samples_for_error) ** 2)
+
+        # plotting CDF
         plt.figure(figsize=(14, 6))
         plt.subplot(1, 2, 1)
         plt.plot(real_times, cdf_real, label='Real CDF', color='red', linewidth=2)
         plt.plot(df_eulero['time'], df_eulero['cdf'], label='Eulero (Approx) CDF', color='blue', linewidth=2)
+        plt.fill_between(common_grid, cdf_real_interp, cdf_eulero_interp, color='gray', alpha=0.2, label='Diff Area')
+        textstr = '\n'.join((
+            f'Dominance: {dom_val:.4f}',
+            f'absolute difference area (MAE): {mae:.4f}',
+            f'Squared difference area (MSE): {mse:.4f}'
+        ))
+        props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+        plt.text(0.4, 0.15, textstr, transform=plt.gca().transAxes, fontsize=12,
+                verticalalignment='top', bbox=props)
         plt.xlabel('Time (ms)')
         plt.ylabel('CDF')
         plt.title('Cumulative Distribution Function (CDF)')
         plt.grid(True, alpha=0.3)
         plt.legend()
 
-        # plottng PDF
+        # plotting PDF
         plt.subplot(1, 2, 2)
         plt.hist(real_times, bins=500, density=True, alpha=0.5, color='red', label='Real PDF (Histogram)')
         plt.plot(df_eulero['time'], pdf_eulero, label='Eulero (Approx) PDF', color='blue', linewidth=2)

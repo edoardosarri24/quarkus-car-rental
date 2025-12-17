@@ -100,3 +100,9 @@ In Figura~\ref{fig:compare_e2e_distribution_correlation0} possiamo osservare il 
     \end{subfigure}
     \caption{Risultati dell'esperimento.}
 \end{figure}
+
+Per valutare la differenza delle due CDF ottenute sono state usate due misure:
+\begin{itemize}
+    \item Dominance: Si tratta di una misura che quantifica la probabilità che una random variable $X$ sia minore di una random variable $Y$, cioè $\delta(X,Y)=P\{X\le Y\}$: se $\delta(X,Y)\ge\tfrac{1}{2}$ allora $X$ arriva dopo $Y$~\cite{11068943}.
+    \item Difference area: Per ogni punto si calcola il valore assoluto della differenza tra la vera CDF e quella ottenuta da Eulero. Il valore è dato dalla somma di queste differenze. È stato calcolato sia l'errore L1 (assoluto) che quadratico.
+\end{itemize}
