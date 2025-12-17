@@ -17,7 +17,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 
-public class main {
+public class main_high_correlation {
 
     public static void main(String[] args) {
         System.err.println("executing the workflow analysis...");

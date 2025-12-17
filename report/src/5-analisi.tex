@@ -38,9 +38,12 @@ Il generatore di carico K6 può essere installato localmente su una macchina Lin
 L'implementazione questo job è molto semplice: logicamente si tratta di un ciclo \texttt{for} che esegue per un certo intervallo di tempo specificato chiamando l'entry point del servizio di prenotazione. Prenota sempre la stessa macchina spostando l'intervallo della prenotazione in avanti di un giorno a ogni iterazione.
 
 \subsection{Elaborazione}
-Le tracce sono salvata in un singolo file \textit{traces.json}, che all'interno del pod \textit{analyzer} si trova nella directory \textit{data}. Si tratta di un JSON Lines, cioè un file dove ogni linea è un oggetto JSON indipendente.
+Le tracce sono salvata in un singolo file \textit{traces.json}, che all'interno del pod \textit{analyzer} si trova nella directory \textit{data}. Si tratta di un JSON Lines, cioè un file dove ogni linea è un oggetto JSON indipendente. L'elaborazione avviene portando i dati dal pod in memoria locale e poi eseguendo uno script costruito in modo da leggere ogni riga del file e analizzarla come json. L'output dell'analisi contiene delle statistiche descrittive (i.e., minimo, massimo, media, varianza e coefficiente di variazione) dei tempi di esecuzione di ogni microservizio. Queste statistiche saranno poi necessarie per ottenere le distribuzioni del tempo di esecuzione di ogni blocco del workflow.
 
-L'elaborazione avviene portando i dati dal pod in memoria locale e poi eseguendo uno script costruito in modo da leggere ogni riga del file e analizzarla come json. L'output dell'analisi contiene delle statistiche descrittive (i.e., minimo, massimo, media, varianza e coefficiente di variazione) dei tempi di esecuzione di ogni microservizio. Queste statistiche saranno poi necessarie per ottenere le distribuzioni del tempo di esecuzione di ogni blocco del workflow.
+Grazie a una caratteristica di OpenTelemetry è possibile anche ottenere la latenza di rete tra le varie chiaate. Per ogni microservizio viene raccolto sia il tempo \textit{server} che \textit{client}: il primo misura il tempo in cui il servizio è in esecuzione; il secondo misura il tempo che ci mette una chiamata a un altro servizio a tornare. Combinando insieme queste due informazioni, per due servezi consecutivi, si può ottenere il tempo in cui l'informazione è stata trasmessa.
+
+\subsection{Risultati}
+Possiamo osservare tutti le informazioni raccolte in \href{https://github.com/edoardosarri24/quarkus-car-rental/blob/4242d55e535adac82a10fb97dafd20de23b038b0/E2E-analysis/extract_data/results}{extract\_data/result}. Come si nota sono disponibili, per ogni microservizio, i tempi di server (i.e., per quanto il servizio esegue), i tempi di ogni chiamata e la latenza di rete.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Distribuzioni}
@@ -59,7 +62,7 @@ Una prima approssimazione può essere usando una distribuzione esponenziale, che
     \item Erlang \\
         Si usa per dati che hanno un coefficiente di variazione $C_V=\tfrac{1}{\sqrt{k}}$, $\exists k$. Si tratta di una sequenza di $k$ esponenziali con tassi uguali, cioè di una distribuzione definita $X=k\cdot Exp(\lambda)$.
     \item GeneralizedErlang \\
-        Si usa per dati che hanno un coefficiente di variazione $C_V<\tfrac{1}{\sqrt{2}}$~\cite{8681237}. Si tratta di una sequenza di $k$ esponenziali con tasso $\lambda_1$ seguita da un'esponenziale con tasso $\lambda_2$, cioè di una distribuzione definita $X=k\cdot Exp(\lambda_1)+Exp(\lambda_2)$. Questo permtte di fittare dati che hanno un $CV\in(\tfrac{1}{\sqrt{k}},\tfrac{1}{\sqrt{k+1}})$.
+        Si usa per dati che hanno un coefficiente di variazione $C_V<\tfrac{1}{\sqrt{2}}$~\cite{8681237}. Si tratta di una sequenza di $k$ esponenziali con tasso $\lambda_1$ seguita da un'esponenziale con tasso $\lambda_2$, cioè di una distribuzione definita $X=k\cdot Exp(\lambda_1)+Exp(\lambda_2)$. Questo permtte di fittare dati che hanno un $CV\in(\tfrac{1}{\sqrt{k+1}},\tfrac{1}{\sqrt{k}})$.
 \end{itemize}
 
 \subsection{Risultati}
