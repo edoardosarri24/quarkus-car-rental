@@ -3,10 +3,25 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 import os
+import argparse
 import traceback
 from dominance import pairwise_dominance
+from clopper_pearson import clopperPearson_confidence_bands
 
+"""
+Script to visualize E2E execution time distribution.
+Usage:
+    python main.py [--no-band]
+Options:
+    --no-band   Disable plotting confidence bands. By default, bands are shown.
+"""
 def main():
+    parser = argparse.ArgumentParser(description="Visualize E2E execution time distribution.")
+    parser.add_argument('--no-band', dest='with_band', action='store_false', 
+                        help='Disable plotting of confidence bands')
+    parser.set_defaults(with_band=True)
+    args = parser.parse_args()
+
     # define the paths
     script_dir = os.path.dirname(os.path.abspath(__file__))
     eulero_file = os.path.join(script_dir, '../input_file/eulero_CDF.csv')
@@ -33,10 +48,14 @@ def main():
         pdf_eulero = dcdf_eulero / dt_eulero
         pdf_eulero = pdf_eulero.fillna(0)
 
-        # real pdf
+        # real cdf
         real_times = df_real['duration_ms'].sort_values()
         n_real = len(real_times)
         cdf_real = np.arange(1, n_real + 1) / n_real
+
+        # Clopper-Pearson confidence bands
+        if args.with_band:
+            cp_lower, cp_upper = clopperPearson_confidence_bands(n_real, alpha=0.01)
 
         # dominance
         n_samples = 1000000
@@ -66,6 +85,8 @@ def main():
         plt.figure(figsize=(14, 6))
         plt.subplot(1, 2, 1)
         plt.plot(real_times, cdf_real, label='Real CDF', color='red', linewidth=2)
+        if args.with_band:
+            plt.fill_between(real_times, cp_lower, cp_upper, color='red', alpha=0.2, label='99% Confidence Band')
         plt.plot(df_eulero['time'], df_eulero['cdf'], label='Eulero (Approx) CDF', color='blue', linewidth=2)
         plt.fill_between(common_grid, cdf_real_interp, cdf_eulero_interp, color='gray', alpha=0.2, label='Diff Area')
         textstr = '\n'.join((
