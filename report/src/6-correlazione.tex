@@ -121,3 +121,49 @@ Vediamo adesso i risultati ottenuti con le due simulazioni, cioè i grafici dell
 \end{figure}
 
 Possiamo notare come l'area delle curve aumenta all'aumentare della correlazione, segno che l'analisi composizionale eseguita da Eulero non riesce a catturare tali dipendenze.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bande di confidenza}
+Analizziamo adesso esattamente le stesse bande di confidenza viste nella Sezione~\ref{sec:confidence_bands}.
+\begin{itemize}
+    \item Per le distribuzioni con bassa correlazione possiamo osservere la Figura~\ref{fig:confidence_bands_low_correlation}. In Figura~\ref{fig:clopper-pearson_low_correlation} osserviamo le bande di confidenza ottenute con il metodo di Clopper-Pearson, mentre in Figura~\ref{fig:dkw_low_correlation} quelle ottenute con il metodo DKW.
+    \item Per le distribuzioni con alta correlazione possiamo osservere la Figura~\ref{fig:confidence_bands_high_correlation}. In Figura~\ref{fig:clopper-pearson_high_correlation} osserviamo le bande di confidenza ottenute con il metodo di Clopper-Pearson, mentre in Figura~\ref{fig:dkw_high_correlation} quelle ottenute con il metodo DKW.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/confidence_bands/with_clopperPerason_bands/compare_e2e_distribution_low_correlation.pdf}
+        \caption{Clopper-Pearson.}
+        \label{fig:clopper-pearson_low_correlation}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/confidence_bands/with_DKW/compare_e2e_distribution_low_correlation.pdf}
+        \caption{DKW.}
+        \label{fig:dkw_low_correlation}
+    \end{subfigure}
+    \caption{Bande di confidenza per servizi con bassa correlazione.}
+    \label{fig:confidence_bands_low_correlation}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/confidence_bands/with_clopperPerason_bands/compare_e2e_distribution_high_correlation.pdf}
+        \caption{Clopper-Pearson.}
+        \label{fig:clopper-pearson_high_correlation}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/confidence_bands/with_DKW/compare_e2e_distribution_high_correlation.pdf}
+        \caption{DKW.}
+        \label{fig:dkw_high_correlation}
+    \end{subfigure}
+    \caption{Bande di confidenza per servizi con alta correlazione.}
+    \label{fig:confidence_bands_high_correlation}
+\end{figure}

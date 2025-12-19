@@ -109,21 +109,22 @@ Per valutare la differenza delle due CDF ottenute sono state usate due misure:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Bande di confidenza}
-
+\label{sec:confidence_bands}
 Quando eseguiamo degli esperimenti lavoriamo con i dati provenienti dalle nostre simulazioni, ma non con la loro vera distribuzione: possiamo definire la distribuzione solo in modo campionario e non assoluto. Per trattare in modo statistico i dati e trarre precise conferme (e.g., in casi di performance analysis) ci serve capire quanto le distribuzioni campionarie sono precise e quanto possiamo fare affidamento su di esse. Un modo per fare questo è usare le bande di confidenza. Possiamo in questo modo verificare, con una fissata confidenza di $1-\alpha$, quanto è accurata la distribuzione ottenuta e se è necessario aumentare i campioni dell'esperimento perché vogliamo una maggiore accuratezza.
 
 Per ricavare queste bande di confidenza ci sono solitamente due approccu:
 \begin{itemize}
     \item Pointwise band \\
         Le bande di confidenza sono definite analizzando ogni punto della CDF in modo isolato. Sono tecniche valide quando ci interessa capire l'affidabilità di valore specifico (e.g., quale è la probabilità che il mio esperimento restituisca un valore minore di $x$), oppure quando si vuole analizzare i percentili. In questi contesti sono meno conservative e quindi più precise.
-    \item Simultaneus band
+    \item Simultaneus band \\
+        Fornisco delle bande probabilistiche di confidenza della CDF della distribuzione da cui derivano i dati e garantiscono che la vera curva della CDF resti all'interno delle bande con confidenza $1-\alpha$. Permettono quindi di ottenere delle garanzie sull'intera popolazione senza sapere nulla della vera distribuzione.
 \end{itemize}
 
 \subsection{Tecniche}
 Le tecniche più comuni sono:
 \begin{itemize}
     \item Approssimazione normale \\
-        Si tratta della tecnica base più citata in letteratura. Utilizza la distribuzione binomiale per determinare gli intervallie di confidenza di un punto della CDF. Il metodo approssima la distribuzione a una gaussiana; per una binomiale questo vuol dire supporre che il numero di esperimenti tenda a infinito o che la probabilità sia $p=0.5$. Questo fa si che questa tecnica sia buona quando il numero di dati è molto elevato.
+        Si tratta della tecnica base più citata in letteratura~\cite{wiki:binomial_proportion}. Utilizza la distribuzione binomiale per determinare gli intervallie di confidenza di un punto della CDF. Il metodo approssima la distribuzione a una gaussiana; per una binomiale questo vuol dire supporre che il numero di esperimenti tenda a infinito o che la probabilità sia $p=0.5$. Questo fa si che questa tecnica sia buona quando il numero di dati è molto elevato.
 
         I problemi principali che si possono incontrare sono:
         \begin{itemize}
@@ -135,24 +136,39 @@ Le tecniche più comuni sono:
                 Se osserviamo valore di $k=0$ o $K=N$ allora otteniamo i metodi standard portano a divisioni per zero e altri problemi.
         \end{itemize}
     \item Clopper-Pearson \\
-        Si basa sulla distribuzione binomiale e risolve i problemi base che si hanno con l'approssimazione normale o tecniche simili. L'idea è cercare tutti i valori di $p$ per cui le formule sotto funzionano. Questo porta a: avere costo computazionale alto, per cui si usa la relazione tra distribuzione binomiale e distribuzione beta; essere conservativo; garantire una copertura completa. Gli intervalli sono definiti da due valori:
+        Si basa sulla distribuzione binomiale e risolve i problemi base che si hanno con l'approssimazione normale o tecniche simili~\cite{glen:clopper_pearson}. L'idea è cercare tutti i valori di $p$ per cui le formule sotto funzionano. Questo porta a: avere costo computazionale alto, per cui si usa la relazione tra distribuzione binomiale e distribuzione beta; essere conservativo; garantire una copertura completa. Gli intervalli sono definiti da due valori:
         \begin{itemize}
             \item $p_{inf}$ \\
                 È il valore di $p$ della binomiale per cui la probabilità di osservare almeno $k$ successi è esattamente $\alpha/2$, cioè $\displaystyle\sum_{i=k}^n\binom{n}{i}p_{inf}^i(1-p_{inf})^{n-i}=\tfrac{\alpha}{2}$. Usando la distribuzione beta si ha poi $B(\alpha/2, X, n-X+1)$.
             \item $p_{sup}$ \\
                 È il valore di $p$ della binomiale per cui la probabilità di osservare al più $k$ successi è esattamente $\alpha/2$, cioè $\displaystyle\sum_{i=0}^k\binom{n}{i}p_{inf}^i(1-p_{sup})^{n-i}=\tfrac{\alpha}{2}$. Usando la distribuzione beta si ha poi $B(1-\alpha/2, X+1, n-X)$.
         \end{itemize}
+    \item Dvoretzky-Kiefer-Wolfowitz (DKW) \\
+        È una tecnica che definsice delle bande parallele alla CDF campionaria di ampiezza costante $\epsilon=\sqrt{\tfrac{ln(2/\alpha)}{2n}}$~\cite{wiki:dkw_inequality}. Siccome l'ampiezza è fissa in ogni punto della CDF, tende a essere troppo conservativa e quindi è una buona tecnica quando si lavora in contesti di sicurezza. La matematica ci dice che la vera CDF $F(x)$ è in $L(x)\le F(x)\le U(x)$, dove $U(x)=\min(F_n(x)+\epsilon,1)$ e $L(x)=\min(F_n(x)-\epsilon,0)$, con $F_n(x)$ che è la CDF campionaria.
 \end{itemize}
 
 \subsection{Risultati}
 Il nostro numero di campioni è stato abbastanza elevato da produrre una CDF campionaria abbastanza precisa. I risultati, che mostrano questa precisione, sono ottenuti richiedendo una confidenza del 99\%.
 \begin{itemize}
     \item Le bande ottenuto con il metodo di Clopper-Pearson sono mostrate in Figura~\ref{fig:correlation0_clopper_perason}.
+    \item Le bande ottenuto con il metodo DKW sono mostrate in Figura~\ref{fig:correlation0_dkw}.
 \end{itemize}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0_clopperPearson.pdf}
-    \caption{Bande di confidenza pointwise Clopper-Pearson.}
-    \label{fig:correlation0_clopper_perason}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0_clopperPearson.pdf}
+        \caption{Pointwise con Clopper-Pearson.}
+        \label{fig:correlation0_clopper_perason}
+    \end{subfigure}
+    \vfill
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0_DKW.pdf}
+        \caption{Simultaneus con Dvoretzky-Kiefer-Wolfowitz (DKW)}
+        \label{fig:correlation0_dkw}
+    \end{subfigure}
+    \caption{Bande di confidenza.}
 \end{figure}

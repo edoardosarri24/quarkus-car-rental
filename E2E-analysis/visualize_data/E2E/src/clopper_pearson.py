@@ -3,12 +3,12 @@ from scipy.stats import beta
 
 def clopperPearson_confidence_bands(n, alpha=0.05):
     """
-    Computes pointwise Clopper-Pearson confidence intervals for the CDF of a sample of size n .
+    Computes pointwise Clopper-Pearson confidence intervals for the CDF of a sample of size n.
     Args:
         n (int): The sample size.
         alpha (float): The significance level (default 0.05 for 95% confidence).
     Returns:
-        tuple: Two numpy arrays (lower, upper) of length n.
+        tuple: Two numpy arrays (lower, upper) of length n representing the confidence bands.
     """
     k = np.arange(1, n + 1)
     # L = Beta(alpha/2, k, n - k + 1)
