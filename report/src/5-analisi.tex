@@ -145,6 +145,8 @@ Le tecniche più comuni sono:
         \end{itemize}
     \item Dvoretzky-Kiefer-Wolfowitz (DKW) \\
         È una tecnica che definsice delle bande parallele alla CDF campionaria di ampiezza costante $\epsilon=\sqrt{\tfrac{ln(2/\alpha)}{2n}}$~\cite{wiki:dkw_inequality}. Siccome l'ampiezza è fissa in ogni punto della CDF, tende a essere troppo conservativa e quindi è una buona tecnica quando si lavora in contesti di sicurezza. La matematica ci dice che la vera CDF $F(x)$ è in $L(x)\le F(x)\le U(x)$, dove $U(x)=\min(F_n(x)+\epsilon,1)$ e $L(x)=\min(F_n(x)-\epsilon,0)$, con $F_n(x)$ che è la CDF campionaria.
+    \item Non-parametric Bootstrap \\
+        Si tratta di un approccio data-driven~\cite{breheny2016bootstrap}: invece che usare formule teoriche che solitamente fanno assunzioni come il tipo di distribuzione o il numero di campioni infiniti, in questo caso si usano i dati per studiare la variabilità dei dati. La tecnica dice di campionare con reinserimento (bootstrapping) dalla distribuzione campionaria, con l'idea che i dati siano la migliore rappresentazione della distribuzione reale (non nota) da cui essi derivano. Dopo aver campionato $N$ volte si ottiene una Empirical Cumulative Distribution Function; se ripetiamo il processo molte volte allora possiamo definire le bande di confidenza. Il risultato sono bande di dimensione costante e, siccome non si usano formule matematiche ma i dati stessi, meno conservative di altre tecniche come DKW.
 \end{itemize}
 
 \subsection{Risultati}
@@ -152,13 +154,14 @@ Il nostro numero di campioni è stato abbastanza elevato da produrre una CDF cam
 \begin{itemize}
     \item Le bande ottenuto con il metodo di Clopper-Pearson sono mostrate in Figura~\ref{fig:correlation0_clopper_perason}.
     \item Le bande ottenuto con il metodo DKW sono mostrate in Figura~\ref{fig:correlation0_dkw}.
+    \item Le bande ottenuto con il metodo del bootstrapping sono mostrate in Figura~\ref{fig:correlation0_bootstrap}.
 \end{itemize}
 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0_clopperPearson.pdf}
+        \includegraphics[width=.9\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0_clopperPearson.pdf}
         \caption{Pointwise con Clopper-Pearson.}
         \label{fig:correlation0_clopper_perason}
     \end{subfigure}
@@ -166,9 +169,17 @@ Il nostro numero di campioni è stato abbastanza elevato da produrre una CDF cam
     \centering
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0_DKW.pdf}
+        \includegraphics[width=.9\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0_DKW.pdf}
         \caption{Simultaneus con Dvoretzky-Kiefer-Wolfowitz (DKW)}
         \label{fig:correlation0_dkw}
+    \end{subfigure}
+    \vfill
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=.9\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0_bootstrapping.pdf}
+        \caption{Simultaneus con bootstrapping.}
+        \label{fig:correlation0_bootstrap}
     \end{subfigure}
     \caption{Bande di confidenza.}
 \end{figure}

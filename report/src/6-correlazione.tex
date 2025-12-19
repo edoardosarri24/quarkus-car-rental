@@ -126,24 +126,31 @@ Possiamo notare come l'area delle curve aumenta all'aumentare della correlazione
 \section{Bande di confidenza}
 Analizziamo adesso esattamente le stesse bande di confidenza viste nella Sezione~\ref{sec:confidence_bands}.
 \begin{itemize}
-    \item Per le distribuzioni con bassa correlazione possiamo osservere la Figura~\ref{fig:confidence_bands_low_correlation}. In Figura~\ref{fig:clopper-pearson_low_correlation} osserviamo le bande di confidenza ottenute con il metodo di Clopper-Pearson, mentre in Figura~\ref{fig:dkw_low_correlation} quelle ottenute con il metodo DKW.
-    \item Per le distribuzioni con alta correlazione possiamo osservere la Figura~\ref{fig:confidence_bands_high_correlation}. In Figura~\ref{fig:clopper-pearson_high_correlation} osserviamo le bande di confidenza ottenute con il metodo di Clopper-Pearson, mentre in Figura~\ref{fig:dkw_high_correlation} quelle ottenute con il metodo DKW.
+    \item Per le distribuzioni con bassa correlazione possiamo osservere la Figura~\ref{fig:confidence_bands_low_correlation}. In Figura~\ref{fig:clopper-pearson_low_correlation} osserviamo le bande di confidenza ottenute con il metodo di Clopper-Pearson, in Figura~\ref{fig:dkw_low_correlation} quelle ottenute con il metodo DKW e in Figura~\ref{fig:bootstrapping_low_correlation} quelle ottenute con il metodo Bootstrapping.
+    \item Per le distribuzioni con alta correlazione possiamo osservere la Figura~\ref{fig:confidence_bands_high_correlation}. In Figura~\ref{fig:clopper-pearson_high_correlation} osserviamo le bande di confidenza ottenute con il metodo di Clopper-Pearson, in Figura~\ref{fig:dkw_high_correlation} quelle ottenute con il metodo DKW e in Figura~\ref{fig:bootstrapping_high_correlation} quelle ottenute con il metodo Bootstrapping.
 \end{itemize}
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{.6\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/7-correlazione/confidence_bands/with_clopperPerason_bands/compare_e2e_distribution_low_correlation.pdf}
         \caption{Clopper-Pearson.}
         \label{fig:clopper-pearson_low_correlation}
     \end{subfigure}
     \vfill
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{.6\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/7-correlazione/confidence_bands/with_DKW/compare_e2e_distribution_low_correlation.pdf}
         \caption{DKW.}
         \label{fig:dkw_low_correlation}
+    \end{subfigure}
+        \vfill
+    \begin{subfigure}{.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/confidence_bands/with_bootstrapping/compare_e2e_distribution_low_distribution.pdf}
+        \caption{Bootstrapping.}
+        \label{fig:bootstrapping_low_correlation}
     \end{subfigure}
     \caption{Bande di confidenza per servizi con bassa correlazione.}
     \label{fig:confidence_bands_low_correlation}
@@ -151,18 +158,25 @@ Analizziamo adesso esattamente le stesse bande di confidenza viste nella Sezione
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/7-correlazione/confidence_bands/with_clopperPerason_bands/compare_e2e_distribution_high_correlation.pdf}
         \caption{Clopper-Pearson.}
         \label{fig:clopper-pearson_high_correlation}
     \end{subfigure}
     \vfill
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/7-correlazione/confidence_bands/with_DKW/compare_e2e_distribution_high_correlation.pdf}
         \caption{DKW.}
         \label{fig:dkw_high_correlation}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}{.75\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/7-correlazione/confidence_bands/with_bootstrapping/compare_e2e_distribution_high_distribution.pdf}
+        \caption{Bootstrapping.}
+        \label{fig:bootstrapping_high_correlation}
     \end{subfigure}
     \caption{Bande di confidenza per servizi con alta correlazione.}
     \label{fig:confidence_bands_high_correlation}

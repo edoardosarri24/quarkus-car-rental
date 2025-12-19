@@ -3,11 +3,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 import os
-import argparse
 import traceback
 from dominance import pairwise_dominance
-from clopper_pearson import clopperPearson_confidence_bands
-from DKW import DKW_confidence_bands
+from confidence_bands import *
 
 """
 Script to visualize E2E execution time distribution.
@@ -55,6 +53,9 @@ def main(band_type, alpha):
         elif band_type == 'dkw':
             lower_band, upper_band = DKW_confidence_bands(n_real, alpha=alpha)
             band_label = f'{int((1-alpha)*100)}% Confidence Band (DKW)'
+        elif band_type == 'bootstrap':
+            lower_band, upper_band = bootstrap_confidence_bands(n_real, alpha=alpha)
+            band_label = f'{int((1-alpha)*100)}% Confidence Band (bootstrapping)'
 
         # dominance
         n_samples = 1000000
@@ -84,10 +85,8 @@ def main(band_type, alpha):
         plt.figure(figsize=(14, 6))
         plt.subplot(1, 2, 1)
         plt.plot(real_times, cdf_real, label='Real CDF', color='red', linewidth=2)
-        
         if band_type != 'none':
             plt.fill_between(real_times, lower_band, upper_band, color='red', alpha=0.2, label=band_label)
-            
         plt.plot(df_eulero['time'], df_eulero['cdf'], label='Eulero (Approx) CDF', color='blue', linewidth=2)
         plt.fill_between(common_grid, cdf_real_interp, cdf_eulero_interp, color='gray', alpha=0.2, label='Diff Area')
         textstr = '\n'.join((
@@ -128,5 +127,6 @@ def main(band_type, alpha):
 if __name__ == "__main__":
     # Choose:
     # band_type = 'cp'
-    band_type = 'dkw'
+    # band_type = 'dkw'
+    band_type = 'bootstrap'
     main(band_type, alpha = 0.01)
