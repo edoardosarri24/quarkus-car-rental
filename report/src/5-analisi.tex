@@ -146,40 +146,58 @@ Le tecniche più comuni sono:
     \item Dvoretzky-Kiefer-Wolfowitz (DKW) \\
         È una tecnica che definsice delle bande parallele alla CDF campionaria di ampiezza costante $\epsilon=\sqrt{\tfrac{ln(2/\alpha)}{2n}}$~\cite{wiki:dkw_inequality}. Siccome l'ampiezza è fissa in ogni punto della CDF, tende a essere troppo conservativa e quindi è una buona tecnica quando si lavora in contesti di sicurezza. La matematica ci dice che la vera CDF $F(x)$ è in $L(x)\le F(x)\le U(x)$, dove $U(x)=\min(F_n(x)+\epsilon,1)$ e $L(x)=\min(F_n(x)-\epsilon,0)$, con $F_n(x)$ che è la CDF campionaria.
     \item Non-parametric Bootstrap \\
-        Si tratta di un approccio data-driven~\cite{breheny2016bootstrap}: invece che usare formule teoriche che solitamente fanno assunzioni come il tipo di distribuzione o il numero di campioni infiniti, in questo caso si usano i dati per studiare la variabilità dei dati. La tecnica dice di campionare con reinserimento (bootstrapping) dalla distribuzione campionaria, con l'idea che i dati siano la migliore rappresentazione della distribuzione reale (non nota) da cui essi derivano. Dopo aver campionato $N$ volte si ottiene una Empirical Cumulative Distribution Function; se ripetiamo il processo molte volte allora possiamo definire le bande di confidenza. Il risultato sono bande di dimensione costante e, siccome non si usano formule matematiche ma i dati stessi, meno conservative di altre tecniche come DKW.
-\end{itemize}
+        Si tratta di un approccio data-driven~\cite{breheny2016bootstrap}: invece che usare formule teoriche che solitamente fanno assunzioni come il tipo di distribuzione o il numero di campioni infiniti, in questo caso si usano i dati per studiare la variabilità dei dati. L'idea è quella di campionare $n$ elementi dalla distribuzione campionaria $F$ in modo da definire una CDF empirica $F^*$; se ripetiamo questo processo per $N$ volte, per ogni valore $x$ all'interno del range che i nostri dati assumono avremo molti valori di $F^*(x)$. A questo punto possiamo definire le bande di confidenza in due modi; in entrambi i casi la  in entrambi i casi le bande ottenuto sono meno conservative di quelle derivate dai metodi Pearson-Clopper e DKW.
+        \begin{itemize}
+            \item Pointwise \\
+                Se abbiamo intervallo di confidenza del 95\% allora prendiamo il 2.5° percentile e il 97.5° percentile dei valori assunti da tutte le $F^*(x)$ ottenute. Avremo in questo modo una banda di confidenza che varia in funzione di $x$.
+            \item Simultaneus \\
+                Si condiera il valore massimo di $|F(x)-F^*(x)|$ per ogni $x$. Si prendono poi i percentili di questi valori massimi.  Avremo in questo modo una banda di confidenza di ampiezza costante.
+        \end{itemize}
+    \end{itemize}
 
 \subsection{Risultati}
 Il nostro numero di campioni è stato abbastanza elevato da produrre una CDF campionaria abbastanza precisa. I risultati, che mostrano questa precisione, sono ottenuti richiedendo una confidenza del 99\%.
 \begin{itemize}
-    \item Le bande ottenuto con il metodo di Clopper-Pearson sono mostrate in Figura~\ref{fig:correlation0_clopper_perason}.
-    \item Le bande ottenuto con il metodo DKW sono mostrate in Figura~\ref{fig:correlation0_dkw}.
-    \item Le bande ottenuto con il metodo del bootstrapping sono mostrate in Figura~\ref{fig:correlation0_bootstrap}.
+    \item Le bande ottenute con il metodo di Clopper-Pearson sono mostrate in Figura~\ref{fig:correlation0_clopper_perason}.
+    \item Le bande ottenute con il metodo DKW sono mostrate in Figura~\ref{fig:correlation0_dkw}.
+    \item Le bande pointwise ottenute con il metodo del bootstrapping sono mostrate in Figura~\ref{fig:correlation0_bootstrap_pointwise}.
+    \item Le bande simultanee ottenute con il metodo del bootstrapping sono mostrate in Figura~\ref{fig:correlation0_bootstrap_simultaneous}.
 \end{itemize}
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}{\textwidth}
+    \begin{minipage}{0.45\textwidth}
         \centering
-        \includegraphics[width=.9\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0_clopperPearson.pdf}
-        \caption{Pointwise con Clopper-Pearson.}
-        \label{fig:correlation0_clopper_perason}
-    \end{subfigure}
-    \vfill
-    \centering
-    \begin{subfigure}{\textwidth}
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/6-analisi/with_confidence_bands/compare_e2e_distribution_cp.pdf}
+            \caption{Pointwise con Clopper-Pearson.}
+            \label{fig:correlation0_clopper_perason}
+        \end{subfigure}
+        \vfill
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/6-analisi/with_confidence_bands/compare_e2e_distribution_dkw.pdf}
+            \caption{Simultaneus con DKW}
+            \label{fig:correlation0_dkw}
+        \end{subfigure}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
         \centering
-        \includegraphics[width=.9\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0_DKW.pdf}
-        \caption{Simultaneus con Dvoretzky-Kiefer-Wolfowitz (DKW)}
-        \label{fig:correlation0_dkw}
-    \end{subfigure}
-    \vfill
-    \centering
-    \begin{subfigure}{\textwidth}
-        \centering
-        \includegraphics[width=.9\textwidth]{images/6-analisi/compare_e2e_distribution_correlation0_bootstrapping.pdf}
-        \caption{Simultaneus con bootstrapping.}
-        \label{fig:correlation0_bootstrap}
-    \end{subfigure}
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/6-analisi/with_confidence_bands/compare_e2e_distribution_bootstrap_pointwise.pdf}
+            \caption{Pointwise con bootstrapping.}
+            \label{fig:correlation0_bootstrap_pointwise}
+        \end{subfigure}
+        \vfill
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/6-analisi/with_confidence_bands/compare_e2e_distribution_bootstrap_simultaneous.pdf}
+            \caption{Simultaneus con bootstrapping.}
+            \label{fig:correlation0_bootstrap_simultaneous}
+        \end{subfigure}
+    \end{minipage}
     \caption{Bande di confidenza.}
 \end{figure}

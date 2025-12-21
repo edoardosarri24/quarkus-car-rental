@@ -35,21 +35,32 @@ def clopperPearson_confidence_bands(n, alpha=0.05):
         upper[mask] = beta.ppf(1 - alpha / 2, k[mask] + 1, n - k[mask])
     return lower, upper
 
-def bootstrap_confidence_bands(n, alpha=0.05, n_boot=5000):
+def bootstrap_confidence_bands(data, alpha=0.05, n_boot=10000, method='pointwise'):
     """
-    Computes bootstrapping confidence intervals for the CDF of a sample of size n.
+    Computes Bootstrap confidence bands for the Empirical Cumulative Distribution Function (ECDF).
     Args:
-        n (int): The sample size.
-        alpha (float): The significance level (default 0.05 for 95% confidence).
-        n_boot (int): Number of bootstrap resamples (default 5000).
+        data (array-like): The original input sample.
+        alpha (float): Significance level (e.g., 0.05 for 95% confidence).
+        n_boot (int): Number of bootstrap resamples to perform.
+        method (str): 'pointwise' for local bands, 'simultaneous' for global bands.
     Returns:
-        tuple: Two numpy arrays (lower, upper) of length n representing the confidence bands.
+        tuple: (lower, upper, ecdf_orig) numpy arrays containing the lower bound, upper bound, and the original ECDF values.
     """
+    n = len(data)
+    data_sorted = np.sort(data)
     ecdf_orig = np.arange(1, n + 1) / n
-    resampled_counts = np.random.multinomial(n, [1/n] * n, size=n_boot)
-    bootstrap_ecdfs = np.cumsum(resampled_counts, axis=1) / n
-    max_deviations = np.max(np.abs(bootstrap_ecdfs - ecdf_orig), axis=1)
-    critical_value = np.percentile(max_deviations, 100 * (1 - alpha))
-    lower = np.maximum(ecdf_orig - critical_value, 0)
-    upper = np.minimum(ecdf_orig + critical_value, 1)
-    return lower, upper
+    counts = np.random.multinomial(n, [1/n] * n, size=n_boot)
+    boot_ecdfs = np.cumsum(counts, axis=1) / n
+    if method == 'pointwise':
+        lower = np.percentile(boot_ecdfs, 100 * (alpha / 2), axis=0)
+        upper = np.percentile(boot_ecdfs, 100 * (1 - alpha / 2), axis=0)
+    elif method == 'simultaneous':
+
+        distances = np.abs(boot_ecdfs - ecdf_orig)
+        max_distances = np.max(distances, axis=1)
+        d_alpha = np.percentile(max_distances, 100 * (1 - alpha))
+        lower = np.clip(ecdf_orig - d_alpha, 0, 1)
+        upper = np.clip(ecdf_orig + d_alpha, 0, 1)
+    else:
+        raise ValueError("Unknown method. Please use 'pointwise' or 'simultaneous'.")
+    return lower, upper, ecdf_orig

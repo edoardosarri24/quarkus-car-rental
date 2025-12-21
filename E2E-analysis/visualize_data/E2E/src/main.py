@@ -12,12 +12,17 @@ Script to visualize E2E execution time distribution.
 Usage:
     python main.py
 """
-def main(band_type, alpha):
+def main(band_type=None, alpha=0.05):
     # define the paths
     script_dir = os.path.dirname(os.path.abspath(__file__))
     eulero_file = os.path.join(script_dir, '../input_file/eulero_CDF.csv')
     real_file = os.path.join(script_dir, '../input_file/real_e2e_execution_time.csv')
-    output_file = os.path.join(script_dir, '../results/compare_e2e_distribution.pdf')
+    
+    output_filename = 'compare_e2e_distribution.pdf'
+    if band_type:
+        output_filename = f'compare_e2e_distribution_{band_type}.pdf'
+    output_file = os.path.join(script_dir, f'../results/{output_filename}')
+
     if not os.path.exists(eulero_file) or not os.path.exists(real_file):
         print(f"Error: Files not found.\nLooking for:\n{eulero_file}\n{real_file}")
         sys.exit(1)
@@ -53,9 +58,10 @@ def main(band_type, alpha):
         elif band_type == 'dkw':
             lower_band, upper_band = DKW_confidence_bands(n_real, alpha=alpha)
             band_label = f'{int((1-alpha)*100)}% Confidence Band (DKW)'
-        elif band_type == 'bootstrap':
-            lower_band, upper_band = bootstrap_confidence_bands(n_real, alpha=alpha)
-            band_label = f'{int((1-alpha)*100)}% Confidence Band (bootstrapping)'
+        elif 'bootstrap' in band_type:
+            method = 'pointwise' if 'pointwise' in band_type else 'simultaneous'
+            lower_band, upper_band, _ = bootstrap_confidence_bands(real_times.values, alpha=alpha, method=method)
+            band_label = f'{int((1-alpha)*100)}% Confidence Band (bootstrapping {method})'
 
         # dominance
         n_samples = 1000000
@@ -81,6 +87,16 @@ def main(band_type, alpha):
         eulero_samples_for_error = np.interp(quantiles_for_error, df_eulero['cdf'], df_eulero['time'])
         mse = np.mean((real_times.values - eulero_samples_for_error) ** 2)
 
+        # Distance of bands from Real CDF (Half-width)
+        avg_dist_band = 0.0
+        max_dist_band = 0.0
+        if lower_band is not None and upper_band is not None:
+            dist_lower = cdf_real - lower_band
+            dist_upper = upper_band - cdf_real
+            all_dists = np.concatenate([dist_lower, dist_upper])
+            avg_dist_band = np.mean(all_dists)
+            max_dist_band = np.max(all_dists)
+
         # plotting CDF
         plt.figure(figsize=(14, 6))
         plt.subplot(1, 2, 1)
@@ -90,12 +106,14 @@ def main(band_type, alpha):
         plt.plot(df_eulero['time'], df_eulero['cdf'], label='Eulero (Approx) CDF', color='blue', linewidth=2)
         plt.fill_between(common_grid, cdf_real_interp, cdf_eulero_interp, color='gray', alpha=0.2, label='Diff Area')
         textstr = '\n'.join((
-            f'Dominance: {dom_val:.4f}',
-            f'absolute difference area (MAE): {mae:.4f}',
-            f'Squared difference area (MSE): {mse:.4f}'
+            f'Dominance: {dom_val:.3f}',
+            f'absolute difference area (MAE): {mae:.3f}',
+            f'Squared difference area (MSE): {mse:.3f}',
+            f'Avg band dist from Real CDF: {avg_dist_band:.3f}',
+            f'Max band dist from Real CDF: {max_dist_band:.3f}'
         ))
         props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
-        plt.text(0.4, 0.15, textstr, transform=plt.gca().transAxes, fontsize=12,
+        plt.text(0.4, 0.25, textstr, transform=plt.gca().transAxes, fontsize=12,
                 verticalalignment='top', bbox=props)
         plt.xlabel('Time (ms)')
         plt.ylabel('CDF')
@@ -125,8 +143,8 @@ def main(band_type, alpha):
         sys.exit(1)
 
 if __name__ == "__main__":
-    # Choose:
-    # band_type = 'cp'
-    # band_type = 'dkw'
-    band_type = 'bootstrap'
-    main(band_type, alpha = 0.01)
+    band_types = ['cp', 'dkw', 'bootstrap_pointwise', 'bootstrap_simultaneous']
+    # band_types = None
+    for bt in band_types:
+        print(f"Generating plot for band_type: {bt}")
+        main(band_type=bt, alpha=0.01)
