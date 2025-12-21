@@ -33,6 +33,7 @@
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/activitytypes/DAGType.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/evaluation/heuristics/deprecated/AnalysisHeuristics2.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modelgeneration/deprecated/RandomGenerator.java
+/Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/main_high_correlation.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/modeling/activitytypes/BadNestedDAGType.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/solver/CostEstimator.java
 /Users/edoardosarri/Documents/quarkus-car-rental/E2E-analysis/eulero/src/main/java/org/oristool/eulero/examples/TestOR.java

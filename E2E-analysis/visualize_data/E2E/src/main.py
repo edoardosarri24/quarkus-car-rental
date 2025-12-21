@@ -17,12 +17,10 @@ def main(band_type=None, alpha=0.05):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     eulero_file = os.path.join(script_dir, '../input_file/eulero_CDF.csv')
     real_file = os.path.join(script_dir, '../input_file/real_e2e_execution_time.csv')
-    
     output_filename = 'compare_e2e_distribution.pdf'
     if band_type:
         output_filename = f'compare_e2e_distribution_{band_type}.pdf'
     output_file = os.path.join(script_dir, f'../results/{output_filename}')
-
     if not os.path.exists(eulero_file) or not os.path.exists(real_file):
         print(f"Error: Files not found.\nLooking for:\n{eulero_file}\n{real_file}")
         sys.exit(1)

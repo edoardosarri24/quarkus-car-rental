@@ -156,13 +156,11 @@ Le tecniche più comuni sono:
     \end{itemize}
 
 \subsection{Risultati}
-Il nostro numero di campioni è stato abbastanza elevato da produrre una CDF campionaria abbastanza precisa. I risultati, che mostrano questa precisione, sono ottenuti richiedendo una confidenza del 99\%.
-\begin{itemize}
-    \item Le bande ottenute con il metodo di Clopper-Pearson sono mostrate in Figura~\ref{fig:correlation0_clopper_perason}.
-    \item Le bande ottenute con il metodo DKW sono mostrate in Figura~\ref{fig:correlation0_dkw}.
-    \item Le bande pointwise ottenute con il metodo del bootstrapping sono mostrate in Figura~\ref{fig:correlation0_bootstrap_pointwise}.
-    \item Le bande simultanee ottenute con il metodo del bootstrapping sono mostrate in Figura~\ref{fig:correlation0_bootstrap_simultaneous}.
-\end{itemize}
+I risultati ottenuti, che possiamo notare in Figura~\ref{fig:distribution_with_bands_many_traces}, richiedono una confidenza del 99\%.
+
+Possiamo notare come il nostro numero di campioni è stato abbastanza elevato da produrre una CDF campionaria abbastanza precisa. Inoltre, esattamente come ci dice la teoria, le bande di tipo simultaneus hanno la stessa distanza media che massima dalla CDF campionaria: questo dimostra che esse sono a una distanza fissa dalla CDF campionaria. Le bande di tipo pointwise invece hanno una distanza variabile.
+
+Un'altra osservazione che possiamo portare riguarda la similarità delle bande ottenuto con i metodi Clopper-Pearson, DKW e bootstrapping: se guardiamo all'ampiezza e consideriamo lo stesso tipo di banda (i.e., pointwise vs simultaneus), notiamo come metodi diversi producono bande molto simili.
 
 \begin{figure}[htbp]
     \centering
@@ -199,5 +197,51 @@ Il nostro numero di campioni è stato abbastanza elevato da produrre una CDF cam
             \label{fig:correlation0_bootstrap_simultaneous}
         \end{subfigure}
     \end{minipage}
-    \caption{Bande di confidenza.}
+    \caption{Bande di confidenza per l'esperimento con molte tracce.}
+    \label{fig:distribution_with_bands_many_traces}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Pochi dati}
+Vediamo adesso cosa succede ai nostri esperimento quando abbiamo pochi dati. Rispetto al caso analizzato fino a ora, dove il numerod i tracce era di 5893, in questa situazione abbiamo campionato in modo randomico l'8\% delle tracce, cioè abbiamo usato 456 tracce.
+
+I risultati ottenuti, come si può notare in Figura~\ref{fig:distribution_with_bands_few_traces}. sono decisamente peggiori sotto ogni aspetto. Specifichiamo che le bande sono ottenute sempre con una confidenza del 99\%, esattamente come in precedenza.
+\begin{itemize}
+    \item La CDF campionaria si trova molto alla destra di quella ottenuta con Eulero.
+    \item Le bande di confidenza, se paragonate due a due con quelle ottenuto con molte tracce, sono decisamente pià large. Questo sta a significare che avere più campioni permette di ottenere una distribuzione campionaria più affidabile.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/6-analisi/with_confidence_bands/correlation0_8_of_traces/compare_e2e_distribution_cp.pdf}
+            \caption{Pointwise con Clopper-Pearson.}
+        \end{subfigure}
+        \vfill
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/6-analisi/with_confidence_bands/correlation0_8_of_traces/compare_e2e_distribution_dkw.pdf}
+            \caption{Simultaneus con DKW}
+        \end{subfigure}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/6-analisi/with_confidence_bands/correlation0_8_of_traces/compare_e2e_distribution_bootstrap_pointwise.pdf}
+            \caption{Pointwise con bootstrapping.}
+        \end{subfigure}
+        \vfill
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/6-analisi/with_confidence_bands/correlation0_8_of_traces/compare_e2e_distribution_bootstrap_simultaneous.pdf}
+            \caption{Simultaneus con bootstrapping.}
+        \end{subfigure}
+    \end{minipage}
+    \caption{Bande di confidenza con poche (456) tracce.}
+    \label{fig:distribution_with_bands_few_traces}
 \end{figure}

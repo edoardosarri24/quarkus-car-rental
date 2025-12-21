@@ -126,5 +126,6 @@ def fit_distribution(mean: float, cv: float):
                 "k": k,
                 "lambda1": lambda1,
                 "lambda2": lambda2
-            }
+            },
+            "java_code": f'new GeneralizeErlangTime({k}, new BigDecimal({lambda1}), new BigDecimal({lambda2}))'
         }

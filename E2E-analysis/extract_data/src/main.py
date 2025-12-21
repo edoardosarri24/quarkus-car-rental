@@ -4,6 +4,7 @@ import math
 import csv
 import os
 import shutil
+import random
 from collections import defaultdict
 from distribution_fitting import fit_distribution
 import pandas as pd
@@ -459,7 +460,15 @@ def cleanup():
 
 if __name__ == "__main__":
     file_path = 'input_file/traces.json'
-    filter_value = 280
+    filter_value = 153
+    percentage = 0.08
+
     traces = parse_traces(file_path)
+    if percentage < 1.0:
+        all_trace_ids = list(traces.keys())
+        num_to_keep = int(len(all_trace_ids) * percentage)
+        kept_trace_ids = set(random.sample(all_trace_ids, num_to_keep))
+        traces = {k: v for k, v in traces.items() if k in kept_trace_ids}
+        print(f"Randomly filtered traces. Keeping {len(traces)} traces ({percentage*100:.1f}% of {len(all_trace_ids)}).", file=sys.stderr)
     analyze_all_traces(traces, filter_value)
     cleanup()
